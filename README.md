@@ -1,9 +1,5 @@
-# MedEvo: difficult single-image cases with segmentation
 
-This repository mirrors Section 8 of the MedEvo expert-model audit. All images below are repository-relative copies of the original image and the final segmentation overlays that were actually provided to the diagnostic models.
-## 8. 23 个困难单图病例的 Segmentation 增强对比
-
-下表仅比较相同的 23 个单模态、单 subcategory、单图困难病例。基线输入为原始图像且 `with_text=False`；Segmentation 增强输入为原始图像加 Medical-SAM2、Medical-SAM3、BiomedParse、适用病例的 TorchXRayVision 综合 overlay，以及牙科病例的两类 Teeth MaskDINO overlay，同时设置 `with_seg_text=True`、`with_text=False`。因此，该实验衡量的是“专家 overlay + segmentation prompt text”的整体增益，不能单独归因于 mask。
+# 23 个困难单图病例的 Segmentation 增强对比
 
 | 模型 | 原始图像，无 image text | 原图 + Segmentation，无 image text | 正确率变化 | 错误→正确 / 正确→错误 |
 |---|---:|---:|---:|---:|
@@ -18,22 +14,20 @@ This repository mirrors Section 8 of the MedEvo expert-model audit. All images b
 | GPT-5.6-Luna-Pro | 7/23（30.43%） | 8/23（34.78%） | +4.35 pp | 3 / 2 |
 | **合计** | **14/207（6.76%）** | **22/207（10.63%）** | **+3.86 pp** | **15 / 7** |
 
-以下只保留加入 Segmentation 后 QA correctness 发生变化的病例和模型，按 `case_id` 字母顺序排列。每个变化模型同时列出原始 QA 回答、Segmentation QA 回答、原始 single-image caption 和 Segmentation single-image caption，便于直接比较变化来源。所有输入均为 `with_text=False`；Segmentation 组为 `with_seg=True, with_seg_text=True`。
-### 8.1 [Aqueductal stenosis](https://radiopaedia.org/cases/aqueductal-stenosis-3?lang=us) (`aqueductal-stenosis-3`)
+### 1 [Aqueductal stenosis](https://radiopaedia.org/cases/aqueductal-stenosis-3?lang=us) (`aqueductal-stenosis-3`)
 
-#### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: brain, lateral ventricle, third ventricle, cerebral aqueduct | BiomedParse v1: brain, lateral ventricle, third ventricle, cerebral aqueduct |
+| Original image | Medical-SAM2 | Medical-SAM3: brain, lateral ventricle, third ventricle, cerebral aqueduct （脑、侧脑室、第三脑室、中脑导水管） | BiomedParse v1: brain, lateral ventricle, third ventricle, cerebral aqueduct （脑、侧脑室、第三脑室、中脑导水管） |
 |---|---|---|---|
 | <img src="assets/aqueductal-stenosis-3/original.jpg" width="100%"> | <img src="assets/aqueductal-stenosis-3/medical_sam2_overlay.png" width="100%"> | <img src="assets/aqueductal-stenosis-3/medical_sam3_overlay.png" width="100%"> | <img src="assets/aqueductal-stenosis-3/biomedparse_v1_overlay.png" width="100%"> |
 
-- **原始问题：**What is the underlying cause?
-- **问题翻译：**根本病因是什么？
-- **参考答案：**Aqueductal stenosis.
-- **参考答案翻译：**导水管狭窄。
-- **发生变化：**Lingshu-32B: Incorrect → Correct；GPT-5.6-Luna-Pro: Incorrect → Correct
-
-以下仅列出 correctness 发生变化的模型；两项 single-image caption 不评 correctness。
+- 背景信息：无。
+- 原始问题：What is the underlying cause? 根本病因是什么？
+- 参考答案：Aqueductal stenosis. 导水管狭窄。
+- 原始图片caption:
+<pre>Midline sagittal T1 weighted image demonstrates marked hydrocephalus, with upward bowing and thinning of the corpus callosum, fenestration of the septum pellucidum and ballooning out of the third ventricular recesses. The superior part of the aqueduct is funnelled, whereas the distal part is stenosed.</pre>
+<pre>正中矢状位 T1 加权像显示显著脑积水，胼胝体向上弓起并变薄，透明隔开窗，第三脑室隐窝呈球囊样扩张。导水管上段呈漏斗状，远端狭窄。</pre>
+- **发生变化** Lingshu-32B: Incorrect → Correct；GPT-5.6-Luna-Pro: Incorrect → Correct
 
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
@@ -45,9 +39,10 @@ This repository mirrors Section 8 of the MedEvo expert-model audit. All images b
 <pre>To determine the underlying cause from the provided MRI image, we need to carefully analyze the structures visible in the sagittal T1-weighted image of the brain. First, we observe the midline structures, including the corpus callosum, brainstem, and cerebellum. The ventricles appear normal in size, suggesting no hydrocephalus or significant atrophy. Next, we examine the pituitary gland region, which is located just below the hypothalamus and above the sphenoid sinus. In this image, there appears to be an abnormality in the sellar region, where the pituitary gland resides. This could indicate a pituitary adenoma, which is a common cause of various endocrine disorders due to hormone overproduction or underproduction. Given the location and appearance of the lesion, a pituitary adenoma is a plausible diagnosis. Further clinical correlation and possibly additional imaging or hormonal studies would be necessary to confirm this diagnosis.
 ### Final Answer: Pituitary adenoma</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：脑积水。评测判定其未正确回答参考结论“导水管狭窄。”其影像描述涉及：胼胝体改变。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>为了根据提供的MRI图像确定潜在病因，我们需要仔细分析脑部矢状面T1加权像上可见的结构。首先，观察中线结构，包括胼胝体、脑干和小脑。脑室大小正常，提示不存在脑积水或明显的脑萎缩。接下来，检查垂体区域，该区域位于下丘脑下方、蝶窦上方。图像显示垂体所在的蝶鞍区存在异常。这可能提示垂体腺瘤，该病是导致激素分泌过多或过少进而引发多种内分泌疾病的常见原因。鉴于病变的位置和形态，垂体腺瘤是一个合理的诊断。确诊该病还需要结合临床表现，并可能需要进行进一步的影像学检查或激素水平测定。
+最终诊断：垂体腺瘤</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -56,29 +51,33 @@ This repository mirrors Section 8 of the MedEvo expert-model audit. All images b
 <pre>To determine the underlying cause from the provided MRI images, we need to carefully analyze the anatomical structures and any abnormalities present. The images show a sagittal view of the brain, which allows us to examine the midline structures including the corpus callosum, brainstem, and cerebellum. In the segmented images, we can observe the lateral ventricles and other ventricular structures. One key observation is the presence of an enlarged ventricular system, particularly the lateral ventricles, which appear dilated. This dilation suggests an obstruction in the normal flow of cerebrospinal fluid (CSF), leading to hydrocephalus. The most common site for such an obstruction in the context of these images is the aqueduct of Sylvius, also known as the cerebral aqueduct, which connects the third and fourth ventricles. Obstruction at this site can lead to non-communicating hydrocephalus, where CSF accumulates above the blockage. Given the appearance of the ventricles and the typical causes of such a presentation, it is reasonable to conclude that the underlying cause is an obstruction of the aqueduct of Sylvius.
 ### Final Answer: Aqueductal stenosis</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：导水管狭窄。其影像描述涉及：胼胝体改变。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>为了根据提供的MRI图像确定根本病因，我们需要仔细分析解剖结构及存在的任何异常。图像展示了脑部的矢状面视图，使我们能够观察包括胼胝体、脑干和小脑在内的中线结构。在分割后的图像中，可见侧脑室及其他脑室结构。一个关键发现是脑室系统（尤其是侧脑室）扩大，呈现扩张状态。这种扩张提示脑脊液（CSF）的正常流动受阻，从而导致脑积水。结合图像特征，此类梗阻最常见的部位是连接第三脑室和第四脑室的西尔维乌斯导水管（即中脑导水管）。该部位的梗阻可导致非交通性脑积水，即脑脊液在梗阻近端积聚。综合脑室形态及此类病变的常见成因，可以合理推断其根本病因为西尔维乌斯导水管梗阻。
+最终诊断：导水管狭窄</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
 <pre>The MRI image shows a sagittal view of the brain with a prominent cystic lesion in the suprasellar region, which is consistent with an arachnoid cyst. The cyst appears to be compressing the optic chiasm and possibly the hypothalamus, which could explain the patient&#x27;s symptoms of visual disturbances and headaches. The surrounding brain structures appear normal without signs of edema or mass effect. Given the patient&#x27;s history of progressive visual loss and the imaging findings, the diagnosis is likely an arachnoid cyst causing compression of the optic chiasm.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型主要给出描述性影像回答，未形成可稳定提取的明确诊断。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>MRI 图像显示脑部的矢状面视图，可见鞍上区有一明显的囊性病变，其特征符合蛛网膜囊肿。该囊肿似乎压迫了视交叉，并可能压迫下丘脑，这可以解释患者出现的视力障碍和头痛症状。周围脑组织结构未见异常，无水肿或占位效应征象。结合患者进行性视力丧失的病史及影像学表现，诊断很可能是导致视交叉受压的蛛网膜囊肿。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
 <pre>The MRI image provided is a sagittal T1-weighted scan of the brain. The scan shows a clear view of the midline structures including the corpus callosum, cerebellum, brainstem, and ventricular system. Notably, there is an abnormal mass located in the posterior fossa region, which appears to be compressing the surrounding brain structures. This mass is likely a tumor, given its location and appearance. The lateral and third ventricles appear dilated, suggesting the presence of hydrocephalus, possibly secondary to the mass effect from the tumor. The cerebral aqueduct also seems to be involved, contributing to the obstruction of cerebrospinal fluid flow. Based on these observations, the diagnosis could be a posterior fossa tumor with associated obstructive hydrocephalus. Further imaging and clinical correlation are necessary for a definitive diagnosis and treatment planning.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：脑积水、梗阻性脑积水。其影像描述涉及：第三脑室异常、胼胝体改变。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>提供的MRI图像为脑部矢状面T1加权扫描。该扫描清晰显示了包括胼胝体、小脑、脑干及脑室系统在内的中线结构。值得注意的是，后颅窝区域可见一异常肿块，似乎压迫了周围的脑组织结构。鉴于其位置与形态特征，该肿块极可能为肿瘤。侧脑室及第三脑室呈扩张状态，提示存在脑积水，这可能是由肿瘤的占位效应继发引起的。中脑导水管似乎也受累，导致了脑脊液循环的梗阻。基于上述影像表现，初步诊断可能为后颅窝肿瘤伴梗阻性脑积水。为明确诊断及制定治疗方案，尚需结合进一步的影像学检查及临床资料进行综合评估。</pre>
+
+**对模型对图片caption能力分析**：
+关键点是“脑积水”，在没有seg的时候，对图片错误的caption理解成了“囊性病变，其特征符合蛛网膜囊肿”；但是再加入了seg之后成功注意到了“脑积水”。
 
 </details>
 
@@ -95,9 +94,9 @@ This repository mirrors Section 8 of the MedEvo expert-model audit. All images b
 
 **Underlying cause:** Usually chronically raised intracranial pressure—classically **idiopathic intracranial hypertension (pseudotumor cerebri)**—due to an incompetent/attenuated diaphragma sellae. Secondary causes include prior pituitary surgery, radiotherapy, infarction, or trauma.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答未形成与参考结论“导水管狭窄。”一致的明确答案。其影像描述涉及：膈肌异常或定位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型把图像解释为空蝶鞍：认为蝶鞍内为脑脊液样低信号、垂体沿鞍底变扁，病因倾向长期颅内压升高，尤其是特发性颅内高压；也列出垂体手术、放疗、梗死或创伤等继发原因。该结论没有回答导水管狭窄。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -114,11 +113,11 @@ This repository mirrors Section 8 of the MedEvo expert-model audit. All images b
 
 The segmentation outputs are inconsistent—Medical-SAM3 appears to substantially over-segment, while BiomedParse under-segments the ventricular system—so the diagnosis should rely on the anatomic pattern rather than the masks alone.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：导水管狭窄。其影像描述涉及：第三脑室异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>最可能病因为中脑导水管狭窄或梗阻所致的非交通性脑积水。依据是侧脑室和第三脑室明显扩大，而第四脑室没有相应扩大，导水管细小且显示不清。模型同时指出 Medical-SAM3 过度分割、BiomedParse 对脑室分割不足，因此应以解剖分布而非 mask 本身作诊断。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -130,11 +129,11 @@ Midline sagittal T1-weighted MRI demonstrates an enlarged sella turcica containi
 
 Correlation with dedicated pituitary MRI sequences, contrast enhancement, visual-field testing, and pituitary hormone levels is recommended.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型主要给出描述性影像回答，未形成可稳定提取的明确诊断。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>正中矢状位 T1 MRI 被误读为伴鞍上延伸的垂体大腺瘤，模型描述其抬高并压迫视交叉，并建议垂体增强 MRI、视野和激素检查。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -148,27 +147,29 @@ The segmentation overlays are inconsistent: Medical-SAM3 broadly identifies the 
 
 Confirmation of the cause and assessment for acute pressure effects require the complete MRI examination, including axial/coronal sequences and ideally CSF-flow imaging. If this is a current study and the patient has headache, vomiting, visual symptoms, drowsiness, or gait/mental-status changes, urgent clinical assessment is warranted.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：导水管狭窄、脑积水、梗阻性脑积水、脑室扩大。其影像描述涉及：脑室扩大、第三脑室异常、胼胝体改变。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>正中矢状位 T1 MRI 显示幕上脑室系统显著扩大，以侧脑室最明显，并伴胼胝体变薄、抬高及周围脑实质受压；第三脑室也扩大。最可能为严重脑室扩大和慢性梗阻性脑积水，病因可能是导水管狭窄。模型再次说明两套分割均不完全可靠。</pre>
+
+**对模型对图片caption能力分析**：
+原始输入把病变误定位为蝶鞍并诊断空蝶鞍/垂体大腺瘤；加入脑室与导水管相关分割提示后，caption 和 QA 都转向脑室扩大、梗阻性脑积水和导水管狭窄。模型还主动指出两套 mask 的过分割与欠分割，说明增益来自解剖关注点，而不是盲从 mask。
 
 </details>
 
-### 8.2 [Congenital diaphragmatic hernia](https://radiopaedia.org/cases/congenital-diaphragmatic-hernia-26?lang=us) (`congenital-diaphragmatic-hernia-26`)
+### 2 [Congenital diaphragmatic hernia](https://radiopaedia.org/cases/congenital-diaphragmatic-hernia-26?lang=us) (`congenital-diaphragmatic-hernia-26`)
 
-#### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: fetus, fetal chest, lung, bowel | BiomedParse v1: fetus, fetal chest, lung, bowel |
+| Original image | Medical-SAM2 | Medical-SAM3: fetus, fetal chest, lung, bowel （胎儿、胎儿胸腔、肺、肠管） | BiomedParse v1: fetus, fetal chest, lung, bowel （胎儿、胎儿胸腔、肺、肠管） |
 |---|---|---|---|
 | <img src="assets/congenital-diaphragmatic-hernia-26/original.png" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia-26/medical_sam2_overlay.png" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia-26/medical_sam3_overlay.png" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia-26/biomedparse_v1_overlay.png" width="100%"> |
 
-- **原始问题：**What is the diagnosis in this case?
-- **问题翻译：**本病例的诊断是什么？
-- **参考答案：**Congenital diaphragmatic hernia.
-- **参考答案翻译：**先天性膈疝。
-- **发生变化：**InternVL3-14B: Incorrect → Correct；Lingshu-32B: Incorrect → Correct；GPT-5.6-Luna-Pro: Incorrect → Correct
-
-以下仅列出 correctness 发生变化的模型；两项 single-image caption 不评 correctness。
+- 背景信息：Gender: Female; Presentation: Patient for second trimester scan (21/40). 女性，孕 21 周接受第二孕期超声检查。
+- 原始问题：What is the diagnosis in this case? 本病例的诊断是什么？
+- 参考答案：Congenital diaphragmatic hernia. 先天性膈疝。
+- 原始图片caption:
+<pre>Gastric bubble is seen in thorax, posterior to cardia.</pre>
+<pre>胸腔内、贲门后方可见胃泡。</pre>
+- **发生变化** InternVL3-14B: Incorrect → Correct；Lingshu-32B: Incorrect → Correct；GPT-5.6-Luna-Pro: Incorrect → Correct
 
 <details>
 <summary><strong>InternVL3-14B</strong></summary>
@@ -217,9 +218,9 @@ Thus, the diagnosis is most likely:
 
 Without more specific features or additional views, a detailed definitive diagnosis would be challenging, but this analysis provides a reasonable conclusion based on the provided image.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答未形成与参考结论“先天性膈疝。”一致的明确答案。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型将图像理解为孕中期胎儿、胎盘和羊水的普通超声切面，认为胎盘发育和羊水表现基本正常，最终回答为正常的第二孕期妊娠，未识别先天性膈疝。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -250,11 +251,11 @@ Without more specific features or additional views, a detailed definitive diagno
 
 The diagnosis in this case is likely **Congenital Diaphragmatic Hernia (CDH)**, based on the abnormal lung segmentation and displacement patterns visible in the ultrasound images.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：先天性膈疝。其影像描述涉及：膈肌异常或定位、肺实变。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割将注意力引向胎儿胸腔、肺和肠管。模型认为肺区形态异常且胸腔内可能存在移位的腹腔脏器，提示膈肌缺损、肠管疝入胸腔并压迫发育中的肺，最终诊断为先天性膈疝。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -296,11 +297,11 @@ The diagnosis in this case is likely **Congenital Diaphragmatic Hernia (CDH)**, 
 
 While this ultrasound image alone doesn&#x27;t yield a definitive diagnosis, it’s a snapshot that should be correlated with other views and clinical findings. The heterogeneous texture and the presence of an anechoic area should be noted, and further imaging might be warranted to ensure normal fetal development and maternal health. The definitive diagnosis would depend on a thorough evaluation by a radiologist or obstetrician who can interpret the full set of images and any accompanying clinical data.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型主要给出描述性影像回答，未形成可稳定提取的明确诊断。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型仅把该图描述为约孕 21 周的常规超声切面，提到组织回声不均和一个无回声区，可能对应羊水、血管或囊性结构；单张图无法给出明确诊断。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -330,9 +331,12 @@ For an accurate diagnosis, a detailed evaluation by a radiologist or obstetricia
 
 Always follow up with a healthcare provider for a professional interpretation and evaluation of the ultrasound images.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型主要给出描述性影像回答，未形成可稳定提取的明确诊断。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型能够把画面定位为胎儿及其胸腔、肺和部分肠管，但仍认为解剖外观大致正常，明确称没有立即可见的先天性膈疝或其他胸部结构异常。</pre>
+
+**对模型对图片caption能力分析**：
+原始 caption 不能确定胎儿切面，加入 segmentation 后能定位胎儿胸腔、肺和肠管，QA 因而答对膈疝；但增强后的 caption 仍称胎儿胸部正常、未见膈疝。正确率提升更像由分割 prompt 提供了诊断搜索范围，而不是稳定的像素理解提升。
 
 </details>
 
@@ -346,9 +350,9 @@ Always follow up with a healthcare provider for a professional interpretation an
 <pre>To determine the diagnosis from the ultrasound image, we start by identifying key anatomical structures visible in the scan. The image appears to be a transverse section of the fetal anatomy. We should look for the presence of the four chambers of the heart, which include the right atrium, right ventricle, left atrium, and left ventricle. In a normal cardiac anatomy, these chambers should be clearly distinguishable. Additionally, we should assess the position of the great vessels, such as the aorta and pulmonary artery, to ensure they are in their typical locations. The absence of any abnormal connections or malpositions of these vessels is crucial. Given that the image is from a second-trimester scan, it is important to check for any signs of congenital heart defects, such as ventricular septal defects or atrial septal defects. After a thorough examination of the image, if all structures appear normal and there are no signs of abnormalities, the diagnosis would be normal cardiac anatomy.
 ### Final Answer: Normal</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：房间隔缺损、室间隔缺损。评测判定其未正确回答参考结论“先天性膈疝。”重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型把该切面当作胎儿心脏横断面，围绕四腔心和大血管进行分析，认为未见房间隔或室间隔异常，最终回答为心脏解剖正常。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -367,29 +371,32 @@ Upon examining the image, there seems to be an abnormality where the bowel loops
 Therefore, based on the visual cues and the typical presentation of CDH in ultrasound images, the most likely diagnosis is a congenital diaphragmatic hernia.
 ### Final Answer: Congenital Diaphragmatic Hernia</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：先天性膈疝。其影像描述涉及：膈肌异常或定位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型把图像定位为胎儿胸腹部横断面，重点检查肺、心脏、肝脏和肠管；它认为胸腔内出现了不应存在的肠袢，提示腹腔内容物通过膈肌缺损疝入胸腔，最终诊断为先天性膈疝。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
 <pre>The ultrasound image shows a cross-sectional view of the fetal anatomy at 21 weeks of gestation. The image reveals a well-defined structure with varying echogenicity, indicating different tissue densities. The central area appears to be the fetal head, with surrounding structures likely representing the developing brain and skull. The surrounding amniotic fluid is visible as a hypoechoic (dark) region. There are no obvious abnormalities such as structural deformities or unusual fluid collections. Based on this image, the fetus appears to be developing normally for the gestational age. However, further detailed examination and comparison with standard fetal development charts would be necessary to confirm normalcy and rule out any subtle anomalies.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型主要给出描述性影像回答，未形成可稳定提取的明确诊断。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 将中央结构误认为胎头及发育中的脑和颅骨，认为胎儿按孕周正常发育，未见明显畸形或异常积液。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
 <pre>The ultrasound image shows a cross-sectional view of the fetal thorax. The segmented areas indicate the presence of the fetal chest, lungs, and bowel. The segmentation highlights the anatomical structures within the thoracic cavity, including the lungs and surrounding tissues. The image appears to be well-defined, allowing for clear visualization of these structures. Based on the segmentation and the clarity of the image, there are no immediate signs of abnormalities such as congenital diaphragmatic hernia or other structural anomalies in the thoracic region. The fetal chest and lungs appear to be developing normally at this stage of pregnancy.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：膈疝、先天性膈疝。其影像描述涉及：膈肌异常或定位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型正确把切面定位到胎儿胸腔，并提到肺和肠管，但仍判断胸腔结构清楚、肺发育正常，并明确称未见先天性膈疝。</pre>
+
+**对模型对图片caption能力分析**：
+原始 caption 误认胎头，加入 segmentation 后正确定位到胎儿胸腔，不过仍在 caption 中否认膈疝。QA 却能利用“胸腔、肺、肠管”提示推断肠管疝入胸腔，说明 prompt 引导强于实际 caption 能力。
 
 </details>
 
@@ -410,9 +417,9 @@ Therefore, based on the visual cues and the typical presentation of CDH in ultra
 
 A differential consideration would be **pulmonary sequestration** or a **left-sided congenital diaphragmatic hernia**, but the cystic echogenic mass favors **CPAM**.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：膈疝、先天性膈疝、胸腔积液、先天性肺气道畸形。评测判定其未正确回答参考结论“先天性膈疝。”其影像描述涉及：膈肌异常或定位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型把胎儿胸腔内高回声肿块及囊性区解释为大囊型先天性肺气道畸形（CPAM/CCAM）；鉴别包括肺隔离症和左侧先天性膈疝，但最终更倾向 CPAM。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -428,11 +435,11 @@ A differential consideration would be **pulmonary sequestration** or a **left-si
 
 A detailed scan would assess the side, liver position, stomach location, mediastinal shift, and observed-to-expected lung-to-head ratio for prognosis.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：先天性膈疝。其影像描述涉及：纵隔移位、膈肌异常或定位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>最可能诊断为先天性膈疝，考虑左侧后外侧 Bochdalek 疝。胸腔内的囊性或无回声管状结构被解释为疝入的肠管，并伴正常肺组织受压及可能的纵隔移位。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -441,11 +448,11 @@ A detailed scan would assess the side, liver position, stomach location, mediast
 **Diagnosis: fetal duodenal atresia causing proximal small-bowel obstruction.**  
 This is typically diagnosed in the second trimester and may be associated with polyhydramnios and chromosomal abnormalities, particularly trisomy 21. Further detailed anomaly assessment and genetic counselling/testing would be appropriate.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：肠梗阻。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始图像被误读为胎儿上腹部的“双泡征”，即扩张的胃和十二指肠，诊断为十二指肠闭锁造成的近端小肠梗阻。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -455,27 +462,29 @@ This is typically diagnosed in the second trimester and may be associated with p
 
 **Differential considerations** include bronchopulmonary sequestration, foregut duplication cyst, or less likely a technical/artifactual appearance. Assessment should include targeted ultrasound with lesion measurements, evaluation of mediastinal shift and hydrops, and color Doppler to look for a systemic feeding artery. Follow-up imaging and, if needed, fetal MRI are recommended. A definitive diagnosis cannot be made from this single still image alone.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：先天性肺气道畸形。其影像描述涉及：纵隔移位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型将图像定位为胎儿胸腹部横断面，并识别到肺组织内局灶囊性低回声区，但仍把它解释为 CPAM，鉴别肺隔离症和前肠重复囊肿；同时指出 mask 只能粗略定位，不能据此确诊。</pre>
+
+**对模型对图片caption能力分析**：
+原始 caption 从胎儿上腹“双泡征”误诊十二指肠闭锁；加入 segmentation 后至少将病变定位到胎儿胸腔，但仍误诊 CPAM。QA 从 CPAM 改为先天性膈疝，说明定位有所改善，但病灶性质辨别仍不稳定。
 
 </details>
 
-### 8.3 [Fetal cardiac rhabdomyoma](https://radiopaedia.org/cases/fetal-cardiac-rhabdomyoma-1?lang=us) (`fetal-cardiac-rhabdomyoma-1`)
+### 3 [Fetal cardiac rhabdomyoma](https://radiopaedia.org/cases/fetal-cardiac-rhabdomyoma-1?lang=us) (`fetal-cardiac-rhabdomyoma-1`)
 
-#### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: fetal heart, heart, cardiac mass | BiomedParse v1: fetal heart, heart, cardiac mass |
+| Original image | Medical-SAM2 | Medical-SAM3: fetal heart, heart, cardiac mass （胎心、心脏、心脏肿块） | BiomedParse v1: fetal heart, heart, cardiac mass （胎心、心脏、心脏肿块） |
 |---|---|---|---|
 | <img src="assets/fetal-cardiac-rhabdomyoma-1/original.jpg" width="100%"> | <img src="assets/fetal-cardiac-rhabdomyoma-1/medical_sam2_overlay.png" width="100%"> | <img src="assets/fetal-cardiac-rhabdomyoma-1/medical_sam3_overlay.png" width="100%"> | <img src="assets/fetal-cardiac-rhabdomyoma-1/biomedparse_v1_overlay.png" width="100%"> |
 
-- **原始问题：**What is the most likely diagnosis?
-- **问题翻译：**最可能的诊断是什么？
-- **参考答案：**Cardiac rhabdomyoma.
-- **参考答案翻译：**心脏横纹肌瘤。
-- **发生变化：**Qwen3-VL-32B: Incorrect → Correct
-
-以下仅列出 correctness 发生变化的模型；两项 single-image caption 不评 correctness。
+- 背景信息：Age: 20 weeks gestation Gender: Female; Presentation: Antenatal scan at 20 weeks 孕 20 周女性，接受产前超声检查。
+- 原始问题：What is the most likely diagnosis? 最可能的诊断是什么？
+- 参考答案：Cardiac rhabdomyoma. 心脏横纹肌瘤。
+- 原始图片caption:
+<pre>An echogenic lesion is seen within the left atrioventricular region.</pre>
+<pre>左侧房室区内可见高回声病灶。</pre>
+- **发生变化** Qwen3-VL-32B: Incorrect → Correct
 
 <details>
 <summary><strong>Qwen3-VL-32B</strong></summary>
@@ -522,9 +531,9 @@ This is typically diagnosed in the second trimester and may be associated with p
 
 This is the most likely diagnosis based on the ultrasound appearance of a fluid-filled cavity with internal echogenic foci in the fetal abdomen at 20 weeks gestation.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：肠穿孔、腹水。评测判定其未正确回答参考结论“心脏横纹肌瘤。”其影像描述涉及：钙化。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型把无回声腔及内部高回声点误认为胎儿腹腔病变，认为是肠穿孔后胎粪进入腹腔造成的胎粪性腹膜炎和钙化，最终诊断错误。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -569,11 +578,11 @@ This is the most likely diagnosis based on the ultrasound appearance of a fluid-
 
 This is the most probable diagnosis given the gestational age, imaging features (multiple echogenic masses in the fetal heart), and the typical appearance of rhabdomyomas on ultrasound. Further evaluation (e.g., genetic testing for TSC, detailed fetal echocardiogram, maternal/fetal MRI) would be indicated to confirm the diagnosis and assess for extracardiac manifestations.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：心脏横纹肌瘤。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割提示胎心、心脏和心脏肿块后，模型识别到多发高回声心内肿块，认为最符合胎儿心脏横纹肌瘤，并提示与结节性硬化综合征相关，建议胎儿超声心动图和遗传学评估。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -603,11 +612,11 @@ This ultrasound image demonstrates a normal fetal four-chamber view at 20 weeks 
 
 Continue routine antenatal care and follow-up scans as scheduled. If there are any concerns or risk factors for congenital heart disease, a detailed fetal echocardiogram should be considered.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：心包积液、心脏增大。其影像描述涉及：心影异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 将其描述为孕 20 周胎儿正常四腔心切面，认为心脏大小、形态及心腔正常，未见心脏增大、心包积液或明确结构畸形。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -670,27 +679,32 @@ This 20-week fetal ultrasound reveals a **cardiac mass**, most consistent with a
 
 &gt; **Note**: While segmentation tools (Medical-SAM3, BiomedParse) provide useful visual guidance, **clinical correlation with expert sonographic interpretation** is essential for accurate diagnosis. The segmentation masks are supportive but not diagnostic on their own.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：横纹肌瘤。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型识别到胎儿心脏内肿块，最符合心脏横纹肌瘤，并提示结节性硬化综合征；建议评估颅内、肾脏等其他相关病变并随访肿块大小和心功能。</pre>
+
+**对模型对图片caption能力分析**：
+原始 caption 把图像判为正常四腔心，QA 甚至误定位到胎儿腹腔并诊断胎粪性腹膜炎。加入“胎心、心脏、心脏肿块”后，caption 和 QA 都识别多发心内高回声肿块及横纹肌瘤，这是较明确的视觉关注点和诊断同步改善。
 
 </details>
 
-### 8.4 [Hiatus hernia](https://radiopaedia.org/cases/hiatus-hernia-15?lang=us) (`hiatus-hernia-15`)
+### 4 [Hiatus hernia](https://radiopaedia.org/cases/hiatus-hernia-15?lang=us) (`hiatus-hernia-15`)
 
-#### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, stomach | BiomedParse v1: lung, heart, diaphragm, stomach | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, stomach （肺、心脏、膈肌、胃） | BiomedParse v1: lung, heart, diaphragm, stomach （肺、心脏、膈肌、胃） | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach （肺、右肺、左肺、膈肌、心脏、心纵隔、上纵隔、下纵隔、胃） |
 |---|---|---|---|---|
 | <img src="assets/hiatus-hernia-15/original.jpeg" width="100%"> | <img src="assets/hiatus-hernia-15/medical_sam2_overlay.png" width="100%"> | <img src="assets/hiatus-hernia-15/medical_sam3_overlay.png" width="100%"> | <img src="assets/hiatus-hernia-15/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/hiatus-hernia-15/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
-- **原始问题：**What is the likely cause of the patient chest pain?
-- **问题翻译：**患者胸痛最可能的原因是什么？
-- **参考答案：**Large hiatus hernia behind the heart.
-- **参考答案翻译：**心脏后方的大型食管裂孔疝。
-- **发生变化：**MedGemma-27B-IT: Correct → Incorrect
-
-以下仅列出 correctness 发生变化的模型；两项 single-image caption 不评 correctness。
+- 背景信息：Age: 45 years Gender: Male; Presentation: Ongoing chest and epigastric pain. Background history of reflux. 45 岁男性，持续胸痛和上腹痛，有反流病史。
+- 原始问题：What is the likely cause of the patient chest pain? 患者胸痛最可能的原因是什么？
+- 参考答案：Large hiatus hernia behind the heart. 心脏后方的大型食管裂孔疝。
+- 原始图片caption:
+<pre>Normal cardiomediastinal outline.
+No evidence of active cardiopulmonary process.
+Air and fluid filled structure behind the heart most likely representing a large hiatus hernia.
+No subdiaphragmatic free air.</pre>
+<pre>心纵隔轮廓正常，无活动性心肺病变。心后方可见含气液结构，最可能为大型食管裂孔疝；膈下无游离气体。</pre>
+- **发生变化** MedGemma-27B-IT: Correct → Incorrect
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
@@ -749,9 +763,9 @@ The user wants me to analyze the provided chest X-ray and patient information to
 
 **Likely Cause:** Hiatal hernia (exacerbating GERD symptoms)</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：心脏后方的大型食管裂孔疝。其影像描述涉及：膈肌异常或定位、肺实变。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型识别到心影后方含气液结构，结合反流病史，认为大型食管裂孔疝最可能造成胸痛并加重胃食管反流症状，回答正确。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Incorrect**
 
@@ -800,11 +814,11 @@ The user wants me to analyze the provided chest X-ray and patient information to
 
 **Conclusion:** The most likely cause of the patient&#x27;s chest pain, considering the epigastric pain and history of reflux, is gastroesophageal reflux disease (GERD).</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：胃食管反流病。评测判定其未正确回答参考结论“心脏后方的大型食管裂孔疝。”其影像描述涉及：膈肌异常或定位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型没有稳定识别心后方疝囊，认为胸片没有能直接解释胸痛的急性心肺异常，转而把胸痛归因于胃食管反流病，因而漏掉大型食管裂孔疝。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -868,11 +882,11 @@ Based solely on the chest X-ray and the limited clinical information, a definiti
 
 The chest X-ray shows cardiomegaly. In a 45-year-old male presenting with chest and epigastric pain, this finding raises concern for underlying cardiac disease. While reflux could explain the epigastric pain, the chest pain and cardiomegaly necessitate urgent cardiac evaluation to rule out potentially life-threatening conditions like acute coronary syndrome or significant heart failure.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：心力衰竭、心脏增大。其影像描述涉及：肺实变、心影异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 主要描述心影增大并担心心脏疾病或心力衰竭，认为反流可以解释上腹痛，但胸痛需要紧急排除急性冠脉综合征；没有识别食管裂孔疝。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -912,27 +926,29 @@ The chest X-ray is largely unremarkable. While it helps exclude some serious cau
 
 Based solely on the provided information (patient history, symptoms, and this single chest X-ray), a definitive diagnosis cannot be made. However, the most likely diagnosis, considering the history of reflux and the location of pain, is **Gastroesophageal Reflux Disease (GERD)**. Further clinical evaluation and potentially additional investigations are warranted.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：胃食管反流病。其影像描述涉及：膈肌异常或定位、肺实变。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后的 caption 仍主要围绕心肺轮廓和胃食管反流展开，没有可靠指出心后方气液平面或大型食管裂孔疝。</pre>
+
+**对模型对图片caption能力分析**：
+原始 QA 能识别大型食管裂孔疝，但原始 caption 已偏向心脏增大。加入 segmentation 后模型进一步受通用心肺/胃解剖区域干扰，QA 改答 GERD，caption 也没有抓住关键的心后气液平面，整体表现下降。
 
 </details>
 
-### 8.5 [Kienböck disease](https://radiopaedia.org/cases/kienbock-disease-3?lang=us) (`kienbock-disease-3`)
+### 5 [Kienböck disease](https://radiopaedia.org/cases/kienbock-disease-3?lang=us) (`kienbock-disease-3`)
 
-#### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: wrist, carpal bones, lunate bone | BiomedParse v1: wrist, carpal bones, lunate bone |
+| Original image | Medical-SAM2 | Medical-SAM3: wrist, carpal bones, lunate bone （腕关节、腕骨、月骨） | BiomedParse v1: wrist, carpal bones, lunate bone （腕关节、腕骨、月骨） |
 |---|---|---|---|
 | <img src="assets/kienbock-disease-3/original.jpg" width="100%"> | <img src="assets/kienbock-disease-3/medical_sam2_overlay.png" width="100%"> | <img src="assets/kienbock-disease-3/medical_sam3_overlay.png" width="100%"> | <img src="assets/kienbock-disease-3/biomedparse_v1_overlay.png" width="100%"> |
 
-- **原始问题：**What is the likely diagnosis?
-- **问题翻译：**最可能的诊断是什么？
-- **参考答案：**Avascular necrosis of the lunate bone (a.k.a. Kienbock disease).
-- **参考答案翻译：**月骨缺血性坏死，又称 Kienböck 病。
-- **发生变化：**InternVL3-14B: Incorrect → Correct；InternVL3.5-14B: Incorrect → Correct；Lingshu-32B: Correct → Incorrect；MedGemma-27B-IT: Correct → Incorrect；Qwen3-VL-8B: Incorrect → Correct
-
-以下仅列出 correctness 发生变化的模型；两项 single-image caption 不评 correctness。
+- 背景信息：Age: 50 years Gender: Female; Presentation: Chronic wrist pain. No history of trauma or overuse. 50 岁女性，慢性腕痛，无外伤或过度使用史。
+- 原始问题：What is the likely diagnosis? 最可能的诊断是什么？
+- 参考答案：Avascular necrosis of the lunate bone (a.k.a. Kienbock disease). 月骨缺血性坏死，又称 Kienböck 病。
+- 原始图片caption:
+<pre>Signal loss of the lunate on T1-weighted images.</pre>
+<pre>T1 加权像上月骨信号降低。</pre>
+- **发生变化** InternVL3-14B: Incorrect → Correct；InternVL3.5-14B: Incorrect → Correct；Lingshu-32B: Correct → Incorrect；MedGemma-27B-IT: Correct → Incorrect；Qwen3-VL-8B: Incorrect → Correct
 
 <details>
 <summary><strong>InternVL3-14B</strong></summary>
@@ -974,9 +990,9 @@ Considering the chronic wrist pain without a history of trauma and the appearanc
 
 This diagnosis aligns with the patient&#x27;s symptoms and the radiological findings observed in the MRI. Further clinical correlation and possibly additional imaging (e.g., bone scan or CT) could be considered to confirm the extent and specifics of the condition.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：骨坏死、舟骨骨不连。评测判定其未正确回答参考结论“月骨缺血性坏死，又称 Kienböck 病。”重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型错误地把异常定位在舟骨，考虑陈旧舟骨骨不连或舟骨缺血性坏死；它没有识别月骨低 T1 信号及 Kienböck 病。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -1015,11 +1031,11 @@ Given the chronic pain, lack of trauma, and the MRI focus on the lunate bone, **
 **Answer**:
 The likely diagnosis is Kienbock&#x27;s disease.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：月骨缺血性坏死，又称 Kienböck 病。其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割将注意力集中到月骨后，模型结合慢性腕痛、无外伤史和月骨异常，诊断为月骨缺血性坏死，即 Kienböck 病。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -1085,11 +1101,11 @@ For a definitive diagnosis, correlating clinical findings with MRI features furt
 3. Consider laboratory tests for inflammatory markers if inflammatory arthritis is suspected.
 4. Further imaging or interventions based on findings, such as conservative management or referral to a specialist (orthopedic or rheumatology).</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：骨关节炎。其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 能识别腕关节冠状位 T1 MRI，但只泛泛列出骨关节炎、炎性关节炎、韧带病变和腕骨融合等可能，最终更倾向骨关节炎。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -1131,9 +1147,12 @@ Given the chronic wrist pain and the detailed MRI focusing on the lunate bone, s
 
 The MRI scan, combined with the chronic wrist pain and patient&#x27;s background, suggests a need to investigate the lunate bone for potential pathological changes such as avascular necrosis, fracture, or dislocation. Further diagnostic evaluation is warranted to confirm the findings and determine an appropriate management plan to alleviate the patient&#x27;s chronic pain.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：缺血性坏死。其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，caption 明确聚焦月骨，提出月骨骨髓异常、骨折或缺血性坏死，其中最符合 Kienböck 病，并建议补充序列或 CT 评估。</pre>
+
+**对模型对图片caption能力分析**：
+原始 caption 和 QA 都把病变错误定位到舟骨或泛化为关节炎。分割明确提示月骨后，caption 能描述月骨异常，QA 也诊断 Kienböck 病，属于解剖定位纠正带来的直接增益。
 
 </details>
 
@@ -1216,9 +1235,9 @@ The likely diagnosis for a 50-year-old female with chronic wrist pain and no his
 
 **Conclusion**: Osteoarthritis</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：骨关节炎。评测判定其未正确回答参考结论“月骨缺血性坏死，又称 Kienböck 病。”其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型虽然讨论了 Kienböck 病，但最终认为没有明确月骨坏死证据，转而诊断腕关节骨关节炎。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -1243,11 +1262,11 @@ The likely diagnosis is **Avascular Necrosis (AVN) of the lunate**, also known a
 
 Further imaging (e.g., T2-weighted or STIR sequences) would help confirm marrow edema or the characteristic &quot;double-line sign.&quot;</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：月骨缺血性坏死，又称 Kienböck 病。其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型注意到月骨 T1 低信号及异常区域，结合慢性腕痛和无外伤史，最终诊断为 Kienböck 病。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -1319,11 +1338,11 @@ The coronal T1-weighted MRI of the wrist demonstrates normal bone marrow signal 
   - **TFCC Injury:** Chronic TFCC tears (e.g., degenerative or post-traumatic) can cause deep ulnar-sided wrist pain, instability, or clicking. While T1 imaging may not definitively show TFCC tears, subtle irregularities or paralunate perilunate ligament disruption could be inferred.  
   - **Osteoarthritis:** Age-related degenerative changes (e.g., early joint space</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：骨关节炎。其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 仍把主要问题解释为退行性改变或骨关节炎，并建议用 T2/STIR 等序列进一步评估软骨、韧带和骨髓水肿。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -1366,9 +1385,12 @@ The most likely diagnosis is **Kienböck’s disease (avascular necrosis of the 
 **Conclusion:**  
 Chronic wrist pain in a 50-year-old female with normal trauma/overuse history and MRI findings localized to the lunate strongly suggests **Kienböck’s disease**. Early intervention (e.g., surgical revascularization) may be warranted to prevent progression.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：骨关节炎、缺血性坏死。其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割增强 caption 将解剖重点稳定到月骨，认为其低 T1 信号符合缺血性坏死，即 Kienböck 病，并建议补充 T2/STIR 分期。</pre>
+
+**对模型对图片caption能力分析**：
+原始输入虽然考虑过月骨坏死，最终仍落到骨关节炎；加入 segmentation 后 caption 和 QA 均稳定聚焦月骨低 T1 信号，并诊断 Kienböck 病。
 
 </details>
 
@@ -1382,9 +1404,9 @@ Chronic wrist pain in a 50-year-old female with normal trauma/overuse history an
 <pre>To determine the likely diagnosis for a 50-year-old female presenting with chronic wrist pain and no history of trauma or overuse, we need to consider common conditions that fit this profile. The MRI image provided is a coronal T1-weighted scan of the wrist. In such images, we typically look for signs of degenerative changes, inflammation, or structural abnormalities. Given the patient&#x27;s age and gender, one common condition to consider is Kienböck&#x27;s disease, which involves avascular necrosis of the lunate bone. This condition often presents with chronic wrist pain and can be identified on MRI by changes in the signal intensity of the lunate bone. Other possibilities include scaphoid nonunion advanced collapse (SNAC) or other forms of osteoarthritis, but these are less likely without a history of trauma. The absence of trauma or overuse makes repetitive stress injuries less probable. Therefore, based on the imaging modality and the clinical presentation, Kienböck&#x27;s disease is a plausible diagnosis.
 ### Final Answer: Kienbocks</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：月骨缺血性坏死，又称 Kienböck 病。其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型依据月骨低信号和慢性腕痛，直接回答 Kienböck 病，基线评测正确。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Incorrect**
 
@@ -1393,29 +1415,32 @@ Chronic wrist pain in a 50-year-old female with normal trauma/overuse history an
 <pre>The patient is a 50-year-old female presenting with chronic wrist pain without a history of trauma or overuse. The MRI image provided is a coronal T1-weighted scan of the wrist. Upon examining the image, we should focus on the carpal bones, particularly the lunate bone, as it is commonly involved in conditions that cause chronic wrist pain. In Kienböck&#x27;s disease, there is typically a collapse or necrosis of the lunate bone, which can be identified on MRI by changes in signal intensity and structural deformity. The segmentation highlights the lunate bone, suggesting it is the area of interest. The absence of trauma or overuse history makes inflammatory or traumatic causes less likely, pointing towards a condition like Kienböck&#x27;s disease, which is characterized by avascular necrosis of the lunate. Therefore, based on the clinical presentation and imaging findings, the likely diagnosis is Kienböck&#x27;s disease.
 ### Final Answer: Kienbocks</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：缺血性坏死。评测判定其未正确回答参考结论“月骨缺血性坏死，又称 Kienböck 病。”其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型仍围绕月骨缺血性坏死展开，但最终措辞没有被严格评测识别为完整参考答案，因此被判为错误。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
 <pre>The MRI image shows a coronal view of the wrist with clear visualization of the carpal bones. The scaphoid bone appears to have an area of low signal intensity, which is indicative of avascular necrosis (AVN). This condition occurs when there is a loss of blood supply to the bone, leading to bone death and subsequent structural collapse. Given the patient&#x27;s chronic wrist pain and lack of trauma or overuse history, the most likely diagnosis is scaphoid AVN. This diagnosis is supported by the characteristic imaging findings of low signal intensity in the scaphoid on T1-weighted images.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：缺血性坏死。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 把低信号错误定位在舟骨，诊断为舟骨缺血性坏死。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
 <pre>The MRI image shows a coronal view of the wrist, focusing on the carpal bones. The lunate bone appears to have an irregular shape with areas of low signal intensity, suggesting possible avascular necrosis (Kienböck&#x27;s disease). This condition is characterized by the death of bone tissue due to a lack of blood supply, which can lead to chronic wrist pain. The surrounding carpal bones appear intact without significant degenerative changes. Given the patient&#x27;s age, gender, and presentation of chronic wrist pain without a history of trauma or overuse, the most likely diagnosis is Kienböck&#x27;s disease affecting the lunate bone.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：缺血性坏死。其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，caption 改为正确定位月骨，描述其形态不规则和低信号，并诊断为月骨缺血性坏死/Kienböck 病。</pre>
+
+**对模型对图片caption能力分析**：
+caption 从错误的舟骨缺血性坏死改为正确的月骨缺血性坏死，视觉定位明显改善；但 QA 的严格评测由正确变为错误，提示回答措辞或答案规范化问题会掩盖 caption 层面的真实增益。
 
 </details>
 
@@ -1478,9 +1503,9 @@ The user wants me to analyze the provided MRI image and patient data to determin
 
 **Likely Diagnosis:** Kienböck&#x27;s disease (avascular necrosis of the lunate)</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：月骨缺血性坏死，又称 Kienböck 病。其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型结合月骨可能的 T1 信号异常、慢性腕痛和无外伤史，认为最可能是 Kienböck 病，即月骨缺血性坏死，基线回答正确。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Incorrect**
 
@@ -1550,11 +1575,11 @@ Let&#x27;s assume the question implies that Kienböck&#x27;s disease should be c
 4.  **Segmentations:** The segmentations highlight the wrist, carpal bones, and specifically the lunate bone. This focus directs attention towards potential pathologies affecting the lunate.
 5.  **Differential Diagnosis for Chronic</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：骨关节炎。评测判定其未正确回答参考结论“月骨缺血性坏死，又称 Kienböck 病。”其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型认为月骨形态与信号大致正常，没有明确塌陷、硬化或骨髓异常，最终转而诊断骨关节炎，回答错误。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -1602,11 +1627,11 @@ While the image doesn&#x27;t show any obvious acute pathology like a fracture or
 
 Without further information, a definitive diagnosis cannot be made based on this single image. However, the presentation of chronic wrist pain in a 50-year-old female without trauma strongly suggests degenerative or inflammatory processes should be high on the differential.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：缺血性坏死、骨髓炎、骨关节炎。其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 认为单张 T1 像不能确诊，鉴别包括早期骨关节炎、炎性关节炎和 Kienböck 病，并建议补充 T2/STIR 等序列。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -1641,9 +1666,12 @@ Given the patient&#x27;s age, gender, chronic pain presentation without trauma, 
 
 Based on the clinical presentation (chronic wrist pain, no trauma) and the MRI image focusing on the lunate bone, Kienböck&#x27;s disease (avascular necrosis of the lunate) is the most likely diagnosis.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：缺血性坏死、骨关节炎。其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割增强 caption 又重新把重点放回月骨，认为慢性腕痛和月骨异常最符合 Kienböck 病；这与同一输入下的 QA 结论并不一致。</pre>
+
+**对模型对图片caption能力分析**：
+该模型表现出明显不一致：基线 QA 正确，增强 QA 却改答骨关节炎；与此同时，增强 caption 仍能描述月骨缺血性坏死。分割没有形成稳定的跨任务证据整合，反而增加了回答波动。
 
 </details>
 
@@ -1688,9 +1716,9 @@ Based on the clinical presentation (chronic wrist pain, no trauma) and the MRI i
 
 ✅ **Answer**: Osteoarthritis of the wrist with bone marrow edema.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：骨关节炎。评测判定其未正确回答参考结论“月骨缺血性坏死，又称 Kienböck 病。”其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型把慢性腕痛和所谓骨髓水肿解释为腕关节骨关节炎，认为没有月骨塌陷或典型骨坏死，基线诊断错误。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -1717,11 +1745,11 @@ Based on the clinical presentation (chronic wrist pain, no trauma) and the MRI i
 
 **Likely Diagnosis: Kienböck&#x27;s Disease (Avascular Necrosis of the Lunate Bone)**</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：月骨缺血性坏死，又称 Kienböck 病。其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割明确突出月骨后，模型识别其 T1 低信号，认为是月骨血供受损导致的缺血性坏死，最终诊断为 Kienböck 病。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -1745,11 +1773,11 @@ A more comprehensive evaluation is needed. A **T2-weighted MRI** or **proton den
 
 In summary, while the T1 MRI is unremarkable, the clinical presentation suggests a degenerative or ligamentous pathology, and further imaging and evaluation are warranted.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：骨关节炎。其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 认为 T1 像近乎无明显异常，更倾向退行性改变或舟月韧带病变，并建议追加 T2、质子密度或 CT。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -1779,27 +1807,29 @@ The provided image is a coronal T1-weighted MRI of the wrist. The scan clearly s
 
 Further evaluation with a T2-weighted or STIR MRI sequence is recommended to better characterize the lunate bone marrow signal and assess for edema or necrosis. A consultation with a hand specialist or orthopedic surgeon is advised for definitive diagnosis and management planning.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：缺血性坏死。其影像描述涉及：月骨信号异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，caption 聚焦月骨低信号病灶，正确解释为月骨缺血性坏死/Kienböck 病，并建议补充 T2/STIR 和手外科评估。</pre>
+
+**对模型对图片caption能力分析**：
+原始 caption 和 QA 均倾向退行性关节病；分割突出月骨后，模型识别月骨低信号，caption 与 QA 都转为 Kienböck 病，是较一致的正向变化。
 
 </details>
 
-### 8.6 [Lytic bone lesion (myeloma)](https://radiopaedia.org/cases/lytic-bone-lesion-myeloma?lang=us) (`lytic-bone-lesion-myeloma`)
+### 6 [Lytic bone lesion (myeloma)](https://radiopaedia.org/cases/lytic-bone-lesion-myeloma?lang=us) (`lytic-bone-lesion-myeloma`)
 
-#### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: bone, bone lesion, humerus | BiomedParse v1: bone, bone lesion, humerus |
+| Original image | Medical-SAM2 | Medical-SAM3: bone, bone lesion, humerus （骨、骨病灶、肱骨） | BiomedParse v1: bone, bone lesion, humerus （骨、骨病灶、肱骨） |
 |---|---|---|---|
 | <img src="assets/lytic-bone-lesion-myeloma/original.jpg" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/medical_sam2_overlay.png" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/medical_sam3_overlay.png" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/biomedparse_v1_overlay.png" width="100%"> |
 
-- **原始问题：**What is the likely diagnosis for this lytic lesion?
-- **问题翻译：**该溶骨性病灶最可能的诊断是什么？
-- **参考答案：**Myeloma
-- **参考答案翻译：**骨髓瘤。
-- **发生变化：**InternVL3-14B: Incorrect → Correct；GPT-5.6-Luna-Pro: Correct → Incorrect
-
-以下仅列出 correctness 发生变化的模型；两项 single-image caption 不评 correctness。
+- 背景信息：Age: 69 Gender: Female; Presentation: Patient complaining of severe left shoulder and right humeral pain. 69 岁女性，左肩及右肱骨剧烈疼痛。
+- 原始问题：What is the likely diagnosis for this lytic lesion? 该溶骨性病灶最可能的诊断是什么？
+- 参考答案：Myeloma 骨髓瘤。
+- 原始图片caption:
+<pre>There is a subtle lytic lesion in proximal right humerus.</pre>
+<pre>右侧肱骨近端可见细微溶骨性病灶。</pre>
+- **发生变化** InternVL3-14B: Incorrect → Correct；GPT-5.6-Luna-Pro: Correct → Incorrect
 
 <details>
 <summary><strong>InternVL3-14B</strong></summary>
@@ -1840,9 +1870,9 @@ Further evaluation with a T2-weighted or STIR MRI sequence is recommended to bet
 
 **Conclusion:** The likely diagnosis is osteolytic metastasis. Further evaluation, including imaging of other sites, tumor markers, and possibly a biopsy, would be needed to confirm the diagnosis.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：溶骨性转移。评测判定其未正确回答参考结论“骨髓瘤。”其影像描述涉及：溶骨性病灶。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型识别到老年患者肱骨溶骨性病灶，但最终更倾向溶骨性骨转移，另列多发性骨髓瘤和原发骨肿瘤，未给出参考诊断。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -1873,11 +1903,11 @@ Further evaluation with a T2-weighted or STIR MRI sequence is recommended to bet
 
 Given the demographics, presentation, and radiographic findings of a lytic lesion, **multiple myeloma** is a probable diagnosis. Further testing, including blood tests (serum protein electrophoresis, free light chains), bone marrow biopsy, and additional imaging, would be necessary to confirm the diagnosis.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：骨髓瘤。其影像描述涉及：溶骨性病灶。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型继续识别肱骨溶骨性破坏，并结合年龄和严重骨痛，将多发性骨髓瘤列为最可能诊断，建议血清蛋白电泳、游离轻链、骨髓活检及全身影像。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -1928,11 +1958,11 @@ The X-ray does not show any acute fractures or obvious degenerative changes like
 
 By integrating clinical findings with further imaging, a more precise diagnosis and effective management plan can be formulated.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：骨关节炎。其影像描述涉及：钙化。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 没有可靠识别溶骨性病灶，认为未见急性骨折或明显退变，转而考虑肩袖肌腱炎、撞击或早期骨关节炎。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -1982,9 +2012,12 @@ Given the current X-ray findings and the patient&#x27;s symptoms:
 
 Thus, although the X-ray does not reveal a clear-cut diagnosis for the patient&#x27;s pain, it does not rule out common musculoskeletal issues that would require a comprehensive clinical evaluation.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：骨关节炎。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割增强 caption 仍认为没有明确骨折或破坏性病灶，主要讨论肩袖、滑囊炎和关节炎等软组织或退行性原因，没有形成骨髓瘤诊断。</pre>
+
+**对模型对图片caption能力分析**：
+QA 从泛化的骨转移改为骨髓瘤，但两版 caption 都没有可靠看出细微肱骨溶骨灶。提升主要来自“bone lesion、humerus”的 prompt 缩小鉴别范围，不能证明底层像素识别已经改善。
 
 </details>
 
@@ -2005,9 +2038,9 @@ Thus, although the X-ray does not reveal a clear-cut diagnosis for the patient&#
 
 **Important differential:** metastatic carcinoma, especially breast or renal cell carcinoma; a solitary dominant lesion could represent a plasmacytoma. Further evaluation would include a skeletal survey or low-dose CT, serum/urine electrophoresis, free light chains, calcium, renal function, and CBC.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：骨髓瘤。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型识别到近端肱骨髓内穿凿样或渗透性透亮影，结合高龄和严重骨痛，诊断为多发性骨髓瘤性病灶；鉴别为骨转移或孤立性浆细胞瘤。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Incorrect**
 
@@ -2024,11 +2057,11 @@ Thus, although the X-ray does not reveal a clear-cut diagnosis for the patient&#
 
 Recommended correlation: full skeletal survey or low-dose whole-body CT, CBC, calcium, renal function, serum/urine electrophoresis and free light chains, plus CT/MRI for lesion characterization.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：孤立性浆细胞瘤、骨髓瘤、多发性骨髓瘤。评测判定其未正确回答参考结论“骨髓瘤。”其影像描述涉及：溶骨性病灶。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型把结论放宽为溶骨性肿瘤病变，可能是骨髓瘤/浆细胞瘤，也可能是骨转移。由于没有明确选择骨髓瘤，严格评测判为错误。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -2040,11 +2073,11 @@ Recommended correlation: full skeletal survey or low-dose whole-body CT, CBC, ca
 **Impression:**  
 No acute osseous abnormality. Given the patient’s severe bilateral shoulder/humeral pain, the diffuse heterogeneous lucency raises concern for an underlying infiltrative marrow process such as **multiple myeloma or metastatic disease**, although this is not diagnostic on this single view. Correlation with additional skeletal survey, MRI, and laboratory evaluation is recommended.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：骨髓瘤、多发性骨髓瘤。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 描述肱骨骨质疏松及骨髓纹理不均或渗透性透亮，虽无明确皮质破坏，但担心多发性骨髓瘤或转移性病变。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -2062,27 +2095,34 @@ No acute osseous abnormality. Given the patient’s severe bilateral shoulder/hu
 2. **Mild diffuse osteopenia and shoulder osteoarthritis.**  
 3. If the severe pain persists or there is a history of malignancy, further evaluation with dedicated shoulder/humerus views and/or MRI or bone scintigraphy may be warranted, as an occult marrow lesion cannot be excluded on this limited radiograph.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：骨关节炎。其影像描述涉及：溶骨性病灶。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，caption 反而认为没有明确局灶破坏性溶骨病灶，仅见轻度骨质减少和肩关节退变，并指出自动分割不可靠。</pre>
+
+**对模型对图片caption能力分析**：
+基线 caption 能察觉骨髓纹理异常并怀疑骨髓瘤，加入 segmentation 后却称没有明确局灶溶骨灶；QA 也从明确骨髓瘤退化为骨髓瘤/浆细胞瘤/转移的宽泛鉴别，说明不准确的候选 mask 会稀释微小病灶证据。
 
 </details>
 
-### 8.7 [Massive pleural effusion](https://radiopaedia.org/cases/massive-pleural-effusion-2?lang=us) (`massive-pleural-effusion-2`)
+### 7 [Massive pleural effusion](https://radiopaedia.org/cases/massive-pleural-effusion-2?lang=us) (`massive-pleural-effusion-2`)
 
-#### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: left lung, right lung, pleural fluid, heart | BiomedParse v1: left lung, right lung, pleural fluid, heart | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+| Original image | Medical-SAM2 | Medical-SAM3: left lung, right lung, pleural fluid, heart （左肺、右肺、胸腔积液、心脏） | BiomedParse v1: left lung, right lung, pleural fluid, heart （左肺、右肺、胸腔积液、心脏） | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach （肺、右肺、左肺、膈肌、心脏、心纵隔、上纵隔、下纵隔、胃） |
 |---|---|---|---|---|
 | <img src="assets/massive-pleural-effusion-2/original.jpeg" width="100%"> | <img src="assets/massive-pleural-effusion-2/medical_sam2_overlay.png" width="100%"> | <img src="assets/massive-pleural-effusion-2/medical_sam3_overlay.png" width="100%"> | <img src="assets/massive-pleural-effusion-2/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/massive-pleural-effusion-2/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
-- **原始问题：**What are the relevant observations and what is the likely cause?
-- **问题翻译：**相关影像观察是什么，最可能的原因是什么？
-- **参考答案：**Expanded left hemithorax with mediastinal shift and splayed ribs, most likely due to a massive pleural collection.
-- **参考答案翻译：**左侧胸腔扩大、纵隔移位、肋间隙增宽，最可能由大量胸腔积液造成。
-- **发生变化：**InternVL3.5-14B: Correct → Incorrect；GPT-5.6-Luna-Pro: Incorrect → Correct
-
-以下仅列出 correctness 发生变化的模型；两项 single-image caption 不评 correctness。
+- 背景信息：Age: 60 years Gender: Female; Presentation: Short of breath. 60 岁女性，呼吸困难。
+- 原始问题：What are the relevant observations and what is the likely cause? 相关影像观察是什么，最可能的原因是什么？
+- 参考答案：Expanded left hemithorax with mediastinal shift and splayed ribs, most likely due to a massive pleural collection. 左侧胸腔扩大、纵隔移位、肋间隙增宽，最可能由大量胸腔积液造成。
+- 原始图片caption:
+<pre>Patient slightly rotated to the right.
+Complete opacification of the left hemithorax with shift of the trachea and mediastinum to the right, obscured mediastinal and diaphragmatic borders and splayed ribs indicating a massive left pleural effusion.
+Clear right lung and pleural cavity.
+Incidental old fracture of the left 6 th rib.
+Gastric bubble absent.
+No metastases.</pre>
+<pre>患者轻度右旋。左侧半胸完全致密，气管与纵隔向右移位，纵隔和膈肌边界消失，肋间隙增宽，提示大量左侧胸腔积液。右肺及右侧胸膜腔清晰；左第 6 肋陈旧骨折；胃泡缺如；未见转移。</pre>
+- **发生变化** InternVL3.5-14B: Correct → Incorrect；GPT-5.6-Luna-Pro: Incorrect → Correct
 
 <details>
 <summary><strong>InternVL3.5-14B</strong></summary>
@@ -2179,9 +2219,9 @@ Likely cause: Large left pleural effusion, possibly malignant, leading to compre
 
 **Conclusion:** The imaging findings strongly suggest a **large left pleural effusion**, likely malignant given the patient’s age and presentation. Further evaluation with ultrasound or CT, and thoracentesis for fluid analysis, is warranted.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：左侧胸腔扩大、纵隔移位、肋间隙增宽，最可能由大量胸腔积液造成。其影像描述涉及：肺实变、纵隔移位、半胸完全致密、膈肌异常或定位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型识别左侧半胸近乎完全白化、左膈和肋膈角消失及纵隔右移，认为是大量左侧胸腔积液伴压迫性肺不张，并考虑恶性积液，回答正确。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Incorrect**
 
@@ -2210,11 +2250,11 @@ The relevant observations from the chest X-ray include:
 
 The likely cause of these findings is a **tension pneumothorax** on the left side. This condition occurs when air enters the pleural space and cannot escape, leading to increased intrapleural pressure. This pressure causes the lung to collapse and shifts the mediastinum to the opposite side, compromising cardiovascular function. The patient&#x27;s presentation of shortness of breath aligns with this acute condition, which requires immediate medical intervention, such as needle decompression or placement of a chest tube, to relieve the pressure and restore normal lung function.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：气胸、张力性气胸、肺萎陷。评测判定其未正确回答参考结论“左侧胸腔扩大、纵隔移位、肋间隙增宽，最可能由大量胸腔积液造成。”其影像描述涉及：膈肌异常或定位、纵隔移位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型把左侧异常误解为肺萎陷和胸膜腔内大量气体，最终诊断张力性气胸，并建议紧急减压，回答由正确变为错误。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -2244,11 +2284,11 @@ Based on the radiographic findings and the patient&#x27;s clinical presentation,
 
 The radiographic appearance strongly suggests a large left pleural effusion, which is consistent with the patient&#x27;s symptoms of shortness of breath. Further diagnostic evaluation is necessary to confirm the diagnosis and determine the underlying cause.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：胸腔积液。其影像描述涉及：纵隔移位、膈肌异常或定位、肺实变、半胸完全致密、心影异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 描述左侧半胸显著致密、纵隔移位和膈肌轮廓消失，最符合大量左侧胸腔积液。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -2293,9 +2333,12 @@ Given the patient&#x27;s age (60 years), gender (female), and presentation of sh
 
 The X-ray findings are highly suggestive of a large left pleural effusion or complete atelectasis, with mediastinal shift. Given the patient&#x27;s symptoms and age, urgent further evaluation is warranted to determine the underlying cause and appropriate management.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：肺不张、胸腔积液。其影像描述涉及：纵隔移位、半胸完全致密、心影异常、膈肌异常或定位、肺实变。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割增强 caption 仍能看到左侧半胸白化，但对分割区域和容量效应的解释不稳定，未能维持原先明确的大量积液判断。</pre>
+
+**对模型对图片caption能力分析**：
+原始 caption 正确识别左侧半胸白化和大量胸腔积液；加入 segmentation 后模型把同一容量效应误解为张力性气胸。这里分割不是补充信息，反而改变了对密度和胸腔内容物的判断。
 
 </details>
 
@@ -2312,9 +2355,9 @@ The X-ray findings are highly suggestive of a large left pleural effusion or com
 
 - **Thinking clue:** A hemithorax white-out with mediastinal shift **away** from the opacity favors a large pleural effusion; shift **toward** the opacity would instead suggest major lung collapse.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：肺萎陷、胸腔积液、肺不张。评测判定其未正确回答参考结论“左侧胸腔扩大、纵隔移位、肋间隙增宽，最可能由大量胸腔积液造成。”其影像描述涉及：纵隔移位、膈肌异常或定位、半胸完全致密。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型描述左侧半胸近乎完全白化、左心缘和左膈消失并向右推移纵隔，认为大量左侧胸腔积液伴压迫性肺不张，且在 60 岁患者中需考虑恶性原因；基线严格评测未通过。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -2345,11 +2388,11 @@ The underlying etiology cannot be established from this radiograph alone. In a 6
 
 Urgent correlation with bedside ultrasound and diagnostic/therapeutic thoracentesis would be appropriate; pleural fluid cytology and microbiology may be needed to identify the cause.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：左侧胸腔扩大、纵隔移位、肋间隙增宽，最可能由大量胸腔积液造成。其影像描述涉及：胸膜腔液体、纵隔移位、膈肌异常或定位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型更明确地把同侧白化和纵隔向健侧移位解释为大量胸膜液体造成的容量增加，而非单纯肺萎陷，最终回答大量左侧胸腔积液伴压迫性肺不张，评测正确。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -2358,11 +2401,11 @@ Urgent correlation with bedside ultrasound and diagnostic/therapeutic thoracente
 **Impression/diagnosis:**  
 **Large left pleural effusion causing compressive atelectasis/near-total left lung collapse.** Underlying left-sided pneumonia, malignancy, or other parenchymal disease cannot be excluded; consider chest ultrasound or CT and diagnostic thoracentesis.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：肺炎、肺萎陷、肺不张、胸腔积液。其影像描述涉及：纵隔移位、膈肌异常或定位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 已描述左侧半胸均匀致密、纵隔轻度右移，诊断大量左侧胸腔积液并近乎完全压迫左肺。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -2371,27 +2414,29 @@ Urgent correlation with bedside ultrasound and diagnostic/therapeutic thoracente
 **Impression/diagnosis:**  
 **Large left pleural effusion causing near-complete opacification of the left hemithorax, with associated compressive atelectasis (possible underlying pneumonia or mass).** Consider urgent clinical correlation and ultrasound or CT-guided evaluation/drainage if clinically indicated.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：肺炎、肺不张、胸腔积液。其影像描述涉及：半胸完全致密、肺实变、胸膜腔液体、膈肌异常或定位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割增强 caption 仍维持大量左侧胸腔积液和压迫性肺不张的判断，并补充可能存在基础肺炎或肿块，建议超声或 CT 及引流。</pre>
+
+**对模型对图片caption能力分析**：
+两版 caption 都能识别大量左侧胸腔积液，分割后对“半胸白化 + 纵隔向健侧移位”的解释更明确。QA 评测由错转对主要是答案聚焦和表述完整性改善，而不是从完全看不懂到看懂。
 
 </details>
 
-### 8.8 [Pancoast tumor](https://radiopaedia.org/cases/pancoast-tumour-11?lang=us) (`pancoast-tumour-11`)
+### 8 [Pancoast tumor](https://radiopaedia.org/cases/pancoast-tumour-11?lang=us) (`pancoast-tumour-11`)
 
-#### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: lung, lung opacity, first rib, clavicle | BiomedParse v1: lung, lung opacity, first rib, clavicle | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+| Original image | Medical-SAM2 | Medical-SAM3: lung, lung opacity, first rib, clavicle （肺、肺部阴影、第一肋骨、锁骨） | BiomedParse v1: lung, lung opacity, first rib, clavicle （肺、肺部阴影、第一肋骨、锁骨） | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach （肺、右肺、左肺、膈肌、心脏、心纵隔、上纵隔、下纵隔、胃） |
 |---|---|---|---|---|
 | <img src="assets/pancoast-tumour-11/original.jpeg" width="100%"> | <img src="assets/pancoast-tumour-11/medical_sam2_overlay.png" width="100%"> | <img src="assets/pancoast-tumour-11/medical_sam3_overlay.png" width="100%"> | <img src="assets/pancoast-tumour-11/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/pancoast-tumour-11/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
-- **原始问题：**What is the eponymous name for this condition?
-- **问题翻译：**这种疾病的同名名称是什么？
-- **参考答案：**Pancoast tumour.
-- **参考答案翻译：**Pancoast 肿瘤。
-- **发生变化：**InternVL3.5-14B: Correct → Incorrect
-
-以下仅列出 correctness 发生变化的模型；两项 single-image caption 不评 correctness。
+- 背景信息：Age: 44 Gender: Female; Presentation: Right sided pleuritic pain. 44 岁女性，右侧胸膜性疼痛。
+- 原始问题：What is the eponymous name for this condition? 这种疾病的同名名称是什么？
+- 参考答案：Pancoast tumour. Pancoast 肿瘤。
+- 原始图片caption:
+<pre>Irregular opacity in the left apex. Bony erosion of the lateral first rib. Multiple nodular opacities noted throughout both lungs.</pre>
+<pre>左肺尖不规则致密影，外侧第一肋骨质侵蚀，双肺另见多发结节状致密影。</pre>
+- **发生变化** InternVL3.5-14B: Correct → Incorrect
 
 <details>
 <summary><strong>InternVL3.5-14B</strong></summary>
@@ -2408,9 +2453,9 @@ The eponymous name for the condition suggested by the presentation and imaging f
 
 **Answer:** The eponymous name for this condition is **&quot;Pancoast tumor&quot;**.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：Pancoast 肿瘤。其影像描述涉及：肺实变。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型注意到肺尖或上肺野致密影，在 Pancoast 肿瘤与 Hampton 驼峰征之间摇摆，最终仍回答 Pancoast 肿瘤，基线评测正确。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Incorrect**
 
@@ -2485,11 +2530,11 @@ If the opacity is due to an infectious process like tuberculosis, **&quot;Ghon c
 
 Given the information, **Hampton&#x27;s hump** is the most fitting eponymous name for this presentation.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：Hampton 驼峰征、结核病、肺栓塞、肺炎。评测判定其未正确回答参考结论“Pancoast 肿瘤。”其影像描述涉及：肺实变、肺部致密影。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型过度依赖“肺部阴影”等提示，把病变解释为肺梗死相关的 Hampton 驼峰征，并讨论 Ghon 复合征和肺炎，漏掉肺尖肿块及第一肋骨侵蚀。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -2559,11 +2604,11 @@ The provided chest X-ray is a frontal view of a 44-year-old female patient prese
 
 The chest X-ray findings, in conjunction with the patient&#x27;s presentation of right-sided pleuritic pain, strongly suggest right upper lobe pneumonia. Further diagnostic steps, such as sputum culture, blood tests, and possibly a CT scan, are recommended to confirm the diagnosis and guide appropriate treatment. Additionally, clinical correlation with symptoms like fever, cough, and sputum production will aid in confirming the diagnosis of pneumonia.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：肺炎。其影像描述涉及：肺实变、心影异常、膈肌异常或定位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 把致密影定位为右上肺实变，最倾向右上叶肺炎，未识别 Pancoast 肿瘤。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -2606,27 +2651,29 @@ The chest X-ray of a 44-year-old female with right-sided pleuritic pain reveals 
 
 This approach ensures a thorough evaluation of the pleuritic pain and radiographic findings, guiding appropriate management.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：胸腔积液、肺栓塞、肺炎。其影像描述涉及：肺部致密影。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割增强 caption 将异常描述为左上及中肺弥漫性阴影，仍倾向肺炎或胸膜炎，鉴别肺栓塞、肿瘤和结核，但没有抓住肺尖肿块与肋骨破坏。</pre>
+
+**对模型对图片caption能力分析**：
+原始 QA 尚能答出 Pancoast 肿瘤，但 caption 已误判肺炎；加入 segmentation 后模型继续只关注肺部阴影，没有利用第一肋骨和锁骨提示识别肺尖肿块侵蚀，QA 进一步误答 Hampton 驼峰征。
 
 </details>
 
-### 8.9 [Pneumoperitoneum](https://radiopaedia.org/cases/pneumoperitoneum-55?lang=us) (`pneumoperitoneum-55`)
+### 9 [Pneumoperitoneum](https://radiopaedia.org/cases/pneumoperitoneum-55?lang=us) (`pneumoperitoneum-55`)
 
-#### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel gas | BiomedParse v1: lung, heart, diaphragm, bowel gas | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel gas （肺、心脏、膈肌、肠气） | BiomedParse v1: lung, heart, diaphragm, bowel gas （肺、心脏、膈肌、肠气） | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach （肺、右肺、左肺、膈肌、心脏、心纵隔、上纵隔、下纵隔、胃） |
 |---|---|---|---|---|
 | <img src="assets/pneumoperitoneum-55/original.jpeg" width="100%"> | <img src="assets/pneumoperitoneum-55/medical_sam2_overlay.png" width="100%"> | <img src="assets/pneumoperitoneum-55/medical_sam3_overlay.png" width="100%"> | <img src="assets/pneumoperitoneum-55/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/pneumoperitoneum-55/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
-- **原始问题：**Describe your findings
-- **问题翻译：**请描述影像所见。
-- **参考答案：**Pneumoperitoneum, with the diaphragm clearly visible across the midline. Dual lead pacemaker. No focal consolidation or collapse, small areas of calcification in the upper lobes.
-- **参考答案翻译：**气腹，膈肌跨越中线清晰可见；双导联起搏器在位；无局灶实变或肺不张，双上肺有小片钙化。
-- **发生变化：**MedGemma-27B-IT: Incorrect → Correct；GPT-5.6-Luna-Pro: Correct → Incorrect
-
-以下仅列出 correctness 发生变化的模型；两项 single-image caption 不评 correctness。
+- 背景信息：Age: 65 years; Presentation: Abdominal pain.?perforation 65 岁患者，腹痛，临床疑问为穿孔。
+- 原始问题：Describe your findings 请描述影像所见。
+- 参考答案：Pneumoperitoneum, with the diaphragm clearly visible across the midline. Dual lead pacemaker. No focal consolidation or collapse, small areas of calcification in the upper lobes. 气腹，膈肌跨越中线清晰可见；双导联起搏器在位；无局灶实变或肺不张，双上肺有小片钙化。
+- 原始图片caption:
+<pre>Pneumoperitoneum, with the diaphragm clearly visible across the midline. Dual lead pacemaker. No focal consolidation or collapse, small areas of calcification in the upper lobes.</pre>
+<pre>气腹，膈肌跨越中线清晰可见；双导联起搏器在位；无局灶实变或肺不张，双上肺有小片钙化。</pre>
+- **发生变化** MedGemma-27B-IT: Incorrect → Correct；GPT-5.6-Luna-Pro: Correct → Incorrect
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
@@ -2658,9 +2705,9 @@ The user wants me to describe the findings in the provided X-ray image.
 *   **Interpretation:** This lucency represents free air within the peritoneal cavity (pneumoperitoneum). In an upright position, free air rises and collects under the diaphragm, which is the highest point in the abdominal cavity.
 *   **Conclusion:** The presence of free air under the right hemidiaphragm strongly suggests a perforated viscus (e.g., stomach, intestine) within the abdomen, which is consistent with the patient&#x27;s clinical presentation of abdominal pain and suspected perforation.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：气腹、肺不张。评测判定其未正确回答参考结论“气腹，膈肌跨越中线清晰可见；双导联起搏器在位；无局灶实变或肺不张，双上肺有小片钙化。”其影像描述涉及：膈肌异常或定位、游离气体。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型识别右膈下新月形透亮影为腹腔游离气体，认为提示胃或肠管等空腔脏器穿孔；但没有完整描述参考答案中的连续膈征、起搏器及胸部阴性所见，严格评测判错。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -2702,11 +2749,11 @@ This is an AP erect chest X-ray.
 
 **Conclusion:** Pneumoperitoneum is present, indicating a likely perforated abdominal viscus.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：气腹，膈肌跨越中线清晰可见；双导联起搏器在位；无局灶实变或肺不张，双上肺有小片钙化。其影像描述涉及：起搏器在位、膈肌异常或定位、游离气体、肺实变、心影异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型明确描述气腹、可能的空腔脏器穿孔、左侧双导联起搏器和双肺大致清晰，回答覆盖了更多参考要点，评测正确。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -2734,11 +2781,11 @@ The presence of free air under the diaphragm (pneumoperitoneum) in a patient pre
 
 Based on the chest X-ray showing free air under the diaphragm and the patient&#x27;s presentation of abdominal pain, the most likely diagnosis is **perforated viscus**, leading to pneumoperitoneum. This is a surgical emergency requiring immediate evaluation and intervention.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：气腹。其影像描述涉及：膈肌异常或定位、游离气体。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 识别膈下游离气体并诊断穿孔性空腔脏器导致的气腹，列出消化性溃疡、憩室炎、阑尾炎等可能病因。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -2784,9 +2831,12 @@ Given the patient&#x27;s presentation of abdominal pain and the question of perf
 
 Chest X-ray shows no definitive signs of pneumoperitoneum (free air under the diaphragm). However, this does not exclude the possibility of a gastrointestinal perforation, especially if the amount of free air is small or if the patient was not fully upright during the X-ray. Clinical correlation and potentially further imaging (like an abdominal CT scan) are necessary to evaluate for perforation given the patient&#x27;s presentation of abdominal pain.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：胃肠道穿孔、气腹。其影像描述涉及：游离气体、膈肌异常或定位、起搏器在位、肺实变、心影异常。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割增强 caption 反而称胸片未见明确膈下游离气体，认为不能排除少量气腹，建议腹部 CT；即 caption 的像素判断较基线退步。</pre>
+
+**对模型对图片caption能力分析**：
+基线已经看见膈下游离气体，但 QA 没覆盖完整参考所见；分割后 QA 补充起搏器和肺部情况而通过评测。相反，增强 caption 却否认明确气腹，因此正确率变化主要反映回答完整度，并非 caption 稳定提升。
 
 </details>
 
@@ -2801,9 +2851,9 @@ Chest X-ray shows no definitive signs of pneumoperitoneum (free air under the di
 - This represents **pneumoperitoneum**, highly suspicious for **perforated hollow viscus** in the setting of abdominal pain.  
 - Mild left basilar linear atelectatic/scarring change. Dual-lead left-sided pacemaker in situ.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：气腹，膈肌跨越中线清晰可见；双导联起搏器在位；无局灶实变或肺不张，双上肺有小片钙化。其影像描述涉及：起搏器在位、膈肌异常或定位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型识别右膈下无肠纹的新月形游离气体，诊断气腹并高度怀疑空腔脏器穿孔，同时描述左肺底轻度条索和左侧双导联起搏器，基线回答正确。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Incorrect**
 
@@ -2824,11 +2874,11 @@ Chest X-ray shows no definitive signs of pneumoperitoneum (free air under the di
 2. Nonobstructive visualized bowel gas pattern.  
 3. Mild left basilar atelectatic/air-space opacity.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：气腹。评测判定其未正确回答参考结论“气腹，膈肌跨越中线清晰可见；双导联起搏器在位；无局灶实变或肺不张，双上肺有小片钙化。”其影像描述涉及：膈肌异常或定位、起搏器在位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型把右膈下透亮区内的线条解释为结肠袋纹，改判为肝膈间结肠嵌入的 Chilaiditi 构型，认为没有明确气腹，回答错误。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -2838,11 +2888,11 @@ AP erect chest/upper abdominal radiograph demonstrates a crescent of free intrap
 **Diagnosis:**  
 **Pneumoperitoneum (subdiaphragmatic free air), highly suspicious for perforation of a hollow abdominal viscus.** Urgent surgical assessment is recommended.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：气腹。其影像描述涉及：游离气体、膈肌异常或定位、起搏器在位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 同样识别右膈下游离气体，诊断气腹并建议紧急外科评估。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -2854,27 +2904,30 @@ AP erect chest/abdominal radiograph demonstrates a prominent radiolucent area be
 - **No definite free intraperitoneal air identified on this view**, although given the clinical concern for perforation, CT abdomen/pelvis with contrast would be appropriate for confirmation.  
 - Mild left basilar atelectasis.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：肺不张、气腹、Chilaiditi 征。其影像描述涉及：膈肌异常或定位、起搏器在位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割增强 caption 重复了错误的 Chilaiditi 征判断，称没有明确腹腔游离气体，并建议 CT 进一步确认。</pre>
+
+**对模型对图片caption能力分析**：
+原始 caption 和 QA 都正确识别无肠纹的膈下游离气体；加入 segmentation 后两者都把叠加线条误认为结肠袋纹，改判 Chilaiditi 征。分割 overlay 在这里制造了伪征象。
 
 </details>
 
-### 8.10 [Small bowel obstruction](https://radiopaedia.org/cases/small-bowel-obstruction-14?lang=us) (`small-bowel-obstruction-14`)
+### 10 [Small bowel obstruction](https://radiopaedia.org/cases/small-bowel-obstruction-14?lang=us) (`small-bowel-obstruction-14`)
 
-#### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: bowel, small bowel, colon, bowel gas | BiomedParse v1: bowel, small bowel, colon, bowel gas |
+| Original image | Medical-SAM2 | Medical-SAM3: bowel, small bowel, colon, bowel gas （肠管、小肠、结肠、肠气） | BiomedParse v1: bowel, small bowel, colon, bowel gas （肠管、小肠、结肠、肠气） |
 |---|---|---|---|
 | <img src="assets/small-bowel-obstruction-14/original.jpeg" width="100%"> | <img src="assets/small-bowel-obstruction-14/medical_sam2_overlay.png" width="100%"> | <img src="assets/small-bowel-obstruction-14/medical_sam3_overlay.png" width="100%"> | <img src="assets/small-bowel-obstruction-14/biomedparse_v1_overlay.png" width="100%"> |
 
-- **原始问题：**What diagnosis to the aspects of the history suggest?
-- **问题翻译：**病史中的这些表现提示什么诊断？
-- **参考答案：**With abdominal pain and vomiting, small bowel obstruction is likely. Altered stools in this setting may also suggest ischaemic colitis.
-- **参考答案翻译：**腹痛和呕吐提示小肠梗阻；在此背景下排便改变还可能提示缺血性结肠炎。
-- **发生变化：**MedGemma-27B-IT: Incorrect → Correct；MedMO-8B: Incorrect → Correct
-
-以下仅列出 correctness 发生变化的模型；两项 single-image caption 不评 correctness。
+- 背景信息：Age: 80 years Gender: Male; Presentation: Epigastric pain, vomiting, melena. Multiple vascular risk factors. 80 岁男性，上腹痛、呕吐、黑便，并有多项血管危险因素。
+- 原始问题：What diagnosis to the aspects of the history suggest? 病史中的这些表现提示什么诊断？
+- 参考答案：With abdominal pain and vomiting, small bowel obstruction is likely. Altered stools in this setting may also suggest ischaemic colitis. 腹痛和呕吐提示小肠梗阻；在此背景下排便改变还可能提示缺血性结肠炎。
+- 原始图片caption:
+<pre>Multiple distended small bowel loops (positioned centrally, valvulae conniventes present).
+Left hip arthroplasty noted.</pre>
+<pre>多个扩张小肠袢位于中央，可见环形皱襞；另见左侧髋关节置换。</pre>
+- **发生变化** MedGemma-27B-IT: Incorrect → Correct；MedMO-8B: Incorrect → Correct
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
@@ -2956,9 +3009,9 @@ The user wants me to analyze the provided patient data and X-ray image to sugges
 
 **Final Answer: The final answer is $\boxed{Perforated peptic ulcer}$**</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：气腹、肠系膜缺血、上消化道出血、消化性溃疡病。评测判定其未正确回答参考结论“腹痛和呕吐提示小肠梗阻；在此背景下排便改变还可能提示缺血性结肠炎。”其影像描述涉及：膈肌异常或定位、游离气体、肠袢扩张、钙化。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型误认为片中存在气腹，结合黑便诊断穿孔性消化性溃疡；虽讨论肠系膜缺血，却没有把扩张小肠袢作为主要结论。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -3020,11 +3073,11 @@ The user wants me to analyze the provided patient data and imaging to suggest a 
 
 **Final Answer: The final answer is $\boxed{Acute mesenteric ischemia}$**</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：腹痛和呕吐提示小肠梗阻；在此背景下排便改变还可能提示缺血性结肠炎。其影像描述涉及：肠袢扩张。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型识别扩张肠袢和梗阻表现，并结合高龄、血管危险因素、腹痛、呕吐及黑便，最终倾向急性肠系膜缺血伴肠梗阻。该回答覆盖了参考答案强调的梗阻及缺血背景。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -3054,11 +3107,11 @@ Based on the clinical presentation (epigastric pain, vomiting, melena, age, vasc
 *   Further imaging (like a CT scan of the abdomen and pelvis with IV contrast) is usually required to confirm the diagnosis, determine the level and cause of the obstruction, and assess for complications like ischemia or perforation.
 *   The patient&#x27;s symptoms (especially melena) and risk factors raise concern for a serious condition requiring urgent evaluation and management.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：肠梗阻、小肠梗阻。其影像描述涉及：膈肌异常或定位、游离气体、肠袢扩张。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 已能描述中央多发扩张小肠袢、气液平面及结肠气体减少，诊断小肠梗阻并担心缺血性肠病。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -3085,9 +3138,12 @@ The X-ray findings of dilated bowel loops with air-fluid levels are consistent w
 
 The X-ray shows signs of bowel obstruction/ileus. Combined with the patient&#x27;s clinical presentation (epigastric pain, vomiting, melena) and risk factors (age, vascular disease), the most concerning diagnosis is **acute mesenteric ischemia** leading to bowel compromise, although other causes of bowel obstruction or perforation cannot be entirely ruled out without further investigation (like CT angiography). The melena strongly points towards bleeding within the GI tract, which is a hallmark of ischemia or ulceration. This is a surgical emergency requiring urgent evaluation and management.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：肠梗阻、肠系膜缺血、肠麻痹。其影像描述涉及：肠袢扩张。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割增强 caption 继续描述肠袢扩张和梗阻/麻痹性肠梗阻，但把最危险病因强调为急性肠系膜缺血，建议 CT 血管成像紧急评估。</pre>
+
+**对模型对图片caption能力分析**：
+原始 QA 误诊穿孔性溃疡，但原始 caption 已能识别扩张小肠袢和气液平面。分割后 QA 转向梗阻及缺血背景，说明主要收益是把已有视觉征象更好地连接到临床问题。
 
 </details>
 
@@ -3100,9 +3156,9 @@ The X-ray shows signs of bowel obstruction/ileus. Combined with the patient&#x27
 
 <pre>The patient&#x27;s history of epigastric pain, vomiting, and melena is suggestive of a possible gastrointestinal issue.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答未形成与参考结论“腹痛和呕吐提示小肠梗阻；在此背景下排便改变还可能提示缺血性结肠炎。”一致的明确答案。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型只说上腹痛、呕吐和黑便提示某种胃肠道问题，没有给出具体诊断。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -3110,47 +3166,49 @@ The X-ray shows signs of bowel obstruction/ileus. Combined with the patient&#x27
 
 <pre>Bowel obstruction</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：腹痛和呕吐提示小肠梗阻；在此背景下排便改变还可能提示缺血性结肠炎。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型直接回答“肠梗阻”，与参考答案的核心结论一致。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
 <pre>There is a large amount of gas within the stomach.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型主要给出描述性影像回答，未形成可稳定提取的明确诊断。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 仅描述胃内有大量气体，未识别小肠梗阻。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
 <pre>There is a dilated bowel loop in the left lower quadrant.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型主要给出描述性影像回答，未形成可稳定提取的明确诊断。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割增强 caption 能指出左下腹存在扩张肠袢，视觉描述比基线更接近梗阻征象。</pre>
+
+**对模型对图片caption能力分析**：
+原始 caption 只看到胃内气体，QA 也仅给出模糊的胃肠道问题；加入 segmentation 后 caption 识别扩张肠袢，QA 直接回答肠梗阻，属于较清楚的视觉描述和诊断同步改善。
 
 </details>
 
-### 8.11 [Tension pneumoperitoneum](https://radiopaedia.org/cases/tension-pneumoperitoneum?lang=us) (`tension-pneumoperitoneum`)
+### 11 [Tension pneumoperitoneum](https://radiopaedia.org/cases/tension-pneumoperitoneum?lang=us) (`tension-pneumoperitoneum`)
 
-#### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel gas | BiomedParse v1: lung, heart, diaphragm, bowel gas | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel gas （肺、心脏、膈肌、肠气） | BiomedParse v1: lung, heart, diaphragm, bowel gas （肺、心脏、膈肌、肠气） | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach （肺、右肺、左肺、膈肌、心脏、心纵隔、上纵隔、下纵隔、胃） |
 |---|---|---|---|---|
 | <img src="assets/tension-pneumoperitoneum/original.jpeg" width="100%"> | <img src="assets/tension-pneumoperitoneum/medical_sam2_overlay.png" width="100%"> | <img src="assets/tension-pneumoperitoneum/medical_sam3_overlay.png" width="100%"> | <img src="assets/tension-pneumoperitoneum/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/tension-pneumoperitoneum/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
-- **原始问题：**What has given this appearance?
-- **问题翻译：**是什么造成了这种影像表现？
-- **参考答案：**There is a large volume of free gas under the diaphragm displacing and compressing organs. This is tension pneumoperitoneum.
-- **参考答案翻译：**膈下大量游离气体使器官移位并受压，即张力性气腹。
-- **发生变化：**MedGemma-27B-IT: Incorrect → Correct
-
-以下仅列出 correctness 发生变化的模型；两项 single-image caption 不评 correctness。
+- 背景信息：Age: 55 Gender: Female; Presentation: Sudden onset abdominal pain during elective endoscopic investigation. Breathless and tachycardic. 55 岁女性，择期内镜检查期间突发腹痛，同时呼吸困难、心动过速。
+- 原始问题：What has given this appearance? 是什么造成了这种影像表现？
+- 参考答案：There is a large volume of free gas under the diaphragm displacing and compressing organs. This is tension pneumoperitoneum. 膈下大量游离气体使器官移位并受压，即张力性气腹。
+- 原始图片caption:
+<pre>Significant pneumoperitoneum with displacement of diaphragm, abdominal organs and compression of thoracic structures.</pre>
+<pre>显著气腹，导致膈肌和腹腔脏器移位，并压迫胸腔结构。</pre>
+- **发生变化** MedGemma-27B-IT: Incorrect → Correct
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
@@ -3206,9 +3264,9 @@ The user wants me to identify the cause of the abnormal chest X-ray appearance i
 
 **Therefore, the appearance is most likely due to a complication of the endoscopic procedure, specifically esophageal perforation leading to a tension pneumothorax or a massive pleural effusion.**</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答提及或最终倾向的诊断包括：胸腔积液、大量胸腔积液、气胸、张力性气胸。评测判定其未正确回答参考结论“膈下大量游离气体使器官移位并受压，即张力性气腹。”其影像描述涉及：纵隔移位、膈肌异常或定位、游离气体。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>模型把影像误读为右侧胸腔大面积异常及纵隔左移，认为内镜造成食管穿孔并继发张力性气胸或大量胸腔积液，没有识别张力性气腹。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -3247,11 +3305,11 @@ The user wants me to analyze the provided chest X-ray and determine the cause of
 
 **Therefore, the appearance on the X-ray (free air under the diaphragm) is due to pneumoperitoneum, likely caused by a perforation of a hollow viscus during the endoscopic procedure.**</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-该回答的最终临床结论与参考答案一致：膈下大量游离气体使器官移位并受压，即张力性气腹。其影像描述涉及：膈肌异常或定位、游离气体。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>加入分割后，模型识别右膈下大量游离气体，结合内镜期间突发腹痛、呼吸困难和心动过速，认为空腔脏器医源性穿孔造成气腹，回答正确。</pre>
 
-**原始图像 → Single-image caption 回答**；不评 correctness
+**原始图像 → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -3279,11 +3337,11 @@ Right-sided tension pneumothorax, likely secondary to esophageal or gastric perf
 
 **Important Note:** This is an interpretation based on the provided image and clinical information. A definitive diagnosis requires correlation with the patient&#x27;s full clinical picture, physical examination, and potentially further investigations like CT scan. Tension pneumothorax is a medical emergency requiring immediate intervention (needle decompression followed by chest tube insertion).</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：气胸、张力性气胸。其影像描述涉及：纵隔移位、膈肌异常或定位。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>原始 caption 继续把右侧异常解释为张力性气胸，认为可能由食管或胃穿孔使气体进入胸膜腔所致。</pre>
 
-**原始图像 + Segmentation → Single-image caption 回答**；不评 correctness
+**原始图像 + Segmentation → Single-image caption 回答**；
 
 英文原始回答：
 
@@ -3320,8 +3378,11 @@ The presence of free air under the diaphragm (pneumoperitoneum) on the erect CXR
 
 The chest X-ray shows pneumoperitoneum, which, in the context of the patient&#x27;s presentation (sudden abdominal pain during endoscopy, breathlessness, tachycardia), indicates a perforated hollow viscus, likely a complication of the endoscopic procedure. This is a surgical emergency.</pre>
 
-中文翻译（医学内容）：
+中文翻译：
 
-模型在图像描述中提及或倾向：气腹。其影像描述涉及：膈肌异常或定位、游离气体。重复的通用推理模板已省略，全部英文原文保留在上方供逐句核对。
+<pre>分割增强 caption 改为识别膈下明显游离气体，诊断穿孔性空腔脏器导致的气腹，并指出这是需要紧急处理的外科急症。</pre>
+
+**对模型对图片caption能力分析**：
+原始 caption 和 QA 都把腹腔大量游离气体误认为右侧张力性气胸或胸腔积液。加入膈肌和肠气相关 segmentation 后，两者均改为膈下游离气体、空腔脏器穿孔和气腹，显著纠正了解剖腔隙定位。
 
 </details>
