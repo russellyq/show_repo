@@ -3857,7 +3857,7 @@ The chest X-ray shows pneumoperitoneum, which, in the context of the patient&#x2
 
 ## 2. 其余病例的 Single-image Caption 分析
 
-本节覆盖 Section 1 之外的其余 13 个病例，不再比较最终 diagnosis QA，只比较 `with_text=False` 时同一模型在原始单图与“原始单图 + segmentation overlays + segmentation text”两种输入下的 caption。每例选择 1 个最能体现正向、无效或负向变化的开源模型；中文部分为医学要点翻译，效果判断以是否更接近 Radiopaedia 原始 image caption 的关键征象为准，而不是以回答长度为准。
+本节覆盖 Section 1 之外的其余 13 个病例，不再比较最终 diagnosis QA，只比较 `with_text=False` 时同一模型在原始单图与“原始单图 + segmentation overlays + segmentation text”两种输入下的 caption。遵循上一轮要求，本节不使用 GPT-5.6，覆盖其余 8 个开源模型；每例保留 1 个代表模型的人工详析，并补充全部 8 个模型的总览及其余 7 个模型的逐项分析。效果判断以是否更接近 Radiopaedia 原始 image caption 的关键征象为准，而不是以回答长度为准。
 
 ### 2.1 [Ascites](https://radiopaedia.org/cases/ascites-6?lang=us) (`ascites-6`)
 
@@ -3900,6 +3900,324 @@ The chest X-ray shows pneumoperitoneum, which, in the context of the patient&#x2
 原图 caption 把中央聚集的肠袢误判为膈下游离气体；加入 segmentation 后虽然不再报告气腹，却直接沿用病例中的“疑似肠梗阻”，仍未识别大量腹水造成的肠袢中央化。mask 改变了错误类型，但没有补充决定性的腹腔液体证据。
 
 </details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_START -->
+#### 8 个开源模型的 Caption 对比总览
+
+下表的“命中”区分模型是在结论中采用该征象、仅在正文中提及，还是在否定/鉴别语境中出现；它用于快速定位变化，不能代替下方逐模型原文核对。
+
+| 模型 | 原始单图 caption | 原图 + Segmentation caption | 影响判断 |
+|---|---|---|---|
+| InternVL3-14B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| InternVL3.5-14B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Lingshu-32B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| MedGemma-27B-IT | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| MedMO-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助，并强化病例文本锚定 |
+| Qwen3-VL-4B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-32B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+
+#### 其余 7 个开源模型的逐项分析
+
+本病例现有代表模型的人工分析已保留在本小节上方；以下补充其余 7 个模型。所有英文回答均来自对应 predictions 文件，中文部分为医学要点归纳。
+
+<details>
+<summary><strong>InternVL3-14B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+conclusion, the radiographic features are highly suggestive of an obstruction, necessitating immediate clinical correlation and perhaps further intervention.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肠梗阻。涉及的主要影像要点包括：肠袢扩张。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+   - Based on the radiological findings and the patient&#x27;s symptoms, a diagnosis of bowel obstruction is supported. Continued monitoring and further diagnostic steps should be undertaken to determine the exact cause and appropriate management of the obstruction.
+
+Prompt clinical correlation and management are essential in patients presenting with such symptoms and radiological findings to avoid complications associated with bowel obstruction.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肠梗阻。涉及的主要影像要点包括：膈肌异常或定位、游离气体、肠袢扩张。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>InternVL3.5-14B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**  
+**Small Bowel Obstruction (SBO)**  
+The radiographic findings of dilated small bowel loops with air-fluid levels, combined with the clinical presentation of suspected bowel obstruction, strongly support this diagnosis. Common causes in a 35-year-old male include:  
+- **Adhesions** (post-surgical or inflammatory).  
+- **Internal hernia** or **incisional hernia**.  
+- **Bowel volvulus** (less likely without a &quot;whirl sign&quot; on imaging).  
+- **Tumor** (though less common in this age group).  
+
+**Next Steps:**  
+1. **CT Abdomen/Pelvis** (preferred for definitive diagnosis, localization, and etiology).  
+2. **Clinical correlation** with symptoms (e.g., pain, vomiting, constipation).  
+3. **Surgical consultation** if obstruction is confirmed or complications (e.g., ischemia) are suspected.  
+
+The supine positioning limits visualization of air-fluid levels, but the significant bowel distension remains highly suggestive of obstruction.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：便秘、肠梗阻、小肠梗阻。涉及的主要影像要点包括：膈肌异常或定位、游离气体、肠袢扩张。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**  
+The radiographic findings strongly suggest **small bowel obstruction**, necessitating urgent evaluation with CT and clinical management (e.g., nasogastric decompression, IV fluids).</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肠梗阻、小肠梗阻。涉及的主要影像要点包括：钙化。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Lingshu-32B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is small bowel obstruction. This condition requires prompt medical attention to identify the underlying cause and appropriate treatment to prevent complications such as ischemia or perforation.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肠梗阻、小肠梗阻。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is small bowel obstruction. Further evaluation with CT scan may be necessary to identify the exact cause and location of the obstruction.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肠梗阻、小肠梗阻。涉及的主要影像要点包括：膈肌异常或定位、游离气体。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedGemma-27B-IT</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is **bowel obstruction**. The patient&#x27;s presentation of suspected bowel obstruction aligns well with these imaging findings. Further investigation (e.g., CT scan) would be needed to determine the specific location and cause of the obstruction.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肠梗阻。涉及的主要影像要点包括：肠袢扩张、膈肌异常或定位。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is **small bowel obstruction (SBO)**. The dilated loops and air-fluid levels indicate that the passage of intestinal contents is blocked, leading to accumulation of gas and fluid proximal to the obstruction. The specific level and cause of the obstruction would require further investigation (e.g., CT scan, clinical history).</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肠梗阻、小肠梗阻。涉及的主要影像要点包括：肠袢扩张。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-4B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis: Partial Small Bowel Obstruction** (based on radiographic findings).</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肠梗阻、小肠梗阻。涉及的主要影像要点包括：游离气体、肠袢扩张、膈肌异常或定位。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is **small bowel obstruction**. The clinical presentation of &quot;bowel obstruction&quot; and the radiographic findings (dilated bowel loops with air-fluid levels) strongly support this diagnosis.
+
+- **Next Steps**: The patient should be evaluated further with a CT scan to determine the exact location and cause of the obstruction (e.g., adhesions, hernia, tumor, or volvulus) and to rule out other causes (e.g., paralytic ileus, which would not show air-fluid levels).
+
+In summary, the radiograph is consistent with a mechanical small bowel obstruction, and the patient should be referred for further diagnostic imaging and management.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肠梗阻、小肠梗阻、肠麻痹。涉及的主要影像要点包括：肠袢扩张、膈肌异常或定位、游离气体。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-8B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+
+**Small Bowel Obstruction (SBO)**
+
+**Rationale:**
+
+The key findings on this X-ray are consistent with a mechanical bowel obstruction:
+
+- **Dilated bowel loops:** The dilated loops of bowel are primarily in the mid-abdomen, which is typical for small bowel obstruction.
+- **Air-fluid levels:** These are classic signs of bowel obstruction, indicating the presence of fluid and gas distal to the site of obstruction.
+- **Absence of free air:** This rules out perforation as the primary cause, making mechanical obstruction more likely.
+- **Patient age and presentation:** A 35-year-old male presenting with symptoms suggestive of bowel obstruction (e.g., abdominal pain, distension, vomiting, constipation) is a common demographic for SBO, often due to adhesions (post-surgical), hernias, or less commonly, tumors or volvulus.
+
+While the image does not definitively identify the cause, the findings are highly suggestive of a mechanical small bowel obstruction.
+
+**Next Steps:**
+
+- Clinical correlation with symptoms (e.g., pain, vomiting, bowel habits).
+- Consider CT abdomen/pelvis for definitive diagnosis, localization, and cause of obstruction.
+- Management may include IV fluids, nasogastric decompression, and possible surgical intervention depending on the cause and severity.
+
+---
+
+**Note:** While the image is suggestive of SBO, a definitive diagnosis requires clinical correlation and possibly further imaging. The image does not show any signs of large bowel obstruction (e.g., prominent dilated colon loops) or perforation (free air).</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肠梗阻、小肠梗阻、便秘。涉及的主要影像要点包括：游离气体、肠袢扩张、钙化。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+The radiographic findings are consistent with **small bowel obstruction**. The presence of dilated small bowel loops with air-fluid levels, along with the absence of gas in the distal colon, strongly suggests an obstruction proximal to the colon. The patient&#x27;s age and gender are not specific to the diagnosis, but the clinical presentation of bowel obstruction is consistent with this radiographic finding.
+
+**Clinical Implication:**
+This patient requires further evaluation to determine the cause of the obstruction, which may include mechanical causes such as adhesions, hernias, or tumors. The patient may require surgical intervention depending on the severity and cause of the obstruction. Immediate medical attention is necessary to prevent complications such as bowel ischemia or perforation.
+
+**Note:** The segmentation masks provided (Medical-SAM2, Medical-SAM3, BiomedParse) are not directly relevant to the diagnosis but may assist in identifying specific regions of interest for further analysis.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肠梗阻、小肠梗阻。涉及的主要影像要点包括：肠袢扩张。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-32B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+
+**Small bowel obstruction (SBO) with possible large bowel involvement.**
+
+The findings are consistent with **mechanical bowel obstruction**, likely due to adhesions (a common cause in young adults with prior abdominal surgery), although other causes such as hernia, volvulus, or tumor cannot be excluded without further imaging (e.g., CT scan).
+
+**Recommendations:**
+
+- **Clinical correlation** is essential: assess for signs of peritonitis, vomiting, abdominal pain, and bowel sounds.
+- **Further imaging**: A **contrast-enhanced CT scan of the abdomen and pelvis** is recommended to determine the level and cause of obstruction.
+- **Management**: NPO, IV fluids, NG tube decompression, and surgical consultation if signs of ischemia or perforation develop.
+
+---
+
+**Note:** While the X-ray is suggestive of bowel obstruction, it is non-specific in determining the exact cause. CT is the gold standard for evaluation in such cases.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肠梗阻、小肠梗阻。涉及的主要影像要点包括：钙化。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis: Small Bowel Obstruction (Mechanical), likely due to adhesions or hernia.**</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肠梗阻、小肠梗阻。涉及的主要影像要点包括：膈肌异常或定位、游离气体、肠袢扩张。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_END -->
+
 
 ### 2.2 [BIRADS III lesion - infiltrating ductal carcinoma](https://radiopaedia.org/cases/birads-iii-lesion-infiltrating-ductal-carcinoma-1?lang=us) (`birads-iii-lesion-infiltrating-ductal-carcinoma-1`)
 
@@ -4081,6 +4399,328 @@ segmentation 没有直接给出病理类型，但稳定的病灶定位使模型�
 
 </details>
 
+<!-- ALL_OPEN_MODELS_CAPTION_START -->
+#### 8 个开源模型的 Caption 对比总览
+
+下表的“命中”区分模型是在结论中采用该征象、仅在正文中提及，还是在否定/鉴别语境中出现；它用于快速定位变化，不能代替下方逐模型原文核对。
+
+| 模型 | 原始单图 caption | 原图 + Segmentation caption | 影响判断 |
+|---|---|---|---|
+| InternVL3-14B | BI-RADS 4/可疑病灶（否定/鉴别）、建议活检（否定/鉴别） | 建议活检（结论） | 正向：新增或强化参考关键点 |
+| InternVL3.5-14B | BI-RADS 4/可疑病灶（文本提及）、建议活检（结论）、恶性倾向超声征象（文本提及） | BI-RADS 4/可疑病灶（结论）、建议活检（结论）、恶性倾向超声征象（否定/鉴别） | 正向：新增或强化参考关键点 |
+| Lingshu-32B | 建议活检（否定/鉴别） | 建议活检（否定/鉴别） | 无明确增益：仅在鉴别或否定语境中提及关键点 |
+| MedGemma-27B-IT | BI-RADS 4/可疑病灶（结论）、建议活检（结论） | BI-RADS 4/可疑病灶（结论）、建议活检（文本提及）、恶性倾向超声征象（文本提及） | 基本持平：前后均提及部分参考关键点 |
+| MedMO-8B | BI-RADS 4/可疑病灶（结论） | 未命中参考 caption 的核心征象 | 负向：参考关键点减少或被错误结论取代 |
+| Qwen3-VL-4B | BI-RADS 4/可疑病灶（文本提及）、建议活检（结论） | BI-RADS 4/可疑病灶（文本提及）、建议活检（文本提及） | 负向：参考关键点减少或被错误结论取代 |
+| Qwen3-VL-8B | BI-RADS 4/可疑病灶（文本提及）、建议活检（文本提及）、恶性倾向超声征象（文本提及） | 建议活检（结论） | 负向：参考关键点减少或被错误结论取代 |
+| Qwen3-VL-32B | 建议活检（文本提及） | BI-RADS 4/可疑病灶（否定/鉴别）、建议活检（结论）、恶性倾向超声征象（文本提及） | 有帮助：由良性随访转向可疑病灶活检 |
+
+#### 其余 7 个开源模型的逐项分析
+
+本病例现有代表模型的人工分析已保留在本小节上方；以下补充其余 7 个模型。所有英文回答均来自对应 predictions 文件，中文部分为医学要点归纳。
+
+<details>
+<summary><strong>InternVL3-14B</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis: Suspicious Solid Breast Lesion, Further Evaluation with Biopsy Recommended.**</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：可疑乳腺实性病灶。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion
+
+The solid lesion within the dense right breast parenchyma necessitates thorough clinical and imaging follow-up to differentiate between benign and malignant etiologies. Given her age and the characteristics typical of breast lesions, both benign and malignant possibilities need consideration. Biopsy and possibly additional imaging modalities such as MRI are warranted to ensure accurate diagnosis and appropriate management. 
+
+### Final Recommendations
+
+- Schedule a biopsy (preferably ultrasound-guided core needle biopsy) to obtain a histological diagnosis.
+- Consider MRI for further evaluation if initial findings remain inconclusive.
+- Engage in a multidisciplinary discussion involving radiologists, surgeons, and possibly genetic counselors for comprehensive care planning.
+
+This comprehensive approach will ensure that the patient receives an accurate diagnosis and timely intervention if malignancy is confirmed.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：乳腺癌、浸润性导管癌、纤维腺瘤。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：BI-RADS 4/可疑病灶（否定/鉴别）、建议活检（否定/鉴别）；加入 segmentation 后：建议活检（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>InternVL3.5-14B</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**  
+The ultrasound findings, combined with dense breast tissue and the patient’s age, strongly suggest a **malignant solid lesion** requiring immediate biopsy. Early intervention is critical given the patient’s risk profile.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：纤维腺瘤、浸润性导管癌、乳腺癌。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**  
+The ultrasound findings suggest a **suspicious solid lesion** with features concerning for malignancy. Given the patient’s age, dense breasts, and lesion characteristics, prompt biopsy is warranted to rule out invasive breast carcinoma. The maternal colon cancer history is less directly relevant unless further familial risk assessment is indicated post-diagnosis.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：乳腺癌。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：BI-RADS 4/可疑病灶（文本提及）、建议活检（结论）、恶性倾向超声征象（文本提及）；加入 segmentation 后：BI-RADS 4/可疑病灶（结论）、建议活检（结论）、恶性倾向超声征象（否定/鉴别）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Lingshu-32B</strong>：无明确增益：仅在鉴别或否定语境中提及关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The ultrasound images show a solid lesion in the left breast of a 50-year-old female with dense breast parenchyma. The lesion appears well-defined and hypoechoic compared to the surrounding tissue. Given the patient&#x27;s age, dense breast tissue, and the presence of a solid lesion, further evaluation is necessary. The differential diagnosis could include benign conditions such as fibroadenoma or cyst, but given the solid nature of the lesion, malignancy cannot be ruled out. A biopsy would be recommended to determine the exact nature of the lesion.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：纤维腺瘤。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The ultrasound images show a solid lesion in the left breast of a 50-year-old female patient with dense breast parenchyma. The lesion appears well-defined and hypoechoic compared to the surrounding tissue. Given the patient&#x27;s age, dense breast tissue, and the presence of a solid lesion, further evaluation is warranted. The differential diagnosis includes benign conditions such as fibroadenoma or cyst, but given the solid nature of the lesion, malignancy cannot be ruled out. A biopsy would be recommended to determine the exact nature of the lesion. The absence of family history of breast carcinoma slightly reduces the risk, but does not eliminate it. The lesion&#x27;s characteristics on ultrasound, including its size, shape, and echogenicity, should be carefully evaluated by a radiologist to guide the next steps in management.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：乳腺癌、纤维腺瘤。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：建议活检（否定/鉴别）；加入 segmentation 后：建议活检（否定/鉴别）。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedGemma-27B-IT</strong>：基本持平：前后均提及部分参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is a **fibroadenoma**.
+
+**Next Steps:**
+
+*   **BI-RADS Category:** Based on these features, the lesion would likely be classified as BI-RADS 3 (Probably Benign) or BI-RADS 4A (Low Suspicion for Malignancy).
+*   **Management:**
+    *   **BI-RADS 3:** Short-interval follow-up ultrasound (e.g., in 6 months) is typically recommended to ensure stability.
+    *   **BI-RADS 4A:** Core needle biopsy is often recommended to confirm the diagnosis, especially given the patient&#x27;s age and dense breasts.
+*   **Core Needle Biopsy:** If performed, the biopsy would likely confirm a fibroadenoma or another benign process.
+
+**Important Considerations:**
+
+*   While the features are highly suggestive of benignity, malignancy cannot be entirely excluded based on imaging alone, especially in a 50-year-old woman.
+*   Dense breast tissue can make ultrasound interpretation more challenging and increases the risk of missed cancers.
+*   The decision for biopsy versus follow-up depends on the radiologist&#x27;s assessment, institutional protocols, and patient factors.
+
+**Disclaimer:** This is an interpretation based solely on the provided image and limited clinical information. A definitive diagnosis requires correlation with clinical findings, patient history, and potentially biopsy results.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：纤维腺瘤。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The ultrasound image shows a suspicious solid lesion in the left breast of a 50-year-old woman with dense breast parenchyma. While the image itself doesn&#x27;t provide a definitive diagnosis, the features are concerning for malignancy. A biopsy is required for definitive diagnosis and further management planning.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：乳腺癌。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：BI-RADS 4/可疑病灶（结论）、建议活检（结论）；加入 segmentation 后：BI-RADS 4/可疑病灶（结论）、建议活检（文本提及）、恶性倾向超声征象（文本提及）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedMO-8B</strong>：负向：参考关键点减少或被错误结论取代</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>BI-RADS 4</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The patient has a solid lesion in her left breast.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：BI-RADS 4/可疑病灶（结论）；加入 segmentation 后：未命中核心征象。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-4B</strong>：负向：参考关键点减少或被错误结论取代</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+ut does not eliminate risk.
+- The lesion is **not yet biopsied or confirmed** — this is an imaging finding requiring further evaluation.
+
+---
+
+**Recommended Next Steps:**
+
+1. **Biopsy:** Given the solid nature of the lesion and the patient’s age and dense breast tissue, **a core biopsy or fine-needle aspiration (FNA)** is indicated to obtain histopathological confirmation.
+2. **Follow-up Imaging:** If biopsy is not immediately available, a repeat ultrasound in 3–6 months or a diagnostic mammogram may be considered to monitor for changes.
+3. **Clinical Correlation:** The lesion should be evaluated in conjunction with clinical symptoms (e.g., pain, nipple discharge, skin changes) and other imaging findings.
+
+---
+
+**Diagnosis (at this stage):**
+
+&gt; **Suspicious solid lesion in left breast — requires biopsy for definitive diagnosis.**
+
+**No definitive diagnosis can be made based on ultrasound alone.** The lesion is **not benign** — it is **not a benign cyst or fibroadenoma** based on the imaging features, and **not a known benign finding** in a 50-year-old woman with dense breasts. The lesion is **not cancerous**, but **cannot be ruled out** — and therefore **requires biopsy**.
+
+---
+
+**Summary:**
+
+- **Image:** Solid, hypoechoic, well-defined lesion in left breast.
+- **Patient Risk Factors:** Age 50, dense breast tissue — high risk for breast cancer.
+- **Diagnostic Uncertainty:** Ultrasound is inconclusive for benign vs. malignant — biopsy is required.
+- **Next Step:** **Biopsy** to determine if the lesion is benign or malignant.
+
+---
+
+**Final Note:**
+This is a **clinical case requiring further diagnostic evaluation**, not a definitive diagnosis. The ultrasound is suggestive of a **malignant or suspicious lesion**, but **cannot confirm** it without histopathological analysis.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：乳腺癌、纤维腺瘤。涉及的主要影像要点包括：钙化。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+impression based on imaging**. A definitive diagnosis requires a biopsy. The lesion should be biopsied to determine if it is benign or malignant. The patient should be referred to a breast specialist for further evaluation.
+
+**Summary:**
+The patient is 50 years old with a solid lesion in her left breast on ultrasound. The lesion is well-defined and solid, which raises concern for malignancy. Given the patient’s age and the solid nature of the lesion, further diagnostic evaluation (biopsy) is strongly recommended. The absence of a family history of breast cancer does not rule out the possibility of a new primary tumor. The dense breast tissue complicates imaging, but the solid nature of the lesion is a key indicator of potential malignancy.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：乳腺癌。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：BI-RADS 4/可疑病灶（文本提及）、建议活检（结论）；加入 segmentation 后：BI-RADS 4/可疑病灶（文本提及）、建议活检（文本提及）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-8B</strong>：负向：参考关键点减少或被错误结论取代</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+
+**BI-RADS 4: Suspicious abnormality — Recommend biopsy.**
+
+This is a prudent approach given the patient’s age and the lesion’s characteristics.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：乳腺癌、纤维腺瘤。涉及的主要影像要点包括：钙化。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+- **Left Breast Lesion (A):** Likely benign solid mass (e.g., fibroadenoma or cyst).
+- **Right Breast Lesion (B):** Likely benign solid mass (e.g., fibroadenoma or cyst).
+
+**Recommendation:**
+- Further evaluation with additional imaging or biopsy if there are any concerns about malignancy.
+- Follow-up with annual screening mammograms and ultrasound as appropriate.
+
+**Disclaimer:** This diagnosis is based on the provided imaging and clinical information. A definitive diagnosis requires further evaluation by a radiologist or oncologist.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：纤维腺瘤。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：BI-RADS 4/可疑病灶（文本提及）、建议活检（文本提及）、恶性倾向超声征象（文本提及）；加入 segmentation 后：建议活检（结论）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_END -->
+
+
 ### 2.3 [Chilaiditi sign](https://radiopaedia.org/cases/chilaiditi-sign-2?lang=us) (`chilaiditi-sign-2`)
 
 | Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel | BiomedParse v1: lung, heart, diaphragm, bowel | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
@@ -4124,6 +4764,311 @@ Normal findings in the chest.</pre>
 
 </details>
 
+<!-- ALL_OPEN_MODELS_CAPTION_START -->
+#### 8 个开源模型的 Caption 对比总览
+
+下表的“命中”区分模型是在结论中采用该征象、仅在正文中提及，还是在否定/鉴别语境中出现；它用于快速定位变化，不能代替下方逐模型原文核对。
+
+| 模型 | 原始单图 caption | 原图 + Segmentation caption | 影响判断 |
+|---|---|---|---|
+| InternVL3-14B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| InternVL3.5-14B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Lingshu-32B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| MedGemma-27B-IT | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| MedMO-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 负面：始终未识别膈下结肠袢 |
+| Qwen3-VL-4B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-32B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+
+#### 其余 7 个开源模型的逐项分析
+
+本病例现有代表模型的人工分析已保留在本小节上方；以下补充其余 7 个模型。所有英文回答均来自对应 predictions 文件，中文部分为医学要点归纳。
+
+<details>
+<summary><strong>InternVL3-14B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:
+The combination of patient history and radiographic findings strongly supports a diagnosis of pneumonia. The broad, diffuse nature of the lung changes aligns with both bacterial and atypical pneumonias, considering the age and acute presentation. Further clinical correlation, including sputum analysis, blood tests (inflammatory markers, CRP), and possibly sputum culture or viral studies, would be necessary to confirm the specific etiology. Management should be tailored towards empirical antibiotic therapy while awaiting diagnostic confirmation. If the clinical status does not improve, further imaging or specialist consultation may be required to rule out other differential diagnoses.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：膈肌异常或定位、心影异常、肺实变。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+   - The combination of clinical presentation and radiological findings suggest a possible diagnosis of pneumonia. This condition is common in adults presenting with chronic cough, and the X-ray findings such as increased opacity in the lung field support this hypothesis.
+
+Further clinical correlation and possibly additional imaging or microbiological tests may be needed for confirmation and to guide appropriate treatment.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变、肺部致密影。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>InternVL3.5-14B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**  
+**Community-acquired pneumonia (CAP) with bilateral pleural effusions**, predominantly on the right.  
+
+**Rationale:**  
+- The acute cough and imaging findings (lower lobe opacities + effusions) align with bacterial pneumonia.  
+- Pleural effusion may result from direct spread of infection or secondary inflammatory response.  
+- Absence of cardiomegaly or pulmonary edema makes heart failure less likely.  
+- No radiographic features suggest alternative diagnoses (e.g., pulmonary embolism, malignancy).  
+
+**Next Steps:**  
+1. **Thoracentesis**: Analyze pleural fluid (cell count, culture, PCR for pathogens like *Legionella* or *Mycoplasma*).  
+2. **Sputum culture/PCR**: Identify causative organism.  
+3. **Consider CT chest** if diagnosis remains unclear or if complications (e.g., abscess) are suspected.  
+4. **Empirical antibiotic therapy**: Initiate based on local guidelines for CAP.  
+
+This approach addresses the likely infectious etiology while ruling out other differential diagnoses through targeted investigation.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺栓塞、心力衰竭、肺水肿、心脏增大。涉及的主要影像要点包括：胸膜腔液体、心影异常、肺实变、膈肌异常或定位。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**  
+The chest X-ray findings, combined with the clinical presentation, strongly suggest **right lower lobe pneumonia**. Prompt antimicrobial therapy and monitoring are advised.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变、膈肌异常或定位、肺部致密影。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Lingshu-32B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The chest x-ray shows an elevated left hemidiaphragm with a large opacity in the left lower lung field. This opacity is consistent with a pleural effusion or consolidation. The right lung appears clear. Given the patient&#x27;s age and gender, along with the presentation of a one-week cough, the findings suggest a possible pneumonia or pleural effusion. Further clinical correlation and possibly additional imaging or diagnostic tests would be necessary to confirm the diagnosis.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：胸腔积液、肺炎。涉及的主要影像要点包括：肺实变、膈肌异常或定位。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The chest X-ray shows a posteroanterior view with notable findings in the left hemithorax. There is a large area of increased opacity in the left lower zone, which could indicate consolidation or pleural effusion. The left diaphragm appears elevated, suggesting possible atelectasis or volume loss in the left lung. The heart size appears within normal limits, but the mediastinal contours are slightly shifted towards the left, which may be secondary to the volume loss in the left lung. Given the patient&#x27;s presentation with a one-week history of cough, these radiographic findings are suggestive of pneumonia, possibly complicated by parapneumonic effusion or atelectasis. Further clinical correlation and possibly additional imaging or laboratory tests would be necessary to confirm the diagnosis and rule out other potential causes such as tuberculosis or malignancy.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：结核病、肺不张、肺炎、胸腔积液。涉及的主要影像要点包括：膈肌异常或定位、肺实变。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedGemma-27B-IT</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The chest X-ray shows some increased opacity in the lower lung fields, particularly on the right. While not definitive for a specific diagnosis, this finding warrants further investigation or clinical correlation, especially given the patient&#x27;s cough. The findings are not typical for severe pneumonia or other acute emergencies.
+
+**Disclaimer:** This interpretation is based solely on the provided image and limited clinical information. A definitive diagnosis requires correlation with the patient&#x27;s full clinical history, physical examination findings, and potentially further investigations (like CT scan or sputum analysis).</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变、膈肌异常或定位。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis based solely on this image is **pneumonia**. However, further clinical evaluation, including patient history, physical examination, and potentially other tests (like sputum culture or CT scan), would be necessary to confirm the diagnosis and determine the specific cause.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变、膈肌异常或定位、心影异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-4B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+
+**Normal Chest X-ray**
+
+The chest X-ray is unremarkable and consistent with a healthy thoracic cavity. Given the patient’s presentation of a one-week cough, this finding suggests that the cough may be due to a non-acute, non-infectious, or self-limiting cause such as:
+
+- **Post-nasal drip or chronic sinusitis** (common in older adults)
+- **Gastroesophageal reflux disease (GERD)** — which can cause chronic cough
+- **Environmental irritants or allergies**
+- **Bronchitis (acute or chronic)**
+- **Idiopathic cough**
+
+No acute or structural pathology is visible on this image, and the patient may require further evaluation (e.g., spirometry, sputum analysis, or referral to ENT or pulmonology) to determine the underlying cause of the cough.
+
+**Recommendation:**
+
+Follow-up with clinical assessment and possibly a sputum test or bronchoscopy if symptoms persist or worsen. Consider a repeat imaging if symptoms do not resolve or if new findings develop.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：胃食管反流病、胸部未见明显异常。涉及的主要影像要点包括：心影异常、膈肌异常或定位、肺实变。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Final Diagnosis**:
+**Pneumonia** (likely community-acquired) with **mediastinal widening** and **pleural effusion**.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：胸腔积液、肺炎。涉及的主要影像要点包括：纵隔移位、膈肌异常或定位。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-8B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis, other possibilities such as **lung cancer** or **infarction** should be considered, especially if the patient has risk factors (e.g., smoking, prior malignancy). However, given the acute presentation and the appearance of consolidation, pneumonia is the most likely cause.
+
+---
+
+**Disclaimer:** This interpretation is based on the provided image and patient data. A definitive diagnosis requires clinical correlation, additional investigations, and possibly further imaging or laboratory tests.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎、肺癌。涉及的主要影像要点包括：肺实变、心影异常、膈肌异常或定位。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis given the patient&#x27;s age and symptoms.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎、肺栓塞、心力衰竭、心脏增大。涉及的主要影像要点包括：肺实变、膈肌异常或定位。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-32B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+
+**Left lower lobe consolidation, likely due to pneumonia.**
+
+**Clinical Action:** Initiate appropriate antibiotic therapy based on local guidelines and clinical context, and monitor for response.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变、纵隔移位、膈肌异常或定位。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The chest X-ray demonstrates **right lower lobe atelectasis** with associated **mediastinal shift**. While this may be due to a benign cause (e.g., mucus plug or infection), **malignancy must be ruled out** in a 50-year-old male with persistent cough. Further evaluation with CT chest is strongly advised.
+
+--- 
+
+**Note**: The segmentation outputs from various models (Medical-SAM2, Medical-SAM3, BiomedParse, TorchXRayVision) support the radiographic findings — particularly the volume loss and density changes in the right lung — though some models have limitations in segmentation accuracy in the presence of atelectasis.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺不张。涉及的主要影像要点包括：纵隔移位、肺实变、心影异常、膈肌异常或定位。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_END -->
+
+
 ### 2.4 [Choroid plexus cyst - antenatal](https://radiopaedia.org/cases/choroid-plexus-cyst-antenatal?lang=us) (`choroid-plexus-cyst-antenatal`)
 
 | Original image | Medical-SAM2 | Medical-SAM3: fetal brain, choroid plexus, lateral ventricle | BiomedParse v1: fetal brain, choroid plexus, lateral ventricle |
@@ -4165,6 +5110,278 @@ Normal findings in the chest.</pre>
 segmentation 纠正了原始 caption 对脑室扩大的过度诊断，并让模型准确说明观察对象是脉络丛和侧脑室；但它把病例改判为完全正常，仍未看到右侧小脉络丛囊肿。因此帮助主要体现在解剖定位，而非病灶识别。
 
 </details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_START -->
+#### 8 个开源模型的 Caption 对比总览
+
+下表的“命中”区分模型是在结论中采用该征象、仅在正文中提及，还是在否定/鉴别语境中出现；它用于快速定位变化，不能代替下方逐模型原文核对。
+
+| 模型 | 原始单图 caption | 原图 + Segmentation caption | 影响判断 |
+|---|---|---|---|
+| InternVL3-14B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| InternVL3.5-14B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Lingshu-32B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 部分有帮助：纠正脑室扩大，但遗漏小囊肿 |
+| MedGemma-27B-IT | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| MedMO-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-4B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-32B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+
+#### 其余 7 个开源模型的逐项分析
+
+本病例现有代表模型的人工分析已保留在本小节上方；以下补充其余 7 个模型。所有英文回答均来自对应 predictions 文件，中文部分为医学要点归纳。
+
+<details>
+<summary><strong>InternVL3-14B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion
+Without additional views or clinical correlation, precise diagnosis can be challenging, but the image shows significant echogenic areas that warrant further investigation. If a central cardiac echogenic focus is present, a follow-up echocardiogram could be beneficial. Additionally, correlation with other modalities or sequences of the ultrasound can help establish a definitive diagnosis. For instance:
+- **Detailed Fetal Cardiac Ultrasound:** To confirm any cardiac structure anomalies.
+- **Placental Assessment:** To ensure normal placental thickness and vascularity if the structure is in the placenta region.
+- **Serial Imaging:** To monitor any changes over time if initial findings are inconclusive.
+
+This general approach ensures thorough assessment while the pregnancy progresses, providing necessary reassurance or actionable insights for potential anomalies.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：脉络丛异常。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:
+Based on the provided ultrasound images and segments, there is no evident deviation from normal anatomical features at 26 weeks gestation. However, a comprehensive and professional analysis by a medical practitioner specializing in prenatal imaging should be conducted to confirm the healthy development of these structures and rule out any potential abnormalities.
+
+The normal development of the choroid plexus and lateral ventricles, at this stage, contributes to the overall healthy brain development in the fetus. Any deviations from the norm would generally require further investigation and monitoring.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：脑室扩大。涉及的主要影像要点包括：脉络丛异常、脑室扩大。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>InternVL3.5-14B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The ultrasound findings suggest possible ventriculomegaly and microcephaly. Further diagnostic workup and close monitoring are essential to determine the underlying cause and appropriate management plan. Collaboration with a maternal-fetal medicine specialist and a pediatric neurologist may be beneficial for comprehensive care.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：脑室扩大。涉及的主要影像要点包括：脑室扩大、胼胝体改变。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is a **normal fetal brain ultrasound** for gestational age. Any deviations from expected norms (e.g., enlarged ventricles) would require further investigation.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：脑室扩大、脑积水。涉及的主要影像要点包括：脑室扩大、脉络丛异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedGemma-27B-IT</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The fetal brain ultrasound at 26 weeks gestation appears normal.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：脑室扩大。涉及的主要影像要点包括：脑室扩大、胼胝体改变、第三脑室异常。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+
+Based on the image and the provided information (routine evaluation at 26 weeks gestation), the image appears to be a normal anatomical view of the fetal brain. There are no obvious gross abnormalities visible in this single axial slice. The structures are appropriately positioned and sized for the gestational age.
+
+**Note:** A definitive diagnosis requires a comprehensive evaluation of multiple views (axial, coronal, sagittal) and measurements of specific structures (e.g., BPD, HC, AC, ventricular size, cerebellar dimensions) by a trained professional. This description is based solely on the provided single image.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：脉络丛异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedMO-8B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The fetal heart rate is 165 beats per minute. The fetal movements are normal. The placenta is anterior and located in the lower uterine segment. The placenta is not covering the internal cervical os. The uterus is normal. The fetal position is right occiput anterior.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>This image shows a fetus at 26 weeks gestation. The fetus is in the transverse lie position. The fetus is not in a normal position.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-4B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis: Normal fetal brain at 26 weeks gestation.
+
+This is a routine, unremarkable sonographic finding. No structural abnormalities, anomalies, or signs of pathology are evident in this image. The fetal brain morphology is consistent with expected development at this gestational age.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:
+
+This is a **normal fetal brain ultrasound at 26 weeks gestation**. The segmentation results confirm the normal anatomical structures of the brain, including the lateral ventricles, choroid plexus, and brain parenchyma. No abnormalities are detected. The patient is undergoing a routine evaluation, and this image is consistent with normal fetal development.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：脑积水、脑室扩大。涉及的主要影像要点包括：脉络丛异常、脑室扩大。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-8B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis: Normal fetal anatomy at 26 weeks gestation.**</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+final diagnosis should be made by a qualified sonographer or radiologist based on the entire ultrasound examination and clinical context.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：脑积水、脑室扩大。涉及的主要影像要点包括：脑室扩大、脉络丛异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-32B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+This is a **normal fetal brain ultrasound** at 26 weeks gestation. The anatomy is appropriately developed, and no abnormalities are detected in this coronal view. Routine follow-up ultrasound is recommended to continue monitoring fetal growth and development.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：脑室扩大。涉及的主要影像要点包括：胼胝体改变、脑室扩大、脉络丛异常。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis: Normal fetal brain anatomy at 26 weeks gestation. No abnormalities detected.**</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：脑积水、脑室扩大。涉及的主要影像要点包括：胼胝体改变、脑室扩大、脉络丛异常、第三脑室异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_END -->
+
 
 ### 2.5 [Congenital diaphragmatic hernia](https://radiopaedia.org/cases/congenital-diaphragmatic-hernia?lang=us) (`congenital-diaphragmatic-hernia`)
 
@@ -4337,6 +5554,300 @@ This neonate presents with **respiratory distress**, and the X-ray demonstrates 
 
 </details>
 
+<!-- ALL_OPEN_MODELS_CAPTION_START -->
+#### 8 个开源模型的 Caption 对比总览
+
+下表的“命中”区分模型是在结论中采用该征象、仅在正文中提及，还是在否定/鉴别语境中出现；它用于快速定位变化，不能代替下方逐模型原文核对。
+
+| 模型 | 原始单图 caption | 原图 + Segmentation caption | 影响判断 |
+|---|---|---|---|
+| InternVL3-14B | 先天性膈疝（文本提及）、胸腔内含气肠袢（文本提及）、心影/纵隔右移（文本提及） | 心影/纵隔右移（结论） | 负向：参考关键点减少或被错误结论取代 |
+| InternVL3.5-14B | 胸腔内含气肠袢（文本提及）、心影/纵隔右移（结论） | 先天性膈疝（文本提及）、胸腔内含气肠袢（文本提及）、心影/纵隔右移（结论） | 正向：新增或强化参考关键点 |
+| Lingshu-32B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| MedGemma-27B-IT | 未命中参考 caption 的核心征象 | 胸腔内含气肠袢（文本提及） | 正向：新增或强化参考关键点 |
+| MedMO-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-4B | 未命中参考 caption 的核心征象 | 胸腔内含气肠袢（文本提及）、心影/纵隔右移（文本提及） | 正向：新增或强化参考关键点 |
+| Qwen3-VL-8B | 胸腔内含气肠袢（否定/鉴别） | 未命中参考 caption 的核心征象 | 无明确增益：仅在鉴别或否定语境中提及关键点 |
+| Qwen3-VL-32B | 先天性膈疝（文本提及）、胸腔内含气肠袢（文本提及）、心影/纵隔右移（否定/鉴别） | 先天性膈疝（否定/鉴别）、胸腔内含气肠袢（文本提及）、心影/纵隔右移（文本提及） | 负面：不完整肺分割被误读为张力性气胸 |
+
+#### 其余 7 个开源模型的逐项分析
+
+本病例现有代表模型的人工分析已保留在本小节上方；以下补充其余 7 个模型。所有英文回答均来自对应 predictions 文件，中文部分为医学要点归纳。
+
+<details>
+<summary><strong>InternVL3-14B</strong>：负向：参考关键点减少或被错误结论取代</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:
+
+Combining the clinical presentation of respiratory distress in a neonate with the X-ray findings, the differential diagnosis can be narrowed down with further clinical correlation. Given the prominence and context:
+
+- **Most likely scenario:** **Respiratory Distress Syndrome (RDS)** due to surfactant deficiency, particularly if the neonate is preterm. The X-ray would typically show bilateral ground-glass opacity and air bronchograms, common in RDS.
+ 
+- **Alternatively:** Further imaging and clinical data would be required to rule out CDH or other congenital abnormalities, especially if there are signs of bowel gas patterns within the thoracic cavity.
+
+Prompt clinical follow-up with additional tests (e.g., blood gas analysis, possibly a sagittal abdominal X-ray if CDH is suspected) is essential for accurate diagnosis and treatment planning. Early intervention is pivotal in neonates with respiratory distress.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：呼吸窘迫综合征。涉及的主要影像要点包括：肺实变、肺部致密影、纵隔移位、膈肌异常或定位。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis based on the imaging findings is **Pneumothorax** on the left side. The absence of lung markings in the left hemithorax, alongside the mediastinal shift, is indicative of this condition. In neonates, pneumothorax can occur due to various reasons including birth trauma or underlying lung disorders. 
+
+### Management Recommendation:
+
+Immediate clinical correlation and further assessment would be needed. Interventions may include the following steps:
+- **Clinical Examination**: Immediate bedside assessment to check for signs of respiratory distress or other abnormalities.
+- **Bolstering Oxygenation**: Ensuring the baby is receiving adequate oxygen.
+- **Supplemental Interventions**: Possible chest tube insertion if there is a tension pneumothorax or significant collapse of the lung tissue.
+- **Further Investigations**: Ultrasound or repeat radiography to confirm and assess the extent of the pneumothorax.
+
+This interpretation should be correlated with clinical findings and managed by a neonatologist or a respiratory specialist for the best patient care.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：气胸、张力性气胸。涉及的主要影像要点包括：纵隔移位、膈肌异常或定位、胃泡位置异常、心影异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：先天性膈疝（文本提及）、胸腔内含气肠袢（文本提及）、心影/纵隔右移（文本提及）；加入 segmentation 后：心影/纵隔右移（结论）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>InternVL3.5-14B</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is **tension pneumothorax** on the left side, leading to significant mediastinal shift and respiratory distress. The elevated left hemidiaphragm and bowel gas pattern support this diagnosis. However, severe atelectasis or meconium aspiration syndrome could also present similarly in a neonate.
+
+**Recommendations:**
+
+Immediate clinical evaluation and intervention are necessary. If tension pneumothorax is confirmed, urgent decompression (e.g., needle thoracostomy) followed by chest tube placement is critical. Further imaging and clinical correlation are essential for definitive diagnosis and management.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：气胸、张力性气胸、肺不张。涉及的主要影像要点包括：膈肌异常或定位、纵隔移位、肺实变。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The neonate&#x27;s respiratory distress, combined with the radiographic findings of increased opacity in the right lung, elevated right hemidiaphragm, and mediastinal shift, suggests a significant pulmonary pathology such as RDS or pneumonia. Immediate clinical evaluation and supportive care are essential, with further diagnostic tests to confirm the underlying cause and guide treatment.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：纵隔移位、膈肌异常或定位、肺实变。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：胸腔内含气肠袢（文本提及）、心影/纵隔右移（结论）；加入 segmentation 后：先天性膈疝（文本提及）、胸腔内含气肠袢（文本提及）、心影/纵隔右移（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Lingshu-32B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The chest x-ray shows a neonate with respiratory distress. The lungs appear to have diffuse opacities, which could indicate pulmonary edema or other respiratory conditions. The heart size appears normal, and there is no evidence of pneumothorax or pleural effusion. Given the patient&#x27;s age and presentation, the findings are consistent with neonatal respiratory distress syndrome (RDS), also known as hyaline membrane disease. This condition is commonly seen in premature infants due to surfactant deficiency, leading to alveolar collapse and impaired gas exchange. Further clinical evaluation and management would be necessary to confirm the diagnosis and provide appropriate treatment.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺透明膜病、呼吸窘迫综合征、胸腔积液、气胸。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis: The findings are consistent with neonatal respiratory distress syndrome (RDS), likely due to surfactant deficiency. The presence of an endotracheal tube indicates that the infant is receiving ventilatory support, which is appropriate for managing RDS. Further clinical correlation and monitoring are necessary to assess the progression and response to treatment.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：呼吸窘迫综合征。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedGemma-27B-IT</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The X-ray shows a neonate with an endotracheal tube and orogastric tube, indicating respiratory distress requiring intervention. The lung fields show some subtle haziness, which is non-specific but could be consistent with several common causes of neonatal respiratory distress. Further clinical information (gestational age, birth history, Apgar scores, blood gases, etc.) and potentially additional imaging (lateral view, echocardiogram) would be needed for a more specific diagnosis.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎、心脏增大、肺水肿、胸腔积液。涉及的主要影像要点包括：肺实变、膈肌异常或定位。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The X-ray shows supportive devices (ETT, NG tube) and some subtle findings in the lungs. Without more specific clinical information (gestational age, delivery history, Apgar scores, etc.) or more definitive radiographic signs, a precise diagnosis is difficult based solely on this image. The findings are consistent with respiratory distress in a neonate, and further clinical evaluation and potentially additional imaging (like a lateral view or echocardiogram) would be needed to narrow down the specific cause.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：呼吸窘迫综合征、心脏增大、肺炎、胸腔积液。涉及的主要影像要点包括：肺实变、膈肌异常或定位、心影异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：胸腔内含气肠袢（文本提及）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedMO-8B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The lungs are clear. The heart is not enlarged. The mediastinum is normal.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>Chest x-ray shows the presence of bilateral pleural effusions.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：胸腔积液。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-4B</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The X-ray is consistent with **Transient Tachypnea of the Newborn (TTN)**, a common and self-limiting condition that typically resolves within 24–72 hours without specific treatment. The patient may require supportive care, including oxygen therapy and monitoring, but the prognosis is excellent.
+
+**Note:** If the patient is not improving or if there is a worsening of symptoms, further evaluation for other causes of neonatal respiratory distress (e.g., pneumonia, meconium aspiration, or congenital anomalies) is warranted.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：膈肌异常或定位。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis: Neonatal Respiratory Distress Syndrome (NRDS)**
+
+This is a common and serious condition in premature infants, caused by a deficiency of pulmonary surfactant, which is essential for keeping the alveoli open. The diagnosis is confirmed by the characteristic X-ray findings of diffuse, bilateral opacities and reduced lung volume. Treatment typically involves surfactant therapy and mechanical ventilation.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：呼吸窘迫综合征。涉及的主要影像要点包括：膈肌异常或定位。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：胸腔内含气肠袢（文本提及）、心影/纵隔右移（文本提及）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-8B</strong>：无明确增益：仅在鉴别或否定语境中提及关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is **Bronchiolitis**.
+
+**Rationale:**
+
+In neonates, bronchiolitis is a common cause of respiratory distress and is often caused by viral infections (most commonly Respiratory Syncytial Virus - RSV). The X-ray findings are highly characteristic:
+
+*   **Hyperinflation and Flattened Diaphragm:** These are due to air trapping from obstructed small airways.
+*   **Reduced Vascular Markings:** This reflects the loss of normal lung parenchyma due to airway obstruction and overinflation.
+*   **Air Bronchograms:** These are often seen in bronchiolitis as the air-filled bronchi become visible against the background of consolidated or hyperinflated lung tissue.
+
+While other conditions like asthma or congenital heart disease can cause similar findings, the combination of neonatal age, respiratory distress, and the specific radiographic pattern strongly points to bronchiolitis. Further clinical correlation (e.g., fever, wheezing, oxygen saturation) and laboratory tests (e.g., PCR for RSV) would be needed for confirmation, but the X-ray is highly suggestive.
+
+**Note:** This diagnosis is based on the image and the patient&#x27;s age and presentation. Further clinical evaluation is necessary for a definitive diagnosis and management plan.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：细支气管炎。涉及的主要影像要点包括：膈肌异常或定位。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+conclusion, the X-ray demonstrates severe bilateral lung consolidation in a neonate with respiratory distress, which is most consistent with a diagnosis of **neonatal pneumonia**. This is a critical finding requiring immediate medical intervention.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变、膈肌异常或定位。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：胸腔内含气肠袢（否定/鉴别）；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_END -->
+
+
 ### 2.6 [First trimester oligohydramnios](https://radiopaedia.org/cases/first-trimester-oligohydramnios?lang=us) (`first-trimester-oligohydramnios`)
 
 | Original image | Medical-SAM2 | Medical-SAM3: uterus, gestational sac, embryo, amniotic fluid | BiomedParse v1: uterus, gestational sac, embryo, amniotic fluid |
@@ -4379,6 +5890,313 @@ This neonate presents with **respiratory distress**, and the X-ray demonstrates 
 
 </details>
 
+<!-- ALL_OPEN_MODELS_CAPTION_START -->
+#### 8 个开源模型的 Caption 对比总览
+
+下表的“命中”区分模型是在结论中采用该征象、仅在正文中提及，还是在否定/鉴别语境中出现；它用于快速定位变化，不能代替下方逐模型原文核对。
+
+| 模型 | 原始单图 caption | 原图 + Segmentation caption | 影响判断 |
+|---|---|---|---|
+| InternVL3-14B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| InternVL3.5-14B | 不良妊娠预后（否定/鉴别） | 未命中参考 caption 的核心征象 | 无明确增益：仅在鉴别或否定语境中提及关键点 |
+| Lingshu-32B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：只确认早孕结构，未比较孕囊与胚胎比例 |
+| MedGemma-27B-IT | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| MedMO-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-4B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-32B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+
+#### 其余 7 个开源模型的逐项分析
+
+本病例现有代表模型的人工分析已保留在本小节上方；以下补充其余 7 个模型。所有英文回答均来自对应 predictions 文件，中文部分为医学要点归纳。
+
+<details>
+<summary><strong>InternVL3-14B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:
+
+**Diagnosis**:
+This ultrasound image, at 6 weeks with a CRL of 0.35 cm, shows findings consistent with early normal pregnancy. Specific markers for potential issues (e.g., absence of the fetal pole, yolk sac, or abnormal CRL measurement) are not evident from this single image. Regular follow-up ultrasounds are typically advised to monitor development and confirm a healthy pregnancy.
+
+Further imaging in 1-2 weeks will be essential to confirm the presence of fetal cardiac activity and detailed anatomical development. The current scan doesn&#x27;t offer conclusive signs of abnormalities, but repeated assessments are necessary to ensure typical embryonic development.
+
+### Recommendations:
+- Schedule follow-up ultrasound examination, typically at around 7-8 weeks, to assess fetal development and cardiac activity.
+- Maintain regular prenatal care for further monitoring and any required interventions. 
+
+This description ensures that all critical aspects of the ultrasound findings and implications for the early pregnancy are covered.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：正常妊娠。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion
+
+Based on the ultrasound images and segmentations provided:
+
+- The early pregnancy is located within the uterus and appears to be intrauterine.
+- The presence of the gestational sac with an appropriate CRL measurement suggests normal early embryonic development.
+- No major abnormalities are noted in this initial scan.
+
+Therefore, the ultrasound findings are consistent with a normal, viable early pregnancy at approximately 6 weeks gestation. Clinical follow-up and additional imaging as recommended by the healthcare provider are advisable to monitor the pregnancy progression.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：正常、有活性的早期宫内妊娠。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>InternVL3.5-14B</strong>：无明确增益：仅在鉴别或否定语境中提及关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**  
+This is a normal early pregnancy scan with no apparent complications. Continued monitoring is advised to ensure proper progression.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：异位妊娠。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**  
+The findings suggest a healthy intrauterine pregnancy. The patient should continue prenatal care with close monitoring.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：异位妊娠、正常妊娠。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：不良妊娠预后（否定/鉴别）；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedGemma-27B-IT</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The ultrasound image shows a normal intrauterine pregnancy at approximately 5 weeks and 3 days to 5 weeks and 5 days gestation, consistent with the patient&#x27;s reported amenorrhea. The presence of the gestational sac, yolk sac, and embryo (fetal pole) with a CRL of 0.35 cm are characteristic findings for this gestational age.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+
+Based on the ultrasound findings of a gestational sac within the uterus at 5-6 weeks of amenorrhea, the diagnosis is **Intrauterine Pregnancy**. The presence of the gestational sac confirms that the pregnancy is located inside the uterus, which is the normal and desired location.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedMO-8B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>A 5-6 weeks gestation scan of a female fetus.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The segmentation of Medical-SAM2 is accurate in identifying the uterus, gestational sac, embryo, and amniotic fluid</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-4B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+This ultrasound image is consistent with a normal, viable intrauterine pregnancy at 5–6 weeks gestation. Follow-up scans at 7–8 weeks are recommended to confirm fetal heart activity and continued normal growth.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：异位妊娠。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>At 5–6 weeks of gestation, this transvaginal ultrasound image demonstrates a normal early pregnancy scan. The key findings are as follows:
+
+- **Gestational Sac**: A well-defined, hypoechoic (dark) circular structure is visible in the uterine cavity, consistent with a gestational sac. Its diameter is approximately 2.81 cm, which is within the expected range for 5–6 weeks of gestation.
+- **Embryo**: A small, distinct, and slightly hypoechoic structure (the embryo) is visible within the gestational sac. The crown-rump length (CRL) is measured at 0.35 cm, which is consistent with the expected size for 5–6 weeks of gestation. The embryo appears to be developing normally.
+- **Amniotic Fluid**: The gestational sac contains a small amount of amniotic fluid, which is expected at this stage.
+
+The segmentation results from Medical-SAM2 and BiomedParse both accurately identify the gestational sac, and the segmentation from Medical-SAM3 also correctly outlines the gestational sac and embryo. The image quality is adequate, and there is no evidence of multiple gestations, ectopic pregnancy, or abnormal growth.
+
+**Diagnosis**: This is a normal early pregnancy at 5–6 weeks gestation with a viable embryo. The measurements are consistent with a healthy intrauterine pregnancy. No abnormalities are detected at this stage.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：异位妊娠。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-8B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+- **Normal Early Pregnancy with Visible Yolk Sac**
+- This is a typical finding in an early pregnancy at 5-6 weeks gestation.
+- The presence of a yolk sac within the gestational sac is a reassuring sign of a viable intrauterine pregnancy.
+- The CRL measurement of 0.35 cm is consistent with a very early pregnancy and may not yet allow for clear visualization of the embryo or cardiac activity.
+- At this stage, the absence of a visible embryo or cardiac activity is not necessarily abnormal, as cardiac activity typically becomes visible around 5.5–6 weeks, and the embryo may not be clearly distinguishable until 6–7 weeks.
+
+**Clinical Implication:**
+- This image is reassuring for a viable intrauterine pregnancy.
+- Follow-up ultrasound in 1–2 weeks is recommended to assess for the presence of a fetal heartbeat and further embryonic development.
+- If the pregnancy does not progress or if there are any concerns, further evaluation may be needed.
+
+**Note:** The image is consistent with a normal early pregnancy. No signs of ectopic pregnancy, miscarriage, or other complications are evident at this stage.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：异位妊娠。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+
+**Normal Early Pregnancy with Fetal Heartbeat**
+
+The image demonstrates a viable intrauterine pregnancy at approximately 6 weeks of gestation. The embryo is visible within the gestational sac, and the crown-rump length (CRL) measurement of 0.35 cm is consistent with this gestational age. The presence of a well-defined embryo within the gestational sac is a reassuring sign of a viable pregnancy.
+
+However, it is important to note that at this very early stage (5-6 weeks), the fetal heartbeat is not typically visible on ultrasound. The detection of a fetal heartbeat is usually possible starting at around 6-7 weeks of gestation, depending on the equipment and the position of the embryo. Therefore, while the image is consistent with a normal early pregnancy, the absence of a detectable fetal heartbeat at this stage does not necessarily indicate a problem, as it may simply be too early to visualize it.
+
+In summary, the ultrasound findings are consistent with a normal early pregnancy at 6 weeks of gestation. The patient should be advised to return for a follow-up ultrasound in 1-2 weeks to confirm the presence of a fetal heartbeat and to assess for continued growth.
+
+**Note:** The segmentation masks provided (Medical-SAM2, Medical-SAM3, BiomedParse) appear to be automated segmentation tools that have identified the gestational sac and surrounding structures. While these tools can be helpful in identifying anatomical structures, they should not be relied upon as a sole diagnostic tool and should be interpreted in conjunction with clinical findings and expert ultrasound interpretation.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-32B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+**Normal early intrauterine pregnancy at 6 weeks gestation, with a visible embryo and CRL of 0.35 cm.** No immediate abnormalities detected. Follow-up ultrasound recommended to confirm fetal cardiac activity.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：异位妊娠。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis: Viable intrauterine pregnancy at 6 weeks 0 days gestation, confirmed by fetal pole with CRL of 0.35 cm and gestational sac with MSD of 2.81 cm.**
+
+This is a reassuring early pregnancy scan with no immediate signs of abnormality. Further evaluation with Doppler to confirm fetal heart activity is recommended.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：异位妊娠。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_END -->
+
+
 ### 2.7 [Lytic bone lesion (myeloma)](https://radiopaedia.org/cases/lytic-bone-lesion-myeloma?lang=us) (`lytic-bone-lesion-myeloma`)
 
 | Original image | Medical-SAM2 | Medical-SAM3: bone, bone lesion, humerus | BiomedParse v1: bone, bone lesion, humerus |
@@ -4420,6 +6238,339 @@ This neonate presents with **respiratory distress**, and the X-ray demonstrates 
 segmentation 使模型从完全忽略异常转为明确报告溶骨性病灶，说明候选区域对低对比度骨病灶有帮助；但它把病灶位置误写成肱骨远端，参考 caption 实为右肱骨近端，也没有进一步联系多发性骨髓瘤。
 
 </details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_START -->
+#### 8 个开源模型的 Caption 对比总览
+
+下表的“命中”区分模型是在结论中采用该征象、仅在正文中提及，还是在否定/鉴别语境中出现；它用于快速定位变化，不能代替下方逐模型原文核对。
+
+| 模型 | 原始单图 caption | 原图 + Segmentation caption | 影响判断 |
+|---|---|---|---|
+| InternVL3-14B | 肱骨近端（文本提及） | 未命中参考 caption 的核心征象 | 负向：参考关键点减少或被错误结论取代 |
+| InternVL3.5-14B | 溶骨性病灶（否定/鉴别）、肱骨近端（否定/鉴别） | 未命中参考 caption 的核心征象 | 无明确增益：仅在鉴别或否定语境中提及关键点 |
+| Lingshu-32B | 溶骨性病灶（否定/鉴别） | 溶骨性病灶（否定/鉴别） | 无明确增益：仅在鉴别或否定语境中提及关键点 |
+| MedGemma-27B-IT | 未命中参考 caption 的核心征象 | 肱骨近端（文本提及） | 正向：新增或强化参考关键点 |
+| MedMO-8B | 未命中参考 caption 的核心征象 | 溶骨性病灶（结论） | 有帮助：从未见骨折转为发现溶骨性病灶 |
+| Qwen3-VL-4B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-32B | 肱骨近端（否定/鉴别） | 肱骨近端（文本提及） | 正向：新增或强化参考关键点 |
+
+#### 其余 7 个开源模型的逐项分析
+
+本病例现有代表模型的人工分析已保留在本小节上方；以下补充其余 7 个模型。所有英文回答均来自对应 predictions 文件，中文部分为医学要点归纳。
+
+<details>
+<summary><strong>InternVL3-14B</strong>：负向：参考关键点减少或被错误结论取代</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:
+The X-ray does not show any acute fractures or obvious degenerative changes like significant narrowing of the joint space, but the patient’s symptoms are suggestive of other shoulder pathologies such as rotator cuff tendinitis, impingement, or early osteoarthritis. Given her age and symptomatology, a more comprehensive diagnostic approach such as an MRI or ultrasound might be warranted to evaluate the soft tissues and confirm the presence of tendinopathy or other subtle pathologies.
+
+### Next Steps:
+1. **Clinical Evaluation:**
+   - Detailed physical examination focusing on range of motion, strength, and specific provocative tests for rotator cuff and impingement syndromes.
+   
+2. **Additional Imaging:**
+   - MRI of the shoulder to evaluate the rotator cuff, labrum, and surrounding soft tissues for any pathology.
+
+3. **Intervention:**
+   - Depending on the findings, treatments may range from conservative management (physical therapy, NSAIDs) to surgical intervention if significant rotator cuff tear or fracture is confirmed. 
+
+By integrating clinical findings with further imaging, a more precise diagnosis and effective management plan can be formulated.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：骨关节炎。涉及的主要影像要点包括：钙化。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion and Recommendations
+Given the current X-ray findings and the patient&#x27;s symptoms:
+- No acute fractures or dislocations are evident on this X-ray.
+- Further clinical correlation and possibly additional imaging (like MRI for soft tissues or CT for more detailed bone analysis) may be required to pinpoint the cause of shoulder and humeral pain.
+- Consider evaluating for rotator cuff injuries, tendinitis, or arthritis which might cause similar symptoms.
+- A rheumatology referral or orthopedic assessment might provide further diagnostic guidance and treatment options, especially considering potential soft tissue or intra-articular conditions.
+
+Thus, although the X-ray does not reveal a clear-cut diagnosis for the patient&#x27;s pain, it does not rule out common musculoskeletal issues that would require a comprehensive clinical evaluation.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：骨关节炎。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：肱骨近端（文本提及）；加入 segmentation 后：未命中核心征象。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>InternVL3.5-14B</strong>：无明确增益：仅在鉴别或否定语境中提及关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**  
+The right humeral X-ray is normal, indicating non-osseous etiology for pain (e.g., tendinopathy, impingement). Left shoulder pathology cannot be assessed and requires further evaluation.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：骨关节炎、检查未见明显异常。涉及的主要影像要点包括：钙化、溶骨性病灶。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**  
+The right humerus X-ray shows no acute bony abnormalities. Pain likely stems from **degenerative joint disease** (osteoarthritis of the shoulder/elbow) or **soft tissue pathology** (e.g., rotator cuff tendinopathy). Further evaluation with shoulder-specific X-rays, MRI, or clinical correlation is recommended to address the left shoulder symptoms and confirm the source of right humeral pain.  
+
+**Next Steps:**  
+- Correlate with physical exam (range of motion, tenderness).  
+- Consider imaging of the left shoulder or advanced imaging (MRI) for soft tissues.  
+- Evaluate for systemic causes (e.g., osteoporosis, inflammatory arthritis).</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：骨关节炎。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：溶骨性病灶（否定/鉴别）、肱骨近端（否定/鉴别）；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Lingshu-32B</strong>：无明确增益：仅在鉴别或否定语境中提及关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The X-ray image shows a frontal view of the right humerus. The bone structure appears intact with no visible fractures or dislocations. The cortical margins are smooth, and there is no evidence of periosteal reaction or lytic lesions. The joint spaces, including the shoulder joint, appear normal without any signs of degenerative changes such as osteophytes or joint space narrowing. Given the absence of acute bony abnormalities, the pain reported by the patient may be due to soft tissue issues, such as tendinitis, bursitis, or muscle strain, rather than a bone-related pathology. Further clinical correlation and possibly additional imaging or tests would be necessary to determine the exact cause of the patient&#x27;s symptoms.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：溶骨性病灶。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The X-ray image shows the right humerus in a frontal view. The humerus appears to be intact with no visible fractures or dislocations. The bone density seems normal, and there are no obvious signs of osteolytic or sclerotic lesions. The joint spaces, including the shoulder joint, appear well-preserved without any apparent abnormalities. Given the patient&#x27;s complaint of severe left shoulder and right humeral pain, it is possible that the pain could be due to soft tissue injury, tendinitis, or other non-structural causes not visible on this X-ray. Further clinical evaluation and possibly additional imaging, such as an MRI, might be necessary to identify the exact cause of the pain.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：溶骨性病灶（否定/鉴别）；加入 segmentation 后：溶骨性病灶（否定/鉴别）。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedGemma-27B-IT</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is a **fracture of the left humerus shaft**. The severity and displacement suggest it could be a displaced mid-shaft humeral fracture.
+
+**Additional Considerations:**
+
+*   **Patient&#x27;s Age and Gender:** The patient is a 69-year-old female. Older individuals, especially women, are at higher risk for fractures due to osteoporosis. This could be a fragility fracture.
+*   **Pain Location:** The patient reports pain in the left shoulder and right humerus. The X-ray confirms a left humerus fracture. The right humeral pain needs further investigation, as it could be related or unrelated.
+*   **Further Evaluation:** A clinical examination and potentially additional imaging (like CT scan if complex) might be needed to fully assess the fracture pattern, displacement, and any associated soft tissue injuries. Treatment will depend on the fracture type, displacement, and patient factors.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is a **pathological fracture** or a **tumor** involving the proximal humerus.
+
+*   **Pathological Fracture:** The lesion could represent a weakened area of bone (e.g., due to osteoporosis, metastasis, or a primary bone tumor) that has fractured under normal stress. The deformity suggests a fracture line or significant bone destruction.
+*   **Primary Bone Tumor:** Less common, but possible, especially given the patient&#x27;s age.
+*   **Metastatic Disease:** Given the patient&#x27;s age, metastatic disease to the bone is a significant consideration.
+
+**Further Steps:**
+
+To confirm the diagnosis and determine the exact nature of the lesion, further imaging studies like MRI or CT scans would be necessary. A bone scan could also be helpful to assess for other potential sites of involvement if metastasis is suspected. A biopsy might be required for definitive diagnosis, especially if a tumor is suspected.
+
+**Summary:**
+
+The X-ray shows a significant abnormality/lesion at the proximal end of the left humerus, consistent with the patient&#x27;s complaint of left shoulder pain. The segmentations confirm the location of the lesion. The most likely diagnoses are a pathological fracture or a tumor (primary or metastatic). Further investigation is required.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：肱骨近端（文本提及）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-4B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+The X-ray is normal for the right humerus. The patient’s pain is likely due to non-acute musculoskeletal conditions, with the left shoulder pain most likely originating from rotator cuff or joint pathology, and the right humeral pain possibly due to non-bony musculoskeletal causes or referred pain. No acute bony pathology is evident.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：骨关节炎、骨髓炎。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+**Normal right humerus on X-ray.** The patient&#x27;s pain is likely due to a non-bony pathology, most likely involving soft tissues or joint structures, particularly in the left shoulder. Further diagnostic evaluation is required.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：骨关节炎。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-8B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is:
+
+&gt; **Left Shoulder Pathology (e.g., Rotator Cuff Tear, Calcific Tendinitis, or Osteoarthritis) — likely the primary source of pain.**
+
+The pain in the “right humeral” region is likely a misstatement or mislocalization. The patient may be experiencing pain radiating from the left shoulder down the right arm (e.g., due to referred pain or a neurological issue like cervical radiculopathy), or she may be experiencing bilateral pain from an underlying systemic condition (e.g., osteoporosis, malignancy, or rheumatoid arthritis). However, the X-ray does not show any abnormalities in the right humerus.
+
+**Recommendation:**
+- Obtain an X-ray of the left shoulder to evaluate for rotator cuff tears, osteoarthritis, or other pathology.
+- Consider an MRI of the left shoulder for soft tissue evaluation.
+- Evaluate for cervical spine pathology if neurological symptoms are present.
+- Consider systemic workup if pain is persistent or associated with other symptoms.
+
+In summary, the X-ray is normal for the right humerus and does not explain the patient’s symptoms. The diagnosis should focus on the left shoulder and potentially systemic causes.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：骨关节炎。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+The X-ray findings do not support a diagnosis of a bone injury in the right humerus. The patient&#x27;s symptoms are likely not related to the right humerus, and further evaluation of the left shoulder is necessary to determine the cause of her pain. The right humerus is normal.
+
+**Note:** The segmentation masks provided (Medical-SAM2, Medical-SAM3, BiomedParse) appear to be incorrect or irrelevant for this case, as they highlight areas that are not clinically significant or do not correspond to the patient&#x27;s symptoms. The BiomedParse mask, for example, highlights only the distal humerus (elbow area), which is not the primary site of pain. The Medical-SAM3 mask highlights the entire humerus, which is appropriate, but the patient&#x27;s symptoms are not related to the right humerus.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：钙化。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-32B</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+
+- **Right Upper Extremity X-ray**: **Normal** — no fracture, dislocation, or bony pathology.
+- **Clinical Concern**: The patient’s **left shoulder pain** is not visualized in this image. Therefore, **the imaging does not explain the primary complaint**.
+
+---
+
+**Recommendation:**
+
+- Obtain a **left shoulder X-ray** (AP and lateral views) to evaluate the source of the left shoulder pain.
+- Consider **additional imaging** such as MRI or ultrasound of the left shoulder if soft tissue pathology (e.g., rotator cuff tear, bursitis) is suspected.
+- Evaluate for **osteoporosis-related pain** or **referred pain** (e.g., cardiac, cervical spine) given the patient’s age and bilateral pain pattern.
+- Consider **clinical assessment** for conditions such as rotator cuff syndrome, adhesive capsulitis, or cervical radiculopathy.
+
+---
+
+**Final Note:**
+
+While the provided X-ray is normal, it does not address the patient’s primary symptom — **left shoulder pain**. The right humeral pain may be coincidental or non-specific. **Further imaging and clinical evaluation of the left shoulder are essential for diagnosis.**</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：钙化。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis: Osteoarthritis of the right elbow joint with mild osteopenia of the humerus.**  
+&gt; **Clinical Note: Left shoulder pain not evaluated in this image; further imaging or assessment is needed.**
+
+This patient likely presents with **age-related degenerative joint disease** in the right elbow, contributing to her right humeral pain. The left shoulder pain should be investigated separately.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：骨关节炎。涉及的主要影像要点包括：钙化。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：肱骨近端（否定/鉴别）；加入 segmentation 后：肱骨近端（文本提及）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_END -->
+
 
 ### 2.8 [Mandible fractures](https://radiopaedia.org/cases/mandible-fractures-1?lang=us) (`mandible-fractures-1`)
 
@@ -4512,6 +6663,301 @@ This diagnosis is based on the radiographic evidence and the patient&#x27;s hist
 牙齿解剖和 11 类病变 overlay 明显提高了模型对骨折及根尖周透亮影的敏感性，由“无骨折”转为正确的病变类别。其骨折侧别、两条骨折线的具体走行仍不如参考 caption 完整，但这是剩余病例中较明确的正向 caption 改善。
 
 </details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_START -->
+#### 8 个开源模型的 Caption 对比总览
+
+下表的“命中”区分模型是在结论中采用该征象、仅在正文中提及，还是在否定/鉴别语境中出现；它用于快速定位变化，不能代替下方逐模型原文核对。
+
+| 模型 | 原始单图 caption | 原图 + Segmentation caption | 影响判断 |
+|---|---|---|---|
+| InternVL3-14B | 下颌骨骨折（文本提及）、根尖周透亮病灶（文本提及） | 根尖周透亮病灶（文本提及） | 负向：参考关键点减少或被错误结论取代 |
+| InternVL3.5-14B | 下颌骨骨折（文本提及）、下颌角/体定位（文本提及） | 下颌骨骨折（文本提及）、根尖周透亮病灶（结论） | 正向：新增或强化参考关键点 |
+| Lingshu-32B | 下颌骨骨折（否定/鉴别）、下颌角/体定位（否定/鉴别） | 根尖周透亮病灶（否定/鉴别） | 无明确增益：仅在鉴别或否定语境中提及关键点 |
+| MedGemma-27B-IT | 下颌骨骨折（否定/鉴别） | 下颌骨骨折（否定/鉴别）、根尖周透亮病灶（文本提及） | 正向：新增或强化参考关键点 |
+| MedMO-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-4B | 根尖周透亮病灶（否定/鉴别）、下颌角/体定位（文本提及） | 根尖周透亮病灶（文本提及） | 基本持平：前后均提及部分参考关键点 |
+| Qwen3-VL-8B | 下颌骨骨折（否定/鉴别） | 下颌骨骨折（否定/鉴别）、根尖周透亮病灶（结论）、下颌角/体定位（文本提及） | 有帮助：由未见骨折转为识别下颌骨折和根尖周病灶 |
+| Qwen3-VL-32B | 下颌骨骨折（否定/鉴别）、下颌角/体定位（文本提及） | 下颌骨骨折（否定/鉴别）、根尖周透亮病灶（文本提及） | 基本持平：前后均提及部分参考关键点 |
+
+#### 其余 7 个开源模型的逐项分析
+
+本病例现有代表模型的人工分析已保留在本小节上方；以下补充其余 7 个模型。所有英文回答均来自对应 predictions 文件，中文部分为医学要点归纳。
+
+<details>
+<summary><strong>InternVL3-14B</strong>：负向：参考关键点减少或被错误结论取代</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:
+The orthopantomogram does not show any fractures or dislocations of the teeth or jawbone. However, given the context of an alleged assault, a comprehensive clinical examination including possible additional imaging and assessment of soft tissue injuries is essential to fully evaluate the patient. It&#x27;s crucial to correlate the radiographic findings with the clinical presentation to ensure that any potential but less obvious injuries are addressed.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:
+While this X-ray does not explicitly show overt signs of trauma without comparing it to previous imaging, the alleged assault warrants a detailed evaluation as mentioned. If new fractures, luxations, displacement, or significant changes from expected conditions are observed, they should be considered indicative of trauma. Clinical correlation with physical examination and patient history (assault details) will be crucial to confirm and manage any injuries effectively. Immediate attention is advised, possibly including orthopedic interventions or dental stabilizations.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：根尖周病灶。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：下颌骨骨折（文本提及）、根尖周透亮病灶（文本提及）；加入 segmentation 后：根尖周透亮病灶（文本提及）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>InternVL3.5-14B</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+l incisor: intact. Upper left lateral incisor: intact. Upper canines: both sides look okay. Upper premolars: all seem in place. Upper molars: intact. 
+
+Lower incisors: all present and aligned. Lower canines: intact. Lower premolars: intact. Lower molars: intact. Wisdom teeth: impacted but no obvious fracture. 
+
+The mandible: no visible fracture lines. The maxilla: no fractures. 
+
+So, based on the image, there are no obvious fractures or dislocations. However, the patient&#x27;s history is assault. In such cases, even if the X-ray is normal, there might be soft tissue injuries or microfractures not visible on X-ray. But the question is about the image. 
+
+Therefore, the diagnosis based on the image would be that there are no evident fractures or traumatic injuries visible on the panoramic X-ray. However, given the history of assault, a normal X-ray doesn&#x27;t rule out all injuries, and further clinical examination or imaging (like CT scan) might be necessary. 
+
+Wait, but the user might expect a different answer. Maybe I missed something. Let me check again. 
+
+Wait, the lower left third molar (patient&#x27;s right side) is impacted and there&#x27;s some bone density around it. Could that be a sign of previous trauma? Probably not. Impacted wisdom teeth are common. 
+
+Alternatively, maybe there&#x27;s a fracture in the symphysis menti (the midline of the lower jaw). The symphysis is the area where the two halves of the mandible meet. If there&#x27;s a fracture here, it would show a clear line. In the image, the symphysis appears intact. 
+
+Another thought: sometimes, in cases of trauma, there can be avulsion of teeth. If a tooth is knocked out, the socket might be visible. But in this image, all tooth sockets are filled. 
+
+Alternatively, a tooth might be fractured but the fragment is still in place. For</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：结构重叠。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**  
+The OPT reveals dental trauma consistent with assault, including avulsed teeth and potential periapical pathology, but no definitive skeletal fractures. Further clinical and imaging evaluation is warranted.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：骨髓炎、下颌骨骨折、根尖周病灶。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：下颌骨骨折（文本提及）、下颌角/体定位（文本提及）；加入 segmentation 后：下颌骨骨折（文本提及）、根尖周透亮病灶（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Lingshu-32B</strong>：无明确增益：仅在鉴别或否定语境中提及关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The image is an OPT (Orthopantomogram) X-ray of the patient&#x27;s jaw. The X-ray shows a clear view of the upper and lower teeth, including the roots and surrounding bone structure. Upon examination, there is a noticeable fracture in the mandibular body on the left side, which is consistent with the patient&#x27;s history of alleged assault. The fracture appears to be a clean break without significant displacement of the bone fragments. There are no signs of additional fractures or dislocations in the maxillary or other mandibular regions. The teeth appear to be intact, with no visible dental injuries. Based on these observations, the diagnosis is a mandibular fracture likely resulting from trauma. Further clinical evaluation and possibly additional imaging may be required to assess the extent of soft tissue injury and to plan appropriate treatment, which could include surgical intervention for proper alignment and healing of the fractured bone.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：下颌骨骨折。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+tition, maxilla, mandible, and surrounding structures. The subsequent images show segmentations performed by different models to highlight specific areas of interest.
+
+In Image 2, segmented by Medical-SAM2, there are highlighted regions in green, blue, and purple, indicating areas of potential concern or interest. These could represent lesions, cysts, or other abnormalities that require further investigation.
+
+Image 3, segmented by Medical-SAM3, focuses on the mandible, teeth, and mandibular canal. The mandible is outlined in yellow, teeth in pink, and the mandibular canal in blue. This segmentation helps in assessing the integrity of these structures and identifying any deviations from normal anatomy.
+
+Image 4, segmented by BiomedParse, highlights the mandible and teeth in blue, providing a clear view of the bone structure and dental alignment. This can be useful for evaluating bone density, fractures, or developmental anomalies.
+
+Image 5, segmented by Teeth MaskDINO, identifies the mandibular canal and maxillary sinus in purple and blue, respectively. This segmentation aids in assessing the health of these critical areas, looking for signs of infection, inflammation, or structural changes.
+
+Image 6, also segmented by Teeth MaskDINO, shows various dental diseases such as root pieces, periapical lesions, caries, missing teeth, and impacted teeth in different colors. This detailed segmentation allows for a comprehensive evaluation of dental health, identifying specific issues that need attention.
+
+Based on these segmentations, the patient may have multiple dental issues including caries, periapical lesions, and possibly impacted teeth. Further clinical correlation and additional imaging may be necessary to confirm these findings and develop an appropriate treatment plan.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：根尖周病灶。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：下颌骨骨折（否定/鉴别）、下颌角/体定位（否定/鉴别）；加入 segmentation 后：根尖周透亮病灶（否定/鉴别）。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedGemma-27B-IT</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The panoramic X-ray does not show any evidence of acute fractures or significant dental trauma. However, the absence of radiographic findings does not rule out soft tissue injury or subtle fractures that might not be visible on this type of imaging. Clinical evaluation is essential.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The panoramic X-ray shows the general structure of the jaws and teeth. While no obvious fractures are visible, this modality is not ideal for ruling out subtle facial bone fractures. The image also shows potential dental pathology highlighted by the segmentation, which may or may not be related to the alleged assault. A comprehensive assessment would require a clinical examination, potentially comparison with prior imaging, and possibly further imaging like a CT scan if facial trauma is suspected.
+
+**Disclaimer:** This interpretation is based solely on the provided image and limited information. A definitive diagnosis requires a full clinical evaluation and potentially additional imaging.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：根尖周病灶。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：下颌骨骨折（否定/鉴别）；加入 segmentation 后：下颌骨骨折（否定/鉴别）、根尖周透亮病灶（文本提及）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedMO-8B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>A lateral chest radiograph was obtained. There is no focal consolidation. There is no pleural effusion. The cardiac silhouette is normal. The hilar and mediastinal contours are normal.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：胸腔积液。涉及的主要影像要点包括：心影异常、肺实变。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>There is no radiopaque lesion seen in the region of interest.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-4B</strong>：基本持平：前后均提及部分参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The panoramic radiograph is unremarkable and does not support a diagnosis of dental or skeletal trauma due to the alleged assault. Further clinical evaluation is required to assess for soft tissue or dental trauma that may not be visible radiographically.
+
+**Note:** This is a radiographic interpretation only. Clinical assessment and possibly additional diagnostic tests are essential for a complete evaluation.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:
+The radiograph shows signs of trauma to the teeth and surrounding structures, consistent with a dental injury following an alleged assault. A clinical examination and further imaging are recommended for a definitive diagnosis and treatment plan.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：根尖周病灶。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：根尖周透亮病灶（否定/鉴别）、下颌角/体定位（文本提及）；加入 segmentation 后：根尖周透亮病灶（文本提及）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-32B</strong>：基本持平：前后均提及部分参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+**No acute fracture or dental injury identified on panoramic radiograph; further imaging (CT) recommended to rule out facial bone trauma.**</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion**
+
+While the panoramic X-ray does not show fractures consistent with a severe assault, it reveals significant dental pathology that may have been exacerbated by or related to the trauma. The patient requires a multidisciplinary approach involving dental and possibly maxillofacial evaluation to address both the dental disease and the trauma-related concerns.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：根尖周病灶。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：下颌骨骨折（否定/鉴别）、下颌角/体定位（文本提及）；加入 segmentation 后：下颌骨骨折（否定/鉴别）、根尖周透亮病灶（文本提及）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_END -->
+
 
 ### 2.9 [Osteogenesis imperfecta](https://radiopaedia.org/cases/osteogenesis-imperfecta-15?lang=us) (`osteogenesis-imperfecta-15`)
 
@@ -4674,6 +7120,294 @@ mask 突出了长骨轮廓，却没有提供成骨不全所需的骨质和生长
 
 </details>
 
+<!-- ALL_OPEN_MODELS_CAPTION_START -->
+#### 8 个开源模型的 Caption 对比总览
+
+下表的“命中”区分模型是在结论中采用该征象、仅在正文中提及，还是在否定/鉴别语境中出现；它用于快速定位变化，不能代替下方逐模型原文核对。
+
+| 模型 | 原始单图 caption | 原图 + Segmentation caption | 影响判断 |
+|---|---|---|---|
+| InternVL3-14B | 长骨弯曲（文本提及） | 长骨弯曲（文本提及） | 基本持平：前后均提及部分参考关键点 |
+| InternVL3.5-14B | 长骨弯曲（文本提及） | 成骨不全（否定/鉴别）、长骨弯曲（文本提及） | 基本持平：前后均提及部分参考关键点 |
+| Lingshu-32B | 长骨弯曲（结论） | 长骨弯曲（否定/鉴别） | 负向：参考关键点减少或被错误结论取代 |
+| MedGemma-27B-IT | 长骨弯曲（文本提及） | 长骨弯曲（文本提及） | 基本持平：前后均提及部分参考关键点 |
+| MedMO-8B | 未命中参考 caption 的核心征象 | 长骨弯曲（结论） | 正向：新增或强化参考关键点 |
+| Qwen3-VL-4B | 长骨弯曲（文本提及） | 长骨弯曲（否定/鉴别） | 负向：参考关键点减少或被错误结论取代 |
+| Qwen3-VL-8B | 长骨弯曲（文本提及） | 长骨弯曲（否定/鉴别） | 负向：参考关键点减少或被错误结论取代 |
+| Qwen3-VL-32B | 成骨不全（否定/鉴别）、长骨弯曲（结论） | 成骨不全（文本提及）、长骨弯曲（结论） | 负面：由生理性弯曲转为佝偻病，仍遗漏生长停滞线 |
+
+#### 其余 7 个开源模型的逐项分析
+
+本病例现有代表模型的人工分析已保留在本小节上方；以下补充其余 7 个模型。所有英文回答均来自对应 predictions 文件，中文部分为医学要点归纳。
+
+<details>
+<summary><strong>InternVL3-14B</strong>：基本持平：前后均提及部分参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+conclusion, based on the patient data and the radiographic features, the diagnosis is consistent with Blount&#x27;s disease, requiring further clinical evaluation and possibly intervention to prevent worsening deformity and potential gait abnormalities.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：Blount 病。涉及的主要影像要点包括：骨骼弯曲。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:** Based on X-ray findings showing varus deformity of the proximal tibia and femur.
+
+### Management
+- **Observation:** Mild cases may be monitored over time.
+- **Bracing:** Orthotic devices might be used for correction.
+- **Surgery:** In severe cases, surgical intervention such as osteotomies may be necessary.
+
+Further clinical correlation and specialist consultation would be recommended to determine the best course of treatment.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：骨骼弯曲。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：长骨弯曲（文本提及）；加入 segmentation 后：长骨弯曲（文本提及）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>InternVL3.5-14B</strong>：基本持平：前后均提及部分参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis for this patient is **physiologic bowing** (also known as normal bowlegs). This is a common condition in young children, particularly those under 5 years of age, and typically resolves with growth as the child matures. The symmetrical and mild nature of the bowing, along with the absence of other symptoms or radiographic signs of metabolic bone disease (such as widened metaphyses or fraying), supports this diagnosis.
+
+**Considerations:**
+- **Rickets** should be ruled out, especially if there are risk factors such as poor nutrition, limited sun exposure, or genetic conditions. However, the X-ray does not show classic signs of rickets (e.g., metaphyseal changes).
+- **Blount’s disease** (tibia vara) could also cause bowing, but it typically presents with asymmetric bowing and lateral deviation, which is not evident here.
+- **Follow-up** may be recommended to monitor the bowing, as physiologic bowing usually corrects itself by the age of 7–8 years.
+
+**Next Steps:**
+- Clinical correlation with vitamin D levels, calcium, and phosphate levels if rickets is suspected.
+- Observation and reassurance, with periodic follow-up X-rays if the bowing persists or worsens.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：佝偻病。涉及的主要影像要点包括：骨骼弯曲。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is **physiological bowing**, a normal variant in young children. Symmetric bowing without radiographic evidence of pathology (e.g., metaphyseal changes, growth plate abnormalities) aligns with this.  
+
+**Recommendation:**  
+- **Observation and Follow-Up:** Monitor for resolution over time. A follow-up X-ray in 6–12 months is advised to ensure spontaneous correction.  
+- **Referral:** If bowing persists beyond age 7, worsens, or is asymmetric, further evaluation (e.g., metabolic workup, orthopedic consultation) is warranted to exclude Blount’s disease or other etiologies.  
+
+**Key Takeaway:**  
+Asymptomatic, symmetric bowing in a 5-year-old with normal bone structure on X-ray is most consistent with physiological bowing. No immediate intervention is required unless clinical/radiographic changes occur.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：成骨不全、佝偻病、Blount 病。涉及的主要影像要点包括：骨骼弯曲。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：长骨弯曲（文本提及）；加入 segmentation 后：成骨不全（否定/鉴别）、长骨弯曲（文本提及）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Lingshu-32B</strong>：负向：参考关键点减少或被错误结论取代</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is rickets. Rickets is a condition caused by vitamin D deficiency, leading to impaired bone mineralization and subsequent bowing of the legs. The absence of pain and other symptoms supports this diagnosis, as rickets often presents with asymptomatic bowing in young children.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：佝偻病。涉及的主要影像要点包括：骨骼弯曲。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is rickets, a condition caused by vitamin D deficiency leading to impaired bone mineralization and growth. This diagnosis is supported by the characteristic bowing of the legs seen in the X-ray.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：佝偻病。涉及的主要影像要点包括：骨骼弯曲。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：长骨弯曲（结论）；加入 segmentation 后：长骨弯曲（否定/鉴别）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedGemma-27B-IT</strong>：基本持平：前后均提及部分参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+Based on the age of the patient (5 years), the bilateral and asymptomatic nature of the bowing, and the typical appearance on the X-ray (bowing of distal femur and proximal tibia), **physiological genu varum** is the most probable diagnosis. However, clinical follow-up is essential to ensure the bowing resolves as expected. If the bowing persists or worsens, further investigation might be needed to rule out other causes like Blount&#x27;s disease or rickets.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：佝偻病、Blount 病、生理性膝内翻。涉及的主要影像要点包括：骨骼弯曲。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is **physiological genu varum**. While other conditions like Blount&#x27;s disease are possible, they are less common or typically present differently at this age. Observation and follow-up are usually recommended for physiological genu varum, as it typically resolves spontaneously. If the bowing persists beyond age 7-8 or worsens, further evaluation might be needed to rule out other causes.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：生理性膝内翻、Blount 病。涉及的主要影像要点包括：骨骼弯曲。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：长骨弯曲（文本提及）；加入 segmentation 后：长骨弯曲（文本提及）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedMO-8B</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The patient has a shortness of the femoral neck, shortness of the femoral diaphysis, and genu varum.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The patient has bowing of legs.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：骨骼弯曲。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：长骨弯曲（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-4B</strong>：负向：参考关键点减少或被错误结论取代</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis: Physiological genu varum — normal variant in a 5-year-old child.**</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：生理性膝内翻。涉及的主要影像要点包括：骨骼弯曲。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+This is a normal finding in a 5-year-old child and does not require treatment. The bowing is a developmental phenomenon and will likely resolve as the child grows. Regular monitoring is recommended to ensure it resolves naturally, but no intervention is necessary.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：骨髓炎。涉及的主要影像要点包括：骨骼弯曲。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：长骨弯曲（文本提及）；加入 segmentation 后：长骨弯曲（否定/鉴别）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-8B</strong>：负向：参考关键点减少或被错误结论取代</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+This is a normal finding for a 5-year-old boy. The bowing of the legs is consistent with physiologic genu varum, which is expected and will likely resolve spontaneously with growth. No further imaging or intervention is necessary at this time.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：骨骼弯曲。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+The diagnosis is **Physiologic Bowing of the Legs (Physiologic Genu Varum)**.
+
+**Rationale:**
+This finding is a **normal, age-related variation** in young children. In toddlers and preschool-aged children (typically up to 2-3 years old), it is common for the legs to appear bowed due to the natural growth and development of the bones and the effects of gravity and weight-bearing during early childhood. This is often referred to as &quot;physiologic bowing&quot; or &quot;physiologic genu varum.&quot;
+
+- **Age Appropriateness:** At 5 years old, this finding is still within the normal range for many children. While the bowing typically begins to correct itself around age 2-3, some children may still have mild bowing at age 5, especially if they are still growing.
+- **Asymptomatic:** The absence of symptoms is a key indicator that this is a benign, self-limiting condition.
+- **X-ray Findings:** The X-ray shows the classic &quot;O-shaped&quot; alignment of the legs, with the knees diverging outward. There are no signs of fractures, bone deformities, or other pathological conditions.
+- **No Intervention Needed:** In most cases, physiologic bowing does not require any treatment and resolves spontaneously as the child grows and the bones mature.
+
+In summary, this is a normal finding in a 5-year-old male, and no further investigation or treatment is necessary. The bowing will likely correct itself over time as the child continues to grow.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：骨骼弯曲。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：长骨弯曲（文本提及）；加入 segmentation 后：长骨弯曲（否定/鉴别）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_END -->
+
+
 ### 2.10 [Pericardial effusion - water bottle sign](https://radiopaedia.org/cases/pericardial-effusion-water-bottle-sign-2?lang=us) (`pericardial-effusion-water-bottle-sign-2`)
 
 | Original image | Medical-SAM2 | Medical-SAM3: left lung, right lung, heart, cardiac silhouette | BiomedParse v1: left lung, right lung, heart, cardiac silhouette | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
@@ -4771,6 +7505,312 @@ The patient presents with shortness of breath. The chest X-ray is a standard ini
 原始 caption 已抓住最关键的巨大球形心影，并接近水瓶征；segmentation 后反而否定心影增大。这说明错误或边界不稳定的心脏 mask 可能覆盖原始轮廓线索，使模型过度信任 overlay，是非常明确的负向案例。
 
 </details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_START -->
+#### 8 个开源模型的 Caption 对比总览
+
+下表的“命中”区分模型是在结论中采用该征象、仅在正文中提及，还是在否定/鉴别语境中出现；它用于快速定位变化，不能代替下方逐模型原文核对。
+
+| 模型 | 原始单图 caption | 原图 + Segmentation caption | 影响判断 |
+|---|---|---|---|
+| InternVL3-14B | 球形/增大心影（结论） | 未命中参考 caption 的核心征象 | 负向：参考关键点减少或被错误结论取代 |
+| InternVL3.5-14B | 心包积液（结论）、球形/增大心影（文本提及） | 心包积液（文本提及）、球形/增大心影（文本提及） | 负向：参考关键点减少或被错误结论取代 |
+| Lingshu-32B | 球形/增大心影（文本提及） | 球形/增大心影（结论） | 正向：新增或强化参考关键点 |
+| MedGemma-27B-IT | 心包积液（文本提及）、水瓶征（文本提及）、球形/增大心影（结论） | 未命中参考 caption 的核心征象 | 负面：心影分割使明显心影增大被判为正常 |
+| MedMO-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-4B | 球形/增大心影（结论） | 球形/增大心影（否定/鉴别） | 负向：参考关键点减少或被错误结论取代 |
+| Qwen3-VL-8B | 球形/增大心影（结论） | 球形/增大心影（结论） | 基本持平：前后均提及部分参考关键点 |
+| Qwen3-VL-32B | 未命中参考 caption 的核心征象 | 球形/增大心影（否定/鉴别） | 无明确增益：仅在鉴别或否定语境中提及关键点 |
+
+#### 其余 7 个开源模型的逐项分析
+
+本病例现有代表模型的人工分析已保留在本小节上方；以下补充其余 7 个模型。所有英文回答均来自对应 predictions 文件，中文部分为医学要点归纳。
+
+<details>
+<summary><strong>InternVL3-14B</strong>：负向：参考关键点减少或被错误结论取代</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+
+Given the patient’s symptoms of shortness of breath and the radiographic findings:
+
+- **Cardiomegaly**: The enlarged heart suggests an underlying cardiomyopathy, congestive heart failure, or valvular heart disease.
+  
+- **Possible Heart Failure**: The shortness of breath combined with cardiomegaly is highly suggestive of left-sided heart failure, potentially leading to pulmonary congestion.
+
+- **Implications of Devices**: The presence of pacemaker/defibrillator devices suggests a history of cardiac rhythm disturbances, which could contribute to the patient&#x27;s symptoms.
+
+**Further Workup Recommendations:**
+
+1. **Echocardiogram**: Essential to evaluate the heart’s structure and function, providing more detailed information on the heart’s size, ejection fraction, and valve function.
+
+2. **Electrocardiogram (ECG)**: To assess the cardiac rhythm and check for any acute ischemic changes or arrhythmias.
+
+3. **Blood Tests**: BNP levels, complete blood count, and renal function tests to evaluate heart failure and other systemic conditions.
+
+4. **Clinical Correlation**: Detailed patient history, including any history of hypertension, diabetes, coronary artery disease, and family history of cardiac conditions.
+
+The combination of an enlarged heart on X-ray and shortness of breath strongly points towards a cardiac etiology, likely related to heart failure or cardiomyopathy, requiring comprehensive cardiac evaluation and management.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：心力衰竭、心脏增大、充血性心力衰竭。涉及的主要影像要点包括：起搏器在位。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:
+- **Pleural Effusion**: The left hemithorax opacity could be indicative of fluid accumulation in the pleural space.
+- **Pneumonia**: The consolidation area can be due to an infection causing alveolar filling.
+- **Atelectasis**: Collapse or incomplete expansion of the lung tissue.
+  
+Further clinical correlation and possibly additional imaging or tests (e.g., CT scan, ultrasound, or lab tests) may be necessary for a definitive diagnosis. It&#x27;s important to consider the patient&#x27;s clinical history and symptoms in conjunction with imaging findings.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺不张、肺炎、胸腔积液。涉及的主要影像要点包括：肺实变、膈肌异常或定位、心影异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：球形/增大心影（结论）；加入 segmentation 后：未命中核心征象。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>InternVL3.5-14B</strong>：负向：参考关键点减少或被错误结论取代</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is **heart failure**, potentially due to left ventricular dysfunction or pericardial effusion. Further evaluation with echocardiography and clinical correlation is recommended to confirm the diagnosis and guide management.
+
+**Key Findings:**
+- Enlarged cardiac silhouette (cardiomegaly)
+- Possible pulmonary vascular congestion
+- Clear lung fields without evidence of pneumonia or pleural effusion
+
+**Recommended Next Steps:**
+1. **Echocardiogram** to assess cardiac function and structure.
+2. **B-type Natriuretic Peptide (BNP) testing** to evaluate for heart failure.
+3. **Clinical assessment** for signs of volume overload or other cardiac conditions.
+4. Consider **lateral chest X-ray** or **CT** if further imaging is needed to evaluate the heart and lungs more thoroughly.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：心力衰竭、胸腔积液、肺炎、心脏增大。涉及的主要影像要点包括：心影异常、膈肌异常或定位、肺实变。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is **congestive heart failure with right pleural effusion** or **pneumonia complicated by effusion**. Further imaging and clinical evaluation are essential for definitive diagnosis.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎、胸腔积液、心力衰竭、充血性心力衰竭。涉及的主要影像要点包括：肺实变、纵隔移位、心影异常、膈肌异常或定位、肺部致密影。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：心包积液（结论）、球形/增大心影（文本提及）；加入 segmentation 后：心包积液（文本提及）、球形/增大心影（文本提及）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Lingshu-32B</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is congestive heart failure. This condition can lead to fluid accumulation in the lungs, although it is not evident in this particular image. Further clinical correlation and possibly additional imaging or echocardiography would be necessary to confirm the diagnosis and assess the severity of the heart failure.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：心力衰竭、充血性心力衰竭。涉及的主要影像要点包括：肺实变、心影异常。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Impression: The findings are consistent with congestive heart failure, characterized by cardiomegaly and possible pulmonary edema. Further clinical correlation and additional imaging or tests may be necessary to confirm the diagnosis and assess the severity of the condition.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺水肿、心脏增大、心力衰竭、充血性心力衰竭。涉及的主要影像要点包括：膈肌异常或定位、心影异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：球形/增大心影（文本提及）；加入 segmentation 后：球形/增大心影（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedMO-8B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The lungs are clear. The heart is not enlarged. The mediastinal contours are normal.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The patient is a male adult with shortness of breath. The x-ray shows a normal chest x-ray.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：胸部未见明显异常。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-4B</strong>：负向：参考关键点减少或被错误结论取代</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+The patient is likely suffering from **left ventricular heart failure**, supported by the radiographic finding of cardiomegaly and the clinical presentation of dyspnea. Further diagnostic workup (e.g., echocardiogram, BNP levels, ECG) is recommended to confirm the diagnosis and assess the severity and etiology of the heart failure.
+
+**Note:** The presence of pacemaker leads is not a disease itself but a therapeutic intervention, and its presence does not negate the diagnosis of heart failure — in fact, it may be a result of underlying cardiac disease that required pacing.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：心力衰竭、心脏增大。涉及的主要影像要点包括：起搏器在位、心影异常、膈肌异常或定位、肺实变。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The chest X-ray is normal. The shortness of breath in this patient is likely due to a non-cardiac or non-pulmonary cause, such as:
+
+*   **Anxiety or panic attack**
+*   **Muscle weakness or fatigue**
+*   **Gastroesophageal reflux disease (GERD)**
+*   **Asthma (not evident on this X-ray)**
+*   **Other non-respiratory conditions**
+
+Further evaluation, including a detailed history, physical examination, and possibly other diagnostic tests (e.g., spirometry, ECG, blood tests), is needed to determine the underlying cause of the shortness of breath. The chest X-ray is not diagnostic for the patient&#x27;s symptoms but is reassuringly normal.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：胃食管反流病。涉及的主要影像要点包括：起搏器在位、膈肌异常或定位、心影异常、肺实变。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：球形/增大心影（结论）；加入 segmentation 后：球形/增大心影（否定/鉴别）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-8B</strong>：基本持平：前后均提及部分参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+The chest X-ray demonstrates cardiomegaly, which is likely contributing to the patient’s shortness of breath. Further investigation is warranted to determine the cause and appropriate management.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：心脏增大。涉及的主要影像要点包括：心影异常、起搏器在位、膈肌异常或定位、肺实变。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The chest X-ray shows significant cardiomegaly, an elevated diaphragm, and a widened mediastinum, all of which are consistent with a diagnosis of congestive heart failure. The patient&#x27;s symptoms of shortness of breath and the presence of a pacemaker further support this diagnosis. Further evaluation with echocardiography is recommended to confirm the diagnosis and assess the severity of the heart failure.
+
+**Note:** While the lung fields appear clear, this does not rule out pulmonary congestion. In CHF, congestion may be subtle or present as diffuse interstitial markings, which may not be easily visible on a standard X-ray.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：心力衰竭、充血性心力衰竭、心脏增大。涉及的主要影像要点包括：起搏器在位、膈肌异常或定位、肺实变、心影异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：球形/增大心影（结论）；加入 segmentation 后：球形/增大心影（结论）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-32B</strong>：无明确增益：仅在鉴别或否定语境中提及关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+
+&gt; **Left lower lobe pneumonia (likely bacterial), in an adult male presenting with shortness of breath.**</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变、起搏器在位、膈肌异常或定位、游离气体。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Final diagnosis should be confirmed by a clinician integrating physical exam, labs, and other diagnostic modalities.*</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：胸腔积液、心力衰竭、心脏增大、肺水肿。涉及的主要影像要点包括：起搏器在位、肺实变、膈肌异常或定位、心影异常、溶骨性病灶。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：球形/增大心影（否定/鉴别）。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_END -->
+
 
 ### 2.11 [Round pneumonia](https://radiopaedia.org/cases/round-pneumonia-3?lang=us) (`round-pneumonia-3`)
 
@@ -4890,6 +7930,297 @@ The segmentation tools corroborate the radiographic findings, reinforcing the di
 
 </details>
 
+<!-- ALL_OPEN_MODELS_CAPTION_START -->
+#### 8 个开源模型的 Caption 对比总览
+
+下表的“命中”区分模型是在结论中采用该征象、仅在正文中提及，还是在否定/鉴别语境中出现；它用于快速定位变化，不能代替下方逐模型原文核对。
+
+| 模型 | 原始单图 caption | 原图 + Segmentation caption | 影响判断 |
+|---|---|---|---|
+| InternVL3-14B | 肺炎/实变（结论） | 肺炎/实变（文本提及） | 基本持平：前后均提及部分参考关键点 |
+| InternVL3.5-14B | 肺炎/实变（文本提及） | 肺炎/实变（文本提及） | 轻度有帮助：强化肺炎定位，但仍未识别圆形形态 |
+| Lingshu-32B | 未命中参考 caption 的核心征象 | 肺炎/实变（否定/鉴别） | 无明确增益：仅在鉴别或否定语境中提及关键点 |
+| MedGemma-27B-IT | 肺炎/实变（否定/鉴别） | 肺炎/实变（结论） | 正向：新增或强化参考关键点 |
+| MedMO-8B | 肺炎/实变（否定/鉴别） | 未命中参考 caption 的核心征象 | 无明确增益：仅在鉴别或否定语境中提及关键点 |
+| Qwen3-VL-4B | 肺炎/实变（文本提及） | 肺炎/实变（结论） | 基本持平：前后均提及部分参考关键点 |
+| Qwen3-VL-8B | 肺炎/实变（文本提及） | 肺炎/实变（结论） | 基本持平：前后均提及部分参考关键点 |
+| Qwen3-VL-32B | 肺炎/实变（结论） | 肺炎/实变（结论） | 基本持平：前后均提及部分参考关键点 |
+
+#### 其余 7 个开源模型的逐项分析
+
+本病例现有代表模型的人工分析已保留在本小节上方；以下补充其余 7 个模型。所有英文回答均来自对应 predictions 文件，中文部分为医学要点归纳。
+
+<details>
+<summary><strong>InternVL3-14B</strong>：基本持平：前后均提及部分参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+Viral Upper Respiratory Tract Infection or Mild Bronchiolitis / Early Onset Bronchopneumonia. Confirmatory diagnosis might require clinical follow-up and possibly further diagnostic testing.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎、细支气管炎。涉及的主要影像要点包括：肺实变、膈肌异常或定位、游离气体。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis leans towards pneumonia. Further investigation and correlation with clinical and laboratory data are essential for confirmation and guiding therapeutic decisions.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变、膈肌异常或定位。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：肺炎/实变（结论）；加入 segmentation 后：肺炎/实变（文本提及）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Lingshu-32B</strong>：无明确增益：仅在鉴别或否定语境中提及关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The chest x-ray shows an infant with a right-sided pneumothorax. The right lung is partially collapsed, indicated by the visible pleural line and absence of vascular markings beyond it. This finding is consistent with the clinical presentation of fever and being clinically unwell, which could suggest an underlying infection or other pathology leading to the pneumothorax. Immediate medical intervention is required to address the pneumothorax and investigate the cause.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：气胸。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis could be a viral infection, such as bronchiolitis or a viral pneumonia, which often presents with these radiographic findings in infants. Further clinical correlation and possibly additional tests, such as a nasopharyngeal swab for respiratory viruses, would be necessary to confirm the diagnosis.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎、细支气管炎。涉及的主要影像要点包括：膈肌异常或定位、游离气体、肺实变。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：肺炎/实变（否定/鉴别）。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedGemma-27B-IT</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The chest X-ray findings in the context of a febrile, clinically unwell infant strongly support a diagnosis of pneumonia, most likely bronchopneumonia.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The chest X-ray findings are consistent with **pneumonia** in an infant presenting with fever and clinical illness. Further clinical evaluation and potentially laboratory tests would be needed to determine the specific etiology (viral vs. bacterial).</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：膈肌异常或定位。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：肺炎/实变（否定/鉴别）；加入 segmentation 后：肺炎/实变（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedMO-8B</strong>：无明确增益：仅在鉴别或否定语境中提及关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>There is no evidence of focal consolidation. There is no pneumothorax or pleural effusion. The cardiac and mediastinal contours are normal.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：胸腔积液、气胸。涉及的主要影像要点包括：肺实变。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The lung volumes are normal. The lung parenchyma is clear. There is no pleural effusion. The cardiac and mediastinal contours are normal.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：胸腔积液。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：肺炎/实变（否定/鉴别）；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-4B</strong>：基本持平：前后均提及部分参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis: Bacterial Pneumonia (Infant)**
+
+**Clinical Correlation:** In infants, pneumonia is often caused by *Streptococcus pneumoniae*, *Staphylococcus aureus*, or *Haemophilus influenzae*. The presence of fever and clinical unwellness supports this diagnosis. The infant may require antibiotics, supportive care, and close monitoring. This finding should prompt urgent clinical evaluation and possibly empiric antibiotic therapy.
+
+**Note:** While viral pneumonia can also present similarly, the clinical context (febrile, unwell infant) and the radiographic pattern strongly favor bacterial etiology in this setting. Further laboratory testing (e.g., blood cultures, PCR, or sputum if obtainable) may be needed to confirm the specific pathogen.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>Based on the provided image and patient data (infant, febrile and clinically unwell), this chest X-ray demonstrates **pneumonia**.
+
+Here is the analysis:
+
+- **Patient Context**: An infant presenting with fever and clinical illness is at high risk for serious bacterial or viral infections, including pneumonia, which is a common and potentially life-threatening condition in this age group.
+
+- **Radiographic Findings**:
+  - The X-ray is a frontal view.
+  - The lung fields are segmented (using various AI tools) to identify normal anatomy and pathology.
+  - The segmentation masks (from Medical-SAM2, Medical-SAM3, BiomedParse, and TorchXRayVision) all show the lungs as the primary structures of interest.
+  - The key finding is **asymmetrical opacification**. The right lung (marked with &quot;R&quot;) shows a distinct, localized area of increased density (opacity) compared to the left lung. This is visible in the segmentation masks as well, where the right lung appears more consolidated or clouded.
+  - This opacity is not uniform and is localized, which is characteristic of a focal infection such as bacterial pneumonia.
+  - The heart and diaphragm appear normal in size and position, with no signs of cardiomegaly or diaphragmatic elevation.
+
+- **Diagnosis**: The combination of a febrile infant with a chest X-ray showing a focal area of lung opacity is highly suggestive of **pneumonia**. Given the infant&#x27;s age and clinical presentation, this is likely **bacterial pneumonia**, which requires prompt antibiotic therapy.
+
+In summary, the image shows a chest X-ray of an infant with a focal area of lung opacity on the right side, consistent with pneumonia. The patient requires immediate medical attention and appropriate antimicrobial therapy.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎、心脏增大。涉及的主要影像要点包括：肺部致密影、膈肌异常或定位。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：肺炎/实变（文本提及）；加入 segmentation 后：肺炎/实变（结论）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-8B</strong>：基本持平：前后均提及部分参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is **bacterial pneumonia**, specifically **lobar pneumonia** or **multifocal pneumonia**, given the bilateral, patchy consolidation seen in the lower lung fields. In infants, common bacterial causes include *Streptococcus pneumoniae*, *Haemophilus influenzae* type b (if unvaccinated), and *Staphylococcus aureus*. The presence of fever and clinical illness supports this diagnosis.
+
+**Rationale:**
+
+- The infant’s age and clinical presentation (febrile, unwell) are classic for pneumonia.
+- The X-ray findings of bilateral, patchy consolidation are consistent with bacterial pneumonia, especially in the lower lobes, which is common in infants.
+- The absence of pleural effusion or pneumothorax suggests a less severe form of pneumonia, but the presence of consolidation still requires prompt antibiotic treatment.
+
+**Next Steps:**
+
+- Initiate empiric antibiotic therapy (e.g., ampicillin or amoxicillin for *S. pneumoniae* and *H. influenzae*).
+- Monitor for clinical improvement and repeat imaging if necessary.
+- Consider blood cultures and other laboratory tests to confirm the diagnosis and guide antibiotic selection.
+
+This diagnosis is based on the clinical presentation and radiographic findings. Further testing may be needed to confirm the specific pathogen.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎、气胸、胸腔积液。涉及的主要影像要点包括：肺实变、膈肌异常或定位、心影异常。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The chest X-ray findings are consistent with **bilateral pneumonia** in an infant. This is a serious condition requiring prompt medical attention, including appropriate antibiotics (if bacterial), supportive care, and close monitoring. Further diagnostic workup (e.g., blood tests, PCR for viral pathogens) may be necessary to determine the specific etiology.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：膈肌异常或定位、肺实变。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：肺炎/实变（文本提及）；加入 segmentation 后：肺炎/实变（结论）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-32B</strong>：基本持平：前后均提及部分参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+This chest X-ray demonstrates **right lower lobe consolidation consistent with pneumonia** in an infant presenting with fever and systemic illness. The findings are most consistent with **bacterial pneumonia**, and prompt antibiotic treatment is warranted.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变、膈肌异常或定位。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+This frontal chest X-ray in a febrile, unwell infant demonstrates **left lower lobe consolidation**, consistent with **pneumonia**. Prompt clinical evaluation and management are essential due to the risk of complications in infants. The segmentation tools confirm the location and extent of lung opacity, supporting the radiologic diagnosis.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺部致密影、肺实变、膈肌异常或定位。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：肺炎/实变（结论）；加入 segmentation 后：肺炎/实变（结论）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_END -->
+
+
 ### 2.12 [Spalding sign](https://radiopaedia.org/cases/spalding-sign?lang=us) (`spalding-sign`)
 
 | Original image | Medical-SAM2 | Medical-SAM3: fetal head, fetal skull, brain | BiomedParse v1: fetal head, fetal skull, brain |
@@ -4931,6 +8262,299 @@ The segmentation tools corroborate the radiographic findings, reinforcing the di
 segmentation 成功纠正了器官和扫描平面，避免了完全无关的胸腹部诊断；但模型仍未识别 Spalding 征所需的胎儿颅骨骨片相互重叠，因此没有获得胎死宫内这一结论。它说明解剖路由改善不等于细粒度征象识别成功。
 
 </details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_START -->
+#### 8 个开源模型的 Caption 对比总览
+
+下表的“命中”区分模型是在结论中采用该征象、仅在正文中提及，还是在否定/鉴别语境中出现；它用于快速定位变化，不能代替下方逐模型原文核对。
+
+| 模型 | 原始单图 caption | 原图 + Segmentation caption | 影响判断 |
+|---|---|---|---|
+| InternVL3-14B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| InternVL3.5-14B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Lingshu-32B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 部分有帮助：纠正扫描部位，但遗漏颅骨重叠征 |
+| MedGemma-27B-IT | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| MedMO-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-4B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-32B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+
+#### 其余 7 个开源模型的逐项分析
+
+本病例现有代表模型的人工分析已保留在本小节上方；以下补充其余 7 个模型。所有英文回答均来自对应 predictions 文件，中文部分为医学要点归纳。
+
+<details>
+<summary><strong>InternVL3-14B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+conclusion, while the ultrasound suggests a potential abnormality within the fetal gastrointestinal tract given the observed patterns, definitive diagnosis would necessitate correlating with clinical history, family history of gastrointestinal conditions like cystic fibrosis, and possibly postnatal assessment. Clinical follow-up with pediatric gastroenterology might be considered based on the initial imaging findings.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：先天性巨结肠、肠麻痹、胎粪性肠梗阻、便秘。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:
+Based on the provided ultrasound and AI-segmentation images, the critical areas of assessment are the fetal brain and skull. Routine monitoring at 28 weeks primarily ensures that the fetal structures are developing as expected. However, any deviations from normal ultrasound appearances require further evaluation to rule out congenital anomalies or developmental issues.
+
+In summary, without overt abnormal findings visible in the provided segmentations, this scan appears within typical bounds for normal fetal development at 28 weeks. Nonetheless, any clinical suspicion or significant deviation should be promptly addressed with further diagnostic procedures.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：脑积水。涉及的主要影像要点包括：胎儿颅骨异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>InternVL3.5-14B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**  
+The ultrasound findings are consistent with a **normal antenatal scan at 28 weeks gestation**. No structural anomalies, growth restrictions, or acute pathologies (e.g., spina bifida, anencephaly, or placental abnormalities) are evident in this image. The fetal anatomy appears developmentally appropriate for the gestational age.  
+
+**Follow-Up Recommendations:**  
+- Continue routine antenatal ultrasound monitoring to assess growth, amniotic fluid volume, and fetal well-being.  
+- Confirm fetal sex, if not already established, and screen for common chromosomal abnormalities (e.g., trisomy 21) via non-invasive tests or detailed anatomy scans later in pregnancy.  
+- Monitor maternal health and address any risk factors (e.g., gestational diabetes, hypertension).  
+
+This interpretation assumes no additional clinical context (e.g., maternal symptoms, prior anomalies) is provided. Further evaluation with serial scans and clinical correlation is advised.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：羊水过少。涉及的主要影像要点包括：羊水量减少。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**  
+- **Primary Consideration**: **Microcephaly** if the brain segmentation (blue/red) is significantly smaller than expected for 28 weeks. This could correlate with genetic, infectious, or environmental etiologies (e.g., chromosomal abnormalities, Zika virus exposure).  
+- **Alternative Considerations**:  
+  - **Normal Variant**: If brain and skull proportions are typical, no abnormality is detected.  
+  - **Structural Anomalies**: Irregular skull shape or brain morphology might suggest less common conditions (e.g., neural tube defects, agenesis of the corpus callosum), though these are less likely without additional findings.  
+
+**Recommendation**: Correlation with clinical history, maternal serology, and further imaging (e.g., detailed anatomy</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：脑室扩大、胎儿头部结构正常、脑积水。涉及的主要影像要点包括：胼胝体改变、脑室扩大、胎儿颅骨异常、钙化。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedGemma-27B-IT</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The ultrasound image shows a fetus at 28 weeks gestation with normal anatomical structures visible. No obvious abnormalities are apparent in this single image. A full assessment would require evaluation of multiple views and measurements.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+
+Normal fetal head anatomy at 28 weeks gestation based on this single ultrasound image.
+
+**Note:** This is a preliminary assessment based on a single image. A complete diagnosis would require a full fetal anatomy scan and correlation with other clinical findings.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：胎儿头部结构正常。涉及的主要影像要点包括：胎儿颅骨异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedMO-8B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The image shows the fetus in the uterus. The fetal head is seen in the lower part of the image. The fetal body is seen in the upper part of the image. The placenta is seen in the lower part of the image.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The image shows a transverse section of a fetus at 28 weeks gestation. The fetal head, fetal skull, and brain are visible.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：胎儿颅骨异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-4B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>This is a transabdominal (ATL = transabdominal) ultrasound image obtained at 28 weeks gestation in a female patient. The image shows a fetal profile with the fetal back and spine visible as a linear, echogenic structure running vertically through the center of the image. The fetal head is visible at the top of the image, with the fetal body extending downward. The fetal limbs are also visible, with the right arm and right leg clearly outlined.
+
+The fetal position appears to be in a typical longitudinal position, with the fetal back oriented toward the ultrasound probe. The fetal head is slightly flexed, which is normal for this gestational age.
+
+The fetal heart is visible as a small, bright structure near the center of the image, consistent with the normal fetal cardiac position.
+
+The fetal abdomen is also visible, with the fetal liver and other abdominal structures appearing as hypoechoic areas.
+
+The image is consistent with a normal fetal anatomy at 28 weeks gestation. There are no obvious abnormalities in the fetal position, size, or anatomy.
+
+The diagnosis is: Normal fetal anatomy at 28 weeks gestation.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:
+The ultrasound image at 28 weeks gestation shows a normal fetal head and brain structure. The segmentation results from the AI models confirm this, with no signs of abnormality. The patient is likely to have a normal pregnancy progression at this stage. However, it is recommended to continue regular prenatal monitoring and follow-up to ensure the continued healthy development of the fetus.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：正常妊娠、胎儿头部结构正常。涉及的主要影像要点包括：胎儿颅骨异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-8B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The ultrasound image is consistent with a normal fetal anatomy scan at 28 weeks gestation, performed via transvaginal ultrasound. No abnormalities are evident from this single image. Further evaluation with additional views and measurements is recommended for a comprehensive assessment.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The ultrasound is normal, with no evidence of fetal structural abnormalities in the head region. The fetal anatomy appears to be developing appropriately for the gestational age.
+
+**Note:** This diagnosis is based solely on the provided image and segmentation outputs. A comprehensive clinical evaluation, including other ultrasound findings and maternal history, is necessary for a complete assessment.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：胎儿头部结构正常。涉及的主要影像要点包括：胎儿颅骨异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-32B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+This ultrasound image demonstrates **abnormal fetal intracranial findings** suggestive of **hydrocephalus or ventriculomegaly** at 28 weeks gestation. Further evaluation is essential to determine the underlying cause and guide appropriate counseling and management.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：脑室扩大、脑积水。涉及的主要影像要点包括：脑室扩大、钙化、胎儿颅骨异常。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+This ultrasound image shows a **fetal head with normal-appearing skull and brain parenchyma at 28 weeks gestation**. While the segmentation tools provide varying degrees of anatomical delineation, the image itself does not show any overt structural brain abnormality. However, due to image quality and limited views, a **full fetal anatomy survey is recommended** to ensure normal neurodevelopment.
+
+&gt; **Note:** This interpretation is based solely on the provided image and metadata. Clinical correlation with maternal history, serum screening, and other imaging is essential for a complete assessment.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：脑室扩大、脑积水。涉及的主要影像要点包括：脑室扩大、胼胝体改变、胎儿颅骨异常、脉络丛异常。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_END -->
+
 
 ### 2.13 [Surgical ankylosis](https://radiopaedia.org/cases/surgical-ankylosis?lang=us) (`surgical-ankylosis`)
 
@@ -5008,5 +8632,325 @@ This is a complex case that requires further clinical evaluation, including a de
 segmentation 纠正了“标准膝关节假体且手术成功”的基本误读，并把注意力转向髓内钉和失败术后状态；但模型把钉的位置和用途描述得不够准确，也没有识别左膝关节被手术性融合、不能活动的核心诊断。
 
 </details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_START -->
+#### 8 个开源模型的 Caption 对比总览
+
+下表的“命中”区分模型是在结论中采用该征象、仅在正文中提及，还是在否定/鉴别语境中出现；它用于快速定位变化，不能代替下方逐模型原文核对。
+
+| 模型 | 原始单图 caption | 原图 + Segmentation caption | 影响判断 |
+|---|---|---|---|
+| InternVL3-14B | 腓骨近端骨溶解（结论） | 髓内钉（文本提及） | 负向：参考关键点减少或被错误结论取代 |
+| InternVL3.5-14B | 髓内钉（文本提及） | 髓内钉（结论） | 正向：新增或强化参考关键点 |
+| Lingshu-32B | 髓内钉（结论） | 髓内钉（文本提及） | 负向：参考关键点减少或被错误结论取代 |
+| MedGemma-27B-IT | 髓内钉（文本提及） | 髓内钉（结论）、腓骨近端骨溶解（结论） | 正向：新增或强化参考关键点 |
+| MedMO-8B | 未命中参考 caption 的核心征象 | 未命中参考 caption 的核心征象 | 无帮助：前后均未命中参考核心征象 |
+| Qwen3-VL-4B | 未命中参考 caption 的核心征象 | 髓内钉（结论） | 部分有帮助：识别髓内钉和失败术后状态，但仍未说出关节强直 |
+| Qwen3-VL-8B | 髓内钉（结论） | 髓内钉（结论） | 基本持平：前后均提及部分参考关键点 |
+| Qwen3-VL-32B | 髓内钉（文本提及） | 膝关节强直/融合（文本提及）、髓内钉（结论）、腓骨近端骨溶解（文本提及） | 正向：新增或强化参考关键点 |
+
+#### 其余 7 个开源模型的逐项分析
+
+本病例现有代表模型的人工分析已保留在本小节上方；以下补充其余 7 个模型。所有英文回答均来自对应 predictions 文件，中文部分为医学要点归纳。
+
+<details>
+<summary><strong>InternVL3-14B</strong>：负向：参考关键点减少或被错误结论取代</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:
+1. **Failed Joint Replacement**: The presence of surgical hardware and altered bone structure often indicates a revision of a previous joint replacement. There may be some mechanical failure or loosening of the prosthesis, leading to the immobility.
+2. **Osteolysis or Bone Resorption**: There might be areas of bone loss that could be observed if the image quality were higher. This is common in failed prosthetics.
+3. **Infection or Loosening**: The immobility and pain could be due to an infection or loosening of the prosthesis, though these would require clinical correlation and possibly further imaging or tests.
+4. **Fracture or Instability**: It&#x27;s possible that a stress fracture or instability due to the failed implant might be present, explaining the immobility.
+
+### Recommendations:
+1. **Clinical Evaluation**: Correlate imaging findings with clinical symptoms. Detailed physical examination by an orthopedic surgeon.
+2. **Advanced Imaging**: Consider MRI or CT for a more detailed view of soft tissues, prosthetic placement, and bone quality.
+3. **Reevaluation for Revision Surgery**: Given the age of the patient, the potential options may include revision surgery with a new joint replacement or alternative treatments depending on the severity and extent of the failure and bone health.
+4. **Pain Management and Mobility Aids**: Short-term pain management and possibly mobility aids like braces or walkers may be required.
+
+The X-ray highlights the complexity of managing post-surgical complications in elderly patients, emphasizing the need for a comprehensive, multi-faceted approach to diagnosis and treatment.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：关节置换失败。涉及的主要影像要点包括：骨溶解。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+conclusion, the X-ray image reveals critical post-surgical changes in the knee aligned with the patient&#x27;s symptoms of immobility and previous joint replacement failure. Continuous monitoring and tailored rehabilitation will be key components in addressing her current condition.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：关节置换失败。涉及的主要影像要点包括：髓内钉。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：腓骨近端骨溶解（结论）；加入 segmentation 后：髓内钉（文本提及）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>InternVL3.5-14B</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**  
+1. **Tibial Fracture Non-Union:** The distal tibial fracture, stabilized with an intramedullary nail, demonstrates radiographic features of non-union (lack of bridging callus, sclerotic ends).  
+2. **Failed Joint Replacement Context:** The patient’s history of failed knee arthroplasty may correlate with prior surgical intervention (e.g., implant removal or revision), predisposing to fracture. The intramedullary nail likely addresses a periprosthetic fracture or post-revision fracture.  
+3. **Knee Immobility:** Resulting from pain, instability, and mechanical block due to non-union.  
+
+**Considerations:**  
+- Rule out infection (e.g., elevated inflammatory markers, clinical signs) or vascular compromise (e.g., pulse checks).  
+- Advanced imaging (CT/MRI) may assess fracture detail, soft tissue, or occult hardware issues.  
+- Osteoporosis, common in elderly patients, may contribute to poor bone quality and delayed healing.  
+
+**Next Steps:**  
+- Orthopedic consultation for possible revision surgery (e.g., bone grafting, plate fixation) or advanced therapies (e.g., bisphosphonates, electrical stimulation).  
+- Evaluate for adjacent joint arthritis or implant loosening if prior arthroplasty is suspected.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：植入物松动、假体周围骨折、关节置换失败。涉及的主要影像要点包括：髓内钉。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**  
+The imaging and clinical context indicate a **periprosthetic fracture stabilized with intramedullary nailing**, secondary to a failed joint replacement. Immobility likely results from the fracture, surgical hardware, and potential soft tissue involvement. Multidisciplinary care (orthopedics, rehabilitation) is critical for recovery.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：关节置换失败、假体周围骨折。涉及的主要影像要点包括：髓内钉。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：髓内钉（文本提及）；加入 segmentation 后：髓内钉（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Lingshu-32B</strong>：负向：参考关键点减少或被错误结论取代</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is a complication related to a failed total knee arthroplasty (TKA) in an elderly female patient, potentially involving a periprosthetic fracture or loosening of the implant components, which has been addressed through a revision surgery with the placement of an intramedullary nail for stabilization.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：假体周围骨折。涉及的主要影像要点包括：髓内钉。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is post-surgical complications leading to knee immobility, possibly due to infection, non-union, or mechanical failure of the implant. Further clinical correlation and possibly additional imaging would be necessary to confirm the exact cause of the immobility.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：关节置换失败、骨关节炎。涉及的主要影像要点包括：髓内钉。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：髓内钉（结论）；加入 segmentation 后：髓内钉（文本提及）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedGemma-27B-IT</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+
+Based on the X-ray findings and the patient&#x27;s history, the diagnosis is likely:
+
+*   **Failed Total Knee Arthroplasty (TKA) with Knee Immobility:** The presence of the intramedullary rod suggests prior surgery on the femur. The altered appearance of the knee joint, combined with the history of a failed joint replacement and subsequent immobility, strongly points to complications from the TKA. These complications could include:
+    *   **Stiffness/Contracture:** The knee joint is fixed in a position, likely due to scar tissue formation, heterotopic ossification, or implant issues.
+    *   **Implant Failure:** The original joint replacement may have loosened, worn out, or become infected, leading to the need for revision or removal, and contributing to immobility.
+    *   **Deformity:** The bone structure around the knee may be altered due to the previous surgery and failure.
+    *   **Pain:** Although not directly visible on the X-ray, pain is a common symptom associated with failed TKA and immobility.
+
+**In summary:** The X-ray shows evidence of previous extensive surgery on the femur and knee, consistent with a failed total knee replacement. The patient&#x27;s presentation of knee immobility is likely a direct consequence of the surgical complications and subsequent healing process.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：关节置换失败。涉及的主要影像要点包括：髓内钉。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+most likely diagnosis is **failed total knee arthroplasty (TKA) complicated by infection and/or aseptic loosening, leading to significant bone destruction and immobility.**
+
+**Explanation:**
+
+1.  **Failed Joint Replacement:** The patient underwent knee replacement surgery, which has now failed. This is indicated by the immobility and the abnormal appearance of the knee joint on the X-ray.
+2.  **Bone Destruction:** The significant destruction of the bone around the knee joint (especially the tibial plateau) is a hallmark of a failed knee replacement. This can be caused by:
+    *   **Infection (Periprosthetic Joint Infection - PJI):** Bacteria can infect the joint replacement, leading to inflammation, bone destruction (osteolysis), and implant loosening. This is a common cause of late failure.
+    *   **Aseptic Loosening:** The implant can become loose from the bone over time due to wear, stress, or inadequate initial fixation, leading to pain, instability, and eventually bone destruction.
+    *   **Wear Debris:** Particles from the implant components can cause an inflammatory reaction (osteolysis) leading to bone loss around the implant.
+3.  **Immobility:** The combination of pain, instability, bone destruction, and potential soft tissue complications (like contractures or swelling) leads to the patient&#x27;s inability to move the knee.
+4.  **Intramedullary Nail:** The presence of an intramedullary nail in the femur suggests a previous fracture or possibly a separate surgical procedure, but it is not directly related to the failed knee replacement itself.
+
+**In summary, the X-ray shows a severely damaged knee joint following a failed replacement surgery, likely due to infection or aseptic loosening, resulting in significant bone loss and immobility.**</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：植入物松动、关节置换失败。涉及的主要影像要点包括：髓内钉、骨溶解。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：髓内钉（文本提及）；加入 segmentation 后：髓内钉（结论）、腓骨近端骨溶解（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>MedMO-8B</strong>：无帮助：前后均未命中参考核心征象</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>There is a knee prosthesis. The distal femur is well aligned with the tibia. There is no radiopaque foreign body. There is no fracture.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>The radiograph shows a postoperative image after a total knee arthroplasty.</pre>
+
+中文医学要点：
+
+<pre>回答未形成可稳定提取的明确疾病结论。未提取到与参考病灶高度特异的影像征象。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-8B</strong>：基本持平：前后均提及部分参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The patient has a femoral shaft fracture that has been treated with intramedullary nailing. This fracture likely occurred in the context of her failed total knee replacement, either during the revision surgery or as a complication. The diagnosis is critical for guiding further management, which may include physical therapy, pain control, and possibly future revision of the knee prosthesis once the femur has healed.
+
+---
+
+**Note:** It is important to note that while the image shows a femoral fracture, the patient’s primary complaint is “knee immobility.” The femoral fracture is likely the cause of the immobility, not a direct knee problem. The failed joint replacement may have contributed to the femoral fracture or is a separate issue requiring separate management.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：关节置换失败。涉及的主要影像要点包括：髓内钉。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:**
+The patient is presenting with **knee immobility following a failed total knee arthroplasty (TKA)**. The presence of an intramedullary nail suggests that the patient likely underwent a **revision surgery** to address complications from the initial TKA, such as a femoral fracture, loosening of the femoral component, or a complex revision requiring stabilization of the femur.
+
+The diagnosis is **Failed Total Knee Replacement with Revision Femoral Stabilization using Intramedullary Nail**.
+
+**Clinical Implications:**
+- The patient’s age and presentation suggest a complex case requiring careful management.
+- The immobility is likely due to pain, stiffness, or mechanical failure of the prosthesis.
+- The intramedullary nail provides stability to the femur, but does not address the knee joint itself, indicating the revision may have been focused on the femur rather than the entire joint.
+- Further evaluation is needed to determine the specific cause of failure and to plan appropriate rehabilitation or further surgical intervention.
+
+This case highlights the challenges of revision arthroplasty in elderly patients and the need for a multidisciplinary approach to manage complications and restore function.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：关节置换失败。涉及的主要影像要点包括：髓内钉。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：髓内钉（结论）；加入 segmentation 后：髓内钉（结论）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<details>
+<summary><strong>Qwen3-VL-32B</strong>：正向：新增或强化参考关键点</summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Conclusion:**
+
+The X-ray demonstrates a failed total knee replacement with periprosthetic fracture and signs of implant loosening. The patient’s immobility is likely due to this structural failure, requiring urgent orthopedic evaluation and intervention.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：植入物松动、假体周围骨折。涉及的主要影像要点包括：髓内钉。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文关键结论摘录：
+
+<pre>[Earlier generic reasoning omitted.]
+
+Diagnosis:
+
+&gt; **Failed total knee arthroplasty with periprosthetic fracture of the proximal tibia, stabilized with intramedullary nailing — resulting in knee immobility.**
+
+This is a complex orthopedic case requiring multidisciplinary management.</pre>
+
+中文医学要点：
+
+<pre>回答提及或最终倾向的诊断包括：假体周围骨折。涉及的主要影像要点包括：髓内钉、骨溶解。</pre>
+
+**Segmentation 对 caption 的影响分析：**
+
+原始 caption：髓内钉（文本提及）；加入 segmentation 后：膝关节强直/融合（文本提及）、髓内钉（结论）、腓骨近端骨溶解（文本提及）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+
+</details>
+
+<!-- ALL_OPEN_MODELS_CAPTION_END -->
+
 
 <!-- SECTION_2_CAPTION_ANALYSIS_END -->
