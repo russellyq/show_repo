@@ -23,13 +23,9 @@ This repository mirrors Section 8 of the MedEvo expert-model audit. All images b
 
 #### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: brain, lateral ventricle, third ventricle, cerebral aqueduct |
-|---|---|---|
-| <img src="assets/aqueductal-stenosis-3/original.jpg" width="100%"> | <img src="assets/aqueductal-stenosis-3/medical_sam2_overlay.png" width="100%"> | <img src="assets/aqueductal-stenosis-3/medical_sam3_overlay.png" width="100%"> |
-
-| BiomedParse v1: brain, lateral ventricle, third ventricle, cerebral aqueduct |  |  |
-|---|---|---|
-| <img src="assets/aqueductal-stenosis-3/biomedparse_v1_overlay.png" width="100%"> |  |  |
+| Original image | Medical-SAM2 | Medical-SAM3: brain, lateral ventricle, third ventricle, cerebral aqueduct | BiomedParse v1: brain, lateral ventricle, third ventricle, cerebral aqueduct |
+|---|---|---|---|
+| <img src="assets/aqueductal-stenosis-3/original.jpg" width="100%"> | <img src="assets/aqueductal-stenosis-3/medical_sam2_overlay.png" width="100%"> | <img src="assets/aqueductal-stenosis-3/medical_sam3_overlay.png" width="100%"> | <img src="assets/aqueductal-stenosis-3/biomedparse_v1_overlay.png" width="100%"> |
 
 - **原始问题：**What is the underlying cause?
 - **问题翻译：**根本病因是什么？
@@ -162,13 +158,9 @@ Confirmation of the cause and assessment for acute pressure effects require the 
 
 #### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: fetus, fetal chest, lung, bowel |
-|---|---|---|
-| <img src="assets/congenital-diaphragmatic-hernia-26/original.png" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia-26/medical_sam2_overlay.png" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia-26/medical_sam3_overlay.png" width="100%"> |
-
-| BiomedParse v1: fetus, fetal chest, lung, bowel |  |  |
-|---|---|---|
-| <img src="assets/congenital-diaphragmatic-hernia-26/biomedparse_v1_overlay.png" width="100%"> |  |  |
+| Original image | Medical-SAM2 | Medical-SAM3: fetus, fetal chest, lung, bowel | BiomedParse v1: fetus, fetal chest, lung, bowel |
+|---|---|---|---|
+| <img src="assets/congenital-diaphragmatic-hernia-26/original.png" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia-26/medical_sam2_overlay.png" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia-26/medical_sam3_overlay.png" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia-26/biomedparse_v1_overlay.png" width="100%"> |
 
 - **原始问题：**What is the diagnosis in this case?
 - **问题翻译：**本病例的诊断是什么？
@@ -473,13 +465,9 @@ This is typically diagnosed in the second trimester and may be associated with p
 
 #### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: fetal heart, heart, cardiac mass |
-|---|---|---|
-| <img src="assets/fetal-cardiac-rhabdomyoma-1/original.jpg" width="100%"> | <img src="assets/fetal-cardiac-rhabdomyoma-1/medical_sam2_overlay.png" width="100%"> | <img src="assets/fetal-cardiac-rhabdomyoma-1/medical_sam3_overlay.png" width="100%"> |
-
-| BiomedParse v1: fetal heart, heart, cardiac mass |  |  |
-|---|---|---|
-| <img src="assets/fetal-cardiac-rhabdomyoma-1/biomedparse_v1_overlay.png" width="100%"> |  |  |
+| Original image | Medical-SAM2 | Medical-SAM3: fetal heart, heart, cardiac mass | BiomedParse v1: fetal heart, heart, cardiac mass |
+|---|---|---|---|
+| <img src="assets/fetal-cardiac-rhabdomyoma-1/original.jpg" width="100%"> | <img src="assets/fetal-cardiac-rhabdomyoma-1/medical_sam2_overlay.png" width="100%"> | <img src="assets/fetal-cardiac-rhabdomyoma-1/medical_sam3_overlay.png" width="100%"> | <img src="assets/fetal-cardiac-rhabdomyoma-1/biomedparse_v1_overlay.png" width="100%"> |
 
 - **原始问题：**What is the most likely diagnosis?
 - **问题翻译：**最可能的诊断是什么？
@@ -692,13 +680,9 @@ This 20-week fetal ultrasound reveals a **cardiac mass**, most consistent with a
 
 #### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, stomach |
-|---|---|---|
-| <img src="assets/hiatus-hernia-15/original.jpeg" width="100%"> | <img src="assets/hiatus-hernia-15/medical_sam2_overlay.png" width="100%"> | <img src="assets/hiatus-hernia-15/medical_sam3_overlay.png" width="100%"> |
-
-| BiomedParse v1: lung, heart, diaphragm, stomach | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |  |
-|---|---|---|
-| <img src="assets/hiatus-hernia-15/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/hiatus-hernia-15/torchxrayvision_anatomy_overlay.png" width="100%"> |  |
+| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, stomach | BiomedParse v1: lung, heart, diaphragm, stomach | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+|---|---|---|---|---|
+| <img src="assets/hiatus-hernia-15/original.jpeg" width="100%"> | <img src="assets/hiatus-hernia-15/medical_sam2_overlay.png" width="100%"> | <img src="assets/hiatus-hernia-15/medical_sam3_overlay.png" width="100%"> | <img src="assets/hiatus-hernia-15/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/hiatus-hernia-15/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
 - **原始问题：**What is the likely cause of the patient chest pain?
 - **问题翻译：**患者胸痛最可能的原因是什么？
@@ -938,13 +922,9 @@ Based solely on the provided information (patient history, symptoms, and this si
 
 #### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: wrist, carpal bones, lunate bone |
-|---|---|---|
-| <img src="assets/kienbock-disease-3/original.jpg" width="100%"> | <img src="assets/kienbock-disease-3/medical_sam2_overlay.png" width="100%"> | <img src="assets/kienbock-disease-3/medical_sam3_overlay.png" width="100%"> |
-
-| BiomedParse v1: wrist, carpal bones, lunate bone |  |  |
-|---|---|---|
-| <img src="assets/kienbock-disease-3/biomedparse_v1_overlay.png" width="100%"> |  |  |
+| Original image | Medical-SAM2 | Medical-SAM3: wrist, carpal bones, lunate bone | BiomedParse v1: wrist, carpal bones, lunate bone |
+|---|---|---|---|
+| <img src="assets/kienbock-disease-3/original.jpg" width="100%"> | <img src="assets/kienbock-disease-3/medical_sam2_overlay.png" width="100%"> | <img src="assets/kienbock-disease-3/medical_sam3_overlay.png" width="100%"> | <img src="assets/kienbock-disease-3/biomedparse_v1_overlay.png" width="100%"> |
 
 - **原始问题：**What is the likely diagnosis?
 - **问题翻译：**最可能的诊断是什么？
@@ -1809,13 +1789,9 @@ Further evaluation with a T2-weighted or STIR MRI sequence is recommended to bet
 
 #### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: bone, bone lesion, humerus |
-|---|---|---|
-| <img src="assets/lytic-bone-lesion-myeloma/original.jpg" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/medical_sam2_overlay.png" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/medical_sam3_overlay.png" width="100%"> |
-
-| BiomedParse v1: bone, bone lesion, humerus |  |  |
-|---|---|---|
-| <img src="assets/lytic-bone-lesion-myeloma/biomedparse_v1_overlay.png" width="100%"> |  |  |
+| Original image | Medical-SAM2 | Medical-SAM3: bone, bone lesion, humerus | BiomedParse v1: bone, bone lesion, humerus |
+|---|---|---|---|
+| <img src="assets/lytic-bone-lesion-myeloma/original.jpg" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/medical_sam2_overlay.png" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/medical_sam3_overlay.png" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/biomedparse_v1_overlay.png" width="100%"> |
 
 - **原始问题：**What is the likely diagnosis for this lytic lesion?
 - **问题翻译：**该溶骨性病灶最可能的诊断是什么？
@@ -2096,13 +2072,9 @@ No acute osseous abnormality. Given the patient’s severe bilateral shoulder/hu
 
 #### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: left lung, right lung, pleural fluid, heart |
-|---|---|---|
-| <img src="assets/massive-pleural-effusion-2/original.jpeg" width="100%"> | <img src="assets/massive-pleural-effusion-2/medical_sam2_overlay.png" width="100%"> | <img src="assets/massive-pleural-effusion-2/medical_sam3_overlay.png" width="100%"> |
-
-| BiomedParse v1: left lung, right lung, pleural fluid, heart | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |  |
-|---|---|---|
-| <img src="assets/massive-pleural-effusion-2/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/massive-pleural-effusion-2/torchxrayvision_anatomy_overlay.png" width="100%"> |  |
+| Original image | Medical-SAM2 | Medical-SAM3: left lung, right lung, pleural fluid, heart | BiomedParse v1: left lung, right lung, pleural fluid, heart | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+|---|---|---|---|---|
+| <img src="assets/massive-pleural-effusion-2/original.jpeg" width="100%"> | <img src="assets/massive-pleural-effusion-2/medical_sam2_overlay.png" width="100%"> | <img src="assets/massive-pleural-effusion-2/medical_sam3_overlay.png" width="100%"> | <img src="assets/massive-pleural-effusion-2/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/massive-pleural-effusion-2/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
 - **原始问题：**What are the relevant observations and what is the likely cause?
 - **问题翻译：**相关影像观察是什么，最可能的原因是什么？
@@ -2409,13 +2381,9 @@ Urgent correlation with bedside ultrasound and diagnostic/therapeutic thoracente
 
 #### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: lung, lung opacity, first rib, clavicle |
-|---|---|---|
-| <img src="assets/pancoast-tumour-11/original.jpeg" width="100%"> | <img src="assets/pancoast-tumour-11/medical_sam2_overlay.png" width="100%"> | <img src="assets/pancoast-tumour-11/medical_sam3_overlay.png" width="100%"> |
-
-| BiomedParse v1: lung, lung opacity, first rib, clavicle | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |  |
-|---|---|---|
-| <img src="assets/pancoast-tumour-11/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/pancoast-tumour-11/torchxrayvision_anatomy_overlay.png" width="100%"> |  |
+| Original image | Medical-SAM2 | Medical-SAM3: lung, lung opacity, first rib, clavicle | BiomedParse v1: lung, lung opacity, first rib, clavicle | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+|---|---|---|---|---|
+| <img src="assets/pancoast-tumour-11/original.jpeg" width="100%"> | <img src="assets/pancoast-tumour-11/medical_sam2_overlay.png" width="100%"> | <img src="assets/pancoast-tumour-11/medical_sam3_overlay.png" width="100%"> | <img src="assets/pancoast-tumour-11/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/pancoast-tumour-11/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
 - **原始问题：**What is the eponymous name for this condition?
 - **问题翻译：**这种疾病的同名名称是什么？
@@ -2648,13 +2616,9 @@ This approach ensures a thorough evaluation of the pleuritic pain and radiograph
 
 #### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel gas |
-|---|---|---|
-| <img src="assets/pneumoperitoneum-55/original.jpeg" width="100%"> | <img src="assets/pneumoperitoneum-55/medical_sam2_overlay.png" width="100%"> | <img src="assets/pneumoperitoneum-55/medical_sam3_overlay.png" width="100%"> |
-
-| BiomedParse v1: lung, heart, diaphragm, bowel gas | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |  |
-|---|---|---|
-| <img src="assets/pneumoperitoneum-55/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/pneumoperitoneum-55/torchxrayvision_anatomy_overlay.png" width="100%"> |  |
+| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel gas | BiomedParse v1: lung, heart, diaphragm, bowel gas | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+|---|---|---|---|---|
+| <img src="assets/pneumoperitoneum-55/original.jpeg" width="100%"> | <img src="assets/pneumoperitoneum-55/medical_sam2_overlay.png" width="100%"> | <img src="assets/pneumoperitoneum-55/medical_sam3_overlay.png" width="100%"> | <img src="assets/pneumoperitoneum-55/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/pneumoperitoneum-55/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
 - **原始问题：**Describe your findings
 - **问题翻译：**请描述影像所见。
@@ -2900,13 +2864,9 @@ AP erect chest/abdominal radiograph demonstrates a prominent radiolucent area be
 
 #### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: bowel, small bowel, colon, bowel gas |
-|---|---|---|
-| <img src="assets/small-bowel-obstruction-14/original.jpeg" width="100%"> | <img src="assets/small-bowel-obstruction-14/medical_sam2_overlay.png" width="100%"> | <img src="assets/small-bowel-obstruction-14/medical_sam3_overlay.png" width="100%"> |
-
-| BiomedParse v1: bowel, small bowel, colon, bowel gas |  |  |
-|---|---|---|
-| <img src="assets/small-bowel-obstruction-14/biomedparse_v1_overlay.png" width="100%"> |  |  |
+| Original image | Medical-SAM2 | Medical-SAM3: bowel, small bowel, colon, bowel gas | BiomedParse v1: bowel, small bowel, colon, bowel gas |
+|---|---|---|---|
+| <img src="assets/small-bowel-obstruction-14/original.jpeg" width="100%"> | <img src="assets/small-bowel-obstruction-14/medical_sam2_overlay.png" width="100%"> | <img src="assets/small-bowel-obstruction-14/medical_sam3_overlay.png" width="100%"> | <img src="assets/small-bowel-obstruction-14/biomedparse_v1_overlay.png" width="100%"> |
 
 - **原始问题：**What diagnosis to the aspects of the history suggest?
 - **问题翻译：**病史中的这些表现提示什么诊断？
@@ -3180,13 +3140,9 @@ The X-ray shows signs of bowel obstruction/ileus. Combined with the patient&#x27
 
 #### Input image and segmentation overlays
 
-| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel gas |
-|---|---|---|
-| <img src="assets/tension-pneumoperitoneum/original.jpeg" width="100%"> | <img src="assets/tension-pneumoperitoneum/medical_sam2_overlay.png" width="100%"> | <img src="assets/tension-pneumoperitoneum/medical_sam3_overlay.png" width="100%"> |
-
-| BiomedParse v1: lung, heart, diaphragm, bowel gas | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |  |
-|---|---|---|
-| <img src="assets/tension-pneumoperitoneum/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/tension-pneumoperitoneum/torchxrayvision_anatomy_overlay.png" width="100%"> |  |
+| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel gas | BiomedParse v1: lung, heart, diaphragm, bowel gas | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+|---|---|---|---|---|
+| <img src="assets/tension-pneumoperitoneum/original.jpeg" width="100%"> | <img src="assets/tension-pneumoperitoneum/medical_sam2_overlay.png" width="100%"> | <img src="assets/tension-pneumoperitoneum/medical_sam3_overlay.png" width="100%"> | <img src="assets/tension-pneumoperitoneum/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/tension-pneumoperitoneum/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
 - **原始问题：**What has given this appearance?
 - **问题翻译：**是什么造成了这种影像表现？
