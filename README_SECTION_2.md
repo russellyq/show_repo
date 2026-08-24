@@ -2536,7 +2536,7 @@ The chest X-ray demonstrates **right lower lobe atelectasis** with associated **
 
 ### 2.4 [Choroid plexus cyst - antenatal](https://radiopaedia.org/cases/choroid-plexus-cyst-antenatal?lang=us) (`choroid-plexus-cyst-antenatal`)
 
-| Original image | Medical-SAM2 | Medical-SAM3: fetal brain, choroid plexus, lateral ventricle | BiomedParse v1: fetal brain, choroid plexus, lateral ventricle |
+| Original image | Medical-SAM2 | Medical-SAM3: fetal brain, choroid plexus, lateral ventricle 胎儿脑、脉络丛、侧脑室 | BiomedParse v1: fetal brain, choroid plexus, lateral ventricle 胎儿脑、脉络丛、侧脑室 |
 |---|---|---|---|
 | <img src="assets/choroid-plexus-cyst-antenatal/original.jpeg" width="100%"> | <img src="assets/choroid-plexus-cyst-antenatal/medical_sam2_overlay.png" width="100%"> | <img src="assets/choroid-plexus-cyst-antenatal/medical_sam3_overlay.png" width="100%"> | <img src="assets/choroid-plexus-cyst-antenatal/biomedparse_v1_overlay.png" width="100%"> |
 
@@ -2545,12 +2545,12 @@ The chest X-ray demonstrates **right lower lobe atelectasis** with associated **
 
 <pre>Small right choroid plexus cyst in an otherwise normal neonate.</pre>
 
-- **原始图片 caption 翻译：**胎儿其余表现正常，仅见右侧小脉络丛囊肿。
+- **原始图片 caption 翻译：**新生儿右侧脉络丛小囊肿，其余未见异常。
 
 <details>
 <summary><strong>InternVL3-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助
 
 **原始图像 → Single-image caption 回答**
 
@@ -2586,7 +2586,13 @@ This general approach ensures thorough assessment while the pregnancy progresses
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：脉络丛异常。</pre>
+<pre>### 图像描述
+- **方位：** 该图像呈冠状面，即从前向后的垂直切面。
+- **中央结构：** 图像中央可见一个巨大的高回声（明亮）结构，周围环绕着无回声（暗色）区域。这可能代表心脏或部分胎盘。
+- **周围区域：** 中央区域周围的结构回声特性各异，呈现出明暗交替的混合区域，这是复杂的胎儿解剖结构的典型特征。
+- **附加标记：** 标注文字（COR RT）有助于确定切面的方位。
+
+回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：脉络丛异常。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2626,18 +2632,33 @@ The normal development of the choroid plexus and lateral ventricles, at this sta
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：脑室扩大。涉及的主要影像要点包括：脉络丛异常、脑室扩大。</pre>
+<pre>提供的图像是一张孕26周胎儿的超声扫描图。该图像呈冠状面（COR）视图，显示的是右侧（RT）的切面。扫描图像展示了经由各种医学模型分割后的胎儿脑部结构，标示出了脉络丛和侧脑室等部位。
+
+## 图像观察：
+1. **分割标记**：
+- 超声图像显示了不同颜色编码的分割区域，这些区域很可能代表胎儿脑部的不同部分，包括脉络丛和侧脑室。 
+- 其中两个模型特别标示了脉络丛（紫色区域）和侧脑室（蓝色区域）。
+
+2. **冠状面视图**：
+- 图像采用冠状面（COR）视图，展示了脑部的垂直切面。 
+- 标签和方位标记（“COR RT”）有助于识别解剖位置。
+
+### 分割特征：
+- **紫色区域**：这些区域很可能代表脉络丛，这是位于脑室内的结构，负责产生脑脊液（CSF）。
+- **蓝色区域**：这些区域很可能代表侧脑室，这是脑内充满脑脊液的主要结构。
+
+回答提及或最终倾向的诊断包括：脑室扩大。涉及的主要影像要点包括：脉络丛异常、脑室扩大。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+分隔区域更明显涉及脉络丛。
 
 </details>
 
 <details>
 <summary><strong>InternVL3.5-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助
 
 **原始图像 → Single-image caption 回答**
 
@@ -2700,7 +2721,22 @@ The ultrasound findings suggest possible ventriculomegaly and microcephaly. Furt
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：脑室扩大。涉及的主要影像要点包括：脑室扩大、胼胝体改变。</pre>
+<pre>**步骤 1：识别关键结构**
+在胎儿大脑的冠状切面上，需要观察的关键结构包括侧脑室、丘脑和脑实质。侧脑室应呈对称状且大小正常。丘脑位于中线位置，脑实质应显示为均匀一致，无局灶性病变。
+
+**步骤 2：评估脑室大小**
+侧脑室看起来较为显著。在妊娠 26 周时，头围和脑室大小处于发育阶段，但若出现显著扩大，则可能提示脑室扩张。脑室扩张定义为侧脑室增大，可分为原发性（由梗阻引起）或继发性（由脑萎缩引起）。
+
+**步骤 3：评估丘脑的位置和形态**
+丘脑应轮廓清晰且对称。如果两侧丘脑靠得过近，可能提示头围偏小或其他异常。在此图像中，两侧丘脑看起来距离很近，这可能是小头畸形或其他发育问题的征象。
+
+**步骤 4：观察是否存在囊性病变或肿块**
+图像中未见明显的囊性病变或肿块，而这些病变常见于丹迪-沃克综合征（Dandy-Walker syndrome）或蛛网膜囊肿等疾病。然而，未发现此类病变并不能排除所有异常情况。
+
+**步骤 5：考虑其他异常**
+应检查图像是否存在胼胝体发育不全的征象，该病表现为连接左右大脑半球的中线结构缺失。图像中可见胼胝体，但仅凭单一冠状切面无法对其完整性进行全面评估。
+
+回答提及或最终倾向的诊断包括：脑室扩大。涉及的主要影像要点包括：脑室扩大、胼胝体改变。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2753,18 +2789,29 @@ In the absence of specific measurements or visible abnormalities in the provided
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：脑室扩大、脑积水。涉及的主要影像要点包括：脑室扩大、脉络丛异常。</pre>
+<pre>**图像描述：**
+提供的超声图像为孕26周胎儿大脑的冠状切面视图。分割区域包括：
+- **胎儿脑实质**（在BiomedParse分割图中可能显示为紫色）：大脑组织呈对称分布，未见明显结构异常。
+- **脉络丛**（分割图中显示为紫色）：位于脑室内的强回声结构，表现正常。
+- **侧脑室**（分割图中显示为蓝色）：已勾勒出脑室轮廓，需评估其大小以判断是否存在扩张。
+
+**关键观察点：**
+1. **侧脑室**：在孕26周时，侧脑室的正常直径通常≤5 mm。若分割出的蓝色区域显示的脑室在此范围内，则属正常；若出现扩大（>5 mm），则可能提示脑室扩张。
+2. **脉络丛**：分割出的紫色区域呈局限性分布，未见过度隆起，表现正常。若出现异常增厚或囊肿，可能提示存在感染（如巨细胞病毒/CMV）或遗传性疾病的风险。
+3. **大脑对称性**：在未分割的原始图像中，未见明显的不对称或异常占位效应，提示无肉眼可见的结构异常。
+
+回答提及或最终倾向的诊断包括：脑室扩大、脑积水。涉及的主要影像要点包括：脑室扩大、脉络丛异常。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显差异。
 
 </details>
 
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**部分有帮助：纠正脑室扩大，但遗漏小囊肿
+**Segmentation 对 caption 的总体影响：**部分有帮助：主要体现在定位上，纠正脑室扩大，但遗漏小囊肿
 
 **原始图像 → Single-image caption 回答**
 
@@ -2774,7 +2821,7 @@ In the absence of specific measurements or visible abnormalities in the provided
 
 中文要点翻译：
 
-<pre>26 周胎儿脑冠状位超声显示脑室扩大，考虑脑室扩大症，并建议进一步胎儿系统超声、遗传学检查和 MRI。</pre>
+<pre>该超声图像显示了孕26周时胎儿大脑的冠状切面。可见脑室扩大，提示存在脑室扩张。这种情况可能由多种潜在原因引起，例如先天性感染、染色体异常或结构畸形。鉴于目前的孕周及脑室形态，有必要进行进一步评估——包括详细的胎儿解剖结构超声检查、用于基因检测的羊膜穿刺术以及可能的MRI检查——以明确病因并评估病情的严重程度。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2784,7 +2831,7 @@ In the absence of specific measurements or visible abnormalities in the provided
 
 中文要点翻译：
 
-<pre>分割标出了脉络丛和侧脑室；模型认为脉络丛、侧脑室大小及形态正常，周围脑实质未见异常。</pre>
+<pre>该超声图像显示了孕26周时胎儿大脑的冠状切面。经分割标记的区域包括脉络丛（紫色）和侧脑室（蓝色）。脉络丛形态正常，未见肥大或异常增大的迹象。侧脑室的大小和形态亦正常，未见提示脑积水的扩张征象。周围脑实质未见明显异常。基于上述观察，该孕周胎儿大脑结构发育正常。 分割标出了脉络丛和侧脑室；模型认为脉络丛、侧脑室大小及形态正常，周围脑实质未见异常。</pre>
 
 **对模型图片 caption 能力及 Segmentation 影响的分析：**
 
@@ -2795,7 +2842,7 @@ segmentation 纠正了原始 caption 对脑室扩大的过度诊断，并让模�
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助
 
 **原始图像 → Single-image caption 回答**
 
@@ -2825,7 +2872,19 @@ The fetal brain ultrasound at 26 weeks gestation appears normal.</pre>
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：脑室扩大。涉及的主要影像要点包括：脑室扩大、胼胝体改变、第三脑室异常。</pre>
+<pre>该图像是胎儿大脑的灰度超声扫描图，具体为轴向切面视图。扫描显示了该孕周（26周）胎儿大脑的典型结构。可见的主要特征包括：
+
+*   **大脑半球：** 位于两侧的两个大型圆形结构，代表大脑半球。脑回（褶皱）形态已逐渐清晰，尽管与足月儿相比仍相对平滑。
+*   **丘脑：** 位于大脑半球深处的中央区域，呈现为明亮的圆形结构。
+*   **尾状核：** 位于丘脑附近，呈现为较小且轮廓不太明显的结构。
+*   **基底节：** 包含尾状核和壳核的区域。
+*   **侧脑室：** 大脑半球内充满液体的腔隙，呈现为暗区。
+*   **第三脑室：** 位于中央，即两侧丘脑之间。
+*   **小脑：** 位于后方，呈现为回声较强（较亮）的结构，具有典型的“蝴蝶”状或“叶片”状纹理。
+*   **脑干：** 位于下方，连接大脑与脊髓。
+*   **胼胝体：** 连接两侧大脑半球的结构，在正中线上呈现为一条亮线。
+
+回答提及或最终倾向的诊断包括：脑室扩大。涉及的主要影像要点包括：脑室扩大、胼胝体改变、第三脑室异常。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2860,18 +2919,37 @@ Based on the image and the provided information (routine evaluation at 26 weeks 
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：脉络丛异常。</pre>
+<pre>**图像描述：**
+
+*   **成像模式：** 超声
+*   **视图：** 胎儿头部的轴向切面。
+*   **可见结构：**
+*   **大脑半球：** 位于中线两侧、具有复杂回旋形态的大型结构。 
+*   **丘脑：** 位于半球深部，呈高回声（明亮）结构。 
+*   **基底节：** 位于丘脑下方。 
+*   **侧脑室：** 位于半球内的充满液体的腔隙，呈低回声（暗色）区域。 
+*   **脉络丛：** 位于脑室内，呈高回声（明亮）结构。 
+*   **小脑：** 位于后方，呈轮廓清晰的结构。 
+*   **脑干：** 位于脑底部。
+
+**分割结果：**
+
+*   **Medical-SAM2：** 显示脑实质的分割结果。
+*   **Medical-SAM3：** 显示胎儿脑、脉络丛（紫色）和侧脑室（蓝色）的分割结果。
+*   **BiomedParse：** 显示胎儿脑、脉络丛（紫色）和侧脑室（蓝色）的分割结果。
+
+回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：脉络丛异常。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升
 
 </details>
 
 <details>
 <summary><strong>MedMO-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助
 
 **原始图像 → Single-image caption 回答**
 
@@ -2881,7 +2959,7 @@ Based on the image and the provided information (routine evaluation at 26 weeks 
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>胎心率为每分钟165次。胎动正常。胎盘位于子宫前壁下段，未覆盖宫颈内口。子宫形态正常。胎位为枕右前位。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2891,18 +2969,18 @@ Based on the image and the provided information (routine evaluation at 26 weeks 
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>这张图像显示了一个孕龄为26周的胎儿。该胎儿处于横位，位置不正常。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+都很差。没提升。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-4B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助
 
 **原始图像 → Single-image caption 回答**
 
@@ -2921,7 +2999,12 @@ This is a routine, unremarkable sonographic finding. No structural abnormalities
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>这是一张孕26周女胎的横切面（冠状面）超声图像，图像上的“COR RT”标记（意为冠状面、右侧）标示了这一方位。该图像展示了胎儿头部的横截面，可见脑部及颅骨结构。
+
+主要观察结果：
+- 图像显示胎儿头部形态对称、轮廓清晰；中央的低回声区域代表脑实质，周围环绕着高回声（强反射）结构，对应于颅骨。
+- 胎儿脑部结构看起来正常，可见清晰可辨的脑室（充满液体的低回声腔隙），且中线结构完整。
+- 整体回声纹理与孕26周胎儿脑部的正常发育情况相符。回答未形成可稳定提取的明确疾病结论。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2958,18 +3041,42 @@ This is a **normal fetal brain ultrasound at 26 weeks gestation**. The segmentat
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：脑积水、脑室扩大。涉及的主要影像要点包括：脉络丛异常、脑室扩大。</pre>
+<pre>根据提供的超声图像和分割结果，这是一次**孕26周的常规胎儿脑部超声检查**。该图像是在**冠状切面（COR RT）**下采集的，展示了胎儿头部的横截面视图，便于评估脑部结构，包括侧脑室、脑实质和脉络丛。
+
+### 分割结果描述：
+
+1.  **Medical-SAM2 分割（紫色点）：**
+*   该模型分割了胎儿脑部中线上的一个小的局部区域，可能代表**胎儿脑干或中脑的一小部分**。它并非对整个脑部进行的全面分割。
+
+2.  **Medical-SAM3 分割（紫色和蓝色）：**
+*   该模型分割了**两个不同的区域**：
+*   **紫色（上部区域）：** 代表**脉络丛**（可能是侧脑室后部或脑室系统内的脉络丛）。 
+*   **蓝色（下部区域）：** 代表**侧脑室**（即脑内充满液体的较大腔隙）。
+
+3.  **BiomedParse 分割（蓝色和紫色）​​：**
+*   该模型分割了**两个不同的区域**：
+*   **蓝色（上部区域）：** 代表**侧脑室**。 
+*   **紫色（下部区域）：** 代表**胎儿脑实质**（脑部的实质性组织）。
+
+### 解读与诊断：
+
+对于孕26周的胎儿而言，该图像及分割结果均显示**正常**。
+
+*   **侧脑室（蓝色）：** 分割结果显示侧脑室大小适中且位置对称。在孕26周时，侧脑室宽度通常在10-15毫米左右。分割结果未显示**脑室扩张**（脑室增大）或**脑积水**的迹象。
+*   **脉络丛（紫色）：** 脉络丛的分割结果也符合正常发育情况。脉络丛是脑室内产生脑脊液（CSF）的结构，其存在状态及外观均正常。 *   **脑实质（BiomedParse 中显示为紫色）：** 脑实质分割结果正常，未见囊肿、畸形或异常组织等结构性异常的征象。
+
+回答提及或最终倾向的诊断包括：脑积水、脑室扩大。涉及的主要影像要点包括：脉络丛异常、脑室扩大。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+只是提供了更多的seg，但是还是判断异常，还是错了
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助
 
 **原始图像 → Single-image caption 回答**
 
@@ -3006,7 +3113,17 @@ This coronal view is part of the comprehensive fetal survey and appears normal.
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>根据所提供的信息（一名孕26周的女性胎儿）以及标有“COR RT”（冠状面右侧）的超声图像，这是一张**胎儿头部及上胸部的冠状面超声图像**，很可能是在孕中期常规解剖结构筛查中获取的。
+
+### 图像描述：
+- 该图像为胎儿头部的**冠状切面**，视角为右侧。
+- 标签**“COR RT”**指示了冠状面（垂直于身体长轴）以及胎儿的右侧。
+- **中线结构**（如大脑中线、鼻中隔）看起来是对称的；在**小脑**和**脑干**上方可见**大脑半球**。
+- 颅骨的**骨性结构**轮廓不甚清晰，这在孕26周时属于正常现象，因为此时骨骼尚未充分钙化，无法清晰显影。
+- **回声特性**与正常的胎儿脑组织一致，呈现出不均匀的灰阶外观。
+- 在此图像中，**脑室**和**大脑内部结构**的界限并不清晰；对于这一孕周的冠状面图像而言，这是典型情况，因为胎儿大脑尚在发育中，且图像分辨率有限。 
+
+回答未形成可稳定提取的明确疾病结论。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3032,18 +3149,28 @@ This is a routine ultrasound evaluation with normal findings. The fetal brain st
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：脑积水、脑室扩大。涉及的主要影像要点包括：脑室扩大、脉络丛异常。</pre>
+<pre>基于提供的超声图像及分割结果，现对其进行描述与诊断：
+
+**图像描述：**
+这是一幅孕26周胎儿脑部的横切面（冠状面）超声图像。图像展示了胎儿脑部的冠状切面，“COR RT”标记指示胎儿右侧位于图像左侧。超声显示了胎儿脑部的可见脑室结构，包括侧脑室和脉络丛。
+
+分割结果标示了不同的解剖结构：
+- Medical-SAM2 分割结果（紫色）识别出一个小的圆形结构，这可能是胎儿脑实质或特定的感兴趣区域。
+- Medical-SAM3 分割结果（紫色和蓝色）勾勒出了胎儿脑部、脉络丛和侧脑室的轮廓，其中侧脑室呈现为较大且形状较不规则的区域。
+- BiomedParse 分割结果（蓝色和紫色）​​同样识别出了胎儿脑部和脑室结构，并用不同颜色标示了脉络丛和侧脑室。
+
+回答提及或最终倾向的诊断包括：脑积水、脑室扩大。涉及的主要影像要点包括：脑室扩大、脉络丛异常。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+还是判断异常，诊断错误，caption确实提供了更多关注点。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助
 
 **原始图像 → Single-image caption 回答**
 
@@ -3067,7 +3194,17 @@ This is a **normal fetal brain ultrasound** at 26 weeks gestation. The anatomy i
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：脑室扩大。涉及的主要影像要点包括：胼胝体改变、脑室扩大、脉络丛异常。</pre>
+<pre>所提供的超声图像为孕26周胎儿大脑的冠状切面（右侧冠状面，COR RT）。该图像展示了胎儿大脑在这一发育阶段的典型形态，包括侧脑室、中线结构及周围的脑实质。
+
+**图像描述：**
+- 图像显示大脑结构对称且轮廓清晰；侧脑室呈成对的无回声（暗色）结构，位于大脑中央区域。
+- 代表大脑镰的中线回声清晰可见且形态完整，提示无中线移位。
+- 侧脑室内的脉络丛呈高回声（亮色），属正常表现。
+- 大脑半球回声纹理正常，未见明显的囊肿、出血或畸形。
+- 侧脑室大小在孕周对应的正常范围内（此阶段通常 <10 mm），无脑室扩张征象。
+- 图像质量良好，脑部结构显示清晰。
+
+回答提及或最终倾向的诊断包括：脑室扩大。这是一例孕26周时的**胎儿脑部超声正常**图像。解剖结构发育良好，该冠状切面未见异常。建议进行常规超声复查，以持续监测胎儿的生长发育情况。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3128,17 +3265,42 @@ Three segmentation models are provided:
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：脑积水、脑室扩大。涉及的主要影像要点包括：胼胝体改变、脑室扩大、脉络丛异常、第三脑室异常。</pre>
+<pre>### 图像描述：
+
+- **超声模式**：灰阶 B 超（B-mode ultrasound）。
+- **解剖切面**：胎儿脑部的冠状切面，可能位于侧脑室和脉络丛层面。
+- **26周时的正常解剖结构**：
+- 侧脑室应呈现为成对、对称的无回声（暗色）结构，宽度正常（通常 <10 mm）。 
+- 脉络丛是位于侧脑室内的高回声（亮色）结构，呈现“暴风雪”样外观。 
+- 大脑半球应呈对称状，可见脑回和脑沟开始形成。 
+- 中线结构（大脑镰、第三脑室）应清晰可见并位于中线位置。
+
+### 分割分析：
+
+提供了三种分割模型：
+
+1. **Medical-SAM2**：以紫色分割整个胎儿脑部区域。这似乎是一种涵盖脑实质和脑室的宽泛、粗略分割，但缺乏对具体结构的区分。
+
+2. **Medical-SAM3（胎儿脑、脉络丛、侧脑室）**：显示的分割区域如下：
+- **紫色**：可能代表脉络丛（高回声，位于侧脑室内）。 
+- **蓝色**：可能代表侧脑室（无回声，充满液体的腔隙）。 
+- 分割结果显得有些破碎，可能未能完全准确捕捉真实的解剖边界，特别是在后颅窝和侧方区域。
+
+3. **BiomedParse（胎儿脑、脉络丛、侧脑室）**：显示的分割区域如下：
+- **蓝色**：中线上方区域的一个小圆形结构——可能是第三脑室或脉络丛的一部分。 
+- **紫色**：较大且不规则的区域——可能是侧脑室或周围的脑实质。 
+- 该分割结果似乎也不够精确，存在结构分类错误的可能。
+</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+都是正常的，没有见明显提升，只是多了对seg部分的描述。
 
 </details>
 
 ### 2.5 [Congenital diaphragmatic hernia](https://radiopaedia.org/cases/congenital-diaphragmatic-hernia?lang=us) (`congenital-diaphragmatic-hernia`)
 
-| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel | BiomedParse v1: lung, heart, diaphragm, bowel | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel 肺、心、膈、肠 | BiomedParse v1: lung, heart, diaphragm, bowel 肺、心、膈、肠 | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach 肺、右肺、左肺、膈、心脏、心纵隔、上纵隔、下纵隔、胃 |
 |---|---|---|---|---|
 | <img src="assets/congenital-diaphragmatic-hernia/original.jpeg" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia/medical_sam2_overlay.png" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia/medical_sam3_overlay.png" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
@@ -3147,12 +3309,12 @@ Three segmentation models are provided:
 
 <pre>X-ray of a neonate demonstrates the left hemithorax to be filled with multiple radiolucent regions, with displacement of the cardiac silhouette to the right. The nasogastric tube passes towards the left. Umbilical catheters are in situ. No convincing gas containing loops of bowel can be seen in the abdomen.</pre>
 
-- **原始图片 caption 翻译：**新生儿 X-ray 显示左侧胸腔内充满多个透亮区，心影向右移位；鼻胃管走向左侧，脐导管在位。腹部未见明确含气肠袢。
+- **原始图片 caption 翻译：**新生儿X光片显示左侧胸腔内充满多个透亮区，心影向右侧移位。鼻胃管向左侧延伸。脐静脉/动脉导管位置正常。腹部未见明确含气肠管影。
 
 <details>
 <summary><strong>InternVL3-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负向：参考关键点减少或被错误结论取代
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -3215,7 +3377,24 @@ Prompt clinical follow-up with additional tests (e.g., blood gas analysis, possi
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：呼吸窘迫综合征。涉及的主要影像要点包括：肺实变、肺部致密影、纵隔移位、膈肌异常或定位。</pre>
+<pre>### 图像描述：
+
+1. **解剖结构：**
+- **胸廓结构：** 胸腔周围可见肋骨。 
+- **肺部：** 可评估肺部的不透光区域，以观察是否存在实变或支气管充气征。 
+- **心脏：** 可见心脏轮廓，但在评估呼吸系统问题时，心脏并非主要关注点。 
+- **膈肌：** 可评估两侧膈肌的位置，以确定是否存在膈肌抬高。 
+- **胸腔引流管/血管导管：** 可见明显的医疗器械（如引流管和导管）；这些器械用于监测或治疗，除非它们影响了对肺部的观察，否则通常无需将其视为干扰影像（伪影）而过度关注。
+
+2. **影像征象：**
+- **肺部充气情况：** 良好的肺充气至关重要。充气不良的征象可能提示潜在的病变。需注意观察是否存在不透光度增加的区域。 
+- **纵隔与胸膜：** 检查纵隔是否有移位或肿块，以及是否存在胸腔积液或气胸。
+
+3. **其他发现：**
+- **心脏增大：** 心脏增大可能是一种继发性发现，但也可能提示先天性心脏病。 
+- **纵隔气肿或气腹：** 气体出现在正常解剖位置之外，可能提示多种病理状况。
+
+</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3249,11 +3428,21 @@ This interpretation should be correlated with clinical findings and managed by a
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：气胸、张力性气胸。涉及的主要影像要点包括：纵隔移位、膈肌异常或定位、胃泡位置异常、心影异常。</pre>
+<pre>1. **总体印象**：该X光片是在仰卧位下拍摄的；鉴于婴儿和新生儿身体脆弱且难以配合体位摆放，这种拍摄体位在临床上很常见。
+
+2. **肺部与膈肌**：双肺均可见，但左右两侧存在显著差异。左肺野似乎缺乏正常的透光区（即代表肺部含气的暗区），这提示肺组织外存在气体，即气胸。
+
+3. **心影与纵隔**：心脏及纵隔结构似乎发生了移位；这可能是由于一侧胸膜腔内的气体压力所致，进一步提示存在气胸。
+
+4. **腹部区域**：受拍摄设备便携性及体位摆放影响，图像中包含了腹部区域。左侧膈肌下方可见胃泡。
+
+5. **医疗装置**：图像中可见医疗导管（如脐静脉导管或中心静脉导管），这些是新生儿重症监护中的常见装置，其位置看起来适宜。
+
+</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：先天性膈疝（文本提及）、胸腔内含气肠袢（文本提及）、心影/纵隔右移（文本提及）；加入 segmentation 后：心影/纵隔右移（结论）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升
 
 </details>
 
@@ -3310,7 +3499,15 @@ Immediate clinical evaluation and intervention are necessary. If tension pneumot
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：气胸、张力性气胸、肺不张。涉及的主要影像要点包括：膈肌异常或定位、纵隔移位、肺实变。</pre>
+<pre>1. **肺野**：右肺野相对清晰，但左肺野可见密度增高影，提示存在肺萎陷或显著病变（如肺不张或肺实变）。
+
+2. **纵隔与心脏**：纵隔向左侧移位，提示左肺容积减少；受纵隔移位影响，心脏位置也可能随之发生偏移。
+
+3. **膈肌**：左侧膈肌抬高，这与左肺容积减少的表现相符。
+
+4. **胃肠道**：左上腹肠管可见明显的气体扩张，可能提示肠梗阻或其他胃肠道问题。
+
+5. **医疗器械**：影像显示有气管插管，表明患者已行气管插管术；此外还可见其他导管，可能包括鼻胃管和中心静脉导管。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3386,18 +3583,28 @@ The neonate&#x27;s respiratory distress, combined with the radiographic findings
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：纵隔移位、膈肌异常或定位、肺实变。</pre>
+<pre>1. **肺野**：肺野呈现密度增高（不透光度增加）表现，尤以右肺为甚。这可能提示存在实变病变，如肺炎或新生儿常见的呼吸窘迫综合征（RDS）。
+
+2. **膈肌**：右侧膈肌抬高，这可能提示膈肌麻痹或膈肌膨升，也可能是由导致肺容积减少的潜在肺部病变引起的。
+
+3. **心影及纵隔轮廓**：心脏和纵隔向左侧移位，这很可能是由于右肺容积减少或右侧存在严重病变所致。
+
+4. **肠道气体分布**：肠道气体分布形态正常，未见肠梗阻或气体分布异常的征象。
+
+5. **医疗器械**：可见数种医疗器械，包括气管插管（ETT，提示患者已行气管插管），以及可能的鼻胃管（NGT）或其他监测设备。
+
+6. **分割分析**：分割图像突出显示了肺野、膈肌及其他结构。右肺显示出明显的密度增高，而左肺则相对清晰。右侧膈肌抬高，且纵隔有明显的移位。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：胸腔内含气肠袢（文本提及）、心影/纵隔右移（结论）；加入 segmentation 后：先天性膈疝（文本提及）、胸腔内含气肠袢（文本提及）、心影/纵隔右移（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+加入 segmentation 后参考证据增加。
 
 </details>
 
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助
 
 **原始图像 → Single-image caption 回答**
 
@@ -3407,7 +3614,7 @@ The neonate&#x27;s respiratory distress, combined with the radiographic findings
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺透明膜病、呼吸窘迫综合征、胸腔积液、气胸。 </pre>
+<pre>该胸部X光片显示一名患有呼吸窘迫的新生儿。肺部呈现弥漫性阴影，这可能提示肺水肿或其他呼吸系统病变。心脏大小正常，未见气胸或胸腔积液征象。结合患儿的年龄及临床表现，上述影像学发现符合新生儿呼吸窘迫综合征（RDS），即透明膜病。该病常见于早产儿，由肺表面活性物质缺乏引起，导致肺泡萎陷及气体交换障碍。需进行进一步的临床评估与处理，以确诊并实施相应的治疗。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3419,18 +3626,18 @@ Diagnosis: The findings are consistent with neonatal respiratory distress syndro
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：呼吸窘迫综合征。 </pre>
+<pre>影像表现：胸部X光片显示该新生儿双肺野呈弥漫性模糊影，提示肺水肿或呼吸窘迫综合征（RDS）。可见气管插管，提示正在接受机械通气支持。心脏大小正常，未见气胸或胸腔积液征象。X光片显示的腹部区域未见异常气体分布或脏器肿大。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显。
 
 </details>
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**正向：新增或强化参考关键点
+**Segmentation 对 caption 的总体影响：**无明显
 
 **原始图像 → Single-image caption 回答**
 
@@ -3465,7 +3672,7 @@ The X-ray shows a neonate with an endotracheal tube and orogastric tube, indicat
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎、心脏增大、肺水肿、胸腔积液。涉及的主要影像要点包括：肺实变、膈肌异常或定位。</pre>
+<pre>该图像为一名新生儿的胸腹部正位X光片，患儿呈仰卧位。图像显示了胸廓、肺部、心脏、膈肌、肝脏、脾脏和胃。可见一根气管插管向下延伸至气管内；另有一根口胃管延伸进入胃部。肺部影像相对清晰，尽管可见些许轻微的模糊影（尤其是在肺下叶），这可能由肺不张或早期积液引起。心脏大小对于新生儿而言属正常范围。可见膈肌，其将胸腔与腹腔分隔开来。腹部脏器虽部分被重叠结构遮挡，但总体未见明显异常。肋骨及脊柱的骨性结构清晰可见。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3495,18 +3702,20 @@ The X-ray shows supportive devices (ETT, NG tube) and some subtle findings in th
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：呼吸窘迫综合征、心脏增大、肺炎、胸腔积液。涉及的主要影像要点包括：肺实变、膈肌异常或定位、心影异常。</pre>
+<pre>图像描述：
+
+该图像为一名新生儿的胸腹部X光片。患儿呈仰卧位。可见一根气管插管向下延伸至气管隆突处。同时可见一根鼻胃管，其走行进入胃部。双肺扩张情况尚可，尽管可见些许模糊影（尤其是在肺下野），这可能提示存在肺不张或早期积液。心脏轮廓大小与患儿年龄相符，未见异常。可见膈肌影，肠道气体分布未见异常。纵隔居中。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：胸腔内含气肠袢（文本提及）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显
 
 </details>
 
 <details>
 <summary><strong>MedMO-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无明显
 
 **原始图像 → Single-image caption 回答**
 
@@ -3516,7 +3725,7 @@ The X-ray shows supportive devices (ETT, NG tube) and some subtle findings in th
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>双肺清晰。心脏无增大。纵隔正常。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3526,18 +3735,18 @@ The X-ray shows supportive devices (ETT, NG tube) and some subtle findings in th
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：胸腔积液。 </pre>
+<pre>胸部X光片显示存在双侧胸腔积液。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-4B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**正向：新增或强化参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -3567,7 +3776,9 @@ The X-ray is consistent with **Transient Tachypnea of the Newborn (TTN)**, a com
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：膈肌异常或定位。</pre>
+<pre>这是一张新生儿的便携式仰卧位胸腹部正位X光片。图像上标有“Lt”（左侧）字样，表明图像是从患者左侧拍摄的（尽管患者处于仰卧位，但这可能是某种惯例或标记伪影）。患者很可能已接受插管治疗，因为可见一根中央气道导管沿气管向下延伸并进入食管（导管位于中线位置，符合气管插管的特征）。腹部还可见一根鼻胃管或类似装置，可能用于喂养或减压。该图像拍摄于22:10（晚上10:10），时间标记为第60/1天（可能是出生后第60天或住院第60天）。
+
+胸部呈现典型的新生儿形态，可见肋骨和脊柱。肺部影像相对清晰，但右肺野可见些许密度增高影，这可能是由于体位因素，或存在少量液体或气道分泌物所致。膈肌轮廓清晰，心脏大小对于新生儿而言属正常范围。未见明显的胸腔积液或气胸。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3600,18 +3811,32 @@ This is a common and serious condition in premature infants, caused by a deficie
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：呼吸窘迫综合征。涉及的主要影像要点包括：膈肌异常或定位。</pre>
+<pre>根据提供的影像和患者信息（伴有呼吸窘迫的新生儿），影像学表现符合**新生儿呼吸窘迫综合征（NRDS）**，即肺透明膜病。
+
+分析如下：
+
+1.  **影像特征：**
+*   该影像为新生儿床旁仰卧位胸部X光片。 
+*   最显著的特征是双侧肺部呈**弥漫性致密影**（opacification）。与充满空气的正常肺部相比，肺部呈现“白色”或“云雾状”外观。 
+*   可见**肺容积缩小**及**肺间质纹理增多**。 
+*   **膈肌位置抬高**（虽在该影像中未清晰显示，但可根据整体肺部形态推断）。 
+*   **心脏及纵隔**轻微向右移位，这与左侧肺密度增高相一致（尽管在影像中未清晰显示）。
+
+2.  **分割分析：**
+*   **Medical-SAM2：** 该分割结果突出显示了腹部区域，这与肠道积气及仰卧位体位相符。 
+*   **Medical-SAM3 与 BiomedParse：** 这些分割结果显示肺部充满致密影，这是NRDS的典型特征。分割结果与影像学发现一致。 
+*   **TorchXRayVision：** 该分割结果显示肺部充满致密影，与影像学发现一致。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：胸腔内含气肠袢（文本提及）、心影/纵隔右移（文本提及）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无明确增益：仅在鉴别或否定语境中提及关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -3647,7 +3872,15 @@ While other conditions like asthma or congenital heart disease can cause similar
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：细支气管炎。涉及的主要影像要点包括：膈肌异常或定位。</pre>
+<pre>**图像描述：**
+
+这是一张新生儿仰卧位胸腹部床旁X光片。主要发现包括：
+
+1.  **明显的肺过度充气：** 肺部呈过度充气状态，表现为膈肌变平及胸骨后透亮区增宽。这是气体潴留的典型征象。
+2.  **肺血管纹理减少：** 肺野内血管纹理减少，提示肺泡过度扩张及可能存在气道阻塞。
+3.  **支气管充气征：** 在实变或过度充气的肺野内可见含气的支气管影，这种情况常见于细支气管炎或哮喘等疾病。
+4.  **腹部气体分布：** 腹部肠道气体分布正常，未见气腹或肠梗阻的明显征象。
+5.  **医疗装置：** 图像显示多条医疗导管，包括中心静脉导管（可能为PICC导管）及疑似鼻胃管，提示患儿病情危重，正在接受重症监护。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3674,18 +3907,22 @@ In conclusion, the X-ray demonstrates severe bilateral lung consolidation in a n
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变、膈肌异常或定位。</pre>
+<pre>2.  **影像表现：**
+*   **肺野：** 最显著的特征是双侧肺野**不透明度明显增加**。这一特征在所有分割图像中均可见，尤其是在 BiomedParse 和 TorchXRayVision 图像中，显示整个肺实质呈均匀致密或模糊状。这是肺实变的典型征象；肺实变是指肺泡腔内充满液体、脓液或细胞，而非空气。 
+*   **心脏与膈肌：** 心脏轮廓的大小和形态看起来正常。膈肌可见，但位置似乎略有抬高，且因肺野致密而变得模糊，这种情况在严重肺实变病例中很常见。 
+*   **肠道气体：** 腹部可见肠道气体影，这在新生儿中属于正常现象，在此情况下未见异常。 
+*   **医疗装置：** 图像显示存在医疗导管，包括中心静脉导管（可能是 PICC 或中心静脉置管）以及疑似鼻胃管或脐静脉导管。这些装置在需要重症监护的新生儿中很常见。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：胸腔内含气肠袢（否定/鉴别）；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负面：不完整肺分割被误读为张力性气胸
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -3740,7 +3977,11 @@ This is the most likely diagnosis given the neonatal age, clinical presentation 
 
 中文要点翻译：
 
-<pre>新生儿胸腹片被解释为双肺弥漫磨玻璃样密度增高，腹部肠气分布正常；模型诊断新生儿呼吸窘迫综合征，并明确认为胸腔内没有肠气，因而不支持先天性膈疝。</pre>
+<pre>这是一张新生儿便携式仰卧位胸腹部X光片，显示了胸部及上腹部区域。可见包括肋骨和椎体在内的骨骼结构；肋骨形态符合新生儿特征，肋软骨端表现典型。
+
+胸腔内可见**双侧弥漫性磨玻璃样影**，伴**肺纹理增粗**及遍布双肺野的**模糊、边界不清的致密影**。**未见局灶性实变、气胸或纵隔气肿**的征象。心影可见，大小及形态正常。膈肌轮廓清晰但位置略高，这可能与患儿的呼吸动作或早产有关。
+
+腹部可见**正常的肠道充气征象**及肠管影，**无肠梗阻或游离气体**征象。片中可见多种医疗导管：一根中心静脉导管（可能为脐静脉导管）自脐部向上延伸至上腔静脉；此外还有其他导管，符合脐动脉导管及可能的气管插管（尽管在此视图中显示不甚清晰）的特征。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3834,17 +4075,54 @@ This neonate presents with **respiratory distress**, and the X-ray demonstrates 
 
 中文要点翻译：
 
-<pre>模型注意到 Medical-SAM3 只分出了右肺，将左肺未被分割解释为左侧肺组织消失，最终诊断左侧张力性气胸，并再次排除先天性膈疝。</pre>
+<pre>该X光片为处于仰卧位的新生儿的正位（前后位）影像。图像显示了胸部和上腹部结构，包括肋骨、脊柱、肺部、心脏、膈肌及肠道气体分布情况。
+
+关键影像学发现：
+
+1. **肺部：**
+- **右肺：** 表现为相对透亮度增高（更透亮），可见充气的支气管影，提示存在一定程度的通气。 
+- **左肺：** 表现为显著的**透亮度增高**，且**肺纹理缺失或极少**——这高度提示**气胸**。 
+- **左侧胸腔**可见沿左侧胸壁分布的**锐利线状透亮影**，符合**脏层胸膜线**特征，表明胸膜腔内存在气体。 
+- **左侧膈肌受压下移**，**纵隔向右移位**，证实存在张力性改变或显著的占位效应。
+
+2. **心脏与纵隔：**
+- 心脏**向右移位**，表明左侧胸膜腔内压力升高导致了纵隔移位。 
+- **心影及纵隔**在左侧显得变窄，符合受压表现。
+
+3. **膈肌：**
+- **右侧膈肌可见且位置抬高**。 
+- **左侧膈肌变平并下移**，这是张力性气胸的典型表现。
+
+4. **肠道气体：**
+- 腹部可见肠道气体，未见肠梗阻或膈下游离气体（无气腹）的征象。 
+- 胃泡影不明显，可能与体位或留置了鼻胃管有关。
+
+5. **医疗装置：**
+- 可见多条导管，包括：
+- **中心静脉导管**（可能是脐静脉导管或经外周置入的中心静脉导管），导管尖端位于胸下段或上腹部区域。 
+- 盘绕在下腹部的**鼻胃管**。 
+- 可能存在**气管插管**（影像上不明显，但鉴于患儿存在呼吸窘迫，很可能已置入）。 ---
+
+**分割分析：**
+
+- **Medical-SAM2：** 分割结果极少且不具备解剖学意义（紫色和绿色区域很可能是伪影或分割错误）。
+- **Medical-SAM3：** 仅分割出了**右肺**（浅蓝色），未分割左肺——这与影像学上显示的左侧气胸（未见肺组织）相吻合。
+- **BiomedParse：** 分割了双肺（浅蓝色），但**左肺分割不准确**——其范围包含了气胸区域，而该区域应为充满气体的空间，而非肺组织。这反映了该模型在区分肺实质与气胸方面存在局限性。
+- **TorchXRayVision：** 提供类似热力图的叠加显示，其中黄色/绿色区域代表感兴趣区域。**左肺区域被高亮显示**，这可能反映了模型试图识别病变（如气胸或肺萎陷）。
+
+---
+
+模型注意到 Medical-SAM3 只分出了右肺，将左肺未被分割解释为左侧肺组织消失，最终诊断左侧张力性气胸，并再次排除先天性膈疝。</pre>
 
 **对模型图片 caption 能力及 Segmentation 影响的分析：**
 
-该例展示了典型的 mask 缺失误导：模型把“分割器未标出左肺”当成“左肺不存在”，从较泛化的 NRDS 错误进一步转为紧急但错误的张力性气胸。真正关键的是左胸腔内含气肠袢、右移心影以及腹部肠气减少，这些跨胸腹关系没有被当前 mask 表达。
+无明显提升。
 
 </details>
 
 ### 2.6 [First trimester oligohydramnios](https://radiopaedia.org/cases/first-trimester-oligohydramnios?lang=us) (`first-trimester-oligohydramnios`)
 
-| Original image | Medical-SAM2 | Medical-SAM3: uterus, gestational sac, embryo, amniotic fluid | BiomedParse v1: uterus, gestational sac, embryo, amniotic fluid |
+| Original image | Medical-SAM2 | Medical-SAM3: uterus, gestational sac, embryo, amniotic fluid 子宫、孕囊、胚胎、羊水 | BiomedParse v1: uterus, gestational sac, embryo, amniotic fluid 子宫、孕囊、胚胎、羊水 |
 |---|---|---|---|
 | <img src="assets/first-trimester-oligohydramnios/original.jpg" width="100%"> | <img src="assets/first-trimester-oligohydramnios/medical_sam2_overlay.png" width="100%"> | <img src="assets/first-trimester-oligohydramnios/medical_sam3_overlay.png" width="100%"> | <img src="assets/first-trimester-oligohydramnios/biomedparse_v1_overlay.png" width="100%"> |
 
@@ -3858,7 +4136,7 @@ This neonate presents with **respiratory distress**, and the X-ray demonstrates 
 <details>
 <summary><strong>InternVL3-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -3904,7 +4182,15 @@ This description ensures that all critical aspects of the ultrasound findings an
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：正常妊娠。 </pre>
+<pre>### 图像描述：
+
+1. **超声表现**：该图像为灰阶超声影像，呈现混合回声特征。图像中央区域较周围组织略呈低回声（颜色较暗），这是早孕期观察发育中胚胎时的典型表现。
+
+2. **头臀长 (CRL)**：图像上标示的测量数据显示头臀长 (CRL) 为 0.35 厘米。该测量值有助于估算孕周，确认胎儿孕龄约为 6 周。
+
+3. **整体回声结构**：周围组织（可能代表子宫内膜线）呈现不均匀回声，包含高回声（较亮）和低回声（较暗）区域。在此阶段，解剖结构尚不明显，发育中的胚胎体积微小。
+
+回答提及或最终倾向的诊断包括：正常妊娠。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3959,18 +4245,31 @@ Therefore, the ultrasound findings are consistent with a normal, viable early pr
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：正常、有活性的早期宫内妊娠。 </pre>
+<pre>### 图像描述
+
+1. **原始超声图像（图像 1）：**
+
+- 该图像为灰度超声图像，展示了经阴道超声视图。 
+- 图像中心的关注区域包含一个小的圆形低回声（暗色）区域，这很可能是孕囊。 
+- 图像上有标注显示头臀长（CRL）为 0.35 厘米，对应孕周约为 6 周。
+
+2. **分割图像：**
+
+- 分割图像（Medical-SAM2、Medical-SAM3 和 BiomedParse）突显了原始超声图像中的不同结构。 
+- **Medical-SAM2 分割**：该分割主要标记了一个较大区域，可能是子宫或周围组织的轮廓。此外还标记了一个小的暗色区域，对应于孕囊。 
+- **Medical-SAM3 和 BiomedParse 分割**：这些分割着重标示了​​孕囊、胚胎及周围的羊水。其中一个特定区域以浅蓝色高亮显示，这很可能是孕囊内的胚胎。
+回答提及或最终倾向的诊断包括：正常、有活性的早期宫内妊娠。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+都是正常的，无明显提升。
 
 </details>
 
 <details>
 <summary><strong>InternVL3.5-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无明确增益：仅在鉴别或否定语境中提及关键点
+**Segmentation 对 caption 的总体影响：**无明确增益
 
 **原始图像 → Single-image caption 回答**
 
@@ -4026,7 +4325,17 @@ This is a normal early pregnancy scan with no apparent complications. Continued 
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：异位妊娠。 </pre>
+<pre>好的，我们来看看这张超声图像显示了什么情况。患者是一名怀孕 5 到 6 周的女性，这张图像来自早孕期超声检查。检查方式是超声，关键数据是测得的头臀长（CRL）为 0.35 厘米，这对应于孕 6 周 0 天。已知孕周为 5 到 6 周，因此数据是吻合的。
+
+观察图像，可以看到一个孕囊。测量了头臀长（CRL），这是评估胎龄的标准方法。孕囊直径为 2.81 厘米。在孕 5 到 6 周时，应该能看到孕囊，且头臀长通常在 0.3 到 0.5 厘米之间，这与当前情况相符。
+
+等等，我需要确认是否能看到胚胎。在早孕期（5 到 6 周），胚胎部位可能会显示出卵黄囊，甚至可能是胎芽。这张图像可能有些颗粒感，但十字标记标示了一个小结构，这很可能是胚胎或胎芽。如果头臀长为 0.35 厘米，相当于孕 6 周左右，那么胚胎应该是存在的。
+
+不过，如果孕周极早，图像可能无法清晰显示胚胎。有时可能只看到孕囊而看不到胚胎，这可能提示空孕囊（枯萎卵）或异位妊娠。但头臀长的测量结果表明胚胎是存在的。等等，头臀长是从头顶测量到臀部的，既然能测出这个数值，说明胚胎确实存在。
+
+还需要考虑的一点是位置。鉴于图像的清晰度，这很可能是经阴道超声检查。如果孕囊位于子宫内，则为宫内妊娠；如果位于其他部位（如输卵管），则为异位妊娠。虽然图像未显示完整的解剖结构，但子宫内可见妊娠囊及可测量的头臀长（CRL），提示为宫内妊娠。 
+
+回答提及或最终倾向的诊断包括：异位妊娠。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4076,18 +4385,28 @@ The findings suggest a healthy intrauterine pregnancy. The patient should contin
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：异位妊娠、正常妊娠。 </pre>
+<pre>好的，我们来看看。患者为妊娠 5-6 周的女性，正在进行早孕超声检查。提供的图像来自经阴道超声扫描。这里的关键测量数据包括：头臀长（CRL）为 0.35 厘米（对应约 6 周孕龄），以及孕囊直径为 2.81 厘米。
+
+首先，我需要评估孕囊。在妊娠 5-6 周时，应当能看到孕囊，且应能测量出头臀长（CRL）。此处的 CRL 为 0.35 厘米（相当于约 26 天的发育程度），这与 6 周的孕龄相符。孕囊直径为 2.81 厘米。通常，孕囊平均直径可通过以下公式估算：平均直径（毫米）+ 15 = 孕龄（天数）。让我核算一下：如果平均直径为 28.1 毫米（即 2.81 厘米），那么 28.1 + 15 = 43.1 天，大约相当于 6 周零 1 天。这与 CRL 的测量结果相吻合，因此孕龄推算看起来是一致的。
+
+现在观察图像。在分割图像中，孕囊已被高亮标示。胚胎（如果可见）应位于孕囊内。在 5-6 周时，胚胎可能表现为一个微小结构，但也可能仅能看到卵黄囊。CRL 是从胚胎头部到臀部的测量长度。如果存在胚胎，通常在 6 周左右应能检测到心跳，不过具体情况也取决于扫描的时间点和图像质量。
+
+此处采用经阴道超声是合适的，因为它能提供更高的早孕期图像分辨率。孕囊看起来位于子宫内。分割图像中未提及肿块或异常情况，但我仍需检查是否有异位妊娠（宫外孕）的迹象。如果孕囊位于子宫外（例如输卵管内），则属于异位妊娠。然而，此处的分割图像标示了子宫，且孕囊位于子宫内，这是一个良好的征象。在这一阶段，羊水可能还无法清晰显现。通常，卵黄囊会在羊水变得明显之前先出现。胚胎和卵黄囊的存在至关重要；如果能看到卵黄囊且胚胎正在发育，这是一个积极的信号。如果未见这些结构，则可能存在问题，但也需考虑到在怀孕5到6周时，胚胎有时才刚刚开始形成。
+
+另一个需要关注的因素是孕囊的数量。影像显示只有一个孕囊，因此属于单胎妊娠，未发现双胞胎或多胞胎。孕囊形态规则，既不畸形也不过大，这通常提示为正常妊娠。 
+
+回答提及或最终倾向的诊断包括：正常妊娠。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：不良妊娠预后（否定/鉴别）；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+正常，无明显差异。
 
 </details>
 
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：只确认早孕结构，未比较孕囊与胚胎比例
+**Segmentation 对 caption 的总体影响：**无帮助，无明显差异
 
 **原始图像 → Single-image caption 回答**
 
@@ -4097,7 +4416,7 @@ The findings suggest a healthy intrauterine pregnancy. The patient should contin
 
 中文要点翻译：
 
-<pre>宫内见孕囊，头臀长 0.35 cm，约相当于孕 6 周；模型诊断早期宫内妊娠。</pre>
+<pre>超声图像显示宫内可见一妊娠囊，头臀长（CRL）测量值为 0.35 cm，对应约 6 周的孕龄。宫内妊娠囊的存在证实了宫内妊娠。结合患者的年龄及临床表现，诊断为孕约 6 周的早期宫内妊娠。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4107,18 +4426,18 @@ The findings suggest a healthy intrauterine pregnancy. The patient should contin
 
 中文要点翻译：
 
-<pre>加入孕囊、胚胎和羊水相关分割后，模型仍只报告头臀长 0.35 cm、宫内孕囊及胚胎，诊断约 6 周宫内妊娠。</pre>
+<pre>该超声图像显示了妊娠5至6周时的早期妊娠检查结果。关键发现包括测得的头臀长（CRL）为0.35厘米，这对应于约6周的孕龄。图像中可见孕囊及其内部的胚胎。基于这些发现，诊断结果为妊娠约6周的早期宫内妊娠。由不同医学影像模型（Medical-SAM2、Medical-SAM3和BiomedParse）提供的测量数据与可视化结果，均与早期妊娠的总体诊断结论相一致。</pre>
 
 **对模型图片 caption 能力及 Segmentation 影响的分析：**
 
-分割帮助模型复述了结构名称，但没有触发定量关系判断：CRL 3.5 mm 与孕囊直径 4.5 mm 极不匹配，才是第一孕期羊水过少和不良预后的关键。这里需要测量或比例推理，而不是仅提供区域 mask。
+无明显提升
 
 </details>
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助
 
 **原始图像 → Single-image caption 回答**
 
@@ -4149,7 +4468,18 @@ The ultrasound image shows a normal intrauterine pregnancy at approximately 5 we
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>**图像描述：**
+
+该图像为子宫的灰阶超声扫描图。鉴于图像呈现了子宫腔的近距离特写，这很可能是一次经阴道超声检查。
+
+*   **子宫：** 可见子宫结构，表现为环绕中央腔隙的相对高回声区域。
+*   **子宫腔：** 子宫内部的中央区域呈无回声（黑色）状态，代表充满液体的空间。
+*   **孕囊：** 在子宫腔内，可见一个边界清晰、呈圆形且无回声的结构。这就是孕囊，其中包含正在发育的胚胎。
+*   **卵黄囊：** 在孕囊内部，可见一个微小的圆形高回声结构。这就是卵黄囊，它是为胚胎提供营养的早期结构。
+*   **胚胎/胎芽：** 紧邻卵黄囊处有一个微小的高回声点。这代表了处于早期发育阶段的胚胎（也称为胎芽）。
+*   **CRL：** 图像上标有一项测量数据，标注为“CRL 0.35 cm”。CRL 代表“头臀长”（Crown-Rump Length），这是早孕期确定孕周的标准测量指标。该测量值为 0.35 厘米。
+
+回答未形成可稳定提取的明确疾病结论。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4165,18 +4495,20 @@ Based on the ultrasound findings of a gestational sac within the uterus at 5-6 w
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>**图像描述：**
+
+该图像为子宫的灰阶超声扫描图。子宫呈现为一个占据画面大部分区域的大型高回声结构。在子宫腔内，可见一个较小的无回声（呈黑色）结构，其周围环绕着一圈低回声（比周围组织颜色稍深）的边缘。该结构即为孕囊，其中包含正在发育的胚胎。孕囊位于子宫中央。该图像呈现了妊娠约5至6周时早孕的典型超声表现。 回答未形成可稳定提取的明确疾病结论。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显差异。
 
 </details>
 
 <details>
 <summary><strong>MedMO-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助，无明显差异
 
 **原始图像 → Single-image caption 回答**
 
@@ -4186,7 +4518,7 @@ Based on the ultrasound findings of a gestational sac within the uterus at 5-6 w
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>一名女性胎儿妊娠 5-6 周时的超声检查图像。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4196,18 +4528,18 @@ Based on the ultrasound findings of a gestational sac within the uterus at 5-6 w
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>Medical-SAM2 的分割能够准确识别子宫、孕囊、胚胎和羊水。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-4B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**强化其判断依据
 
 **原始图像 → Single-image caption 回答**
 
@@ -4231,7 +4563,11 @@ This ultrasound image is consistent with a normal, viable intrauterine pregnancy
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：异位妊娠。 </pre>
+<pre>在妊娠5–6周时，超声图像（图像1）显示宫腔内有一个边界清晰、呈低回声（暗色）的结构，符合早期胎芽的特征。该图像呈现了早期孕囊的典型形态，可见清晰的胎芽及卵黄囊——卵黄囊通常在妊娠5–6周时可见。
+
+该胎芽大小为0.35厘米（即妊娠6周时的头臀长，CRL），处于该孕周的预期正常范围内。对于有活力的宫内妊娠而言，妊娠6周时0.35厘米的头臀长属于正常指标，因为该阶段的正常生长范围通常在0.25–0.5厘米之间。
+
+图像还显示了一个位于中央、呈圆形且边界清晰的卵黄囊，这是该孕周的正常表现。胎芽的朝向显示出可见的头端和尾端，表明存在胚胎结构。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4249,18 +4585,24 @@ The segmentation results from Medical-SAM2 and BiomedParse both accurately ident
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：异位妊娠。 </pre>
+<pre>这张经阴道超声图像显示了妊娠 5–6 周时的正常早孕征象。主要发现如下：
+
+- **孕囊**：宫腔内可见一个边界清晰、呈低回声（暗色）的圆形结构，符合孕囊特征。其直径约为 2.81 厘米，处于妊娠 5–6 周的预期范围内。
+- **胚胎**：孕囊内可见一个微小、轮廓清晰且呈轻度低回声的结构（即胚胎）。测得头臀长（CRL）为 0.35 厘米，符合妊娠 5–6 周的预期大小。胚胎发育看起来正常。
+- **羊水**：孕囊内含有少量羊水，这属于该阶段的正常表现。
+
+Medical-SAM2 和 BiomedParse 的分割结果均准确识别出了孕囊，Medical-SAM3 的分割结果也正确勾勒出了孕囊和胚胎的轮廓。图像质量良好，未见多胎妊娠、异位妊娠或异常生长的迹象。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+强化其判断依据
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助
 
 **原始图像 → Single-image caption 回答**
 
@@ -4291,7 +4633,12 @@ The segmentation results from Medical-SAM2 and BiomedParse both accurately ident
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：异位妊娠。 </pre>
+<pre>**图像描述：**
+- 这是一张在妊娠约 5-6 周时获取的经阴道或经腹部超声图像。
+- 图像显示一个妊娠囊，其中心有一个无回声（暗色）区域，这与卵黄囊的存在相符。
+- 卵黄囊在妊娠囊内呈现为一个充满液体的小圆形结构。
+- 图像包含一项测量数据：“CRL 0.35 cm 6w0d”（即孕 6 周 0 天时的头臀长为 0.35 厘米）；这是一项极早期的测量结果，提示胚胎虽已存在，但尚未能清晰辨识出明确的胚胎结构。通常，头臀长（CRL）的测量数据要到孕 6-7 周左右才具有可靠性。
+- 妊娠囊的大小与孕周相符。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4319,18 +4666,22 @@ In summary, the ultrasound findings are consistent with a normal early pregnancy
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>**图像描述：**
+
+这是一张经阴道超声图像，拍摄于妊娠约 5-6 周（6周0天）时，图像上的测量数据（头臀长 CRL 为 0.35 厘米）及孕周信息显示了这一点。图像显示宫腔中央有一个妊娠囊。在妊娠囊内可见一个边界清晰的小型低回声（暗色）结构，即胚胎。胚胎周围环绕着回声较强（较亮）的区域，这与羊水相符。
+
+该图像质量良好，分辨率足以清晰显示妊娠囊和胚胎。周围的子宫组织也清晰可见，呈现为回声不均匀、回声强度中等的结构。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升，
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助
 
 **原始图像 → Single-image caption 回答**
 
@@ -4366,7 +4717,13 @@ This is a normal early intrauterine pregnancy. The next steps typically include 
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：异位妊娠。 </pre>
+<pre>**图像描述：**
+
+这是一张早孕期（按末次月经计算，孕周为5–6周）经阴道超声灰阶图像。图像显示一个位于中央的圆形低回声（较暗）结构，周围环绕着回声稍强（较亮）的区域，符合妊娠囊的特征。囊内可见一个微小的高回声（较亮）结构——根据具体的发育阶段，这可能是胚芽或卵黄囊。
+
+左下角显示的测量数据为**头臀长（CRL）0.35 cm**，对应孕周约为**6周0天**——这与患者的临床孕周推算相符。头臀长是评估早孕期孕周的可靠指标。
+
+周围的子宫肌层回声不均，但质地正常；未见异常积液、肿块或异位妊娠征象（如游离积液、附件区肿块）。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4422,11 +4779,18 @@ This is a reassuring early pregnancy scan with no immediate signs of abnormality
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：异位妊娠。 </pre>
+<pre>### **图像描述：**
+
+该灰阶超声图像显示，在回声较强（较亮）的周围组织中，存在一个位于中央的低回声（较暗）圆形结构，这与**孕囊**的特征相符。
+
+- **孕囊：** 表现为一个边界清晰、无回声（暗色）的环状结构，外围环绕着高回声边缘，位于子宫中央。其测量直径为 **2.81 cm**（通常指平均孕囊直径，MSD）。
+- **胚胎：** 在孕囊内可见一个微小的高回声（明亮）结构，即**胚胎**。测得的**头臀长（CRL）**为 **0.35 cm**，对应孕龄约为 **6周0天**，这与临床推算的孕龄相吻合。
+- **卵黄囊：** 胚胎旁可能存在一个微小的圆形无回声结构（尽管图中未明确标注），这是该孕期的典型特征。
+- **羊水：** 孕囊内包绕胚胎的充满液体的空间即为羊膜腔；但在这一早期阶段，它与卵黄囊或胚外体腔的界限尚不明显。
+- **分割掩模：** 分割掩模（Medical-SAM2、Medical-SAM3、BiomedParse）将孕囊内的中央结构标示为**胚胎**（浅蓝色），而周围组织则可能代表子宫肌层和子宫内膜。分割结果相对准确，但由于信噪比较低且该孕期的结构尺寸微小，边界界定略显模糊。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
-
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 

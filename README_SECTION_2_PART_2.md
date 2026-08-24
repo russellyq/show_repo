@@ -4,7 +4,7 @@
 
 ### 2.7 [Lytic bone lesion (myeloma)](https://radiopaedia.org/cases/lytic-bone-lesion-myeloma?lang=us) (`lytic-bone-lesion-myeloma`)
 
-| Original image | Medical-SAM2 | Medical-SAM3: bone, bone lesion, humerus | BiomedParse v1: bone, bone lesion, humerus |
+| Original image | Medical-SAM2 | Medical-SAM3: bone, bone lesion, humerus 骨、骨病变、肱骨 | BiomedParse v1: bone, bone lesion, humerus 骨、骨病变、肱骨 |
 |---|---|---|---|
 | <img src="assets/lytic-bone-lesion-myeloma/original.jpg" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/medical_sam2_overlay.png" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/medical_sam3_overlay.png" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/biomedparse_v1_overlay.png" width="100%"> |
 
@@ -13,12 +13,12 @@
 
 <pre>There is a subtle lytic lesion in proximal right humerus.</pre>
 
-- **原始图片 caption 翻译：**右侧肱骨近端可见细微溶骨性病灶。
+- **原始图片 caption 翻译：**右侧肱骨近端可见一处隐匿性溶骨性病变。。
 
 <details>
 <summary><strong>InternVL3-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负向：参考关键点减少或被错误结论取代
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -73,7 +73,21 @@ By integrating clinical findings with further imaging, a more precise diagnosis 
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：骨关节炎。涉及的主要影像要点包括：钙化。</pre>
+<pre>该X光片显示了右侧上臂（肱骨）的正位影像。患者为一名69岁女性，主诉左肩及右侧肱骨疼痛剧烈。
+
+### 观察特征：
+1. **骨骼结构：**
+- 肱骨头与肩胛骨关节盂的关节关系良好，显示肩关节对位正常。 
+- 肱骨干形态完整，未见明显骨折或脱位。 
+- 肱骨近端及远端的骨密度与结构均正常，未见急性损伤征象。
+
+2. **关节间隙：**
+- 肩关节间隙显示正常，未见提示骨关节炎的明显狭窄。
+
+3. **软组织：**
+- 该X光片显示肱骨或肩关节周围无明显的软组织肿胀或异常钙化。
+
+回答提及或最终倾向的诊断包括：骨关节炎。涉及的主要影像要点包括：钙化。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -127,18 +141,25 @@ Thus, although the X-ray does not reveal a clear-cut diagnosis for the patient&#
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：骨关节炎。 </pre>
+<pre>2. **X光成像模式与部位**：
+- **成像模式**：X光
+- **视图**：右侧肱骨正位像
+
+3. **X光影像目视检查**：
+- X光影像清晰显示了从肩部（近端）延伸至肘部（远端）的右侧肱骨。 
+- 骨骼结构整体完整，未见明显骨折或脱位。 
+- 初步观察显示，骨密度及骨骼排列未见明显异常。 回答提及或最终倾向的诊断包括：骨关节炎。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：肱骨近端（文本提及）；加入 segmentation 后：未命中核心征象。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升
 
 </details>
 
 <details>
 <summary><strong>InternVL3.5-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无明确增益：仅在鉴别或否定语境中提及关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -184,7 +205,9 @@ The right humeral X-ray is normal, indicating non-osseous etiology for pain (e.g
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：骨关节炎、检查未见明显异常。涉及的主要影像要点包括：钙化、溶骨性病灶。</pre>
+<pre>观察这张X光片：这是右肩及上臂的正位影像。可见的骨骼包括肱骨、肩胛骨、锁骨以及部分上臂结构。影像显示的是右侧肱骨。患者主诉包含右侧肱骨疼痛，因此该X光片与此症状相关。左肩疼痛的情况在此影像中无法观察到；也许左肩存在其他问题，但该影像仅展示了右侧。
+
+接下来分析右侧肱骨。该X光片呈现为正常的正位影像。关节间隙、骨骼排列及密度均看似正常。未见明显的骨折、脱位或严重异常。肱骨头位于关节盂内的位置正常。皮质骨完整，髓腔外观正常。未见骨质疏松或溶骨性病变的征象。周围软组织未见明显肿胀或钙化。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -254,18 +277,24 @@ The right humerus X-ray shows no acute bony abnormalities. Pain likely stems fro
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：骨关节炎。 </pre>
+<pre>观察这张X光片：这是右侧肱骨的正位视图，展示了从肩部向下延伸至肘部的骨骼结构。分割图像突出显示了骨骼、骨病变及肱骨本身。在分割图像（尤其是Medical-SAM3的结果）中，肩关节和肱骨干周围有高亮区域。BiomedParse的分割结果也标示出了肱骨，但在肘部显示为蓝色区域，这可能暗示该处存在病变。
+
+患者年龄为69岁，因此可能存在退行性改变。老年人常见的病症包括骨关节炎、肩袖问题或骨折。然而，X光片并未显示明显的骨折迹象；图像中的右侧肱骨看起来完整，未见可见骨折。虽然此处无法直接观察到左肩疼痛的情况，但右侧肱骨的退行性改变是否可能导致了放射痛？
+
+等等，病史描述中提到了右侧肱骨疼痛。这张X光片正是针对右侧肱骨的，因此具有相关性。图像可能显示出骨关节炎的征象，如关节间隙变窄、软骨下骨硬化或骨赘形成。此处可见的肱骨相关部位包括肩部（盂肱关节）和肘部（尺骨鹰嘴突）。如果肩部存在骨关节炎，这或许能解释肩部疼痛；但患者同时伴有右侧肱骨疼痛，这是否意味着肱骨干存在骨膜炎或其他病变？
+
+观察分割图像，Medical-SAM3突出显示了整个肱骨和肩关节。如果存在骨病变，其位置可能在干骺端或骨干。然而，在提供的X光片中，并未发现明显的溶骨性或成骨性病变，骨骼形态看起来连续完整。BiomedParse的分割结果在肘部显示出蓝色区域，可能提示该处为关注区域——也许是肘部骨关节炎的早期征象？ </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：溶骨性病灶（否定/鉴别）、肱骨近端（否定/鉴别）；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升，只是多了一些参考。
 
 </details>
 
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无明确增益：仅在鉴别或否定语境中提及关键点
+**Segmentation 对 caption 的总体影响：**无明确增益
 
 **原始图像 → Single-image caption 回答**
 
@@ -275,7 +304,7 @@ The right humerus X-ray shows no acute bony abnormalities. Pain likely stems fro
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：溶骨性病灶。</pre>
+<pre>X光片显示了右侧肱骨的正位影像。骨骼结构完整，未见骨折或脱位。皮质边缘光滑，未见骨膜反应或溶骨性病变。包括肩关节在内的各关节间隙均正常，未见骨赘形成或关节间隙狭窄等退行性改变的征象。鉴于未发现急性骨骼异常，患者主诉的疼痛可能源于软组织问题（如肌腱炎、滑囊炎或肌肉拉伤），而非骨骼病变所致。需结合临床情况进行进一步评估，并可能需要进行额外的影像学检查或化验，以明确患者症状的确切病因。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -285,18 +314,18 @@ The right humerus X-ray shows no acute bony abnormalities. Pain likely stems fro
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>该X光片显示了右侧肱骨的正位影像。肱骨形态完整，未见骨折或脱位征象。骨密度看似正常，未见明显的溶骨性或硬化性病变。包括肩关节在内的各关节间隙保持良好，未见明显异常。鉴于患者主诉左肩及右侧肱骨疼痛剧烈，疼痛原因可能涉及软组织损伤、肌腱炎或其他该X光片无法显示的非结构性病变。为明确疼痛的具体病因，可能需要进行进一步的临床评估及其他影像学检查（如MRI）。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：溶骨性病灶（否定/鉴别）；加入 segmentation 后：溶骨性病灶（否定/鉴别）。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显差异
 
 </details>
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**正向：新增或强化参考关键点
+**Segmentation 对 caption 的总体影响：**无明显差异，只是新增参考关键点
 
 **原始图像 → Single-image caption 回答**
 
@@ -318,7 +347,7 @@ Based on the X-ray findings and the patient&#x27;s complaint of severe left shou
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>该图像为左侧肱骨的正位X光片。影像显示骨骼存在明显畸形，具体表现为骨折。骨折部位位于肱骨干中部。可见骨骼连续性中断，远端骨折块相对于近端骨折块发生了移位和成角。骨折断端之间存在间隙，表明为完全性骨折。受骨折影响，肱骨的整体形态发生扭曲变形。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -356,11 +385,17 @@ The X-ray shows a significant abnormality/lesion at the proximal end of the left
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>该图像是左肩及上臂的正位X光片，显示了肱骨、肩关节及周围软组织。肱骨干看起来完整无损，但在肱骨近端（具体为肱骨头和肱骨颈区域）存在明显的异常。肱骨头外观显得有些扁平或不规则，且在肱骨颈与肱骨头连接的区域可见明显的畸形或病变。整体骨骼结构显示出一定程度的骨量减少（骨质减少），这在老年人中较为常见。
+
+**分割结果分析：**
+
+*   **Medical-SAM2：** 该分割结果用紫色标示了整个肱骨。
+*   **Medical-SAM3：** 该分割结果用浅蓝色标示肱骨，用紫色标示骨病变，并用深蓝色标示骨骼。紫色的病变位于肱骨近端，对应于肱骨头/颈区域。
+*   **BiomedParse：** 该分割结果用浅蓝色标示肱骨，用紫色标示骨病变，病变同样位于肱骨近端。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：肱骨近端（文本提及）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显差异，只是新增了几个关键参考
 
 </details>
 
@@ -391,14 +426,14 @@ The X-ray shows a significant abnormality/lesion at the proximal end of the left
 
 **对模型图片 caption 能力及 Segmentation 影响的分析：**
 
-segmentation 使模型从完全忽略异常转为明确报告溶骨性病灶，说明候选区域对低对比度骨病灶有帮助；但它把病灶位置误写成肱骨远端，参考 caption 实为右肱骨近端，也没有进一步联系多发性骨髓瘤。
+有帮助！
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-4B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助
 
 **原始图像 → Single-image caption 回答**
 
@@ -434,7 +469,13 @@ The X-ray is normal for the right humerus. The patient’s pain is likely due to
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：骨关节炎、骨髓炎。 </pre>
+<pre>该图像为右侧上肢的正位（前后位）X光片，并清晰标有“R”以指示右侧。图像显示了从肩关节延伸至肘部的右侧肱骨，包括与肩胛骨（关节盂）相连的近端、骨干，以及在肘部与桡骨和尺骨相连的远端。
+
+**影像学表现：**
+- 骨骼结构完整，未见明显骨折、脱位或急性骨髓炎征象。
+- 未见明显的骨骼畸形或显著的骨质疏松。
+- 关节间隙正常，皮质边缘连续。
+- 未见急性创伤征象，如粉碎性骨折或明显的软组织肿胀。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -469,18 +510,21 @@ Further clinical evaluation is needed. The patient should be examined for soft t
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：骨关节炎。 </pre>
+<pre>**图像分析：**
+该图像为右侧上肢的X光片，采用正位（前后位）拍摄。“R”标记确认这是身体的右侧。
+
+图像上叠加了来自不同AI模型（Medical-SAM2、Medical-SAM3、BiomedParse）的分割掩模，突出显示了肱骨及其近端和远端。各模型的分割结果一致，表明骨骼结构完整，肱骨干未见明显病变或骨折。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助
 
 **原始图像 → Single-image caption 回答**
 
@@ -513,7 +557,8 @@ In summary, the X-ray is normal for the right humerus and does not explain the p
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：骨关节炎。 </pre>
+<pre>**图像描述：**
+该图像为右侧上肢的正位（前后位）X光片，远端清晰标有“R”字样。影像显示了从肩关节至肘关节的右侧肱骨。骨骼形态完整，未见骨折、脱位或明显的病理性病变。肱骨干的排列及肩关节的关节关系均正常。未见骨质减少、骨质硬化或骨质破坏的征象。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -545,18 +590,19 @@ The X-ray findings do not support a diagnosis of a bone injury in the right hume
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：钙化。</pre>
+<pre>**图像描述：**
+该图像为右上肢正位X光片，清晰标有“R”字样以指示其为右侧。图像显示了从肩关节延伸至肘关节的右侧肱骨（上臂骨）。骨骼的皮质轮廓及骨小梁结构呈现正常、光滑且连续的状态，未见骨折、脱位或明显的骨病变。肩关节（盂肱关节）结构完整。未见骨质破坏、骨量减少或异常钙化征象。骨骼周围的软组织未见异常。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**正向：新增或强化参考关键点
+**Segmentation 对 caption 的总体影响：**正向：新增参考关键点
 
 **原始图像 → Single-image caption 回答**
 
@@ -608,7 +654,19 @@ While the provided X-ray is normal, it does not address the patient’s primary 
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：钙化。</pre>
+<pre>**影像描述：**
+
+这是一张右侧上肢的正位（前后位）X光片，范围涵盖从肩部到前臂远端。影像显示了右侧肱骨、肩关节（盂肱关节）、肩胛骨（肩峰和喙突）以及前臂近端骨骼（桡骨和尺骨）。
+
+主要影像学发现：
+
+- **肩关节**：盂肱关节对位良好，关节间隙正常。未见脱位征象。
+- **肱骨干**：右侧肱骨干形态完整，未见明显骨折或溶骨性/成骨性病变。
+- **肱骨近端**：肱骨大结节和小结节清晰可见且形态完整。未见骨折或撕脱性骨折征象。
+- **肱骨远端**：肱骨远端（包括肱骨小头和滑车）形态正常，未见骨折或脱位。
+- **前臂**：桡骨和尺骨对位正常，未见骨折或脱位。
+- **骨质情况**：可见轻度骨量减少（osteopenia），这对于69岁女性而言属预期表现，可能与年龄或骨质疏松有关。未见病理性骨质破坏或肿瘤征象。
+- **软组织**：未见明显软组织肿胀、钙化或异物。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -686,17 +744,48 @@ This patient likely presents with **age-related degenerative joint disease** in 
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：骨关节炎。涉及的主要影像要点包括：钙化。</pre>
+<pre>**图像描述：**
+
+提供的X光图像为**右上肢**的正位（前后位）视图，范围从肩部延伸至前臂远端。图像清晰显示了**肱骨**（包括近端肱骨头、骨干及远端肱骨髁），以及肩胛骨、锁骨和肘关节的部分结构。
+
+**“R”**标记指示这是**右侧**。
+
+---
+
+**分割分析：**
+
+1. **Medical-SAM2 分割（紫色/青色背景）：**
+- 分割了除中央骨骼结构以外的**整个图像区域**。 
+- 这似乎是一种**背景分割**，旨在将感兴趣的解剖区域（即手臂）与图像的其余部分分离开来。
+
+2. **Medical-SAM3 分割（肱骨上的紫色覆盖层）：**
+- 从近端到远端精确分割了**肱骨**，包括肱骨头、骨干和远端干骺端。 
+- 这是一种**高精度的骨骼分割**，有助于评估骨骼的完整性。
+
+3. **BiomedParse 分割（肱骨远端的蓝色覆盖层）：**
+- 仅分割了**肱骨远端的一小块区域**（靠近肘关节处）。 
+- 这可能是在突出显示某种**局部异常**，例如**骨病变**、**骨折**或**退行性改变**。
+
+---
+
+**影像学表现：**
+
+仔细阅片后发现：
+
+- **肱骨外观完整**，未见明显的骨折线或移位。
+- **肱骨近端**（包括肱骨头和大结节）显示**轻度骨量减少**（骨密度降低），这在老年患者（尤其是绝经后女性）中很常见。
+- **肱骨远端**的干骺端（特别是靠近肘关节处）似乎存在**不规则改变**，这与 **BiomedParse 分割**显示的区域相对应。
+- **肘关节**显示**轻度关节间隙变窄**和**软骨下骨硬化**，提示存在**退行性关节病（骨关节炎）**。 - **软组织**未见异常，无肿胀或钙化征象。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：肱骨近端（否定/鉴别）；加入 segmentation 后：肱骨近端（文本提及）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+新增参考点，虽然最后诊断不一定对。
 
 </details>
 
 ### 2.8 [Mandible fractures](https://radiopaedia.org/cases/mandible-fractures-1?lang=us) (`mandible-fractures-1`)
 
-| Original image | Medical-SAM2 | Medical-SAM3: mandible, teeth, mandibular canal | BiomedParse v1: mandible, teeth, mandibular canal | Teeth MaskDINO anatomy: Mandibular Canal, Maxillary Sinus | Teeth MaskDINO 11-disease: Root Piece, Periapical lesion, Caries, Missing teeth, Impacted tooth |
+| Original image | Medical-SAM2 | Medical-SAM3: mandible, teeth, mandibular canal 下颌骨、牙齿、下颌管 | BiomedParse v1: mandible, teeth, mandibular canal 下颌骨、牙齿、下颌管 | Teeth MaskDINO anatomy: Mandibular Canal, Maxillary Sinus 下颌管、上颌窦 | Teeth MaskDINO 11-disease: Root Piece, Periapical lesion, Caries, Missing teeth, Impacted tooth 残根、根尖周病变、龋齿、牙齿缺失、阻生牙 |
 |---|---|---|---|---|---|
 | <img src="assets/mandible-fractures-1/original.jpeg" width="100%"> | <img src="assets/mandible-fractures-1/medical_sam2_overlay.png" width="100%"> | <img src="assets/mandible-fractures-1/medical_sam3_overlay.png" width="100%"> | <img src="assets/mandible-fractures-1/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/mandible-fractures-1/teeth_maskdino_anatomy_overlay.png" width="100%"> | <img src="assets/mandible-fractures-1/teeth_maskdino_11disease_overlay.png" width="100%"> |
 
@@ -705,12 +794,12 @@ This patient likely presents with **age-related degenerative joint disease** in 
 
 <pre>Undisplaced transverse oblique fracture through the medial right mandible body, and minimally displaced vertical oblique fracture through the angle of the left mandible which extends through a lower left molar. Multiple periapical lucencies, likely to be periapical abscesses.</pre>
 
-- **原始图片 caption 翻译：**右侧下颌体内侧无移位横斜形骨折；左侧下颌角轻度移位垂直斜形骨折并延伸至左下磨牙；多发根尖周透亮影，可能为根尖周脓肿。
+- **原始图片 caption 翻译：**右侧下颌骨体部内侧可见无移位的横行斜行骨折；左侧下颌角可见轻度移位的垂直斜行骨折，骨折线延伸穿过左侧下颌磨牙。可见多处根尖区透光影，考虑为根尖周脓肿。。
 
 <details>
 <summary><strong>InternVL3-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负向：参考关键点减少或被错误结论取代
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -744,7 +833,14 @@ The orthopantomogram does not show any fractures or dislocations of the teeth or
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>### 描述：
+1. **牙齿与颌骨结构：**
+- 上下颌牙齿排列正常。 
+- 牙齿或颌骨未见明显的骨折或脱位征象。
+
+2. **骨骼结构：**
+- 下颌骨与上颌骨结构完整，未见明显的骨折或病变。 
+- 未见明显的骨密度异常。 回答未形成可稳定提取的明确疾病结论。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -789,18 +885,31 @@ While this X-ray does not explicitly show overt signs of trauma without comparin
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：根尖周病灶。 </pre>
+<pre>1. **解剖结构概览：**
+- 该X光片为全景片（orthopantomogram），这是一种能展示下半面部宽广视野的影像，可显示牙齿及颌骨情况。 
+- 分割标注（segmentation overlays）突显了多种结构：下颌骨、牙齿、下颌管、上颌窦以及潜在的牙齿或牙周病变。
+
+2. **潜在创伤观察：**
+- **下颌骨（Jawbone）：** 需检查下颌骨是否存在骨折或错位。鉴于涉及指控的袭击事件，下颌骨的任何不连续、移位或形态不规则都可能提示骨折。 
+- **牙齿：** 观察是否有创伤迹象，包括牙齿脱位（移位）、牙齿脱落（被撞掉）、骨折或排列异常。 
+- **牙科病变：** 分割图像还标示了龋齿、根尖周病变等区域。虽然这些属于慢性病变，但袭击事件可能加剧原有问题，或引发新的病变（如裂纹扩展或新发感染）。
+
+3. **分割分析：**
+- **Medical-SAM2 和 Medical-SAM3 分割：** 这些分割突显了下颌骨和牙齿。需观察骨骼皮质线（cortical lines）是否中断或是否存在骨折块移位。 
+- **BiomedParse 分割：** 展示了整体结构，重点关注颌骨的对称性和完整性。应注意是否存在不对称或明显的形态偏差。 
+- **牙齿 MaskDINO、下颌管及上颌窦：** 特别需要检查下颌管及其周围区域，以寻找骨折累及神经结构的证据。 
+- **针对病变的牙齿 MaskDINO 分割：** 清晰标示了牙根残片、根尖周病变、龋齿、缺牙及阻生牙的区域。在创伤背景下，若原本的阻生牙因外力发生移位或萌出，这一点尤为关键。 回答提及或最终倾向的诊断包括：根尖周病灶。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：下颌骨骨折（文本提及）、根尖周透亮病灶（文本提及）；加入 segmentation 后：根尖周透亮病灶（文本提及）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+提供了更多需要注意的位置，但是没有明显。
 
 </details>
 
 <details>
 <summary><strong>InternVL3.5-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**正向：新增或强化参考关键点
+**Segmentation 对 caption 的总体影响：**正向：新增参考点
 
 **原始图像 → Single-image caption 回答**
 
@@ -875,7 +984,11 @@ Alternatively, a tooth might be fractured but the fragment is still in place. Fo
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：结构重叠。</pre>
+<pre>首先，这张X光片是全景牙科X光片（Orthopantomogram，简称OPT）。它在一张图像中展示了整个口腔的情况，包括牙齿、颌骨及周围组织结构。图像右侧标有“L”字样，这通常代表患者的左侧。等等，实际上在放射影像中，标记通常表示图像的左侧对应患者的右侧。不对，也许“L”标在图像左侧，意味着那是患者的左侧。嗯，标记有时确实容易让人混淆。不过，这一点眼下或许并不关键。
+
+观察牙齿情况：上下颌骨清晰可见。让我逐个象限检查一下。牙齿排列看起来大致整齐，但也可能存在一些问题。左上侧（由于标记在左侧，这对应图像的右侧）——等等，我应该再次确认一下方位。“L”标在图像右侧，所以那是患者的左侧。也就是说，患者的左侧位于图像的右侧。因此，观察图像时，患者的左侧在右边。那么，左上方的牙齿（患者的左侧）就应该位于图像的右侧。
+
+检查是否有骨折、脱位或外伤迹象。在遭受袭击的病例中，常见的损伤可能包括下颌骨、上颌骨或牙齿的骨折。让我逐一检查各个区域。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -938,18 +1051,34 @@ The OPT reveals dental trauma consistent with assault, including avulsed teeth a
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：骨髓炎、下颌骨骨折、根尖周病灶。 </pre>
+<pre>首先，我先查看原始图像。牙齿和颌骨结构看起来基本完整。但鉴于涉及疑似遭受袭击的情况，我需要检查是否存在任何创伤迹象。常见的迹象可能包括骨折、脱位或牙齿缺失。
+
+观察分割后的图像，不同的工具突显了各种结构。例如，Medical-SAM2 分割出了可能是软组织或骨碎片的区域。不同颜色的高亮区域可能代表了需要重点关注的部位，或许存在骨折或牙齿移位的情况。
+
+Medical-SAM3 的分割结果显示了下颌骨、牙齿和下颌管。如果存在骨折，下颌骨上可能会出现骨折线或断裂处。牙齿排列应当整齐；任何错位都可能暗示存在创伤。下颌管是神经通道，因此如果其连续性受损，则值得关注。
+
+BiomedParse 对下颌骨和牙齿进行了分割。如果下颌骨上出现不规则形状的高亮区域，这可能预示着骨折。牙齿应当齐全，除非因遭受袭击而导致部分缺失。
+
+Teeth MaskDINO 分割出了下颌管和上颌窦。上颌窦位于上颌，因此如果该部位遭受创伤，可能波及上颌窦。下颌管的完整性至关重要；任何中断都可能意味着神经受损。
+
+Teeth MaskDINO 11disease 专门检测特定问题，如牙根残留、根尖周病变、龋齿、牙齿缺失或阻生牙。如果出现代表牙齿缺失的彩色分割区域，即为创伤的迹象。牙根碎片可能表明牙齿被撞脱落，但部分牙根仍留在原位。根尖周病变则可能是由创伤引发的感染。
+
+综合来看：患者涉及疑似袭击事件，因此可能存在牙科创伤。需检查下颌骨或上颌骨是否有骨折、牙齿是否脱位或缺失、是否存在牙根碎片或感染迹象。牙齿区域出现的任何彩色分割标记（例如紫色代表缺失牙，绿色代表阻生牙等）都将支持这一判断。如果下颌骨上显示出骨折线，这将是一个关键发现。此外，还要检查是否有软组织肿胀或异物；鉴于是X光检查，若涉及武器袭击，还需留意是否存在金属碎片。
+
+在原始影像中，若发现牙齿缺失或移位，这便是一个重要征象。阻生牙的存在未必与外伤有关，也可能是巧合；而龋齿或根尖周病变虽可能是既有病症，但也可能因外伤而加重。
+
+回答提及或最终倾向的诊断包括：骨髓炎、下颌骨骨折、根尖周病灶。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：下颌骨骨折（文本提及）、下颌角/体定位（文本提及）；加入 segmentation 后：下颌骨骨折（文本提及）、根尖周透亮病灶（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+补充更多注意点。
 
 </details>
 
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无明确增益：仅在鉴别或否定语境中提及关键点
+**Segmentation 对 caption 的总体影响：**无明确增益
 
 **原始图像 → Single-image caption 回答**
 
@@ -959,7 +1088,7 @@ The OPT reveals dental trauma consistent with assault, including avulsed teeth a
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：下颌骨骨折。 </pre>
+<pre>该图像为患者颌骨的曲面断层（OPT）X光片。影像清晰显示了上下颌牙齿及其牙根和周围骨骼结构。检查发现，左侧下颌骨体部存在明显的骨折，这与患者自述遭袭的病史相符。骨折呈整齐断裂状，骨折端无明显移位。上颌骨或其他下颌骨区域未见其他骨折或脱位迹象。牙齿外观完整，未见明显牙齿损伤。基于上述影像表现，诊断为可能由外伤引起的下颌骨骨折。后续可能需要进行临床评估及进一步影像学检查，以评估软组织损伤程度并制定相应的治疗方案；治疗措施可能包括手术干预，以确保骨折部位复位对齐并促进愈合。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -981,18 +1110,30 @@ Based on these segmentations, the patient may have multiple dental issues includ
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：根尖周病灶。 </pre>
+<pre>所提供的图像为全景牙科X光片，展示了各种解剖结构及潜在的病变情况。第一张图像（图像1）是一张标准全景放射影像，显示了完整的牙列、上颌骨、下颌骨及周围结构。随后的图像展示了由不同模型进行的分割结果，旨在突出特定的关注区域。
+
+在图像2中（由Medical-SAM2分割），绿色、蓝色和紫色的高亮区域标示出了潜在的关注点或感兴趣区域。这些区域可能代表病变、囊肿或其他需要进一步检查的异常情况。
+
+图像3（由Medical-SAM3分割）重点展示了下颌骨、牙齿和下颌管。下颌骨以黄色轮廓标示，牙齿为粉色，下颌管为蓝色。这种分割有助于评估这些结构的完整性，并识别任何偏离正常解剖形态的情况。
+
+图像4（由BiomedParse分割）以蓝色突出显示了下颌骨和牙齿，清晰地展示了骨骼结构和牙齿排列情况。这对于评估骨密度、骨折或发育异常具有参考价值。
+
+图像5（由Teeth MaskDINO分割）分别用紫色和蓝色标示了下颌管和上颌窦。这种分割有助于评估这些关键区域的健康状况，检查是否存在感染、炎症或结构性改变的迹象。
+
+图像6（同样由Teeth MaskDINO分割）用不同颜色标示了多种牙科病变，如残根、根尖周病变、龋齿、缺牙和阻生牙。这种详细的分割能够对牙齿健康状况进行全面评估，从而识别出需要关注的具体问题。
+
+根据这些分割结果，该患者可能存在多种牙科问题，包括龋齿、根尖周病变以及可能的阻生牙。可能需要结合临床情况进行进一步分析，并辅以其他影像学检查，以确认这些发现并制定相应的治疗方案。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：下颌骨骨折（否定/鉴别）、下颌角/体定位（否定/鉴别）；加入 segmentation 后：根尖周透亮病灶（否定/鉴别）。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**正向：新增或强化参考关键点
+**Segmentation 对 caption 的总体影响：**正向：新增参考点
 
 **原始图像 → Single-image caption 回答**
 
@@ -1027,7 +1168,18 @@ The panoramic X-ray does not show any evidence of acute fractures or significant
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>**图像描述：**
+
+该图像为患者颌骨及牙齿的全景X光片（Orthopantomogram，简称OPT）。影像显示了上颌与下颌的结构，包括牙齿、鼻窦以及部分颅底区域。
+
+**影像所见：**
+
+*   **牙齿：** 牙齿形态基本完整，排列整齐，未见明显的骨折、脱位或牙齿脱落征象。
+*   **牙槽骨：** 牙齿周围的骨组织形态完整，未见明显的骨折或移位。
+*   **下颌骨：** 下颌骨形态完整。
+*   **上颌骨：** 上颌骨形态完整。
+*   **鼻窦：** 上颌窦影像清晰，透亮度良好（含气良好）。
+*   **骨折：** 在该全景X光片上，未见颌骨、牙齿或周围结构有明显的骨折征象。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1069,18 +1221,34 @@ The panoramic X-ray shows the general structure of the jaws and teeth. While no 
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：根尖周病灶。 </pre>
+<pre>**图像描述：**
+
+该图像展示了上颌骨、下颌骨、牙齿、颞下颌关节（TMJ）以及部分鼻腔和鼻窦腔的宽视野影像。
+
+*   **牙齿：** 所有牙齿均可见，包括第三磨牙（智齿）。牙齿外观整体完整，尽管对每颗牙齿进行详细评估需要更高分辨率的图像。
+*   **下颌骨：** 下颌骨外观完整。可见容纳下牙槽神经和血管的下颌管。
+*   **上颌骨：** 上颌骨外观完整。在上颌后牙牙根上方可见上颌窦。
+*   **颞下颌关节（TMJ）：** 双侧颞下颌关节均可见。
+*   **软组织：** 在全景片（OPT）上软组织显示效果一般，但可见嘴唇和面颊的大致轮廓。
+
+**基于所提供分割结果的分析：**
+
+*   **Medical-SAM2：** 该分割结果突出显示了多种结构，包括下颌骨、牙齿以及可能的下颌管。
+*   **Medical-SAM3：** 该分割结果专门针对下颌骨、牙齿和下颌管。
+*   **BiomedParse：** 该分割结果突出显示了下颌骨和牙齿。
+*   **Teeth MaskDINO anatomy（解剖结构）：** 该分割结果突出显示了下颌管和上颌窦。
+*   **Teeth MaskDINO 11disease（病变）：** 该分割结果突出显示了潜在的牙科问题，如残根、根尖周病变、龋齿、缺牙和阻生牙。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：下颌骨骨折（否定/鉴别）；加入 segmentation 后：下颌骨骨折（否定/鉴别）、根尖周透亮病灶（文本提及）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+提供更多参考。
 
 </details>
 
 <details>
 <summary><strong>MedMO-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无帮助
 
 **原始图像 → Single-image caption 回答**
 
@@ -1090,7 +1258,7 @@ The panoramic X-ray shows the general structure of the jaws and teeth. While no 
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：胸腔积液。涉及的主要影像要点包括：心影异常、肺实变。</pre>
+<pre>拍摄了胸部侧位片。未见局灶性实变。未见胸腔积液。心影正常。肺门及纵隔轮廓正常（直接看不懂了，明明是牙的）。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1100,18 +1268,18 @@ The panoramic X-ray shows the general structure of the jaws and teeth. While no 
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>感兴趣区域内未见不透射线病变。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+全错。都错。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-4B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**基本持平：前后均提及部分参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -1145,7 +1313,13 @@ The panoramic radiograph is unremarkable and does not support a diagnosis of den
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>**影像描述：**
+
+- 该影像为全口曲面断层片，显示了上、下颌牙列、周围牙槽骨、颞下颌关节（TMJ）以及部分上颌窦和颅底结构。
+- 牙齿排列整齐，未见明显的严重骨折或牙齿移位。
+- 骨骼结构（包括下颌体和下颌支）完整，未见骨折线、透亮线或提示急性创伤或撕脱性损伤的明显透射区。
+- 影像未显示牙冠骨折、牙根骨折或根尖周病变（如脓肿或大面积透射影）的明显征象。
+- 影像质量良好，无明显的运动模糊或干扰诊断的伪影。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1190,11 +1364,17 @@ The radiograph shows signs of trauma to the teeth and surrounding structures, co
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：根尖周病灶。 </pre>
+<pre>### 图像描述：
+该图像为全景牙科放射影像（全景X光片），展示了包括上颌和下颌在内的全口牙列。来自不同AI模型的分割掩码（segmentation masks）标示出了各种解剖结构：
+- **牙齿**：多颗牙齿以不同颜色进行分割，表明系统能够识别单颗牙齿。
+- **下颌骨**：部分模型（如BiomedParse、Teeth MaskDINO 11）对下颌骨进行了分割。
+- **下颌管**：部分模型（如Medical-SAM3）标示出了下颌管，显示了下牙槽神经及血管的走行路径。
+- **上颌窦**：其中一个模型（Teeth MaskDINO 11）对上颌窦进行了分割。
+- **病变标记**：分割区域标示了潜在的病理部位，例如牙根残片、根尖周病变、龋齿、缺牙或阻生牙。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：根尖周透亮病灶（否定/鉴别）、下颌角/体定位（文本提及）；加入 segmentation 后：根尖周透亮病灶（文本提及）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 
@@ -1234,7 +1414,10 @@ This radiograph is a valuable diagnostic tool, but it should be interpreted in c
 
 中文要点翻译：
 
-<pre>全景牙片牙列和牙槽骨大致正常，未见明显颌骨骨折、大型透亮病灶或急性感染；模型认为没有影像学创伤证据。</pre>
+<pre>**图像描述：**
+该图像为患者牙列及颌骨的全景X光片（OPT——曲面断层片）。它提供了上颌与下颌整体的宽幅侧向视图，涵盖了牙齿、牙槽骨及周围组织结构。图像显示了从切牙到磨牙的上、下颌牙列。牙齿排列相对正常，从该视图中未见明显的严重错颌畸形。牙槽骨的密度与轮廓看起来正常。未见明显的颌骨骨折、大型透射影病变，也无急性感染或脓肿的明显征象。
+
+全景牙片牙列和牙槽骨大致正常，未见明显颌骨骨折、大型透亮病灶或急性感染；模型认为没有影像学创伤证据。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1271,18 +1454,31 @@ This diagnosis is based on the radiographic evidence and the patient&#x27;s hist
 
 中文要点翻译：
 
-<pre>模型报告下颌骨骨折线，可能从下颌角延伸并累及下颌管；同时识别多颗牙根尖周透亮病灶，最终判断为外伤性下颌骨骨折。</pre>
+<pre>**图像描述：**
+
+提供的图像是患者口腔的全景X光片（OPT）。图像显示了上颌和下颌牙齿、支撑它们的骨结构以及周围的解剖特征。图像揭示了几个值得注意的发现：
+
+1.  **下颌骨骨折：** 最显著的发现是下颌骨骨折。下颌体和下颌支的连续性中断（特别是在左侧，即观察者的右侧）清楚地显示了这一点。骨折线似乎从下颌角延伸，可能累及下颌孔和下颌管。这是创伤的典型征象。
+2.  **牙齿病变：** 图像显示牙齿存在多处异常情况：
+*   **根尖病变：** 几颗牙齿的根尖处可见透射区，提示存在根尖病变，这可能是由感染或创伤引起的。 
+*   **龋齿：** 存在与龋齿相符的脱矿区域，特别是在右上颌第一磨牙处。 
+*   **阻生牙：** 下颌右侧后牙区似乎有一颗阻生牙（可能是第三磨牙）。 
+*   **牙根吸收/病变：** 部分牙齿显示出牙根吸收或其他病变的迹象。
+3.  **牙槽骨改变：** 几颗牙齿的牙根周围存在骨质流失或骨改建区域，这可能与牙周病或创伤影响有关。
+4.  **下颌管：** 下颌管清晰可见；如果骨折累及该区域，则存在神经损伤的风险。
+
+模型报告下颌骨骨折线，可能从下颌角延伸并累及下颌管；同时识别多颗牙根尖周透亮病灶，最终判断为外伤性下颌骨骨折。</pre>
 
 **对模型图片 caption 能力及 Segmentation 影响的分析：**
 
-牙齿解剖和 11 类病变 overlay 明显提高了模型对骨折及根尖周透亮影的敏感性，由“无骨折”转为正确的病变类别。其骨折侧别、两条骨折线的具体走行仍不如参考 caption 完整，但这是剩余病例中较明确的正向 caption 改善。
+牙齿解剖和 11 类病变 overlay 明显提高了模型对骨折及根尖周透亮影的敏感性，由“无骨折”转为正确的病变类别。。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**基本持平：前后均提及部分参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -1342,7 +1538,17 @@ Based on the panoramic X-ray:
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>这是一张30岁男性患者的全景X光片（OPT），该患者自述曾遭受袭击。影像显示了完整的牙列（包括上颌弓和下颌弓）以及周围的骨骼结构，如上颌窦、下颌体、下颌支和髁突。
+
+主要观察结果：
+
+- **牙列：** 所有恒牙均存在，在此投照视图中未见明显的龋齿或修复体迹象。牙齿排列看似正常，尽管前牙区存在一定程度的拥挤。
+- **牙槽骨：** 牙槽骨高度完整，未见明显牙周病迹象。
+- **上颌窦：** 上颌窦清晰可见，透光度正常，未见不透光影（混浊）或骨折征象。
+- **下颌骨：** 下颌体、下颌角及下颌支形态完整。下颌管清晰可见，走行正常。
+- **颞下颌关节（TMJ）：** 髁突清晰可见，位于关节窝内的位置正常。未见明显脱位或骨折。
+- **软组织：** 口腔或周围区域未见明显的软组织肿胀或异物。
+- **伪影：** 图像中部有一条水平线状伪影，这很可能是由于患者在曝光过程中移动或设备相关问题造成的。 回答未形成可稳定提取的明确疾病结论。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1449,17 +1655,35 @@ While the panoramic X-ray does not show fractures consistent with a severe assau
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：根尖周病灶。 </pre>
+<pre>### **图像描述**
+
+这是一张颌面部全景X光片（Orthopantomogram，简称OPT），展示了上下颌骨、牙齿及周围的骨骼结构。图像显示了以下内容：
+
+- **牙齿状况**：大部分牙齿存在，但存在明显的异常情况，尤其是在后牙区。
+- **骨骼结构**：下颌骨和上颌骨形态完整，未见明显的骨折或脱位。
+- **分割结果解析**：
+- **Medical-SAM2**：分割了多个区域，包括下颌骨（黄色）、牙齿（多种颜色）及其他解剖结构，分割范围较广但精度略显不足。 
+- **Medical-SAM3**：突出显示了**下颌骨**（在叠加图中显示不明显）、**牙齿**（粉色）和**下颌管**（右侧为蓝色）。下颌管呈现为一条贯穿下颌骨体的深色线性透光结构。 
+- **BiomedParse**：分割了**上颌窦**（蓝色）——即上排牙齿上方的含气空腔——以及可能的上颌骨区域，但未分割牙齿或下颌管。 
+- **Teeth MaskDINO (anatomy)**：分割了双侧的**下颌管**（紫色曲线）和**上颌窦**（右侧为蓝色）。 
+- **Teeth MaskDINO (disease)**：识别出了几种**牙科病变**：
+- **残根**（例如左下方的黄色区域——可能是滞留或断裂的牙根）。 
+- **根尖周病变**（例如牙根周围的粉色和紫色区域——透光区，提示可能存在感染或囊肿）。 
+- **龋齿**（未明确标记，但从受损的牙体结构中可看出迹象）。 
+- **牙齿缺失**（例如左上和右下区域——牙齿缺失的部位）。 
+- **阻生牙**（例如右下方——未完全萌出的牙齿，可能是第三磨牙）。
+
+--- 回答提及或最终倾向的诊断包括：根尖周病灶。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：下颌骨骨折（否定/鉴别）、下颌角/体定位（文本提及）；加入 segmentation 后：下颌骨骨折（否定/鉴别）、根尖周透亮病灶（文本提及）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+提供了一些备选关注点。
 
 </details>
 
 ### 2.9 [Osteogenesis imperfecta](https://radiopaedia.org/cases/osteogenesis-imperfecta-15?lang=us) (`osteogenesis-imperfecta-15`)
 
-| Original image | Medical-SAM2 | Medical-SAM3: bone, femur, tibia | BiomedParse v1: bone, femur, tibia |
+| Original image | Medical-SAM2 | Medical-SAM3: bone, femur, tibia 骨、股骨、胫骨 | BiomedParse v1: bone, femur, tibia  骨、股骨、胫骨  |
 |---|---|---|---|
 | <img src="assets/osteogenesis-imperfecta-15/original.jpg" width="100%"> | <img src="assets/osteogenesis-imperfecta-15/medical_sam2_overlay.png" width="100%"> | <img src="assets/osteogenesis-imperfecta-15/medical_sam3_overlay.png" width="100%"> | <img src="assets/osteogenesis-imperfecta-15/biomedparse_v1_overlay.png" width="100%"> |
 
@@ -1473,7 +1697,7 @@ While the panoramic X-ray does not show fractures consistent with a severe assau
 <details>
 <summary><strong>InternVL3-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**基本持平：前后均提及部分参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -1542,7 +1766,24 @@ In conclusion, based on the patient data and the radiographic features, the diag
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：Blount 病。涉及的主要影像要点包括：骨骼弯曲。</pre>
+<pre>该X光片为双腿完全伸直状态下的前后位（AP）站立位影像，可观察到以下具体特征：
+
+1. **腿部弯曲：**
+- 双腿均有明显的弯曲，尤以胫骨干部位最为显著。这种弯曲使腿部呈现特征性的向外弧度，特别是在胫骨近端。
+
+2. **力线排列：**
+- 股骨干形态相对笔直，但向下延伸至弯曲的胫骨；股骨与胫骨之间的力线排列呈现向外侧的偏斜。
+
+3. **胫骨近端骺板：**
+- 胫骨近端生长板（骺板）显示增宽及形态不规则。这种不规则性提示存在布朗特病（Blount's disease）典型的异常生长模式。
+
+4. **骨密度与皮质边缘：**
+- 骨密度看似正常，但由于异常成角，胫骨皮质边缘出现了明显的形态改变。
+
+5. **关节间隙：**
+- 膝关节间隙清晰可见，未见急性关节炎性改变；不过，长期的畸形可能会随时间推移导致关节问题。
+
+回答提及或最终倾向的诊断包括：Blount 病。涉及的主要影像要点包括：骨骼弯曲。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1572,18 +1813,23 @@ Further clinical correlation and specialist consultation would be recommended to
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：骨骼弯曲。</pre>
+<pre>### 描述
+- **可见骨骼：** X光片显示了双腿的股骨、胫骨和腓骨。
+- **骨骼排列：** 双腿均可见明显的弯曲畸形，尤以胫骨干中部最为显著。
+- **成像方式：** 该图像为患者站立位拍摄的前后位（AP）X光片，有助于评估骨骼排列及结构。
+
+回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：骨骼弯曲。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：长骨弯曲（文本提及）；加入 segmentation 后：长骨弯曲（文本提及）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+基本没区别。
 
 </details>
 
 <details>
 <summary><strong>InternVL3.5-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**基本持平：前后均提及部分参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -1610,7 +1856,10 @@ The most likely diagnosis for this patient is **physiologic bowing** (also known
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：佝偻病。涉及的主要影像要点包括：骨骼弯曲。</pre>
+<pre>**图像描述：**
+该X光片为一名5岁男性患者下肢的前后位（AP）站立正位像，显示了双侧股骨、膝关节、胫骨、腓骨及踝关节。骨骼形态相对笔直，伴有轻度且对称的下肢弯曲。膝关节和踝关节处的生长板（骨骺）清晰可见且形态正常，未见毛糙、杯口状改变或增宽等征象。干骺端（生长板邻近区域）未见佝偻病等病变相关的异常表现。
+
+回答提及或最终倾向的诊断包括：佝偻病。涉及的主要影像要点包括：骨骼弯曲。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1672,18 +1921,29 @@ Asymptomatic, symmetric bowing in a 5-year-old with normal bone structure on X-r
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：成骨不全、佝偻病、Blount 病。涉及的主要影像要点包括：骨骼弯曲。</pre>
+<pre>首先，我需要回顾一下儿童腿部弯曲（O型腿）可能预示着什么。幼儿腿部弯曲的常见原因包括生理性弯曲；这在幼儿发育过程中属于正常现象，通常在7至8岁时会自行矫正。然而，如果弯曲程度严重或持续存在，则可能提示存在病理性状况。
+
+观察X光片时，评估的关键在于股骨和胫骨的排列对齐情况。在前后位（AP）视图中，儿童站立时双腿应呈直线。如果出现弯曲，即称为“弓形腿”或O型腿。此处的X光片显示出一定的弯曲，但我需要确定这种弯曲是否对称。如果双腿弯曲程度相似，则可能是生理性的；如果一侧弯曲更严重，则可能提示其他问题。
+
+分割图像突显了骨骼结构。Medical-SAM2的分割结果以粉色标示了整个下肢区域，这可能指示了分析的重点关注区。Medical-SAM3和BiomedParse的分割则侧重于股骨和胫骨。观察这些分割图像，可见某侧腿部的弯曲可能更为明显，或者骨骼结构存在差异。
+**影像学发现：**
+1. **排列对齐：** X光片显示双侧下肢呈弓形弯曲。弯曲看起来是对称的，未见明显的不对称或局部畸形。
+2. **骨骼结构：** 股骨头、髋臼以及胫骨/股骨干形态完整。未见干骺端毛糙、杯口状改变或生长板异常（如生长板增宽）等提示佝偻病或代谢性骨病的征象。
+3. **分割分析：**
+- **Medical-SAM2** 突显了整个下肢区域，重点标示了弯曲部位。 
+- **Medical-SAM3 和 BiomedParse** 侧重于股骨和胫骨，未显示急性骨折或脱位。
+回答提及或最终倾向的诊断包括：成骨不全、佝偻病、Blount 病。涉及的主要影像要点包括：骨骼弯曲。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：长骨弯曲（文本提及）；加入 segmentation 后：成骨不全（否定/鉴别）、长骨弯曲（文本提及）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升
 
 </details>
 
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负向：参考关键点减少或被错误结论取代
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -1693,7 +1953,7 @@ Asymptomatic, symmetric bowing in a 5-year-old with normal bone structure on X-r
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：佝偻病。涉及的主要影像要点包括：骨骼弯曲。</pre>
+<pre>该X光片显示了一名5岁男童下肢的正位影像。股骨呈现弯曲畸形，且这种弯曲在双侧股骨远端三分之一处尤为明显，导致腿部出现显著的弧度。胫骨形态相对笔直，未见明显畸形。膝关节对线良好，未见骨折或脱位征象。鉴于患者年龄及腿部弯曲但无伴随症状的临床表现，最可能的诊断为佝偻病。佝偻病是由维生素D缺乏引起的疾病，会导致骨矿化受损，进而引发腿部弯曲。无疼痛及其他症状的表现支持这一诊断，因为幼儿期的佝偻病常表现为无症状的腿部弯曲。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1703,18 +1963,18 @@ Asymptomatic, symmetric bowing in a 5-year-old with normal bone structure on X-r
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：佝偻病。涉及的主要影像要点包括：骨骼弯曲。</pre>
+<pre>该X光片显示了一名5岁男童下肢的前后位（AP）影像。最显著的发现是双腿呈弓形弯曲，且右腿的弯曲程度较左腿更为明显。股骨和胫骨均呈现明显的弯曲，其中右侧股骨的畸形更为严重。尽管膝关节的对线尚可，但由于腿部弯曲，下肢整体的力线排列异常。影像中未见骨折或脱位迹象。鉴于患者的年龄以及双腿弓形弯曲但无疼痛或其他症状的临床表现，最可能的诊断是佝偻病；这是一种由维生素D缺乏引起、导致骨骼矿化和生长受损的疾病。X光片上显示的典型腿部弓形弯曲支持了这一诊断。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：长骨弯曲（结论）；加入 segmentation 后：长骨弯曲（否定/鉴别）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+都很清楚，差不多。
 
 </details>
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**基本持平：前后均提及部分参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -1750,7 +2010,10 @@ Based on the age of the patient (5 years), the bilateral and asymptomatic nature
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：佝偻病、Blount 病、生理性膝内翻。涉及的主要影像要点包括：骨骼弯曲。</pre>
+<pre>该图像是一张5岁男童下肢站立位前后位（AP）X光片。患儿呈双脚微开的站立姿势。影像清晰显示了双侧下肢的骨骼结构，包括股骨、胫骨和腓骨。最显著的特征是双腿呈现明显的弯曲畸形，这种弯曲在股骨远端和胫骨近端尤为明显。虽然膝关节的排列看起来正常，但从大腿中部向下至踝关节的整体腿部形态呈向外弯曲状。就该年龄段而言，骨骼显得相对纤细。
+
+
+回答提及或最终倾向的诊断包括：佝偻病、Blount 病、生理性膝内翻。涉及的主要影像要点包括：骨骼弯曲。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1785,18 +2048,20 @@ Based on the age (5 years), the presentation (bowing of legs), and the asymptoma
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：生理性膝内翻、Blount 病。涉及的主要影像要点包括：骨骼弯曲。</pre>
+<pre>该图像是一名5岁男童小腿及足部的正位X光片。患者呈站立姿势，双脚微微分开。腿部骨骼（股骨、胫骨、腓骨）和足部骨骼（跗骨、跖骨、趾骨）清晰可见。图像显示双腿（尤其是胫骨）有明显的弯曲变形。膝关节和踝关节的排列看起来相对正常，但小腿长骨的整体形态偏离了直线轴线。分割掩模突出显示了骨骼，在所提供的示例中特别标示了股骨和胫骨。
+
+回答提及或最终倾向的诊断包括：生理性膝内翻、Blount 病。涉及的主要影像要点包括：骨骼弯曲。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：长骨弯曲（文本提及）；加入 segmentation 后：长骨弯曲（文本提及）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+差不多，都很清楚。
 
 </details>
 
 <details>
 <summary><strong>MedMO-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**正向：新增或强化参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -1806,7 +2071,7 @@ Based on the age (5 years), the presentation (bowing of legs), and the asymptoma
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>该患者存在股骨颈短缩、股骨干短缩及膝内翻。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1816,18 +2081,18 @@ Based on the age (5 years), the presentation (bowing of legs), and the asymptoma
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：骨骼弯曲。</pre>
+<pre>该患者有腿部弯曲。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：长骨弯曲（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+差不多，。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-4B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负向：参考关键点减少或被错误结论取代
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -1857,7 +2122,13 @@ Since the child is asymptomatic and the radiograph shows no pathological finding
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：生理性膝内翻。涉及的主要影像要点包括：骨骼弯曲。</pre>
+<pre>### 影像描述：
+- 该X光片为下肢站立位正位（AP）像。
+- 可见股骨髁及胫骨平台。
+- 双膝间距稍宽，双腿呈轻度向外弯曲状，表现为**生理性膝内翻**特征。
+- 未见骨折、骨骼畸形或关节间隙变窄的征象。
+- 骺板（生长板）清晰可见且形态正常，无早闭或异常骨化迹象。
+- 整体骨骼结构完整且对称。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1884,18 +2155,20 @@ This is a normal finding in a 5-year-old child and does not require treatment. T
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：骨髓炎。涉及的主要影像要点包括：骨骼弯曲。</pre>
+<pre>**描述：**
+该图像为一名5岁男性患者下肢的站立位前后位（AP）X光片。影像清晰显示了骨盆、股骨、胫骨及足部的结构。最显著的发现是双腿呈现轻微且对称的弯曲。这种弯曲程度不严重，且患者无临床症状，即未见疼痛、肿胀或功能受限。
+</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：长骨弯曲（文本提及）；加入 segmentation 后：长骨弯曲（否定/鉴别）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负向：参考关键点减少或被错误结论取代
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -1920,7 +2193,8 @@ This is a normal finding for a 5-year-old boy. The bowing of the legs is consist
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：骨骼弯曲。</pre>
+<pre>**图像描述：**
+这张站立位前后位（AP）X光片显示了从髋部至踝部的整个下肢。最显著的发现是股骨和胫骨呈现双侧对称性弯曲。股骨表现出典型的“弓形腿”或“O型腿”畸形，股骨内侧髁向内倾斜，导致双膝间距增大。胫骨也呈现轻度弯曲，加剧了整体畸形。双膝未接触，小腿的排列轴线似乎向外偏斜。髋关节、股骨颈及胫骨近端的排列看起来正常。未见骨折、脱位或其他骨骼异常征象。该图像是在站立位拍摄的，适合评估负重状态下的肢体排列情况。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1946,18 +2220,19 @@ In summary, this is a normal finding in a 5-year-old male, and no further invest
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：骨骼弯曲。</pre>
+<pre>**图像描述：**
+该图像为一名5岁男性下肢站立位前后位（AP）X光片。影像清晰显示了骨盆、股骨、膝关节、胫骨及足部结构。最显著的特征是典型的“O型腿”外观，即双腿在膝关节处向外弯曲，导致站立时双侧小腿之间出现间隙；这种弯曲在股骨远端和胫骨近端尤为明显。双侧肢体排列看起来对称。患者无临床症状，即无疼痛、行走困难或其他不适主诉。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：长骨弯曲（文本提及）；加入 segmentation 后：长骨弯曲（否定/鉴别）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负面：由生理性弯曲转为佝偻病，仍遗漏生长停滞线
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -2021,7 +2296,15 @@ The X-ray demonstrates symmetrical, physiological bowing of the femurs and tibia
 
 中文要点翻译：
 
-<pre>双侧股骨和胫骨对称弯曲，骨密度、皮质和生长板正常，无骨折；模型认为是 5 岁儿童的生理性膝内翻。</pre>
+<pre>这是一张5岁男性患儿下肢（包括骨盆、股骨、膝关节、胫骨和腓骨）的站立位前后位（AP）X光片。该影像展示了患者站立状态下双侧下肢的全长骨骼解剖结构。
+
+主要影像学发现：
+
+- **股骨与胫骨弯曲**：双侧股骨和胫骨均可见明显的弯曲畸形，凸侧朝向外侧。弯曲在股骨远端和胫骨近端更为显著，这属于幼儿生理性弯曲的典型表现。
+- **骨密度与皮质厚度正常**：未见骨量减少、骨硬化或骨膜反应的征象。
+- **生长板（骨骺板）正常**：股骨远端和胫骨近端的生长板宽度及轮廓规则，未见不规则、碎裂或增宽等异常征象。
+- **力线（对线）**：力线（机械轴）似乎通过膝关节中心，膝关节水平未见明显的内翻或外翻畸形。弯曲呈对称性，符合生理性弯曲特征。
+- **未见**骨折、溶骨性病变或软组织异常。。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2096,31 +2379,49 @@ The X-ray demonstrates classic radiographic features of **nutritional vitamin D 
 
 中文要点翻译：
 
-<pre>模型仍描述双侧股骨、胫骨对称弯曲，但加入 segmentation 后声称存在干骺端毛糙和杯口样改变，最终改诊营养性维生素 D 缺乏性佝偻病。</pre>
+<pre>这是一张5岁男性患者下肢站立位前后位（AP）X光片，该患者因腿部弯曲（O型腿）就诊。图像完整显示了骨盆、股骨、膝关节、胫骨、腓骨及踝关节，便于评估肢体排列和骨骼形态。
+
+肉眼观察可见：
+
+- **股骨和胫骨呈对称性弯曲**，弯曲凸向外侧，形成典型的“O型腿”畸形（膝内翻）。
+- **股骨干**呈外侧弯曲，弯曲顶点位于骨干中部。
+- **胫骨**亦呈外侧弯曲，弯曲范围从近端干骺端延伸至骨干中部。
+- **骺板**（生长板）显示**增宽且形态不规则**，尤其是在股骨远端和胫骨近端；干骺端区域呈现“佝偻病串珠”样改变——特征为干骺端边缘毛糙、呈杯口状且不规则。
+- **未见骨折、骨髓炎或肿瘤征象**。
+- **骨盆和髋关节**的排列与结构正常。
+
+**分割分析：**
+
+- **Medical-SAM2** 提供了整个下肢区域的广泛分割，骨骼结构以蓝色高亮显示。分割结果准确勾勒出了整体解剖结构。
+- **Medical-SAM3** 提取了右侧股骨（紫色），准确识别了骨干和远端干骺端。然而，该模型未分割左侧股骨或胫骨，表明其进行了部分或选择性分割。
+- **BiomedParse** 仅分割了左侧股骨和胫骨近端的一小部分，表明其对目标结构的分割有限或不准确。</pre>
 
 **对模型图片 caption 能力及 Segmentation 影响的分析：**
 
-mask 突出了长骨轮廓，却没有提供成骨不全所需的骨质和生长停滞线语义。模型随后从一个错误诊断跳到另一个错误诊断，并生成原图并不明确的干骺端征象。分割强化了“弯腿”这一非特异特征，没有提升疾病特异性。
+无明显提升，反而指出又不准确的。
 
 </details>
 
 ### 2.10 [Pericardial effusion - water bottle sign](https://radiopaedia.org/cases/pericardial-effusion-water-bottle-sign-2?lang=us) (`pericardial-effusion-water-bottle-sign-2`)
 
-| Original image | Medical-SAM2 | Medical-SAM3: left lung, right lung, heart, cardiac silhouette | BiomedParse v1: left lung, right lung, heart, cardiac silhouette | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+| Original image | Medical-SAM2 | Medical-SAM3: left lung, right lung, heart, cardiac silhouette 左肺、右肺、心脏、心影 | BiomedParse v1: left lung, right lung, heart, cardiac silhouette 左肺、右肺、心脏、心影 | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach 肺、右肺、左肺、膈、心脏、心纵隔、上纵隔、下纵隔、胃 |
 |---|---|---|---|---|
 | <img src="assets/pericardial-effusion-water-bottle-sign-2/original.jpg" width="100%"> | <img src="assets/pericardial-effusion-water-bottle-sign-2/medical_sam2_overlay.png" width="100%"> | <img src="assets/pericardial-effusion-water-bottle-sign-2/medical_sam3_overlay.png" width="100%"> | <img src="assets/pericardial-effusion-water-bottle-sign-2/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/pericardial-effusion-water-bottle-sign-2/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
+> **备注：** 太困了，起来再check。
+
+<!-- MODEL_CONTENT_TODO_2_10
 - **背景信息：**Age: Adult Gender: Male; Shortness of breath.；成年男性，呼吸困难。
 - **原始图片 caption：**
 
 <pre>Front chest x-ray demonstrates marked enlargement of the cardiac outline. This was due to pericardial effusion and is a good example of the water bottle sign. This refers to the shape of the cardiac silhouette on erect frontal chest x-rays in patients who have a very large pericardial effusion. The fluid, often measuring a liter or more, causes the pericardium to sag mimicking an old-fashioned water bottle sitting on a bench. Typically the effusion has accumulated over many weeks (e.g. in patients with malignancy) and the pericardium has gradually stretched.</pre>
 
-- **原始图片 caption 翻译：**正位胸片显示心影显著增大，原因为心包积液，是典型水瓶征。大量心包液使心包下垂，形似置于台面的老式水瓶；积液通常历经数周缓慢形成，心包逐渐扩张。
+- **原始图片 caption 翻译：**胸部正位X光片显示心影显著增大。这是由心包积液引起的，是“水瓶征”（water bottle sign）的一个典型例子。该征象描述的是大量心包积液患者在站立位胸部正位X光片上所呈现的心影形态。积液量通常可达一升或更多，导致心包下垂，其外观酷似放置在长椅上的老式水瓶。这种积液通常在数周内逐渐积聚（例如在恶性肿瘤患者中），伴随着心包的逐渐扩张。
 
 <details>
 <summary><strong>InternVL3-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负向：参考关键点减少或被错误结论取代
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -2162,7 +2463,17 @@ The combination of an enlarged heart on X-ray and shortness of breath strongly p
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：心力衰竭、心脏增大、充血性心力衰竭。涉及的主要影像要点包括：起搏器在位。</pre>
+<pre>在提供的胸部X光片中，可见若干有助于诊断的特征：
+
+1. **心脏增大（Cardiomegaly）**：心脏外观增大，提示存在心脏肥大。心胸比似乎增大，表明心脏体积显著增加。
+
+2. **肺血管影**：肺血管影显得较为显著。这可能是由于肺血流量增加所致，这种情况常与心力衰竭或其他心脏疾病相关。
+
+3. **肺部**：除心脏改变外，肺野清晰。未见肺炎或肺水肿的明显征象，但心脏增大可能导致了对肺组织的轻度压迫。
+
+4. **异物**：胸部区域可见疑似医疗器械的影像（可能是起搏器或导线），提示患者有心脏病史。
+
+5. **体位与清晰度**：该X光片是在站立位前后位（AP位）下拍摄的；与后前位（PA位）相比，这种体位有时可能会掩盖某些病变，但主要的影像学发现仍可辨识。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2184,18 +2495,23 @@ Further clinical correlation and possibly additional imaging or tests (e.g., CT 
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺不张、肺炎、胸腔积液。涉及的主要影像要点包括：肺实变、膈肌异常或定位、心影异常。</pre>
+<pre>这是一张因呼吸急促就诊的成年男性的胸部X光片。该片为站立位拍摄的正位（前后位）影像。
+
+### 观察结果：
+- **肺部**：右肺影像清晰。然而，左肺显示出大片密度增高影，提示可能存在肺实变或积液。
+- **心影**：心脏大小似乎在正常范围内，但由于左侧存在密度增高影，这一点较难明确辨认。
+- **膈肌**：受左侧密度增高影影响，左侧膈肌轮廓显示不清，这可能提示存在胸腔积液或肺不张。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：球形/增大心影（结论）；加入 segmentation 后：未命中核心征象。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升
 
 </details>
 
 <details>
 <summary><strong>InternVL3.5-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负向：参考关键点减少或被错误结论取代
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -2257,7 +2573,22 @@ The chest X-ray demonstrates cardiomegaly with possible pulmonary vascular conge
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：心力衰竭、胸腔积液、肺炎、心脏增大。涉及的主要影像要点包括：心影异常、膈肌异常或定位、肺实变。</pre>
+<pre>### 关键观察结果：
+
+1. **心影：**
+- 心脏显影增大，提示心脏肥大（心影增大）。这可能由多种原因引起，包括心力衰竭、心肌病或心包积液。
+
+2. **肺野：**
+- 肺野显示相对清晰，未见明显的实变、胸腔积液或气胸。然而，肺门影增浓，可能提示肺血管充血。
+
+3. **膈肌与肋膈角：**
+- 膈肌位置抬高，肋膈角锐利，属正常表现。未见胸腔积液征象。
+
+4. **骨骼与软组织：**
+- 骨骼结构（锁骨、肋骨、脊柱）完整，未见明显骨折或病变。软组织未见异常。
+
+5. **医疗装置：**
+- 胸部可见心电图（ECG）导联，提示患者在拍摄X光片时可能正在接受监护。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2315,18 +2646,32 @@ The chest X-ray reveals several critical findings in the context of a male adult
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎、胸腔积液、心力衰竭、充血性心力衰竭。涉及的主要影像要点包括：肺实变、纵隔移位、心影异常、膈肌异常或定位、肺部致密影。</pre>
+<pre>观察右肺，可见明显的密度增高区。Medical-SAM2 等工具的分割结果突显了这一区域。右肺下野似乎存在实变或胸腔积液。等等，右侧膈肌显示不清，这可能提示有积液存在。但心脏向左移位，这可能暗示右侧存在肺容积缩小或肿块。
+
+左肺看起来相对清晰，但心影增大。心脏外观增大，可能存在心脏肥大（心影增大）。纵隔增宽，这可能是由心脏增大引起的，也可能是纵隔肿块等其他原因所致。左侧膈肌可见，而右侧膈肌被遮挡，这支持了右侧存在胸腔积液的可能性。
+
+患者出现气促症状可能有多种原因：肺水肿、肺炎、胸腔积液，或是心脏肥大导致的心力衰竭。心脏增大伴随可能的右侧胸腔积液，指向充血性心力衰竭的可能性。另一种可能是右肺下叶的大面积肺炎伴胸腔积液，这也可能引起类似症状。
+
+等等，TorchXRayVision 的分割结果显示肺部为绿色，心脏和纵隔为黄色。右肺下部密度较高，可能是实变或积液。左肺看起来较清晰。心脏增大，且纵隔似乎发生了移位？还是仅仅因为投照体位造成的视觉偏差？
+
+在前后位（AP）投照下，心脏看起来会比后前位（PA）投照时大，但仍应注意明显的增大征象。心脏肥大、可能的右侧胸腔积液以及气促症状，让我联想到充血性心力衰竭，进而导致肺水肿和胸腔积液。不过，右肺的密度增高也可能是肺炎，特别是如果存在肺叶实变的话。
+
+此外，气胸也可能引起气促，但 X 光片上未见清晰的脏层胸膜线。Medical-SAM2 的分割结果也未标示出气胸区域。左肺影像清晰，所以可能不是那个问题。
+
+另一种可能是肺栓塞，但除非伴有肺梗死等并发症，否则常规X光片通常无法显示肺栓塞。X光片可能无法检出这种情况。
+
+综合来看：患者心脏增大，可能存在右侧胸腔积液，且右肺下叶可见不透光影。呼吸急促可能是由伴有胸腔积液和疑似肺水肿的心力衰竭引起的，也可能是由伴有胸腔积液的肺炎引起的。鉴于左侧无胸腔积液且心脏增大，病因更倾向于心脏问题；不过，右肺下叶的实变影也可能是合并感染所致。。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：心包积液（结论）、球形/增大心影（文本提及）；加入 segmentation 后：心包积液（文本提及）、球形/增大心影（文本提及）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升改善。
 
 </details>
 
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**正向：新增或强化参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升改善。
 
 **原始图像 → Single-image caption 回答**
 
@@ -2336,7 +2681,7 @@ The chest X-ray reveals several critical findings in the context of a male adult
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：心力衰竭、充血性心力衰竭。涉及的主要影像要点包括：肺实变、心影异常。</pre>
+<pre>胸部X光片显示心影增大，提示心脏肥大。肺野清晰，未见实变或胸腔积液征象。骨骼结构未见骨折或异常。鉴于患者表现为呼吸急促，且影像学显示心脏增大，最可能的诊断为充血性心力衰竭。尽管该影像中未见明显表现，但该病症可导致肺部积液。需结合临床情况，并可能需要进行进一步影像学检查或超声心动图检查，以确诊并评估心力衰竭的严重程度。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2346,18 +2691,18 @@ The chest X-ray reveals several critical findings in the context of a male adult
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺水肿、心脏增大、心力衰竭、充血性心力衰竭。涉及的主要影像要点包括：膈肌异常或定位、心影异常。</pre>
+<pre>影像所见：胸部X光片显示心影增大，提示心脏肥大。双侧肺下野可见密度增高影，可能提示肺水肿或胸腔积液。可见心电图导联等医疗装置。膈肌位置抬高，这可能由心脏增大或其他潜在病变引起。影像学印象：上述征象符合充血性心力衰竭的表现，特征为心脏增大及可能存在的肺水肿。需结合临床情况并进行进一步影像学检查或相关化验，以明确诊断并评估病情严重程度。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：球形/增大心影（文本提及）；加入 segmentation 后：球形/增大心影（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显改善
 
 </details>
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负面：心影分割使明显心影增大被判为正常
+**Segmentation 对 caption 的总体影响：**无明显改善
 
 **原始图像 → Single-image caption 回答**
 
@@ -2404,7 +2749,7 @@ The chest X-ray shows cardiomegaly in an adult male presenting with shortness of
 
 中文要点翻译：
 
-<pre>胸片显示心影增大并呈球形，肺血管和肺野相对正常；模型诊断心脏增大，并把心包积液列为可能病因之一。</pre>
+<pre>该图像为一名成年男性患者的胸部正位X光片。心脏显示增大，占据了胸腔的很大一部分；心影呈类球形。肺血管纹理大致正常，未见明显的充血或水肿征象。肺野清晰，未见提示肺炎或明显肺不张的局灶性致密影。肋膈角锐利，提示无明显胸腔积液。纵隔结构显示在正常范围内，尽管增大的心脏遮挡了部分细节。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2433,18 +2778,25 @@ The patient presents with shortness of breath. The chest X-ray is a standard ini
 
 中文要点翻译：
 
-<pre>加入心脏、心纵隔和肺部 overlay 后，模型改称心脏大小正常、纵隔无异常、肺野清晰，认为单张胸片不能给出明确诊断。</pre>
+<pre>该图像为一名成年男性患者的胸部正位X光片。从“移动式X光检查”的标识可知，患者处于卧位（很可能是仰卧位）。图像显示了心脏、肺部、纵隔和横膈膜。肺部影像相对清晰，尽管可能存在细微的密度增高影（尤其是在肺下野），但这可能是由患者体位、重叠的软组织或潜在病变引起的。心脏大小在正常范围内，纵隔结构未见异常。横膈膜清晰可见，肋膈角锐利，提示无明显胸腔积液。
+
+**分割结果分析：**
+
+*   **Medical-SAM2：** 该分割结果突出了心脏及心影轮廓。
+*   **Medical-SAM3：** 该分割结果识别了左肺、右肺、心脏及心影轮廓。
+*   **BiomedParse：** 该分割结果识别了左肺、右肺、心脏及心影轮廓。
+*   **TorchXRayVision：** 该分割结果提供了更详细的划分，识别了肺部（左、右）、横膈膜、心脏、心纵隔区域、上纵隔、下纵隔及胃部。</pre>
 
 **对模型图片 caption 能力及 Segmentation 影响的分析：**
 
-原始 caption 已抓住最关键的巨大球形心影，并接近水瓶征；segmentation 后反而否定心影增大。这说明错误或边界不稳定的心脏 mask 可能覆盖原始轮廓线索，使模型过度信任 overlay，是非常明确的负向案例。
+无明显。
 
 </details>
 
 <details>
 <summary><strong>MedMO-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -2454,7 +2806,7 @@ The patient presents with shortness of breath. The chest X-ray is a standard ini
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>双肺清晰。心脏无增大。纵隔轮廓正常。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2464,18 +2816,18 @@ The patient presents with shortness of breath. The chest X-ray is a standard ini
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：胸部未见明显异常。 </pre>
+<pre>该患者为一名有气促症状的成年男性。X光检查显示胸部影像正常。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-4B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负向：参考关键点减少或被错误结论取代
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -2507,7 +2859,13 @@ The patient is likely suffering from **left ventricular heart failure**, support
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：心力衰竭、心脏增大。涉及的主要影像要点包括：起搏器在位、心影异常、膈肌异常或定位、肺实变。</pre>
+<pre>**图像描述：**
+- 该图像为胸部正位（AP）立位X光片，标注​​为“MOBILE AP ERECT @00:55”，表明是在立位下拍摄的，可能由移动式设备完成。
+- 患者体内可见两根起搏器导线（可通过金属钩状电极组件识别），分别置于右心房和左心房，导线向下延伸至心脏。
+- 心脏轮廓显得增大，尤其是左心室，其形态较正常情况更为显著突出，符合心脏轮廓增大的表现。
+- 肺野清晰，未见浸润影、实变或胸腔积液征象。
+- 膈肌的轮廓和位置正常。
+- 未见气胸、肺不张或气管明显移位的征象。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2801,12 +3159,16 @@ This chest X-ray in a shortness-of-breath adult male with a pacemaker shows **cl
 
 </details>
 
+-->
 ### 2.11 [Round pneumonia](https://radiopaedia.org/cases/round-pneumonia-3?lang=us) (`round-pneumonia-3`)
 
 | Original image | Medical-SAM2 | Medical-SAM3: lung, lung opacity, heart, diaphragm | BiomedParse v1: lung, lung opacity, heart, diaphragm | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
 |---|---|---|---|---|
 | <img src="assets/round-pneumonia-3/original.jpg" width="100%"> | <img src="assets/round-pneumonia-3/medical_sam2_overlay.png" width="100%"> | <img src="assets/round-pneumonia-3/medical_sam3_overlay.png" width="100%"> | <img src="assets/round-pneumonia-3/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/round-pneumonia-3/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
+> **备注：** 太困了，起来再check。
+
+<!-- MODEL_CONTENT_TODO_2_11
 - **背景信息：**Age: Infant; Febrile and clinically unwell.；婴儿，发热且临床状况不佳。
 - **原始图片 caption：**
 
@@ -3431,12 +3793,16 @@ This frontal chest X-ray in a febrile, unwell infant demonstrates **left lower l
 
 </details>
 
+-->
 ### 2.12 [Spalding sign](https://radiopaedia.org/cases/spalding-sign?lang=us) (`spalding-sign`)
 
 | Original image | Medical-SAM2 | Medical-SAM3: fetal head, fetal skull, brain | BiomedParse v1: fetal head, fetal skull, brain |
 |---|---|---|---|
 | <img src="assets/spalding-sign/original.jpeg" width="100%"> | <img src="assets/spalding-sign/medical_sam2_overlay.png" width="100%"> | <img src="assets/spalding-sign/medical_sam3_overlay.png" width="100%"> | <img src="assets/spalding-sign/biomedparse_v1_overlay.png" width="100%"> |
 
+> **备注：** 太困了，起来再check。
+
+<!-- MODEL_CONTENT_TODO_2_12
 - **背景信息：**Gender: Female; Antenatal scan at 28 weeks gestation.；女性，孕 28 周接受产前超声。
 - **原始图片 caption：**
 
@@ -4032,12 +4398,16 @@ This ultrasound image shows a **fetal head with normal-appearing skull and brain
 
 </details>
 
+-->
 ### 2.13 [Surgical ankylosis](https://radiopaedia.org/cases/surgical-ankylosis?lang=us) (`surgical-ankylosis`)
 
 | Original image | Medical-SAM2 | Medical-SAM3: femur, tibia, knee joint, intramedullary nail | BiomedParse v1: femur, tibia, knee joint, intramedullary nail |
 |---|---|---|---|
 | <img src="assets/surgical-ankylosis/original.jpg" width="100%"> | <img src="assets/surgical-ankylosis/medical_sam2_overlay.png" width="100%"> | <img src="assets/surgical-ankylosis/medical_sam3_overlay.png" width="100%"> | <img src="assets/surgical-ankylosis/biomedparse_v1_overlay.png" width="100%"> |
 
+> **备注：** 太困了，起来再check。
+
+<!-- MODEL_CONTENT_TODO_2_13
 - **背景信息：**Age: 75 Gender: Female; Knee immobility post surgery for failed joint replacement；75 岁女性，关节置换失败后接受手术，术后膝关节不能活动。
 - **原始图片 caption：**
 
@@ -4674,6 +5044,7 @@ This is a complex orthopedic case requiring multidisciplinary management.</pre>
 
 </details>
 
+-->
 <!-- SECTION_2_CAPTION_ANALYSIS_END -->
 
 ---

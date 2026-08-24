@@ -1,6 +1,31 @@
 
 # 23 个困难单图病例的 Segmentation 增强对比
 
+## 实验设计说明
+
+### 1. 为什么没有采用更多专病分割模型
+
+[前期讨论](https://chatgpt.com/s/cx_6a881d01bf9881918af625caa6604eb9)中确实列出了更多专病模型，但其中不少模型面向原始 3D CT/MRI/PET volume、多序列输入或特定扫描协议，例如 BraTS、TextoMorph、DeepCAC 和 SegVol。当前 23 个 Radiopaedia 病例提供的是导出的单张 2D 图片，而不是这些模型所需的原始体数据，因此不能直接套用这些模型并把输出视为有效的专病分割结果。
+
+这份实验已经采用了上述讨论中可适配当前输入的 **BiomedParse** 和 **TorchXRayVision**。超声方面，讨论中提到的主要候选是 nnU-Net 和 MedSAM2：nnU-Net 本质上是训练框架，并不存在一个可覆盖不同超声器官和病灶的通用公开预训练权重；只有取得与具体超声任务相匹配的 checkpoint 后才适合直接推理。Medical-SAM2 已经纳入当前实验。
+
+### 2. 为什么目前难以为每个 Radiopaedia 病例选择更具体的专病模型
+
+Radiopaedia 当前样本提供的背景信息通常很少，仅靠年龄、性别和一两句 presentation，往往无法在推理前确认潜在病灶及其细分类别，因此也无法可靠地路由到更加 specific 的专病模型。若根据参考答案或原始图片 caption 反向选择专病模型，又会引入 ground-truth leakage，使实验失去意义。（但是这里确实可以作为列出的备选模型。）
+
+相比之下，MedThinkVQA 中的 `CLINICAL_HISTORY` 通常比 Radiopaedia 当前数据更丰富，可为器官、病灶类别和专病模型的选择提供更多不依赖答案的临床依据。因此，后续在 MedThinkVQA 上更适合研究“根据临床信息自动选择专病模型”的 expert routing。
+
+### 3. 为什么同时评测 diagnosis QA 和 image caption
+
+Diagnosis QA 用于观察加入 segmentation 后最终诊断是否发生变化，但最终正确率只能反映结果，无法说明变化来自哪里。Image caption 则可以更直观地比较模型在加入 segmentation 前后是否识别到关键解剖结构和影像征象，是否纠正了原有视觉误读，或者是否受到错误 mask 和提示文本的干扰。 我这的重点并不是只报告“准确率提高了多少”，而是先用 QA correctness 定位发生变化的病例，再逐例检查 image caption，分析 segmentation 对模型视觉理解究竟产生了正向、无效还是负向影响。
+
+### 4. 两个 Section 的划分
+
+- **Section 1**：展示加入 segmentation 后 diagnosis QA correctness 发生变化的病例，并重点分析这些病例的 image caption 前后变化。
+- **Section 2**：展示其余 diagnosis QA correctness 未发生变化的病例，继续比较 segmentation 前后的 image caption，以检查它是否改善了局部征象识别、没有产生有效帮助，或带来了负面干扰。
+
+(目前还没写完，先休息下，写到2.10了，醒了继续，)
+
 ## 1. QA correctness 发生变化病例的 Image Caption 分析
 
 下表汇总全部 23 个困难单图病例；Section 1.1-1.10 只展开加入 Segmentation 后 diagnosis QA correctness 发生变化的病例，并结合分割前后 single-image caption 判断变化来源。
