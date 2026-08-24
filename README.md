@@ -1,6 +1,10 @@
 
 # 23 个困难单图病例的 Segmentation 增强对比
 
+## 1. QA correctness 发生变化病例的 Image Caption 分析
+
+下表汇总全部 23 个困难单图病例；Section 1.1-1.10 只展开加入 Segmentation 后 diagnosis QA correctness 发生变化的病例，并结合分割前后 single-image caption 判断变化来源。
+
 | 模型 | 原始图像，无 image text | 原图 + Segmentation，无 image text | 正确率变化 | 错误→正确 / 正确→错误 |
 |---|---:|---:|---:|---:|
 | InternVL3-14B | 0/23（0.00%） | 3/23（13.04%） | +13.04 pp | 3 / 0 |
@@ -14,7 +18,7 @@
 | GPT-5.6-Luna-Pro | 7/23（30.43%） | 8/23（34.78%） | +4.35 pp | 3 / 2 |
 | **合计** | **14/207（6.76%）** | **23/207（11.11%）** | **+4.35 pp** | **15 / 6** |
 
-### 1 [Aqueductal stenosis](https://radiopaedia.org/cases/aqueductal-stenosis-3?lang=us) (`aqueductal-stenosis-3`)
+### 1.1 [Aqueductal stenosis](https://radiopaedia.org/cases/aqueductal-stenosis-3?lang=us) (`aqueductal-stenosis-3`)
 
 
 | Original image | Medical-SAM2 | Medical-SAM3: brain, lateral ventricle, third ventricle, cerebral aqueduct （脑、侧脑室、第三脑室、中脑导水管） | BiomedParse v1: brain, lateral ventricle, third ventricle, cerebral aqueduct （脑、侧脑室、第三脑室、中脑导水管） |
@@ -169,7 +173,7 @@ Confirmation of the cause and assessment for acute pressure effects require the 
 
 </details>
 
-### 2 [Congenital diaphragmatic hernia](https://radiopaedia.org/cases/congenital-diaphragmatic-hernia-26?lang=us) (`congenital-diaphragmatic-hernia-26`)
+### 1.2 [Congenital diaphragmatic hernia](https://radiopaedia.org/cases/congenital-diaphragmatic-hernia-26?lang=us) (`congenital-diaphragmatic-hernia-26`)
 
 
 | Original image | Medical-SAM2 | Medical-SAM3: fetus, fetal chest, lung, bowel （胎儿、胎儿胸腔、肺、肠管） | BiomedParse v1: fetus, fetal chest, lung, bowel （胎儿、胎儿胸腔、肺、肠管） |
@@ -547,7 +551,7 @@ This is typically diagnosed in the second trimester and may be associated with p
 
 </details>
 
-### 3 [Fetal cardiac rhabdomyoma](https://radiopaedia.org/cases/fetal-cardiac-rhabdomyoma-1?lang=us) (`fetal-cardiac-rhabdomyoma-1`)
+### 1.3 [Fetal cardiac rhabdomyoma](https://radiopaedia.org/cases/fetal-cardiac-rhabdomyoma-1?lang=us) (`fetal-cardiac-rhabdomyoma-1`)
 
 
 | Original image | Medical-SAM2 | Medical-SAM3: fetal heart, heart, cardiac mass （胎心、心脏、心脏肿块） | BiomedParse v1: fetal heart, heart, cardiac mass （胎心、心脏、心脏肿块） |
@@ -861,7 +865,7 @@ This 20-week fetal ultrasound reveals a **cardiac mass**, most consistent with a
 
 </details>
 
-### 4 [Hiatus hernia](https://radiopaedia.org/cases/hiatus-hernia-15?lang=us) (`hiatus-hernia-15`)
+### 1.4 [Hiatus hernia](https://radiopaedia.org/cases/hiatus-hernia-15?lang=us) (`hiatus-hernia-15`)
 
 
 | Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, stomach （肺、心脏、膈肌、胃） | BiomedParse v1: lung, heart, diaphragm, stomach （肺、心脏、膈肌、胃） | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach （肺、右肺、左肺、膈肌、心脏、心纵隔、上纵隔、下纵隔、胃） |
@@ -1291,7 +1295,7 @@ Based solely on the provided information (patient history, symptoms, and this si
 
 </details>
 
-### 5 [Kienböck disease](https://radiopaedia.org/cases/kienbock-disease-3?lang=us) (`kienbock-disease-3`)
+### 1.5 [Kienböck disease](https://radiopaedia.org/cases/kienbock-disease-3?lang=us) (`kienbock-disease-3`)
 
 
 | Original image | Medical-SAM2 | Medical-SAM3: wrist, carpal bones, lunate bone （腕关节、腕骨、月骨） | BiomedParse v1: wrist, carpal bones, lunate bone （腕关节、腕骨、月骨） |
@@ -2498,295 +2502,8 @@ Further evaluation with a T2-weighted or STIR MRI sequence is recommended to bet
 
 </details>
 
-### 6 [Lytic bone lesion (myeloma)](https://radiopaedia.org/cases/lytic-bone-lesion-myeloma?lang=us) (`lytic-bone-lesion-myeloma`)
 
-
-| Original image | Medical-SAM2 | Medical-SAM3: bone, bone lesion, humerus （骨、骨病灶、肱骨） | BiomedParse v1: bone, bone lesion, humerus （骨、骨病灶、肱骨） |
-|---|---|---|---|
-| <img src="assets/lytic-bone-lesion-myeloma/original.jpg" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/medical_sam2_overlay.png" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/medical_sam3_overlay.png" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/biomedparse_v1_overlay.png" width="100%"> |
-
-- 背景信息：Age: 69 Gender: Female; Presentation: Patient complaining of severe left shoulder and right humeral pain. 69 岁女性，左肩及右肱骨剧烈疼痛。
-- 原始问题：What is the likely diagnosis for this lytic lesion? 该溶骨性病灶最可能的诊断是什么？
-- 参考答案：Myeloma 骨髓瘤。
-- 原始图片caption:
-<pre>There is a subtle lytic lesion in proximal right humerus.</pre>
-<pre>右侧肱骨近端可见细微溶骨性病灶。</pre>
-- **发生变化** InternVL3-14B: Incorrect → Correct；GPT-5.6-Luna-Pro: Correct → Incorrect
-
-<details>
-<summary><strong>InternVL3-14B</strong></summary>
-
-**原始图像 → 原始 QA 回答**；评测：**Incorrect**
-
-英文原始回答：
-
-<pre>Let&#x27;s analyze the X-ray image and available patient information to determine the likely diagnosis for the lytic lesion:
-
-1. **Patient Demographics and Symptoms:**
-   - Age: 69 (elderly)
-   - Gender: Female
-   - Complaints: Severe left shoulder and right humeral pain.
-
-2. **Image Analysis:**
-   - The X-ray shows a lytic bone lesion in the right humerus. 
-   - A lytic lesion appears as an area of bone destruction or &quot;eating away&quot; of the bone, seen as a darker area on the X-ray.
-
-3. **Considerations for Lytic Lesions in the Humerus:**
-   - There are several potential causes for a lytic bone lesion in the humerus, but given the patient’s age and the location:
-     - **Osteolytic metastasis**: Secondary bone cancer, often originating from primary cancers like breast, lung, or prostate. This is common in elderly patients.
-     - **Multiple Myeloma**: A hematologic cancer that affects bone marrow and can cause lytic lesions, often in the axial skeleton but can also occur in long bones.
-     - **Primary Bone Tumors**: Less common in elderly patients, but could still be a consideration, such as osteosarcoma.
-     - **Pathologic Fracture**: A fracture occurring in a bone weakened by disease. Though this is a complication, not a primary diagnosis.
-
-4. **Clinical Correlation:**
-   - Given the patient’s severe pain and age, osteolytic metastasis is a significant consideration, especially if there is a known history of primary malignancy.
-   - If there is no known history of malignancy, investigating for multiple myeloma or other systemic conditions would be important.
-
-**Chain of Thought (CoT):**
-
-1. **Patient Age and Symptoms**: Elderly patient, severe pain, location of lesion.
-2. **X-ray Findings**: Lytic lesion in the humerus.
-3. **Common Causes**: Osteolytic metastasis, multiple myeloma, primary bone tumors.
-4. **Likelihood Based on Prevalence**: Metastatic disease is more common in this demographic and can present with lytic lesions.
-5. **Final Diagnosis**: The most likely diagnosis for this lytic lesion in the context of an elderly female with severe pain is **osteolytic metastasis**.
-
-**Conclusion:** The likely diagnosis is osteolytic metastasis. Further evaluation, including imaging of other sites, tumor markers, and possibly a biopsy, would be needed to confirm the diagnosis.</pre>
-
-中文翻译：
-
-<pre>模型识别到老年患者肱骨溶骨性病灶，但最终更倾向溶骨性骨转移，另列多发性骨髓瘤和原发骨肿瘤，未给出参考诊断。</pre>
-
-**原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
-
-英文原始回答：
-
-<pre>To diagnose a suspected lytic lesion in the humerus based on the provided X-ray, consider the following clues:
-
-1. **Patient Demographics**: 
-   - Age: 69 years old
-   - Gender: Female
-
-2. **Presentation**:
-   - Complaints of severe shoulder and humeral pain
-
-3. **Image Analysis**:
-   - The X-ray shows a lytic (bone-dissolving) lesion in the humerus.
-   - The lesion appears as a well-defined or poorly defined area of bone loss, which can sometimes indicate aggressive bone pathology.
-
-4. **Differential Diagnosis for Lytic Lesions**:
-   - **Multiple Myeloma**: Common in older adults, causes lytic bone lesions.
-   - **Primary or Metastatic Bone Cancer**: Could be aggressive with visible lytic destruction.
-   - **Osteolytic Bone Lesion**: Includes other conditions like hemangiomas (typically not painful) or a single bone metastasis.
-   - **Benign Bone Lesions**: Less likely in an older population with severe pain, but they should be considered.
-
-5. **Common in Age Group**: Given the patient’s age and symptoms, multiple myeloma is a likely possibility. 
-
-**Conclusion**:
-
-Given the demographics, presentation, and radiographic findings of a lytic lesion, **multiple myeloma** is a probable diagnosis. Further testing, including blood tests (serum protein electrophoresis, free light chains), bone marrow biopsy, and additional imaging, would be necessary to confirm the diagnosis.</pre>
-
-中文翻译：
-
-<pre>加入分割后，模型继续识别肱骨溶骨性破坏，并结合年龄和严重骨痛，将多发性骨髓瘤列为最可能诊断，建议血清蛋白电泳、游离轻链、骨髓活检及全身影像。</pre>
-
-**原始图像 → Single-image caption 回答**；
-
-英文原始回答：
-
-<pre>The X-ray image shows the right upper arm (humerus) in a frontal view. The patient is a 69-year-old female presenting with severe left shoulder and right humeral pain.
-
-### Observable Features:
-1. **Bone Structure:**
-   - The humeral head appears to be well-articulated with the glenoid cavity of the scapula, indicating a proper shoulder joint alignment.
-   - The humeral shaft appears to be intact without any obvious fractures or dislocations.
-   - Both the proximal and distal ends of the humerus show normal bone density and structure without signs of acute injury.
-
-2. **Joint Space:**
-   - The joint space at the shoulder appears to be normal, without significant narrowing which could suggest osteoarthritis.
-
-3. **Soft Tissue:**
-   - There is no significant soft tissue swelling or abnormal calcifications visible around the humerus or shoulder joint on this X-ray.
-
-### Possible Diagnoses:
-Given the patient&#x27;s symptoms and examination findings:
-
-1. **Rotator Cuff Tendinitis or Impingement:**
-   - While the X-ray does not directly show rotator cuff pathology, shoulder pain can be related to rotator cuff tendinitis or impingement syndrome. This condition often requires clinical correlation with physical examination findings and may need further imaging like an MRI.
-
-2. **Proximal Humerus Fracture:**
-   - Though no acute fracture lines are visible, a subtle fracture could be missed on an X-ray. Given the patient’s age, fractures such as a proximal humerus fracture are relatively common in the elderly due to osteoporosis.
-
-3. **Osteoarthritis:**
-   - Early osteoarthritis might present with joint space narrowing or osteophytes, which do not seem prominent in this X-ray. However, symptoms could still be due to degenerative changes necessitating further assessment.
-
-4. **Subacromial/Supraspinatus Bursitis:**
-   - Inflammation of the bursa around the shoulder joint can cause significant pain. This condition might not be directly visible on an X-ray, but symptoms should be correlated with clinical findings.
-
-5. **Adhesive Capsulitis (Frozen Shoulder):**
-   - This condition can cause shoulder stiffness and pain but would typically involve a range of motion limitations which would need to be assessed clinically.
-
-### Conclusion:
-The X-ray does not show any acute fractures or obvious degenerative changes like significant narrowing of the joint space, but the patient’s symptoms are suggestive of other shoulder pathologies such as rotator cuff tendinitis, impingement, or early osteoarthritis. Given her age and symptomatology, a more comprehensive diagnostic approach such as an MRI or ultrasound might be warranted to evaluate the soft tissues and confirm the presence of tendinopathy or other subtle pathologies.
-
-### Next Steps:
-1. **Clinical Evaluation:**
-   - Detailed physical examination focusing on range of motion, strength, and specific provocative tests for rotator cuff and impingement syndromes.
-   
-2. **Additional Imaging:**
-   - MRI of the shoulder to evaluate the rotator cuff, labrum, and surrounding soft tissues for any pathology.
-
-3. **Intervention:**
-   - Depending on the findings, treatments may range from conservative management (physical therapy, NSAIDs) to surgical intervention if significant rotator cuff tear or fracture is confirmed. 
-
-By integrating clinical findings with further imaging, a more precise diagnosis and effective management plan can be formulated.</pre>
-
-中文翻译：
-
-<pre>原始 caption 没有可靠识别溶骨性病灶，认为未见急性骨折或明显退变，转而考虑肩袖肌腱炎、撞击或早期骨关节炎。</pre>
-
-**原始图像 + Segmentation → Single-image caption 回答**；
-
-英文原始回答：
-
-<pre>Upon examining the provided X-ray image of the right humerus, we observe the following:
-
-### Image Description
-1. **Patient Information**:
-   - **Age**: 69
-   - **Gender**: Female
-   - **Symptoms**: Severe left shoulder and right humeral pain
-
-2. **X-ray Modality and Region**:
-   - **Modality**: X-ray
-   - **View**: Frontal view of the right humerus
-
-3. **Visual Inspection of X-ray**:
-   - The X-ray clearly shows the right humerus bone extending from the shoulder (proximal end) to the elbow (distal end).
-   - The bone structure appears generally intact, with no obvious fractures or dislocations.
-   - There are no apparent abnormalities in the bone density or alignment when assessed at first glance.
-
-### Relevant Observations for Diagnosis
-Given the patient&#x27;s symptoms (left shoulder and right humeral pain), the X-ray results should be correlated with clinical findings:
-
-1. **Osteoarthritis**:
-   - In a patient with her age, osteoarthritis is a common condition to consider, especially since she is presenting with shoulder and humeral pain.
-   - However, this X-ray does not show significant signs of osteoarthritis like joint space narrowing, subchondral sclerosis, or osteophyte formation at the humeral head.
-
-2. **Osteoporosis**:
-   - Another age-related condition to consider is osteoporosis, which could lead to bone fractures from relatively minor trauma and cause pain.
-   - The bone appears to have normal density; however, a detailed assessment or additional imaging might be necessary to rule out early signs or subclinical osteoporosis.
-
-3. **Humeral Lesions or Pathologies**:
-   - The segmentations provided might suggest interest in the humeral head and shaft areas, possibly hinting at a more detailed analysis requirement.
-   - BiomedParse segmentation highlighted the distal humerus/shaft region, while Medical-SAM3 and Medical-SAM2 indicated more proximal regions – possibly looking for pathologies such as bone cysts, stress fractures, or other bone lesions.
-
-4. **Other Considerations**:
-   - Muscle or soft tissue issues: Since X-rays do not show muscles or soft tissues clearly, the pain may be due to rotator cuff problems, bursitis, or other shoulder pathologies.
-   - Tendinitis or bursitis in the shoulder area can also cause referred pain along the arm.
-   - Arthritis of the shoulder joint (glenohumeral arthritis) could be another potential cause of pain that radiates.
-
-### Conclusion and Recommendations
-Given the current X-ray findings and the patient&#x27;s symptoms:
-- No acute fractures or dislocations are evident on this X-ray.
-- Further clinical correlation and possibly additional imaging (like MRI for soft tissues or CT for more detailed bone analysis) may be required to pinpoint the cause of shoulder and humeral pain.
-- Consider evaluating for rotator cuff injuries, tendinitis, or arthritis which might cause similar symptoms.
-- A rheumatology referral or orthopedic assessment might provide further diagnostic guidance and treatment options, especially considering potential soft tissue or intra-articular conditions.
-
-Thus, although the X-ray does not reveal a clear-cut diagnosis for the patient&#x27;s pain, it does not rule out common musculoskeletal issues that would require a comprehensive clinical evaluation.</pre>
-
-中文翻译：
-
-<pre>分割增强 caption 仍认为没有明确骨折或破坏性病灶，主要讨论肩袖、滑囊炎和关节炎等软组织或退行性原因，没有形成骨髓瘤诊断。</pre>
-
-**对模型对图片caption能力分析**：
-QA 从泛化的骨转移改为骨髓瘤，但两版 caption 都没有可靠看出细微肱骨溶骨灶。提升主要来自“bone lesion、humerus”的 prompt 缩小鉴别范围，不能证明底层像素识别已经改善。
-
-</details>
-
-<details>
-<summary><strong>GPT-5.6-Luna-Pro</strong></summary>
-
-**原始图像 → 原始 QA 回答**；评测：**Correct**
-
-英文原始回答：
-
-<pre>**Likely diagnosis: multiple myeloma (a lytic plasmacytoma/myelomatous lesion of the humerus).**
-
-**Thinking clues:**
-- Older adult with severe bone pain.
-- Intramedullary, “punched-out”/permeative lucencies with cortical thinning.
-- Myeloma commonly involves the proximal humerus and produces multiple lytic skeletal lesions.
-- No obvious acute fracture or aggressive periosteal reaction is seen.
-
-**Important differential:** metastatic carcinoma, especially breast or renal cell carcinoma; a solitary dominant lesion could represent a plasmacytoma. Further evaluation would include a skeletal survey or low-dose CT, serum/urine electrophoresis, free light chains, calcium, renal function, and CBC.</pre>
-
-中文翻译：
-
-<pre>模型识别到近端肱骨髓内穿凿样或渗透性透亮影，结合高龄和严重骨痛，诊断为多发性骨髓瘤性病灶；鉴别为骨转移或孤立性浆细胞瘤。</pre>
-
-**原始图像 + Segmentation → 原始 QA 回答**；评测：**Incorrect**
-
-英文原始回答：
-
-<pre>**Most likely diagnosis: an osteolytic neoplastic lesion—particularly a myeloma/plasmacytoma or metastatic deposit.**
-
-**Thinking clues:**
-- Age 69 with significant humeral/shoulder pain.
-- Lytic lesions in the proximal humerus in an older adult are most commonly **metastatic disease or plasma-cell neoplasm**.
-- The absence of aggressive periosteal reaction or a clearly defined benign matrix makes entities such as enchondroma less likely.
-- If similar lesions are present in the contralateral shoulder or elsewhere, **multiple myeloma** becomes especially likely; if solitary, **solitary plasmacytoma** or metastasis should be considered.
-- The lesion should be evaluated for cortical destruction and impending pathologic fracture.
-
-Recommended correlation: full skeletal survey or low-dose whole-body CT, CBC, calcium, renal function, serum/urine electrophoresis and free light chains, plus CT/MRI for lesion characterization.</pre>
-
-中文翻译：
-
-<pre>加入分割后，模型把结论放宽为溶骨性肿瘤病变，可能是骨髓瘤/浆细胞瘤，也可能是骨转移。由于没有明确选择骨髓瘤，严格评测判为错误。</pre>
-
-**原始图像 → Single-image caption 回答**；
-
-英文原始回答：
-
-<pre>**Right humerus radiograph (frontal view):**  
-- No acute fracture or dislocation.  
-- Mild diffuse osseous demineralization with a somewhat heterogeneous/permeative appearance of the humeral marrow.  
-- No definite cortical destruction or soft-tissue mass. Mild degenerative changes at the shoulder.
-
-**Impression:**  
-No acute osseous abnormality. Given the patient’s severe bilateral shoulder/humeral pain, the diffuse heterogeneous lucency raises concern for an underlying infiltrative marrow process such as **multiple myeloma or metastatic disease**, although this is not diagnostic on this single view. Correlation with additional skeletal survey, MRI, and laboratory evaluation is recommended.</pre>
-
-中文翻译：
-
-<pre>原始 caption 描述肱骨骨质疏松及骨髓纹理不均或渗透性透亮，虽无明确皮质破坏，但担心多发性骨髓瘤或转移性病变。</pre>
-
-**原始图像 + Segmentation → Single-image caption 回答**；
-
-英文原始回答：
-
-<pre>**Radiographic description (right humerus, frontal view):**
-
-- The humerus is intact without acute fracture or dislocation.  
-- Glenohumeral and acromioclavicular alignment are maintained, with mild degenerative changes.  
-- Mild diffuse osseous demineralization is present.  
-- No definite focal destructive lytic lesion, abnormal sclerosis, cortical destruction, or periosteal reaction is identified on this single view.  
-- The automated segmentation overlays are not diagnostically reliable and do not demonstrate a definite bone lesion.
-
-**Impression:**
-
-1. **No acute osseous abnormality of the right humerus.**  
-2. **Mild diffuse osteopenia and shoulder osteoarthritis.**  
-3. If the severe pain persists or there is a history of malignancy, further evaluation with dedicated shoulder/humerus views and/or MRI or bone scintigraphy may be warranted, as an occult marrow lesion cannot be excluded on this limited radiograph.</pre>
-
-中文翻译：
-
-<pre>加入分割后，caption 反而认为没有明确局灶破坏性溶骨病灶，仅见轻度骨质减少和肩关节退变，并指出自动分割不可靠。</pre>
-
-**对模型对图片caption能力分析**：
-基线 caption 能察觉骨髓纹理异常并怀疑骨髓瘤，加入 segmentation 后却称没有明确局灶溶骨灶；QA 也从明确骨髓瘤退化为骨髓瘤/浆细胞瘤/转移的宽泛鉴别，说明不准确的候选 mask 会稀释微小病灶证据。
-
-</details>
-
-### 7 [Massive pleural effusion](https://radiopaedia.org/cases/massive-pleural-effusion-2?lang=us) (`massive-pleural-effusion-2`)
+### 1.6 [Massive pleural effusion](https://radiopaedia.org/cases/massive-pleural-effusion-2?lang=us) (`massive-pleural-effusion-2`)
 
 
 | Original image | Medical-SAM2 | Medical-SAM3: left lung, right lung, pleural fluid, heart （左肺、右肺、胸腔积液、心脏） | BiomedParse v1: left lung, right lung, pleural fluid, heart （左肺、右肺、胸腔积液、心脏） | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach （肺、右肺、左肺、膈肌、心脏、心纵隔、上纵隔、下纵隔、胃） |
@@ -2803,7 +2520,12 @@ Clear right lung and pleural cavity.
 Incidental old fracture of the left 6 th rib.
 Gastric bubble absent.
 No metastases.</pre>
-<pre>患者轻度右旋。左侧半胸完全致密，气管与纵隔向右移位，纵隔和膈肌边界消失，肋间隙增宽，提示大量左侧胸腔积液。右肺及右侧胸膜腔清晰；左第 6 肋陈旧骨折；胃泡缺如；未见转移。</pre>
+<pre>患者体位轻度向右旋转。
+左侧胸廓完全呈高密度影（实变/不透光），气管及纵隔向右移位，纵隔及膈肌轮廓显示不清，肋间隙增宽，提示左侧大量胸腔积液。
+右肺及右侧胸膜腔清晰。
+偶见左侧第6肋陈旧性骨折。
+未见胃泡影。
+未见转移病灶。</pre>
 - **发生变化** InternVL3.5-14B: Correct → Incorrect；GPT-5.6-Luna-Pro: Incorrect → Correct
 
 <details>
@@ -2968,7 +2690,11 @@ The radiographic appearance strongly suggests a large left pleural effusion, whi
 
 中文翻译：
 
-<pre>原始 caption 描述左侧半胸显著致密、纵隔移位和膈肌轮廓消失，最符合大量左侧胸腔积液。</pre>
+<pre>**图像描述：**
+
+提供的X光片为一名有气促症状的60岁女性患者的胸部正位片。图像显示左侧胸腔存在显著异常，表现为完全性致密影（呈不透光状态）。该致密影遮蔽了左侧肺野、膈肌及左侧心影。右侧肺部相对清晰，肺纹理可见。纵隔轻度向右移位，提示左侧可能存在肺容积缩小或占位效应。
+
+原始 caption 描述左侧半胸显著致密、纵隔移位和膈肌轮廓消失，最符合大量左侧胸腔积液。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**；
 
@@ -3017,10 +2743,27 @@ The X-ray findings are highly suggestive of a large left pleural effusion or com
 
 中文翻译：
 
-<pre>分割增强 caption 仍能看到左侧半胸白化，但对分割区域和容量效应的解释不稳定，未能维持原先明确的大量积液判断。</pre>
+<pre>
+X光影像显示了显著的影像学征象。左侧胸腔几乎完全呈高密度影（不透光），提示左侧存在大量胸腔积液或左肺完全萎陷（肺不张）。纵隔向左侧移位，这与左侧的容积缩小或占位效应相一致。右肺充气良好，未见明显的实变或积液。右侧膈肌轮廓清晰，而左侧膈肌因高密度影遮挡而无法辨认。心影向左侧移位，提示可能存在纵隔移位。鉴于患者有呼吸急促的症状，这些影像学发现令人担忧存在大量胸腔积液或左肺完全萎陷，其病因可能包括恶性肿瘤、感染或创伤等。需要进行进一步的诊断评估（如CT扫描或胸腔穿刺术）以明确潜在病因。
+
+**X光影像描述：**
+
+提供的胸部X光片为半直立位的前后位（AP位）影像。主要观察结果如下：
+
+1. **左侧胸腔高密度影：** 左侧胸腔几乎完全呈高密度（不透光），表明存在显著异常。这可能是由大量胸腔积液、左肺完全萎陷（肺不张）或肿块引起的。
+
+2. **右侧胸腔：** 右肺野相对清晰，可见肺纹理，提示充气良好。右侧未见明显的胸腔积液或实变。
+
+3. **纵隔移位：** 纵隔（包括心脏和气管在内的中央结构）向左侧移位。这种移位很可能是由左侧胸腔的容积缩小或占位效应引起的。
+
+4. **膈肌：** 右侧膈肌可见且轮廓清晰，而左侧膈肌因左侧胸腔的高密度影而被遮挡。
+
+5. **心影：** 心脏向左侧移位，这与纵隔移位的情况相一致。
+
+分割增强 caption 仍能看到左侧半胸白化，但对分割区域和容量效应的解释不稳定，未能维持原先明确的大量积液判断。</pre>
 
 **对模型对图片caption能力分析**：
-原始 caption 正确识别左侧半胸白化和大量胸腔积液；加入 segmentation 后模型把同一容量效应误解为张力性气胸。这里分割不是补充信息，反而改变了对密度和胸腔内容物的判断。
+原始 caption 正确识别左侧半胸白化和大量胸腔积液；加入 segmentation 后模型依然定位左边“腔几乎完全呈高密度（不透光）”，只是对分隔区域解释不稳定。
 
 </details>
 
@@ -3039,7 +2782,7 @@ The X-ray findings are highly suggestive of a large left pleural effusion or com
 
 中文翻译：
 
-<pre>模型描述左侧半胸近乎完全白化、左心缘和左膈消失并向右推移纵隔，认为大量左侧胸腔积液伴压迫性肺不张，且在 60 岁患者中需考虑恶性原因；基线严格评测未通过。</pre>
+<pre>模型描述左侧半胸近乎完全白化、左心缘和左膈消失并向右推移纵隔，认为大量左侧胸腔积液伴压迫性肺不张，且在 60 岁患者中需考虑恶性原因。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -3085,7 +2828,13 @@ Urgent correlation with bedside ultrasound and diagnostic/therapeutic thoracente
 
 中文翻译：
 
-<pre>原始 caption 已描述左侧半胸均匀致密、纵隔轻度右移，诊断大量左侧胸腔积液并近乎完全压迫左肺。</pre>
+<pre>
+**便携式前后位（AP）胸部X光片：** 左侧胸腔呈近乎完全的均匀性致密影，导致左心缘及左侧膈肌轮廓显示不清；伴有纵隔向右侧轻度移位。右肺充气良好，仅见肺底及肺门周围有轻度血管纹理增粗或肺实质密度增高影。未见明显气胸征象。
+
+**影像学印象/诊断：**
+**大量左侧胸腔积液，导致压迫性肺不张/左肺近乎完全萎陷。** 无法排除潜在的左侧肺炎、恶性肿瘤或其他肺实质病变；建议进行胸部超声或CT检查，以及诊断性胸腔穿刺术。
+
+原始 caption 已描述左侧半胸均匀致密、纵隔轻度右移，诊断大量左侧胸腔积液并近乎完全压迫左肺。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**；
 
@@ -3098,14 +2847,19 @@ Urgent correlation with bedside ultrasound and diagnostic/therapeutic thoracente
 
 中文翻译：
 
-<pre>分割增强 caption 仍维持大量左侧胸腔积液和压迫性肺不张的判断，并补充可能存在基础肺炎或肿块，建议超声或 CT 及引流。</pre>
+<pre>**胸部X线表现：** 床旁半直立位前后位（AP）片显示左侧胸廓呈近乎完全的“白肺”样改变，左肺及左侧膈肌轮廓显示不清。可见提示占位效应的纵隔向右移位征象，倾向于大量胸腔积液。无法评估是否存在邻近左肺受压性肺不张和/或潜在的肺实变。此外，右肺基底部/肺门周围可见轻度斑片状密度增高影。
+
+**影像学印象/诊断：**
+**左侧大量胸腔积液导致左侧胸廓近乎完全呈高密度影，伴受压性肺不张（可能合并潜在肺炎或占位性病变）。** 建议结合临床情况进行紧急评估；若临床指征明确，可考虑在超声或CT引导下进行评估或引流。
+
+分割增强 caption 仍维持大量左侧胸腔积液和压迫性肺不张的判断，并补充可能存在基础肺炎或肿块，建议超声或 CT 及引流。</pre>
 
 **对模型对图片caption能力分析**：
-两版 caption 都能识别大量左侧胸腔积液，分割后对“半胸白化 + 纵隔向健侧移位”的解释更明确。QA 评测由错转对主要是答案聚焦和表述完整性改善，而不是从完全看不懂到看懂。
+两版 caption 都能识别大量左侧胸腔积液，分割后对“半胸白化 + 纵隔向健侧移位”的解释更明确。QA的差距更多的是来源于thinking而非对图片表述差距。
 
 </details>
 
-### 8 [Pancoast tumor](https://radiopaedia.org/cases/pancoast-tumour-11?lang=us) (`pancoast-tumour-11`)
+### 1.7 [Pancoast tumor](https://radiopaedia.org/cases/pancoast-tumour-11?lang=us) (`pancoast-tumour-11`)
 
 
 | Original image | Medical-SAM2 | Medical-SAM3: lung, lung opacity, first rib, clavicle （肺、肺部阴影、第一肋骨、锁骨） | BiomedParse v1: lung, lung opacity, first rib, clavicle （肺、肺部阴影、第一肋骨、锁骨） | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach （肺、右肺、左肺、膈肌、心脏、心纵隔、上纵隔、下纵隔、胃） |
@@ -3114,10 +2868,10 @@ Urgent correlation with bedside ultrasound and diagnostic/therapeutic thoracente
 
 - 背景信息：Age: 44 Gender: Female; Presentation: Right sided pleuritic pain. 44 岁女性，右侧胸膜性疼痛。
 - 原始问题：What is the eponymous name for this condition? 这种疾病的同名名称是什么？
-- 参考答案：Pancoast tumour. Pancoast 肿瘤。
+- 参考答案：Pancoast tumour. Pancoast 潘科斯特肿瘤。
 - 原始图片caption:
 <pre>Irregular opacity in the left apex. Bony erosion of the lateral first rib. Multiple nodular opacities noted throughout both lungs.</pre>
-<pre>左肺尖不规则致密影，外侧第一肋骨质侵蚀，双肺另见多发结节状致密影。</pre>
+<pre>左肺尖见不规则密度增高影。第一肋骨外侧段见骨质侵蚀。双肺各处可见多发结节状密度增高影。</pre>
 - **发生变化** InternVL3.5-14B: Correct → Incorrect
 
 <details>
@@ -3288,7 +3042,43 @@ The chest X-ray findings, in conjunction with the patient&#x27;s presentation of
 
 中文翻译：
 
-<pre>原始 caption 把致密影定位为右上肺实变，最倾向右上叶肺炎，未识别 Pancoast 肿瘤。</pre>
+<pre>
+分析该胸部X光片，可见以下情况：
+
+1. **肺野**：左肺野相对清晰。右肺野（尤其是上肺区）可见密度增高影。这可能提示肺实变（常见于肺炎等感染）或存在肿块。
+
+2. **心影**：心脏大小在正常范围内，无心脏扩大征象。
+
+3. **膈肌与肋膈角**：膈肌轮廓清晰，肋膈角锐利，提示无胸腔积液。
+
+4. **骨骼与软组织**：包括肋骨和脊柱在内的骨骼结构完整，未见明显骨折或病变。软组织未见异常。
+
+5. **气管与纵隔**：气管居中，纵隔无增宽或异常肿块影。
+
+鉴于患者存在右侧胸膜性胸痛及右肺上区密度增高影，鉴别诊断包括：
+
+- **肺炎**：感染导致肺实变，可引起胸膜性胸痛。
+- **肺栓塞**：虽在普通X光片上较少见，但有时可见楔形梗死灶。
+- **胸腔积液**：但因肋膈角锐利，此可能性较低。
+- **恶性肿瘤**：肺部肿块或肿瘤可能引起胸膜性胸痛及局部密度增高影。
+综合患者年龄及临床表现，肺炎是可能的诊断，尤其是当伴有发热或咳嗽等感染征象时。然而，可能需要进一步进行CT扫描（甚至肺动脉CT血管造影）以排除肺栓塞或恶性肿瘤等其他病因。
+综上所述，胸部X光片显示右肺上区密度增高，结合右侧胸膜性胸痛的症状，提示肺炎可能。建议进行进一步检查以明确诊断并排除其他潜在病因。 **诊断：右肺上叶肺炎**
+**影像描述：**
+提供的胸部X光片为一名44岁女性患者的正位影像，该患者主诉右侧胸膜炎性胸痛。影像显示以下关键特征：
+1. **肺野：**
+- **右肺：** 右肺上区可见密度增高影，提示肺实变。该区域较周围肺组织密度更高，提示可能存在感染性病变。
+- **左肺：** 左肺清晰，未见明显的密度增高影、肿块或实变。
+2. **心影：**
+- 心脏大小在正常范围内，无心脏扩大征象。
+3. **膈肌与肋膈角：**
+- 双侧膈肌轮廓清晰，肋膈角锐利，提示无胸腔积液。
+4. **骨骼与软组织：**
+- 骨骼结构（包括肋骨和脊柱）完整，未见骨折或病变。
+- 软组织未见异常。
+5. **气管与纵隔：**
+- 气管居中，纵隔无增宽或异常肿块影。
+
+原始 caption 把致密影定位为右上肺实变，最倾向右上叶肺炎，未识别 Pancoast 肿瘤。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**；
 
@@ -3335,14 +3125,26 @@ This approach ensures a thorough evaluation of the pleuritic pain and radiograph
 
 中文翻译：
 
-<pre>分割增强 caption 将异常描述为左上及中肺弥漫性阴影，仍倾向肺炎或胸膜炎，鉴别肺栓塞、肿瘤和结核，但没有抓住肺尖肿块与肋骨破坏。</pre>
+<pre>
+首先，胸膜炎性疼痛通常提示胸膜存在问题，例如胸膜炎或胸腔积液。胸部X光片显示左肺有弥漫性密度增高影，尤其是在肺上野和中野；这可能提示炎症过程、感染或潜在的恶性肿瘤。右肺看起来相对清晰，但鉴于患者有右侧胸膜炎性疼痛，仍需留意任何细微的异常。
+
+分割图像突显了左肺的密度增高区域，病变累及左肺上叶，并可能涉及左肺下叶的部分区域。右肺大部分区域清晰，这与患者右侧疼痛但影像学上无明显异常的表现相吻合。
+
+一名44岁女性患者因右侧胸膜炎性疼痛接受胸部X光检查，结果显示主要病变位于左肺。左肺上野和中野呈现弥漫性密度增高影，提示存在炎症或感染过程。右肺影像清晰，这与患者右侧局限性疼痛的症状相符，但该侧未见影像学异常。
+
+**关键观察结果：**
+- **左肺密度增高影**：左肺的弥漫性密度增高影可能提示肺炎、胸膜炎等炎症性病变，或（可能性较低的）恶性肿瘤。其影像学特征与细菌性或病毒性肺炎等感染性病因相符。
+- **胸膜炎性疼痛**：患者的症状提示胸膜受累，支持胸膜炎或伴有胸膜炎症的肺炎这一诊断考量。
+- **右肺**：未见明显异常；不过，临床相关性分析至关重要，因为疼痛症状并不总是与影像学表现直接对应。
+
+分割增强 caption 将异常描述为左上及中肺弥漫性阴影，仍倾向肺炎或胸膜炎，鉴别肺栓塞、肿瘤和结核，但没有抓住肺尖肿块与肋骨破坏。</pre>
 
 **对模型对图片caption能力分析**：
-原始 QA 尚能答出 Pancoast 肿瘤，但 caption 已误判肺炎；加入 segmentation 后模型继续只关注肺部阴影，没有利用第一肋骨和锁骨提示识别肺尖肿块侵蚀，QA 进一步误答 Hampton 驼峰征。
+原始的caption更关注到了**右上肺**，加入seg之后，caption正确发现了**左肺密度增高影**；seg对image caption定位能力是有帮助的。
 
 </details>
 
-### 9 [Pneumoperitoneum](https://radiopaedia.org/cases/pneumoperitoneum-55?lang=us) (`pneumoperitoneum-55`)
+### 1.8 [Pneumoperitoneum](https://radiopaedia.org/cases/pneumoperitoneum-55?lang=us) (`pneumoperitoneum-55`)
 
 
 | Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel gas （肺、心脏、膈肌、肠气） | BiomedParse v1: lung, heart, diaphragm, bowel gas （肺、心脏、膈肌、肠气） | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach （肺、右肺、左肺、膈肌、心脏、心纵隔、上纵隔、下纵隔、胃） |
@@ -3351,11 +3153,11 @@ This approach ensures a thorough evaluation of the pleuritic pain and radiograph
 
 - 背景信息：Age: 65 years; Presentation: Abdominal pain.?perforation 65 岁患者，腹痛，临床疑问为穿孔。
 - 原始问题：Describe your findings 请描述影像所见。
-- 参考答案：Pneumoperitoneum, with the diaphragm clearly visible across the midline. Dual lead pacemaker. No focal consolidation or collapse, small areas of calcification in the upper lobes. 气腹，膈肌跨越中线清晰可见；双导联起搏器在位；无局灶实变或肺不张，双上肺有小片钙化。
+- 参考答案：Pneumoperitoneum, with the diaphragm clearly visible across the midline. Dual lead pacemaker. No focal consolidation or collapse, small areas of calcification in the upper lobes. 气腹，可见横膈跨越中线清晰显影。双腔起搏器。未见局灶性实变或肺不张，上肺叶可见小片状钙化影。。
 - 原始图片caption:
 <pre>Pneumoperitoneum, with the diaphragm clearly visible across the midline. Dual lead pacemaker. No focal consolidation or collapse, small areas of calcification in the upper lobes.</pre>
-<pre>气腹，膈肌跨越中线清晰可见；双导联起搏器在位；无局灶实变或肺不张，双上肺有小片钙化。</pre>
-- **发生变化** MedGemma-27B-IT: Incorrect → Correct；GPT-5.6-Luna-Pro: Correct → Incorrect
+<pre>气腹，可见横膈跨越中线清晰显影。双腔起搏器。未见局灶性实变或肺不张，上肺叶可见小片状钙化影。</pre>
+- **发生变化** MedGemma-27B-IT: Incorrect → Correct；
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
@@ -3465,7 +3267,18 @@ Based on the chest X-ray showing free air under the diaphragm and the patient&#x
 
 中文翻译：
 
-<pre>原始 caption 识别膈下游离气体并诊断穿孔性空腔脏器导致的气腹，列出消化性溃疡、憩室炎、阑尾炎等可能病因。</pre>
+<pre>
+**图像描述：**
+
+该图像为胸部正位X光片，显示了患者的胸廓、肺部、心脏及纵隔结构。患者身穿病号服，胸部连接有心电监护设备。图像质量略有下降，这可能是由患者体动或体型特征造成的。
+
+**主要发现：**
+
+1.  **膈下积气：** 右侧膈肌下方可见一清晰的新月形透亮区（暗区）。这表明腹膜腔内存在游离气体。
+2.  **腹痛：** 患者伴有腹痛症状。
+3.  **年龄：** 患者为65岁。
+
+原始 caption 识别膈下游离气体并诊断穿孔性空腔脏器导致的气腹，列出消化性溃疡、憩室炎、阑尾炎等可能病因。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**；
 
@@ -3515,87 +3328,14 @@ Chest X-ray shows no definitive signs of pneumoperitoneum (free air under the di
 
 中文翻译：
 
-<pre>分割增强 caption 反而称胸片未见明确膈下游离气体，认为不能排除少量气腹，建议腹部 CT；即 caption 的像素判断较基线退步。</pre>
+<pre>分割增强 caption 反而称胸片未见明确膈下游离气体，认为不能排除少量气腹，建议腹部 CT；即 caption 的像素判断较原始模型退步。</pre>
 
 **对模型对图片caption能力分析**：
-基线已经看见膈下游离气体，但 QA 没覆盖完整参考所见；分割后 QA 补充起搏器和肺部情况而通过评测。相反，增强 caption 却否认明确气腹，因此正确率变化主要反映回答完整度，并非 caption 稳定提升。
+原始caption已经看见膈下游离气体，但 QA 没覆盖完整参考所见；分割后 caption 却否认明确气腹，seg对模型caption错误引导。
 
 </details>
 
-<details>
-<summary><strong>GPT-5.6-Luna-Pro</strong></summary>
-
-**原始图像 → 原始 QA 回答**；评测：**Correct**
-
-英文原始回答：
-
-<pre>- **Erect AP radiograph demonstrates a crescent of free subdiaphragmatic air beneath the right hemidiaphragm**, without visible bowel markings within the lucency.  
-- This represents **pneumoperitoneum**, highly suspicious for **perforated hollow viscus** in the setting of abdominal pain.  
-- Mild left basilar linear atelectatic/scarring change. Dual-lead left-sided pacemaker in situ.</pre>
-
-中文翻译：
-
-<pre>模型识别右膈下无肠纹的新月形游离气体，诊断气腹并高度怀疑空腔脏器穿孔，同时描述左肺底轻度条索和左侧双导联起搏器，基线回答正确。</pre>
-
-**原始图像 + Segmentation → 原始 QA 回答**；评测：**Incorrect**
-
-英文原始回答：
-
-<pre>**Findings**
-
-- AP erect chest/upper abdominal radiograph.
-- Lucency beneath the **right hemidiaphragm contains haustral markings**, consistent with interposition of colon (Chilaiditi configuration), rather than definite free intraperitoneal air.
-- No convincing crescent of unmarked free gas beneath either hemidiaphragm.
-- Nonobstructive bowel-gas pattern in the visualized abdomen; no markedly dilated small-bowel loops or multiple air–fluid levels.
-- Mild left basilar retrocardiac opacity, likely atelectatic/scarring change; superimposed infiltrate cannot be excluded clinically.
-- Dual-lead left chest pacemaker in place. Mild cardiac enlargement.
-
-**Impression**
-
-1. **No definite pneumoperitoneum identified.** Right subdiaphragmatic lucency appears to represent gas-filled colon interposed beneath the diaphragm.  
-2. Nonobstructive visualized bowel gas pattern.  
-3. Mild left basilar atelectatic/air-space opacity.</pre>
-
-中文翻译：
-
-<pre>加入分割后，模型把右膈下透亮区内的线条解释为结肠袋纹，改判为肝膈间结肠嵌入的 Chilaiditi 构型，认为没有明确气腹，回答错误。</pre>
-
-**原始图像 → Single-image caption 回答**；
-
-英文原始回答：
-
-<pre>**Findings:**  
-AP erect chest/upper abdominal radiograph demonstrates a crescent of free intraperitoneal gas beneath the right hemidiaphragm (and possibly beneath the left), separate from bowel loops. Mild left basilar linear atelectatic/scarring changes are present. A left-sided dual-lead pacemaker is noted. No pleural effusion or focal acute pulmonary abnormality.
-
-**Diagnosis:**  
-**Pneumoperitoneum (subdiaphragmatic free air), highly suspicious for perforation of a hollow abdominal viscus.** Urgent surgical assessment is recommended.</pre>
-
-中文翻译：
-
-<pre>原始 caption 同样识别右膈下游离气体，诊断气腹并建议紧急外科评估。</pre>
-
-**原始图像 + Segmentation → Single-image caption 回答**；
-
-英文原始回答：
-
-<pre>**Image description:**  
-AP erect chest/abdominal radiograph demonstrates a prominent radiolucent area beneath the right hemidiaphragm. Internal curvilinear/haustral markings appear to be present, suggesting gas within interposed colon rather than a simple free-air crescent. The bowel gas pattern is otherwise nonobstructive. Mild left basilar retrocardiac atelectatic/air-space opacity is present. A left-sided dual-lead pacemaker is noted.
-
-**Impression / diagnosis:**  
-- **Right subdiaphragmatic colonic interposition (Chilaiditi sign), mimicking pneumoperitoneum.**  
-- **No definite free intraperitoneal air identified on this view**, although given the clinical concern for perforation, CT abdomen/pelvis with contrast would be appropriate for confirmation.  
-- Mild left basilar atelectasis.</pre>
-
-中文翻译：
-
-<pre>分割增强 caption 重复了错误的 Chilaiditi 征判断，称没有明确腹腔游离气体，并建议 CT 进一步确认。</pre>
-
-**对模型对图片caption能力分析**：
-原始 caption 和 QA 都正确识别无肠纹的膈下游离气体；加入 segmentation 后两者都把叠加线条误认为结肠袋纹，改判 Chilaiditi 征。分割 overlay 在这里制造了伪征象。
-
-</details>
-
-### 10 [Small bowel obstruction](https://radiopaedia.org/cases/small-bowel-obstruction-14?lang=us) (`small-bowel-obstruction-14`)
+### 1.9 [Small bowel obstruction](https://radiopaedia.org/cases/small-bowel-obstruction-14?lang=us) (`small-bowel-obstruction-14`)
 
 
 | Original image | Medical-SAM2 | Medical-SAM3: bowel, small bowel, colon, bowel gas （肠管、小肠、结肠、肠气） | BiomedParse v1: bowel, small bowel, colon, bowel gas （肠管、小肠、结肠、肠气） |
@@ -3604,12 +3344,13 @@ AP erect chest/abdominal radiograph demonstrates a prominent radiolucent area be
 
 - 背景信息：Age: 80 years Gender: Male; Presentation: Epigastric pain, vomiting, melena. Multiple vascular risk factors. 80 岁男性，上腹痛、呕吐、黑便，并有多项血管危险因素。
 - 原始问题：What diagnosis to the aspects of the history suggest? 病史中的这些表现提示什么诊断？
-- 参考答案：With abdominal pain and vomiting, small bowel obstruction is likely. Altered stools in this setting may also suggest ischaemic colitis. 腹痛和呕吐提示小肠梗阻；在此背景下排便改变还可能提示缺血性结肠炎。
+- 参考答案：With abdominal pain and vomiting, small bowel obstruction is likely. Altered stools in this setting may also suggest ischaemic colitis. 伴有腹痛和呕吐时，小肠梗阻的可能性较大；在此情况下，排便改变也可能提示缺血性结肠炎。
 - 原始图片caption:
 <pre>Multiple distended small bowel loops (positioned centrally, valvulae conniventes present).
 Left hip arthroplasty noted.</pre>
-<pre>多个扩张小肠袢位于中央，可见环形皱襞；另见左侧髋关节置换。</pre>
-- **发生变化** MedGemma-27B-IT: Incorrect → Correct；MedMO-8B: Incorrect → Correct
+<pre>多处扩张的小肠袢（位于中央，可见环状瓣）。
+左侧髋关节置换术史。</pre>
+- **发生变化** MedGemma-27B-IT: Incorrect → Correct
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
@@ -3693,7 +3434,11 @@ The user wants me to analyze the provided patient data and X-ray image to sugges
 
 中文翻译：
 
-<pre>模型误认为片中存在气腹，结合黑便诊断穿孔性消化性溃疡；虽讨论肠系膜缺血，却没有把扩张小肠袢作为主要结论。</pre>
+<pre>
+**影像分析：**
+*   X光片显示多处肠管扩张，并可见气液平面。
+*   关键在于，膈下可见大量游离气体（气腹）。这是腹腔内空腔脏器（如胃、十二指肠、小肠或结肠）穿孔的明确征象。
+模型误认为片中存在气腹，结合黑便诊断穿孔性消化性溃疡；虽讨论肠系膜缺血，却没有把扩张小肠袢作为主要结论。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -3757,7 +3502,16 @@ The user wants me to analyze the provided patient data and imaging to suggest a 
 
 中文翻译：
 
-<pre>加入分割后，模型识别扩张肠袢和梗阻表现，并结合高龄、血管危险因素、腹痛、呕吐及黑便，最终倾向急性肠系膜缺血伴肠梗阻。该回答覆盖了参考答案强调的梗阻及缺血背景。</pre>
+<pre>
+4.  **影像分析（X光）：**
+*   该图像为腹部X光片（很可能是普通平片，但鉴于肠道显影情况，也可能是造影检查）。
+*   分割图像突出显示了肠管、小肠、结肠及肠道内的气体。
+*   观察X光片本身：
+*   可见多处肠管扩张，尤其是在上腹部。
+*   这些肠管内似乎存在大量的气液平面。
+*   整体影像表现提示肠梗阻。
+*   出现柏油样便（黑便）提示梗阻可能引起了缺血或溃疡并导致出血，或者梗阻本身就是由缺血性病变引起的。
+加入分割后，**模型识别扩张肠袢和梗阻表现**，并结合高龄、血管危险因素、腹痛、呕吐及黑便，最终倾向急性肠系膜缺血伴肠梗阻。该回答覆盖了参考答案强调的梗阻及缺血背景。</pre>
 
 **原始图像 → Single-image caption 回答**；
 
@@ -3791,7 +3545,23 @@ Based on the clinical presentation (epigastric pain, vomiting, melena, age, vasc
 
 中文翻译：
 
-<pre>原始 caption 已能描述中央多发扩张小肠袢、气液平面及结肠气体减少，诊断小肠梗阻并担心缺血性肠病。</pre>
+<pre>
+**影像描述：**
+
+该图像为腹部正位X光片，显示了肠道内的气体分布情况。主要发现如下：
+
+1.  **肠管扩张：** 可见多处小肠肠管扩张，主要位于腹部中上部。
+2.  **气液平面：** 在这些扩张的肠管内可见数个气液平面，提示存在气体和液体。
+3.  **结肠内气体缺乏：** 结肠内（尤其是远端结肠）的气体似乎相对稀少。
+4.  **无游离气体：** 膈下未见游离气体征象（若有则提示穿孔）。
+5.  **鼻胃管：** 留置有鼻胃管，管端位于胃内。
+
+**临床背景与解读：**
+
+*   **患者表现：** 患者为80岁男性，主诉上腹痛、呕吐及黑便（黑色柏油样便，提示上消化道出血）。此外，患者存在多种血管疾病危险因素。
+*   **X光表现：** X光片显示符合小肠梗阻（SBO）的征象。小肠扩张伴气液平面是其典型特征。结肠内缺乏气体提示梗阻阻碍了肠内容物向远端通过。
+
+原始 caption 已能描述中央多发扩张小肠袢、气液平面及结肠气体减少，诊断小肠梗阻并担心缺血性肠病。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**；
 
@@ -3822,62 +3592,33 @@ The X-ray shows signs of bowel obstruction/ileus. Combined with the patient&#x27
 
 中文翻译：
 
-<pre>分割增强 caption 继续描述肠袢扩张和梗阻/麻痹性肠梗阻，但把最危险病因强调为急性肠系膜缺血，建议 CT 血管成像紧急评估。</pre>
+<pre>
+该图像为腹部正位X光片，显示了腹腔结构，包括肠管（小肠和大肠）、胃部及肝脏阴影。可见一根鼻胃管延伸至胃内。肠管呈现扩张状态，以上腹部尤为明显。部分肠管内可见气液平面，提示存在气体和液体积聚。整体影像特征提示存在一定程度的肠梗阻或肠麻痹（ileus）。
+
+**患者背景与诊断：**
+
+*   **患者：** 80岁男性，伴有多种血管疾病风险因素。
+*   **临床表现：** 上腹痛、呕吐、黑便（黑色柏油样便，提示上消化道出血）。
+
+**影像解读：**
+
+结合患者的年龄及血管疾病风险因素，其临床表现（上腹痛、呕吐、黑便）高度提示急性腹部急症，可能涉及上消化道或小肠。
+
+X光片显示的肠管扩张及气液平面征象与肠梗阻或肠麻痹相符。鉴于患者的症状（特别是黑便），潜在病因可能包括：
+
+1.  **肠系膜缺血（Mesenteric Ischemia）：** 这是一种严重病症，表现为肠道血液供应受损，通常由血管疾病引起（与患者的风险因素相符）。该病可导致肠梗死、穿孔及肠梗阻；腹痛、呕吐和黑便是其典型症状。
+2.  **肠梗阻（Bowel Obstruction）：** 可能由多种原因引起，如粘连（常见于有既往手术史的老年患者）、疝气、肿瘤或肠扭转。梗阻本身可引起腹痛和呕吐，若持续时间过长，最终可能导致肠道缺血。
+3.  **空腔脏器穿孔（Perforated Viscus）：** 虽然穿孔通常不以黑便为主要表现，但溃疡穿孔或其他类型的穿孔可能引发腹膜炎、肠麻痹，并可能伴有出血。
+
+分割增强 caption 继续描述肠袢扩张和梗阻/麻痹性肠梗阻。</pre>
 
 **对模型对图片caption能力分析**：
-原始 QA 误诊穿孔性溃疡，但原始 caption 已能识别扩张小肠袢和气液平面。分割后 QA 转向梗阻及缺血背景，说明主要收益是把已有视觉征象更好地连接到临床问题。
+原始 QA 误诊穿孔性溃疡，但原始 caption 已能识别扩张小肠袢和气液平面。分割后 caption 依然注意到了肠管扩张，未见其余caption部分提升。
 
 </details>
 
-<details>
-<summary><strong>MedMO-8B</strong></summary>
 
-**原始图像 → 原始 QA 回答**；评测：**Incorrect**
-
-英文原始回答：
-
-<pre>The patient&#x27;s history of epigastric pain, vomiting, and melena is suggestive of a possible gastrointestinal issue.</pre>
-
-中文翻译：
-
-<pre>模型只说上腹痛、呕吐和黑便提示某种胃肠道问题，没有给出具体诊断。</pre>
-
-**原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
-
-英文原始回答：
-
-<pre>Bowel obstruction</pre>
-
-中文翻译：
-
-<pre>加入分割后，模型直接回答“肠梗阻”，与参考答案的核心结论一致。</pre>
-
-**原始图像 → Single-image caption 回答**；
-
-英文原始回答：
-
-<pre>There is a large amount of gas within the stomach.</pre>
-
-中文翻译：
-
-<pre>原始 caption 仅描述胃内有大量气体，未识别小肠梗阻。</pre>
-
-**原始图像 + Segmentation → Single-image caption 回答**；
-
-英文原始回答：
-
-<pre>There is a dilated bowel loop in the left lower quadrant.</pre>
-
-中文翻译：
-
-<pre>分割增强 caption 能指出左下腹存在扩张肠袢，视觉描述比基线更接近梗阻征象。</pre>
-
-**对模型对图片caption能力分析**：
-原始 caption 只看到胃内气体，QA 也仅给出模糊的胃肠道问题；加入 segmentation 后 caption 识别扩张肠袢，QA 直接回答肠梗阻，属于较清楚的视觉描述和诊断同步改善。
-
-</details>
-
-### 11 [Tension pneumoperitoneum](https://radiopaedia.org/cases/tension-pneumoperitoneum?lang=us) (`tension-pneumoperitoneum`)
+### 1.10 [Tension pneumoperitoneum](https://radiopaedia.org/cases/tension-pneumoperitoneum?lang=us) (`tension-pneumoperitoneum`)
 
 
 | Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel gas （肺、心脏、膈肌、肠气） | BiomedParse v1: lung, heart, diaphragm, bowel gas （肺、心脏、膈肌、肠气） | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach （肺、右肺、左肺、膈肌、心脏、心纵隔、上纵隔、下纵隔、胃） |
@@ -3886,10 +3627,10 @@ The X-ray shows signs of bowel obstruction/ileus. Combined with the patient&#x27
 
 - 背景信息：Age: 55 Gender: Female; Presentation: Sudden onset abdominal pain during elective endoscopic investigation. Breathless and tachycardic. 55 岁女性，择期内镜检查期间突发腹痛，同时呼吸困难、心动过速。
 - 原始问题：What has given this appearance? 是什么造成了这种影像表现？
-- 参考答案：There is a large volume of free gas under the diaphragm displacing and compressing organs. This is tension pneumoperitoneum. 膈下大量游离气体使器官移位并受压，即张力性气腹。
+- 参考答案：There is a large volume of free gas under the diaphragm displacing and compressing organs. This is tension pneumoperitoneum. 膈下有大量游离气体，导致脏器移位及受压。这是张力性气腹。
 - 原始图片caption:
 <pre>Significant pneumoperitoneum with displacement of diaphragm, abdominal organs and compression of thoracic structures.</pre>
-<pre>显著气腹，导致膈肌和腹腔脏器移位，并压迫胸腔结构。</pre>
+<pre>显著气腹，伴有膈肌及腹部脏器移位，并压迫胸腔结构。</pre>
 - **发生变化** MedGemma-27B-IT: Incorrect → Correct
 
 <details>
@@ -3948,7 +3689,17 @@ The user wants me to identify the cause of the abnormal chest X-ray appearance i
 
 中文翻译：
 
-<pre>模型把影像误读为右侧胸腔大面积异常及纵隔左移，认为内镜造成食管穿孔并继发张力性气胸或大量胸腔积液，没有识别张力性气腹。</pre>
+<pre>
+2.  **分析胸部X光片（图像1）：**
+*   检查方式：X光，立位。
+*   影像表现：
+*   右侧膈肌显著抬高。
+*   右侧胸腔下部可见大片不透光区，遮蔽了右侧心缘及膈肌轮廓。
+*   气管向左侧移位。
+*   左肺野相对清晰，但因纵隔移位，可能存在部分肺不张或血管影聚拢现象。
+*   整体影像提示右侧胸腔内存在巨大肿块或积液，将胸腔内结构推向左侧。
+
+模型把影像误读为右侧胸腔大面积异常及纵隔左移，认为内镜造成食管穿孔并继发张力性气胸或大量胸腔积液，没有识别张力性气腹。</pre>
 
 **原始图像 + Segmentation → 原始 QA 回答**；评测：**Correct**
 
@@ -3989,7 +3740,19 @@ The user wants me to analyze the provided chest X-ray and determine the cause of
 
 中文翻译：
 
-<pre>加入分割后，模型识别右膈下大量游离气体，结合内镜期间突发腹痛、呼吸困难和心动过速，认为空腔脏器医源性穿孔造成气腹，回答正确。</pre>
+<pre>
+2.  **分析胸部X光片（图像1）：**
+*   成像方式：X光，立位（对于检测游离气体至关重要）。
+*   观察结果：右侧膈肌下方可见大量游离气体。表现为勾勒出膈肌轮廓并延伸至上腹部的透亮（黑色）区域。这一征象是气腹的典型表现。
+*   其他发现：肺部看起来相对清晰，尽管肺底可能存在少量肺不张。心脏大小看似正常。纵隔位于中线位置。
+
+3.  **分析分割结果：**
+*   Medical-SAM2：显示了胸部结构的分割结果。
+*   Medical-SAM3：显示了肺、心脏、膈肌和肠道气体的分割结果；肠道气体轮廓清晰。
+*   BiomedParse：显示了肺、心脏、膈肌和肠道气体的分割结果；肠道气体轮廓清晰。
+*   TorchXRayVision：提供了详细的分割结果，包括肺、心脏、纵隔、膈肌和胃。
+
+加入分割后，模型识别右膈下大量游离气体，结合内镜期间突发腹痛、呼吸困难和心动过速，认为空腔脏器医源性穿孔造成气腹，回答正确。</pre>
 
 **原始图像 → Single-image caption 回答**；
 
@@ -4021,7 +3784,19 @@ Right-sided tension pneumothorax, likely secondary to esophageal or gastric perf
 
 中文翻译：
 
-<pre>原始 caption 继续把右侧异常解释为张力性气胸，认为可能由食管或胃穿孔使气体进入胸膜腔所致。</pre>
+<pre>
+**图像描述：**
+
+该图像为患者站立位拍摄的胸部X光片（CXR），显示了患者的胸部结构，包括肺部、心脏、纵隔及骨骼结构。
+
+主要发现：
+
+*   **右侧不透光影（致密影）：** 右肺下野可见明显的致密影，遮蔽了右侧膈肌和右心缘。这提示胸膜腔或肺组织内存在大量液体或气体。
+*   **纵隔移位：** 气管和纵隔（包括心脏和大血管）向左侧移位。这表明右侧胸腔内压力升高，将这些结构推向对侧。
+*   **左肺：** 左肺野看起来相对清晰，尽管可能存在一些细微变化。
+*   **骨骼结构：** 肋骨和锁骨形态完整。
+
+原始 caption 继续把右侧异常解释为张力性气胸，认为可能由食管或胃穿孔使气体进入胸膜腔所致。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**；
 
@@ -4062,9 +3837,1176 @@ The chest X-ray shows pneumoperitoneum, which, in the context of the patient&#x2
 
 中文翻译：
 
-<pre>分割增强 caption 改为识别膈下明显游离气体，诊断穿孔性空腔脏器导致的气腹，并指出这是需要紧急处理的外科急症。</pre>
+<pre>
+**影像分析：**
+
+*   **肺部：** 肺野整体较清晰，但可见一些细微的密度增高影（尤其是在右下肺野），这可能与肺不张或吸入性病变有关。
+*   **心脏：** 心脏大小在正常范围内。
+*   **纵隔：** 纵隔结构未见异常。
+*   **膈肌：** 膈肌轮廓可见，位置相对正常。
+*   **腹部：** 上腹部可见肠道气体影。
+*   **关键发现：** 右侧膈下可见大量游离气体，呈现为清晰可见的透亮新月形影。这是气腹的典型征象。
+
+分割增强 caption 改为识别膈下明显游离气体，诊断穿孔性空腔脏器导致的气腹，并指出这是需要紧急处理的外科急症。</pre>
 
 **对模型对图片caption能力分析**：
 原始 caption 和 QA 都把腹腔大量游离气体误认为右侧张力性气胸或胸腔积液。加入膈肌和肠气相关 segmentation 后，两者均改为膈下游离气体、空腔脏器穿孔和气腹，显著纠正了解剖腔隙定位。
+</details>
+
+<!-- SECTION_2_CAPTION_ANALYSIS_START -->
+
+## 2. 其余病例的 Single-image Caption 分析
+
+本节覆盖 Section 1 之外的其余 13 个病例，不再比较最终 diagnosis QA，只比较 `with_text=False` 时同一模型在原始单图与“原始单图 + segmentation overlays + segmentation text”两种输入下的 caption。每例选择 1 个最能体现正向、无效或负向变化的开源模型；中文部分为医学要点翻译，效果判断以是否更接近 Radiopaedia 原始 image caption 的关键征象为准，而不是以回答长度为准。
+
+### 2.1 [Ascites](https://radiopaedia.org/cases/ascites-6?lang=us) (`ascites-6`)
+
+| Original image | Medical-SAM2 | Medical-SAM3: bowel, small bowel, colon, abdomen | BiomedParse v1: bowel, small bowel, colon, abdomen |
+|---|---|---|---|
+| <img src="assets/ascites-6/original.jpeg" width="100%"> | <img src="assets/ascites-6/medical_sam2_overlay.png" width="100%"> | <img src="assets/ascites-6/medical_sam3_overlay.png" width="100%"> | <img src="assets/ascites-6/biomedparse_v1_overlay.png" width="100%"> |
+
+- **背景信息：**Age: 35 years Gender: Male; ?Bowel obstruction.；35 岁男性，临床疑问为肠梗阻。
+- **原始图片 caption：**
+
+<pre>Central crowding of the bowel loops is consistent with ascites. No evidence of obstruction. No pneumoperitoneum.</pre>
+
+- **原始图片 caption 翻译：**肠袢向中央聚集，符合腹水表现；没有梗阻证据，也没有气腹。
+
+<details>
+<summary><strong>MedMO-8B：无帮助，并强化了病例文本锚定</strong></summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>Free air under the diaphragm.</pre>
+
+中文要点翻译：
+
+<pre>膈下游离气体。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>Bowel obstruction</pre>
+
+中文要点翻译：
+
+<pre>肠梗阻。</pre>
+
+**对模型图片 caption 能力及 Segmentation 影响的分析：**
+
+原图 caption 把中央聚集的肠袢误判为膈下游离气体；加入 segmentation 后虽然不再报告气腹，却直接沿用病例中的“疑似肠梗阻”，仍未识别大量腹水造成的肠袢中央化。mask 改变了错误类型，但没有补充决定性的腹腔液体证据。
 
 </details>
+
+### 2.2 [BIRADS III lesion - infiltrating ductal carcinoma](https://radiopaedia.org/cases/birads-iii-lesion-infiltrating-ductal-carcinoma-1?lang=us) (`birads-iii-lesion-infiltrating-ductal-carcinoma-1`)
+
+| Original image | Medical-SAM2 | Medical-SAM3: breast, breast lesion, tumor | BiomedParse v1: breast, breast lesion, tumor |
+|---|---|---|---|
+| <img src="assets/birads-iii-lesion-infiltrating-ductal-carcinoma-1/original.png" width="100%"> | <img src="assets/birads-iii-lesion-infiltrating-ductal-carcinoma-1/medical_sam2_overlay.png" width="100%"> | <img src="assets/birads-iii-lesion-infiltrating-ductal-carcinoma-1/medical_sam3_overlay.png" width="100%"> | <img src="assets/birads-iii-lesion-infiltrating-ductal-carcinoma-1/biomedparse_v1_overlay.png" width="100%"> |
+
+- **背景信息：**Age: 50 Gender: Female; This 50 year old client gets her annual screening mammogram. She has very dense breast parenchyma. Ultrasound is performed and this solid lesion is found in her left breast. No family history of breast carcinoma. her mom died of colon carcinoma.；50 岁女性接受年度乳腺筛查；乳腺实质非常致密，超声发现左乳实性病灶。无乳腺癌家族史，其母亲死于结肠癌。
+- **原始图片 caption：**
+
+<pre>There is a solid lesion which is poorly circumscribed and non compressible on real time ultrasound imaging. It has no pseudocapsule. On the axial view it is as tall as broad.</pre>
+
+- **原始图片 caption 翻译：**可见边界不清、实时超声下不可压缩的实性病灶，无假包膜；轴位上其高度与宽度相当。
+
+<details>
+<summary><strong>Qwen3-VL-32B：有帮助：由良性随访转向可疑病灶活检</strong></summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>Based on the provided ultrasound image and clinical background, here is a detailed description and diagnosis:
+
+---
+
+**Image Description:**
+
+The ultrasound image shows a **solid, hypoechoic mass** in the left breast, outlined by calipers (labeled A, B, C). The lesion is:
+
+- **Well-circumscribed** with smooth, regular margins.
+- **Homogeneous internal echotexture** without posterior acoustic shadowing or enhancement.
+- **No associated calcifications** are visible on ultrasound.
+- The lesion appears **oval-shaped** and is oriented **parallel to the skin** (i.e., “parallel orientation”), which is typically a benign feature.
+- There is **no evidence of increased vascularity** on Doppler (not shown, but implied by lack of mention of blood flow).
+- The surrounding breast tissue appears dense, consistent with the patient’s history of **dense breast parenchyma**.
+
+---
+
+**Clinical Context:**
+
+- **Age 50**, female — at average risk for breast cancer.
+- **No family history of breast cancer** — reduces concern for hereditary syndromes (e.g., BRCA).
+- **Mother died of colon cancer** — may suggest possible Lynch syndrome, but not directly relevant to breast cancer risk unless other features are present.
+- **Dense breast tissue** — increases difficulty in mammographic detection and may slightly increase breast cancer risk, but does not change the interpretation of ultrasound findings.
+
+---
+
+**BI-RADS Ultrasound Assessment:**
+
+The lesion demonstrates **benign features**:
+
+- Well-defined margins
+- Homogeneous echotexture
+- Parallel orientation
+- No posterior shadowing or acoustic enhancement
+- No calcifications or vascularity
+
+This corresponds to **BI-RADS 3: Probably Benign**.
+
+---
+
+**Diagnosis:**
+
+**Probably benign solid lesion — likely a fibroadenoma.**
+
+Fibroadenomas are the most common benign breast tumors in women in their 40s and 50s, especially in those with dense breasts. They are typically oval, well-circumscribed, and hypoechoic on ultrasound.
+
+---
+
+**Recommendation:**
+
+- **Short-term follow-up imaging in 6 months** (per BI-RADS 3 guidelines) to confirm stability.
+- If the lesion remains unchanged, it can be reclassified as BI-RADS 2 (benign) and monitored annually.
+- If there are any changes in size, shape, or echogenicity, biopsy or surgical excision may be considered.
+
+---
+
+**Note:**
+
+While the lesion is highly suggestive of a benign process, **definitive diagnosis requires histopathology**. However, given the imaging features and low-risk profile, the likelihood of malignancy is very low (&lt;2%).
+
+---
+
+✅ **Final Diagnosis: Benign-appearing solid breast lesion, likely fibroadenoma — BI-RADS 3. Recommend 6-month follow-up ultrasound.**</pre>
+
+中文要点翻译：
+
+<pre>左乳可见椭圆形、低回声、与皮肤平行的实性肿块，模型认为其具有良性特征，最可能为纤维腺瘤，归为 BI-RADS 3，并建议 6 个月超声随访。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>Based on the provided patient data and ultrasound images, here is a detailed description and diagnostic assessment:
+
+---
+
+### **Image Description:**
+
+The ultrasound image (Modality: Ultrasound) shows a **solid, hypoechoic lesion** in the left breast, with a relatively well-defined but slightly irregular margin. The lesion is **homogeneous in echotexture**, without posterior acoustic enhancement or shadowing. The size is approximately **1.3 cm in diameter** (as indicated by &quot;diff 13.0&quot; in the image metadata, likely in millimeters). The lesion is marked with calipers (points A, B, C) for measurement and localization.
+
+The segmentation outputs from **Medical-SAM2**, **Medical-SAM3**, and **BiomedParse** all successfully identify the lesion, with slight variations in boundary delineation. The purple and blue overlays indicate that the AI models recognize this as a **breast lesion/tumor**. The segmentation is consistent with the caliper-defined region, suggesting a focal, discrete mass.
+
+---
+
+### **Clinical Context:**
+
+- **Age**: 50 years — at average risk for breast cancer (peak incidence in 50s–60s).
+- **Gender**: Female — standard screening population.
+- **Breast Density**: Very dense — increases difficulty in mammographic detection and is an independent risk factor for breast cancer.
+- **Family History**: No family history of breast cancer, but mother died of colon cancer — **no known BRCA or strong hereditary breast cancer syndrome**.
+- **Presentation**: Annual screening mammogram → incidental finding on ultrasound follow-up.
+
+---
+
+### **Ultrasound Features &amp; BI-RADS Assessment:**
+
+The lesion demonstrates:
+
+- **Solid composition** — not cystic.
+- **Hypoechoic** — darker than surrounding tissue.
+- **Well-defined but slightly irregular margins** — concerning feature.
+- **No posterior acoustic enhancement or shadowing** — less suggestive of benign cyst or calcified fibroadenoma.
+- **Homogeneous internal echo texture** — more typical of benign lesions, but not definitive.
+
+These features are **suggestive of a suspicious lesion**. According to **ACR BI-RADS Ultrasound Criteria**, this lesion would likely be classified as:
+
+&gt; **BI-RADS 4 (Suspicious abnormality)** — with subcategory **4A (low suspicion)** or **4B (intermediate suspicion)** depending on the degree of margin irregularity and other features.
+
+---
+
+### **Differential Diagnosis:**
+
+1. **Fibroadenoma** — common in women in this age group, typically well-circumscribed, hypoechoic, homogeneous. However, margin irregularity raises concern.
+2. **Phyllodes Tumor** — rare, but can present as a solid, well-defined mass; usually larger; may show increased vascularity on Doppler.
+3. **Invasive Breast Carcinoma** — especially ductal carcinoma, can appear as a hypoechoic, irregular mass with spiculated margins or microcalcifications (not seen here on US).
+4. **Complex Sclerosing Lesion (e.g., radial scar)** — may mimic malignancy on imaging; usually seen in dense breasts.
+
+---
+
+### **Recommendation:**
+
+Given the patient’s age, dense breast tissue, and the suspicious ultrasound features (solid, hypoechoic, irregular margins), **a diagnostic workup is mandatory**.
+
+✅ **Recommended next steps:**
+
+1. **Ultrasound-guided core needle biopsy (CNB)** — to obtain histopathological diagnosis.
+2. **Mammographic correlation** — even though she had a screening mammogram, targeted views (e.g., spot compression, magnification) should be obtained to evaluate for microcalcifications or architectural distortion.
+3. **Consider MRI** — if the lesion is not fully characterized or if there is concern for multifocality (especially in dense breasts).
+
+---
+
+### **Prognosis &amp; Management:**
+
+- If benign (e.g., fibroadenoma), follow-up imaging in 6–12 months may be appropriate.
+- If malignant, staging and multidisciplinary management (surgery, chemotherapy, radiation, hormonal therapy) will be initiated based on tumor subtype.
+
+---
+
+### **Final Diagnosis:**
+
+&gt; **Suspicious solid breast mass, BI-RADS 4 (likely 4A or 4B), requiring ultrasound-guided biopsy for definitive diagnosis.**
+
+---
+
+**Note:** While AI segmentation tools (Medical-SAM2/3, BiomedParse) correctly identify the lesion, they do not replace clinical judgment. The final diagnosis must be based on imaging interpretation, patient history, and histopathology.
+
+---
+
+**Conclusion:** This is a **clinically significant finding** that warrants prompt biopsy. The patient should be referred to a breast specialist for further evaluation and management.</pre>
+
+中文要点翻译：
+
+<pre>左乳实性低回声病灶边界大致清楚但略不规则；三种 segmentation 均定位到同一病灶。模型将其改判为 BI-RADS 4 可疑异常，建议超声引导核心针活检，并把浸润性乳腺癌列入鉴别。</pre>
+
+**对模型图片 caption 能力及 Segmentation 影响的分析：**
+
+segmentation 没有直接给出病理类型，但稳定的病灶定位使模型重新关注边缘轻度不规则，从“很可能是纤维腺瘤、定期随访”转向“不能排除恶性、应活检”。它仍未直接识别浸润性导管癌，但临床处置方向明显更接近参考 caption。
+
+</details>
+
+### 2.3 [Chilaiditi sign](https://radiopaedia.org/cases/chilaiditi-sign-2?lang=us) (`chilaiditi-sign-2`)
+
+| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel | BiomedParse v1: lung, heart, diaphragm, bowel | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+|---|---|---|---|---|
+| <img src="assets/chilaiditi-sign-2/original.png" width="100%"> | <img src="assets/chilaiditi-sign-2/medical_sam2_overlay.png" width="100%"> | <img src="assets/chilaiditi-sign-2/medical_sam3_overlay.png" width="100%"> | <img src="assets/chilaiditi-sign-2/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/chilaiditi-sign-2/torchxrayvision_anatomy_overlay.png" width="100%"> |
+
+- **背景信息：**Age: 50 Gender: Male; One week of cough. Advised for a chest x-ray as the initial investigation.；50 岁男性，咳嗽一周，首先接受胸部 X-ray 检查。
+- **原始图片 caption：**
+
+<pre>Interposition of the bowel loop (hepatic flexure of colon) between the right hemidiaphragm and liver.
+Normal findings in the chest.</pre>
+
+- **原始图片 caption 翻译：**肠袢（结肠肝曲）位于右侧膈肌与肝脏之间；胸部其余表现正常。
+
+<details>
+<summary><strong>MedMO-8B：负面：始终未识别膈下结肠袢</strong></summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>The heart is normal in size. There is a large right upper lobe consolidation. There is a small left pleural effusion.</pre>
+
+中文要点翻译：
+
+<pre>心脏大小正常；右上肺大片实变；左侧少量胸腔积液。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>The patient is a 50-year-old male with a one-week history of cough. Chest X-ray shows a large amount of fluid in the right lung.</pre>
+
+中文要点翻译：
+
+<pre>右肺内有大量液体。</pre>
+
+**对模型图片 caption 能力及 Segmentation 影响的分析：**
+
+原图和 segmentation 增强 caption 都把注意力放在肺野或胸腔液体上，没有识别右膈肌与肝脏之间带有结肠袋结构的肠袢。加入 lung、diaphragm、bowel 等 mask 后反而生成“右肺大量液体”，说明解剖分区提示未转化为正确的膈下关系理解。
+
+</details>
+
+### 2.4 [Choroid plexus cyst - antenatal](https://radiopaedia.org/cases/choroid-plexus-cyst-antenatal?lang=us) (`choroid-plexus-cyst-antenatal`)
+
+| Original image | Medical-SAM2 | Medical-SAM3: fetal brain, choroid plexus, lateral ventricle | BiomedParse v1: fetal brain, choroid plexus, lateral ventricle |
+|---|---|---|---|
+| <img src="assets/choroid-plexus-cyst-antenatal/original.jpeg" width="100%"> | <img src="assets/choroid-plexus-cyst-antenatal/medical_sam2_overlay.png" width="100%"> | <img src="assets/choroid-plexus-cyst-antenatal/medical_sam3_overlay.png" width="100%"> | <img src="assets/choroid-plexus-cyst-antenatal/biomedparse_v1_overlay.png" width="100%"> |
+
+- **背景信息：**Age: 26 weeks gestation Gender: Female; Routine evaluation.；孕 26 周女性，常规检查。
+- **原始图片 caption：**
+
+<pre>Small right choroid plexus cyst in an otherwise normal neonate.</pre>
+
+- **原始图片 caption 翻译：**胎儿其余表现正常，仅见右侧小脉络丛囊肿。
+
+<details>
+<summary><strong>Lingshu-32B：部分有帮助：纠正脑室扩大，但遗漏小囊肿</strong></summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>The ultrasound image shows a coronal view of the fetal brain at 26 weeks gestation. The ventricles appear enlarged, which is indicative of ventriculomegaly. This condition can be associated with various underlying causes such as congenital infections, chromosomal abnormalities, or structural anomalies. Given the gestational age and the appearance of the ventricles, further evaluation including detailed fetal anatomy scan, amniocentesis for genetic testing, and possibly MRI may be warranted to determine the underlying cause and assess the severity of the condition.</pre>
+
+中文要点翻译：
+
+<pre>26 周胎儿脑冠状位超声显示脑室扩大，考虑脑室扩大症，并建议进一步胎儿系统超声、遗传学检查和 MRI。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>The ultrasound image shows a coronal view of the fetal brain at 26 weeks gestation. The segmented regions include the choroid plexus (purple) and the lateral ventricles (blue). The choroid plexus appears to be within normal limits, with no signs of hypertrophy or abnormal enlargement. The lateral ventricles also appear normal in size and shape, without any evidence of dilation that might suggest hydrocephalus. There are no visible abnormalities in the surrounding brain parenchyma. Based on these observations, the fetal brain structures appear to be developing normally at this stage of gestation.</pre>
+
+中文要点翻译：
+
+<pre>分割标出了脉络丛和侧脑室；模型认为脉络丛、侧脑室大小及形态正常，周围脑实质未见异常。</pre>
+
+**对模型图片 caption 能力及 Segmentation 影响的分析：**
+
+segmentation 纠正了原始 caption 对脑室扩大的过度诊断，并让模型准确说明观察对象是脉络丛和侧脑室；但它把病例改判为完全正常，仍未看到右侧小脉络丛囊肿。因此帮助主要体现在解剖定位，而非病灶识别。
+
+</details>
+
+### 2.5 [Congenital diaphragmatic hernia](https://radiopaedia.org/cases/congenital-diaphragmatic-hernia?lang=us) (`congenital-diaphragmatic-hernia`)
+
+| Original image | Medical-SAM2 | Medical-SAM3: lung, heart, diaphragm, bowel | BiomedParse v1: lung, heart, diaphragm, bowel | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+|---|---|---|---|---|
+| <img src="assets/congenital-diaphragmatic-hernia/original.jpeg" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia/medical_sam2_overlay.png" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia/medical_sam3_overlay.png" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/congenital-diaphragmatic-hernia/torchxrayvision_anatomy_overlay.png" width="100%"> |
+
+- **背景信息：**Age: Neonate; Respiratory distress.；新生儿，呼吸窘迫。
+- **原始图片 caption：**
+
+<pre>X-ray of a neonate demonstrates the left hemithorax to be filled with multiple radiolucent regions, with displacement of the cardiac silhouette to the right. The nasogastric tube passes towards the left. Umbilical catheters are in situ. No convincing gas containing loops of bowel can be seen in the abdomen.</pre>
+
+- **原始图片 caption 翻译：**新生儿 X-ray 显示左侧胸腔内充满多个透亮区，心影向右移位；鼻胃管走向左侧，脐导管在位。腹部未见明确含气肠袢。
+
+<details>
+<summary><strong>Qwen3-VL-32B：负面：不完整肺分割被误读为张力性气胸</strong></summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>**Image Description:**
+
+This is a portable, supine, frontal chest and abdominal X-ray of a neonate. The image shows the thoracic and upper abdominal regions. The bony structures, including the ribs and vertebral bodies, are visible. The ribs appear to be of normal configuration for a neonate, with typical cartilaginous ends.
+
+In the thoracic cavity, there is **diffuse, bilateral, ground-glass opacification** with **increased lung markings** and **hazy, ill-defined opacities** throughout both lung fields. There is **no evidence of focal consolidation, pneumothorax, or pneumomediastinum**. The cardiac silhouette is visible and appears normal in size and shape. The diaphragm is well-defined, though slightly elevated, which may be due to the patient’s respiratory effort or prematurity.
+
+In the abdomen, there is **normal bowel gas pattern** with visible loops of bowel and no evidence of intestinal obstruction or free air. Multiple medical devices are present: a central venous catheter (likely umbilical venous catheter) is visible extending from the umbilical region up into the superior vena cava, and there are other lines consistent with umbilical arterial catheter and possibly endotracheal tube (though not clearly visible in this view).
+
+---
+
+**Clinical Context:**
+
+The patient is a **neonate** presenting with **respiratory distress**. This is a common presentation in newborns and can be caused by a variety of conditions including transient tachypnea of the newborn (TTN), meconium aspiration syndrome, pneumonia, pulmonary hypoplasia, congenital diaphragmatic hernia, or **neonatal respiratory distress syndrome (NRDS)** — also known as **hyaline membrane disease**.
+
+---
+
+**Diagnosis:**
+
+The radiographic findings are **most consistent with Neonatal Respiratory Distress Syndrome (NRDS)**, also known as **Hyaline Membrane Disease**.
+
+**Supporting Features:**
+- **Diffuse bilateral pulmonary opacities** with **ground-glass appearance** — classic for NRDS.
+- **Air bronchograms** may be present (though not clearly visible in this image due to poor contrast or image quality).
+- **Absence of focal consolidation or pneumothorax** — rules out infection or trauma as primary causes.
+- **Premature infants** are at highest risk for NRDS due to surfactant deficiency. While gestational age is not provided, the radiographic pattern is highly suggestive.
+- The presence of **central lines** and **respiratory distress** suggests the infant is in the NICU and likely receiving respiratory support.
+
+---
+
+**Differential Diagnoses to Consider:**
+1. **Transient Tachypnea of the Newborn (TTN)** — usually resolves within 24–72 hours; may have similar radiographic appearance but typically less severe and more transient.
+2. **Neonatal pneumonia** — may present with similar opacities, but often has focal areas, pleural effusion, or air bronchograms; may have clinical signs of infection.
+3. **Meconium aspiration syndrome** — usually in term or post-term infants with meconium-stained amniotic fluid; may show patchy opacities, air trapping, or hyperinflation.
+4. **Congenital diaphragmatic hernia** — would show bowel gas in the thoracic cavity and mediastinal shift — not seen here.
+
+---
+
+**Conclusion:**
+
+**Diagnosis: Neonatal Respiratory Distress Syndrome (NRDS)**
+
+This is the most likely diagnosis given the neonatal age, clinical presentation of respiratory distress, and characteristic radiographic findings of diffuse bilateral pulmonary opacities with a ground-glass appearance. Management typically includes surfactant replacement therapy, respiratory support (CPAP or mechanical ventilation), and supportive care.
+
+---
+
+**Note:** Clinical correlation with gestational age, birth history, and laboratory findings (e.g., surfactant levels, blood gases) is essential for confirmation.</pre>
+
+中文要点翻译：
+
+<pre>新生儿胸腹片被解释为双肺弥漫磨玻璃样密度增高，腹部肠气分布正常；模型诊断新生儿呼吸窘迫综合征，并明确认为胸腔内没有肠气，因而不支持先天性膈疝。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>**Clinical Context:**
+- **Patient:** Neonate (newborn infant)
+- **Presentation:** Respiratory distress
+- **Imaging:** Portable supine chest and abdominal X-ray
+
+---
+
+**Image Description:**
+
+The X-ray is a frontal (anteroposterior) view of a neonate in the supine position. The image shows the thoracic and upper abdominal structures, including the ribs, spine, lungs, heart, diaphragm, and bowel gas patterns.
+
+Key radiographic findings:
+
+1. **Lungs:**
+   - **Right lung:** Appears relatively hyperlucent (more radiolucent) with visible air-filled bronchial markings, suggesting some aeration.
+   - **Left lung:** Markedly **hyperlucent** with **absent or minimal lung markings** — this is highly suggestive of **pneumothorax**.
+   - The **left hemithorax** shows a **sharp, linear lucency** along the left lateral chest wall, consistent with a **visceral pleural line**, indicating air in the pleural space.
+   - The **left diaphragm is depressed**, and the **mediastinum is shifted to the right**, confirming tension or significant volume effect.
+
+2. **Heart and Mediastinum:**
+   - The heart is **shifted to the right**, indicating mediastinal displacement due to increased pressure in the left pleural space.
+   - The **cardiomediastinum** appears narrowed on the left side, consistent with compression.
+
+3. **Diaphragm:**
+   - The **right hemidiaphragm is visible and elevated**.
+   - The **left hemidiaphragm is flattened and depressed**, which is typical in tension pneumothorax.
+
+4. **Bowel Gas:**
+   - Bowel gas is visible in the abdomen, with no evidence of bowel obstruction or free air under the diaphragm (no pneumoperitoneum).
+   - The gastric bubble is not clearly visible, possibly due to positioning or the presence of a nasogastric tube.
+
+5. **Medical Devices:**
+   - Multiple lines are present, including:
+     - A **central venous catheter** (likely umbilical or peripherally inserted) with tip in the lower thoracic or upper abdominal region.
+     - A **nasogastric tube** coiled in the lower abdomen.
+     - Possibly an **endotracheal tube** (not clearly visible but likely present given respiratory distress).
+
+---
+
+**Segmentation Analysis:**
+
+- **Medical-SAM2:** Segmentation is minimal and not anatomically meaningful (purple and green patches likely represent artifacts or missegmentations).
+- **Medical-SAM3:** Only the **right lung** is segmented (light blue), with the left lung not segmented — this correlates with the radiographic finding of left pneumothorax (no lung tissue visible).
+- **BiomedParse:** Segments both lungs (light blue), but the **left lung segmentation is inaccurate** — it includes the area of pneumothorax, which should be air-filled and not lung tissue. This reflects a limitation of the model in distinguishing between lung parenchyma and pneumothorax.
+- **TorchXRayVision:** Provides a heatmap-like overlay, with yellow/green areas indicating regions of interest. The **left lung area is highlighted**, which may reflect the model’s attempt to identify pathology (e.g., pneumothorax or lung collapse).
+
+---
+
+**Diagnosis:**
+
+✅ **Left Tension Pneumothorax**
+
+**Supporting Features:**
+- Left hemithorax hyperlucency with absent lung markings
+- Visible visceral pleural line
+- Mediastinal shift to the right
+- Depressed left diaphragm
+- Clinical context of respiratory distress in a neonate
+
+---
+
+**Differential Diagnoses (to be ruled out):**
+- **Congenital lobar emphysema** — typically shows hyperinflation of a single lobe, not entire hemithorax.
+- **Pneumonia with air bronchograms** — would show increased opacities, not lucency.
+- **Congenital diaphragmatic hernia** — bowel gas would be in the thorax, not absent.
+- **Pulmonary interstitial emphysema (PIE)** — seen in ventilated neonates, but usually bilateral and with cystic air collections, not a single hemithorax lucency.
+
+---
+
+**Clinical Implications:**
+- **Tension pneumothorax is a medical emergency** requiring immediate intervention.
+- **Management:** Needle decompression (e.g., 18G IV catheter in the 4th–5th intercostal space, midaxillary line) followed by chest tube insertion.
+- Common in neonates due to:
+  - Prematurity and surfactant deficiency
+  - Mechanical ventilation (barotrauma)
+  - Meconium aspiration
+  - Congenital lung malformations
+
+---
+
+**Conclusion:**
+
+This neonate presents with **respiratory distress**, and the X-ray demonstrates **left tension pneumothorax** — a life-threatening condition requiring **urgent intervention**. The segmentation outputs from various AI models highlight the challenge in accurately delineating lung tissue in the presence of pneumothorax, with BiomedParse and Medical-SAM3 showing partial or inaccurate lung segmentation on the left side, which is consistent with the radiographic findings.
+
+&gt; **Final Diagnosis: Left Tension Pneumothorax in a Neonate with Respiratory Distress.**</pre>
+
+中文要点翻译：
+
+<pre>模型注意到 Medical-SAM3 只分出了右肺，将左肺未被分割解释为左侧肺组织消失，最终诊断左侧张力性气胸，并再次排除先天性膈疝。</pre>
+
+**对模型图片 caption 能力及 Segmentation 影响的分析：**
+
+该例展示了典型的 mask 缺失误导：模型把“分割器未标出左肺”当成“左肺不存在”，从较泛化的 NRDS 错误进一步转为紧急但错误的张力性气胸。真正关键的是左胸腔内含气肠袢、右移心影以及腹部肠气减少，这些跨胸腹关系没有被当前 mask 表达。
+
+</details>
+
+### 2.6 [First trimester oligohydramnios](https://radiopaedia.org/cases/first-trimester-oligohydramnios?lang=us) (`first-trimester-oligohydramnios`)
+
+| Original image | Medical-SAM2 | Medical-SAM3: uterus, gestational sac, embryo, amniotic fluid | BiomedParse v1: uterus, gestational sac, embryo, amniotic fluid |
+|---|---|---|---|
+| <img src="assets/first-trimester-oligohydramnios/original.jpg" width="100%"> | <img src="assets/first-trimester-oligohydramnios/medical_sam2_overlay.png" width="100%"> | <img src="assets/first-trimester-oligohydramnios/medical_sam3_overlay.png" width="100%"> | <img src="assets/first-trimester-oligohydramnios/biomedparse_v1_overlay.png" width="100%"> |
+
+- **背景信息：**Age: 5-6 wks gestation Gender: Female; Antenatal early pregnancy scan at 5-6 weeks of amenorrhea.；孕 5-6 周女性，停经 5-6 周接受早孕超声检查。
+- **原始图片 caption：**
+
+<pre>1st ultrasound in a primigravida patient. Single intra-uterine small gestation sac and fetal pole present. Cardiac activity present - 111 beats / min.</pre>
+
+- **原始图片 caption 翻译：**初孕妇第一次超声：宫内可见单个较小孕囊和胎芽，存在心管搏动，心率 111 次/分。
+
+<details>
+<summary><strong>Lingshu-32B：无帮助：只确认早孕结构，未比较孕囊与胚胎比例</strong></summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>The ultrasound image shows an intrauterine gestational sac with a crown-rump length (CRL) measurement of 0.35 cm, which corresponds to approximately 6 weeks of gestation. The presence of the gestational sac within the uterus confirms an intrauterine pregnancy. Given the patient&#x27;s age and presentation, the diagnosis is an early intrauterine pregnancy at around 6 weeks of gestation.</pre>
+
+中文要点翻译：
+
+<pre>宫内见孕囊，头臀长 0.35 cm，约相当于孕 6 周；模型诊断早期宫内妊娠。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>The ultrasound image shows an early pregnancy scan at 5-6 weeks of gestation. The key findings include a crown-rump length (CRL) measurement of 0.35 cm, which corresponds to approximately 6 weeks of gestation. The image also shows the presence of a gestational sac and an embryo within it. Based on these findings, the diagnosis is an early intrauterine pregnancy at around 6 weeks of gestation. The measurements and visualizations provided by the different medical imaging models (Medical-SAM2, Medical-SAM3, and BiomedParse) appear to be consistent with the overall interpretation of an early pregnancy.</pre>
+
+中文要点翻译：
+
+<pre>加入孕囊、胚胎和羊水相关分割后，模型仍只报告头臀长 0.35 cm、宫内孕囊及胚胎，诊断约 6 周宫内妊娠。</pre>
+
+**对模型图片 caption 能力及 Segmentation 影响的分析：**
+
+分割帮助模型复述了结构名称，但没有触发定量关系判断：CRL 3.5 mm 与孕囊直径 4.5 mm 极不匹配，才是第一孕期羊水过少和不良预后的关键。这里需要测量或比例推理，而不是仅提供区域 mask。
+
+</details>
+
+### 2.7 [Lytic bone lesion (myeloma)](https://radiopaedia.org/cases/lytic-bone-lesion-myeloma?lang=us) (`lytic-bone-lesion-myeloma`)
+
+| Original image | Medical-SAM2 | Medical-SAM3: bone, bone lesion, humerus | BiomedParse v1: bone, bone lesion, humerus |
+|---|---|---|---|
+| <img src="assets/lytic-bone-lesion-myeloma/original.jpg" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/medical_sam2_overlay.png" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/medical_sam3_overlay.png" width="100%"> | <img src="assets/lytic-bone-lesion-myeloma/biomedparse_v1_overlay.png" width="100%"> |
+
+- **背景信息：**Age: 69 Gender: Female; Patient complaining of severe left shoulder and right humeral pain.；69 岁女性，左肩及右肱骨剧烈疼痛。
+- **原始图片 caption：**
+
+<pre>There is a subtle lytic lesion in proximal right humerus.</pre>
+
+- **原始图片 caption 翻译：**右侧肱骨近端可见细微溶骨性病灶。
+
+<details>
+<summary><strong>MedMO-8B：有帮助：从未见骨折转为发现溶骨性病灶</strong></summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>There is no fracture.</pre>
+
+中文要点翻译：
+
+<pre>未见骨折。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>There is a lytic lesion in the distal humerus.</pre>
+
+中文要点翻译：
+
+<pre>肱骨远端可见溶骨性病灶。</pre>
+
+**对模型图片 caption 能力及 Segmentation 影响的分析：**
+
+segmentation 使模型从完全忽略异常转为明确报告溶骨性病灶，说明候选区域对低对比度骨病灶有帮助；但它把病灶位置误写成肱骨远端，参考 caption 实为右肱骨近端，也没有进一步联系多发性骨髓瘤。
+
+</details>
+
+### 2.8 [Mandible fractures](https://radiopaedia.org/cases/mandible-fractures-1?lang=us) (`mandible-fractures-1`)
+
+| Original image | Medical-SAM2 | Medical-SAM3: mandible, teeth, mandibular canal | BiomedParse v1: mandible, teeth, mandibular canal | Teeth MaskDINO anatomy: Mandibular Canal, Maxillary Sinus | Teeth MaskDINO 11-disease: Root Piece, Periapical lesion, Caries, Missing teeth, Impacted tooth |
+|---|---|---|---|---|---|
+| <img src="assets/mandible-fractures-1/original.jpeg" width="100%"> | <img src="assets/mandible-fractures-1/medical_sam2_overlay.png" width="100%"> | <img src="assets/mandible-fractures-1/medical_sam3_overlay.png" width="100%"> | <img src="assets/mandible-fractures-1/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/mandible-fractures-1/teeth_maskdino_anatomy_overlay.png" width="100%"> | <img src="assets/mandible-fractures-1/teeth_maskdino_11disease_overlay.png" width="100%"> |
+
+- **背景信息：**Age: 30 years Gender: Male; Alleged assault；30 岁男性，据称遭受袭击。
+- **原始图片 caption：**
+
+<pre>Undisplaced transverse oblique fracture through the medial right mandible body, and minimally displaced vertical oblique fracture through the angle of the left mandible which extends through a lower left molar. Multiple periapical lucencies, likely to be periapical abscesses.</pre>
+
+- **原始图片 caption 翻译：**右侧下颌体内侧无移位横斜形骨折；左侧下颌角轻度移位垂直斜形骨折并延伸至左下磨牙；多发根尖周透亮影，可能为根尖周脓肿。
+
+<details>
+<summary><strong>Qwen3-VL-8B：有帮助：由未见骨折转为识别下颌骨折和根尖周病灶</strong></summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>Based on the provided information, here is a description and interpretation of the image:
+
+**Image Description:**
+The image is a panoramic radiograph (OPT — Orthopantomogram) of the patient’s dentition and jaws. It provides a broad, lateral view of the entire maxilla and mandible, including the teeth, alveolar bone, and surrounding structures. The image shows both the upper and lower arches of teeth, from the incisors to the molars. The teeth appear to be in a relatively normal alignment, with no obvious gross dental malocclusion visible from this view. The alveolar bone appears to have normal density and contour. There are no immediately apparent fractures of the jawbones, no large radiolucent lesions, and no obvious signs of acute infection or abscess.
+
+**Diagnosis:**
+There is **no radiographic evidence of trauma or fracture** in this panoramic X-ray. The patient’s teeth and jaws appear structurally intact.
+
+However, it is important to note:
+- The patient is a 30-year-old male who has presented with an “alleged assault.” This is a clinical and legal concern that cannot be resolved by radiographic findings alone.
+- The X-ray is a diagnostic tool to assess for **bone trauma** (e.g., fractures of the mandible or maxilla) or **dental trauma** (e.g., luxation, avulsion, or fracture of teeth) that might be consistent with an assault.
+- The absence of fractures or dental injuries on this X-ray does **not rule out** a traumatic event — it is possible that the trauma was not visible on this image (e.g., soft tissue injury, non-displaced fractures, or injuries to areas not captured well by panoramic imaging such as the nasal bones or orbital floors).
+- **Panoramic X-rays have limitations** in detecting certain types of fractures (e.g., linear fractures, comminuted fractures, or fractures involving the zygomatic arch or nasal bones) and may miss injuries to the teeth or periodontal ligament.
+
+**Conclusion:**
+While this panoramic radiograph does not show any obvious signs of trauma or injury, it does not definitively exclude the possibility of an assault. A comprehensive clinical evaluation, including physical examination, review of the patient’s history, and possibly additional imaging (e.g., CT scan, CBCT, or targeted X-rays), is necessary to fully assess for any signs of trauma. The clinical suspicion of assault should not be dismissed based solely on this radiograph.
+
+**Recommendation:**
+- Perform a thorough physical examination of the head, neck, and facial structures.
+- Consider ordering a CT scan of the facial bones if there is clinical suspicion of trauma.
+- Document the clinical findings and radiographic results in the patient’s medical record.
+- Consult with the appropriate authorities or forensic team, as this is a legal matter.
+
+This radiograph is a valuable diagnostic tool, but it should be interpreted in conjunction with the clinical context.</pre>
+
+中文要点翻译：
+
+<pre>全景牙片牙列和牙槽骨大致正常，未见明显颌骨骨折、大型透亮病灶或急性感染；模型认为没有影像学创伤证据。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>Based on the provided patient data (30-year-old male, alleged assault) and the panoramic X-ray image, here is a detailed description and diagnosis:
+
+**Image Description:**
+
+The provided image is a panoramic radiograph (OPT subcategory) of the patient’s oral cavity. It displays the maxillary and mandibular teeth, their supporting bone structures, and surrounding anatomical features. The image reveals several notable findings:
+
+1.  **Mandibular Fracture:** The most significant finding is a fracture of the mandible. This is evident by the discontinuity of the mandibular body and ramus, particularly on the left side (viewer&#x27;s right). The fracture line appears to extend from the angle of the mandible, potentially involving the mandibular foramen and the mandibular canal. This is a classic sign of trauma.
+2.  **Dental Pathologies:** The image shows multiple areas of concern in the teeth:
+    *   **Periapical Lesions:** Several teeth exhibit radiolucent areas at their apices, indicative of periapical lesions, which can be due to infection or trauma.
+    *   **Caries:** There are areas of demineralization consistent with dental caries, particularly on the right maxillary first molar.
+    *   **Impacted Teeth:** There appears to be an impacted tooth in the mandibular right posterior region (possibly the third molar).
+    *   **Root Resorption/Pathology:** Some teeth show signs of root resorption or other pathology.
+3.  **Alveolar Bone Changes:** There are areas of bone loss or remodeling around the roots of several teeth, which may be related to periodontal disease or the effects of trauma.
+4.  **Mandibular Canal:** The mandibular canal is visible, and there is a potential for nerve injury if the fracture involves this area.
+
+**Diagnosis:**
+
+Based on the clinical history (alleged assault) and the radiographic findings, the most likely diagnosis is:
+
+**Mandibular Fracture Secondary to Trauma (likely from assault)**
+
+This is supported by the clear fracture line in the mandible, which is a common result of blunt force trauma to the jaw. The presence of dental pathologies (periapical lesions, caries, impacted teeth) is also noted, but these are likely pre-existing conditions rather than direct results of the trauma. The fracture is the primary finding and is consistent with the patient&#x27;s history of alleged assault.
+
+**Recommendation:**
+
+The patient should be referred for further evaluation by an oral and maxillofacial surgeon. A detailed clinical examination, possibly including a CT scan, is necessary to fully assess the extent of the fracture, evaluate for associated injuries (e.g., nerve damage), and plan appropriate treatment. The dental pathologies should also be addressed by a dentist or periodontist.
+
+This diagnosis is based on the radiographic evidence and the patient&#x27;s history, and further clinical correlation is essential for a comprehensive management plan.</pre>
+
+中文要点翻译：
+
+<pre>模型报告下颌骨骨折线，可能从下颌角延伸并累及下颌管；同时识别多颗牙根尖周透亮病灶，最终判断为外伤性下颌骨骨折。</pre>
+
+**对模型图片 caption 能力及 Segmentation 影响的分析：**
+
+牙齿解剖和 11 类病变 overlay 明显提高了模型对骨折及根尖周透亮影的敏感性，由“无骨折”转为正确的病变类别。其骨折侧别、两条骨折线的具体走行仍不如参考 caption 完整，但这是剩余病例中较明确的正向 caption 改善。
+
+</details>
+
+### 2.9 [Osteogenesis imperfecta](https://radiopaedia.org/cases/osteogenesis-imperfecta-15?lang=us) (`osteogenesis-imperfecta-15`)
+
+| Original image | Medical-SAM2 | Medical-SAM3: bone, femur, tibia | BiomedParse v1: bone, femur, tibia |
+|---|---|---|---|
+| <img src="assets/osteogenesis-imperfecta-15/original.jpg" width="100%"> | <img src="assets/osteogenesis-imperfecta-15/medical_sam2_overlay.png" width="100%"> | <img src="assets/osteogenesis-imperfecta-15/medical_sam3_overlay.png" width="100%"> | <img src="assets/osteogenesis-imperfecta-15/biomedparse_v1_overlay.png" width="100%"> |
+
+- **背景信息：**Age: 5 years Gender: Male; Bowing of legs. Asymptomatic.；5 岁男童，双腿弯曲，无症状。
+- **原始图片 caption：**
+
+<pre>There is bowing of both femora which is symmetric. Multiple growth arrest lungs in the femora and tibia.</pre>
+
+- **原始图片 caption 翻译：**双侧股骨对称性弯曲，股骨和胫骨可见多条生长停滞线。
+
+<details>
+<summary><strong>Qwen3-VL-32B：负面：由生理性弯曲转为佝偻病，仍遗漏生长停滞线</strong></summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>**Image Description:**
+
+This is a frontal (anteroposterior, AP) standing X-ray of the lower extremities, including the pelvis, femurs, knees, tibias, and fibulas, from a 5-year-old male. The image shows the bony anatomy of both legs in full length, with the patient standing.
+
+Key radiographic findings:
+
+- **Bowing of the femurs and tibias**: There is a noticeable bowing deformity of both femurs and tibias, with the convexity directed laterally. The bowing is more pronounced in the distal femurs and proximal tibias, which is typical for physiological bowing in young children.
+- **Normal bone density and cortical thickness**: There is no evidence of osteopenia, osteosclerosis, or periosteal reaction.
+- **Normal growth plates (physis)**: The growth plates at the distal femurs and proximal tibias appear regular in width and contour, without signs of irregularity, fragmentation, or widening.
+- **Alignment**: The mechanical axis appears to be centered over the knee joints, with no significant varus or valgus deformity at the knee level. The bowing is symmetrical and appears to be physiological.
+- **No fractures, lytic lesions, or soft tissue abnormalities** are visible.
+
+---
+
+**Clinical Context:**
+
+The patient is a 5-year-old male presenting with asymptomatic bowing of the legs. This is a common finding in young children, often referred to as **physiological bowing** or **physiological genu varum**.
+
+---
+
+**Diagnosis:**
+
+**Physiological Bowing (Genu Varum) in a 5-Year-Old Child**
+
+This is a **benign, self-limiting condition** that is common in children between 1 and 3 years of age and typically resolves spontaneously by age 3–4. However, in some children, it may persist until age 5–6.
+
+In this case:
+
+- The bowing is symmetrical.
+- The child is asymptomatic.
+- Radiographic features (normal bone density, normal physis, no signs of rickets or other metabolic bone disease) support a diagnosis of physiological bowing.
+- The absence of other skeletal abnormalities or systemic symptoms (e.g., no rickets, no metabolic bone disease, no trauma history) further supports this diagnosis.
+
+---
+
+**Differential Diagnoses to Consider (but ruled out by imaging and clinical context):**
+
+- **Rickets**: Typically presents with widened, irregular growth plates, frayed metaphyses, and osteopenia — none of which are seen here.
+- **Blount’s Disease (Tibia Vara)**: Usually presents with asymmetric bowing, more pronounced on the medial side, and involves the proximal tibia with a characteristic &quot;beaking&quot; of the metaphysis — not seen here.
+- **Congenital Bowing**: Usually asymmetric and present at birth; often associated with other skeletal anomalies.
+- **Osteogenesis Imperfecta**: Would show multiple fractures, osteopenia, and thin cortices — not present here.
+
+---
+
+**Management:**
+
+- **Observation and reassurance** is the mainstay of management.
+- Serial clinical and radiographic follow-up is recommended to monitor for resolution or progression.
+- If bowing persists beyond age 6–7 or if there is asymmetry, progression, or functional impairment, further evaluation and possible orthopedic intervention may be considered.
+
+---
+
+**Conclusion:**
+
+The X-ray demonstrates symmetrical, physiological bowing of the femurs and tibias in a 5-year-old boy. The findings are consistent with **physiological genu varum**, which is a normal variant in childhood and typically resolves spontaneously. No intervention is required at this time, but continued monitoring is advised.</pre>
+
+中文要点翻译：
+
+<pre>双侧股骨和胫骨对称弯曲，骨密度、皮质和生长板正常，无骨折；模型认为是 5 岁儿童的生理性膝内翻。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>**Image Description:**
+
+This is an anteroposterior (AP) standing X-ray of the lower limbs in a 5-year-old male patient, presented for evaluation of bowing of the legs. The image captures the pelvis, femurs, knees, tibias, fibulas, and ankles in full length, allowing assessment of alignment and bone morphology.
+
+On visual inspection:
+
+- There is **symmetric bowing of the femurs and tibias**, with the curvature convex laterally, resulting in a classic &quot;O-shaped&quot; deformity (genu varum).
+- The **femoral shafts** show lateral bowing, with the apex of the curve located in the mid-diaphyseal region.
+- The **tibias** also demonstrate lateral bowing, with the curvature extending from the proximal metaphysis to the mid-shaft.
+- The **epiphyseal plates** (growth plates) appear **widened and irregular**, particularly at the distal femur and proximal tibia, with a &quot;rachitic rosary&quot; appearance in the metaphyseal regions — characterized by frayed, cupped, and irregular metaphyseal margins.
+- There is **no evidence of fracture, osteomyelitis, or tumor**.
+- The **pelvis and hip joints** appear normal in alignment and structure.
+
+**Segmentation Analysis:**
+
+- **Medical-SAM2** provides a broad segmentation of the entire lower limb region, with the bone structures highlighted in blue. The segmentation appears accurate in outlining the overall anatomy.
+- **Medical-SAM3** isolates the right femur (purple), correctly identifying the shaft and distal metaphysis. However, it does not segment the left femur or tibia, suggesting partial or selective segmentation.
+- **BiomedParse** segments only a small portion of the left femur and proximal tibia, indicating limited or inaccurate segmentation for the requested structures.
+
+While the segmentation tools provide varying degrees of anatomical coverage, the **clinical interpretation is based on the radiographic findings**, not the segmentation outputs.
+
+---
+
+**Diagnosis: Rickets (Nutritional Vitamin D Deficiency Rickets)**
+
+**Rationale:**
+
+- The patient is a **5-year-old male**, an age group where rickets can still occur, especially if there is dietary deficiency, limited sun exposure, or malabsorption.
+- The **classic radiographic findings** include:
+  - **Genu varum (bowing of legs)** — a common clinical presentation.
+  - **Metaphyseal fraying and cupping** — hallmark signs of impaired mineralization at the growth plate.
+  - **Widened growth plates** — due to accumulation of unmineralized osteoid.
+  - **Bowing of long bones** — due to softening of the bone (osteoid accumulation) and mechanical stress from weight-bearing.
+- The **asymptomatic** nature is common in early or mild cases; however, the deformity is often the primary complaint.
+
+**Differential Diagnosis:**
+
+- **Physiological bowing** — common in toddlers (typically resolves by age 2–3). However, at age 5, persistent bowing is abnormal.
+- **Blount’s disease** — typically presents with medial tibial bowing and involves the proximal tibia. The bowing is usually asymmetric and more localized. In this case, the bowing is symmetric and involves both femurs and tibias, making rickets more likely.
+- **Osteogenesis imperfecta** — usually presents with multiple fractures and blue sclerae; not seen here.
+- **Metabolic bone disease** — such as hypophosphatemic rickets, but nutritional rickets is the most common cause in this age group.
+
+---
+
+**Recommendations:**
+
+1. **Laboratory Evaluation:**
+   - Serum calcium, phosphate, alkaline phosphatase (ALP)
+   - 25-hydroxyvitamin D (25(OH)D)
+   - Parathyroid hormone (PTH)
+   - Urinary calcium excretion
+
+2. **Treatment:**
+   - **Vitamin D supplementation** (e.g., ergocalciferol or cholecalciferol) at high dose initially, followed by maintenance.
+   - **Calcium supplementation** if dietary intake is inadequate.
+   - Monitor biochemical markers and clinical response.
+
+3. **Follow-up:**
+   - Serial X-rays to monitor correction of deformity.
+   - Orthopedic referral if significant deformity persists or progresses — may require bracing or surgical correction (e.g., osteotomy) in severe cases.
+
+---
+
+**Conclusion:**
+
+The X-ray demonstrates classic radiographic features of **nutritional vitamin D deficiency rickets** in a 5-year-old boy, including symmetric bowing of the femurs and tibias, and metaphyseal fraying and cupping. This is a treatable condition with appropriate vitamin D and calcium supplementation. Prompt diagnosis and management are essential to prevent progression and long-term skeletal deformities.</pre>
+
+中文要点翻译：
+
+<pre>模型仍描述双侧股骨、胫骨对称弯曲，但加入 segmentation 后声称存在干骺端毛糙和杯口样改变，最终改诊营养性维生素 D 缺乏性佝偻病。</pre>
+
+**对模型图片 caption 能力及 Segmentation 影响的分析：**
+
+mask 突出了长骨轮廓，却没有提供成骨不全所需的骨质和生长停滞线语义。模型随后从一个错误诊断跳到另一个错误诊断，并生成原图并不明确的干骺端征象。分割强化了“弯腿”这一非特异特征，没有提升疾病特异性。
+
+</details>
+
+### 2.10 [Pericardial effusion - water bottle sign](https://radiopaedia.org/cases/pericardial-effusion-water-bottle-sign-2?lang=us) (`pericardial-effusion-water-bottle-sign-2`)
+
+| Original image | Medical-SAM2 | Medical-SAM3: left lung, right lung, heart, cardiac silhouette | BiomedParse v1: left lung, right lung, heart, cardiac silhouette | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+|---|---|---|---|---|
+| <img src="assets/pericardial-effusion-water-bottle-sign-2/original.jpg" width="100%"> | <img src="assets/pericardial-effusion-water-bottle-sign-2/medical_sam2_overlay.png" width="100%"> | <img src="assets/pericardial-effusion-water-bottle-sign-2/medical_sam3_overlay.png" width="100%"> | <img src="assets/pericardial-effusion-water-bottle-sign-2/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/pericardial-effusion-water-bottle-sign-2/torchxrayvision_anatomy_overlay.png" width="100%"> |
+
+- **背景信息：**Age: Adult Gender: Male; Shortness of breath.；成年男性，呼吸困难。
+- **原始图片 caption：**
+
+<pre>Front chest x-ray demonstrates marked enlargement of the cardiac outline. This was due to pericardial effusion and is a good example of the water bottle sign. This refers to the shape of the cardiac silhouette on erect frontal chest x-rays in patients who have a very large pericardial effusion. The fluid, often measuring a liter or more, causes the pericardium to sag mimicking an old-fashioned water bottle sitting on a bench. Typically the effusion has accumulated over many weeks (e.g. in patients with malignancy) and the pericardium has gradually stretched.</pre>
+
+- **原始图片 caption 翻译：**正位胸片显示心影显著增大，原因为心包积液，是典型水瓶征。大量心包液使心包下垂，形似置于台面的老式水瓶；积液通常历经数周缓慢形成，心包逐渐扩张。
+
+<details>
+<summary><strong>MedGemma-27B-IT：负面：心影分割使明显心影增大被判为正常</strong></summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>**Image Description:**
+
+The image is a frontal chest X-ray of an adult male patient. The heart appears enlarged, occupying a significant portion of the chest cavity. The cardiac silhouette is somewhat globular in shape. The pulmonary vasculature appears relatively normal, without obvious signs of congestion or edema. The lung fields themselves appear clear, without focal opacities suggestive of pneumonia or significant atelectasis. The costophrenic angles are sharp, suggesting no significant pleural effusion. The mediastinal structures appear within normal limits, although the enlarged heart obscures some detail.
+
+**Diagnosis:**
+
+Based on the enlarged cardiac silhouette (cardiomegaly) seen on the chest X-ray, the most likely diagnosis is **cardiomegaly**.
+
+**Differential Diagnosis and Considerations:**
+
+Cardiomegaly is a sign, not a specific disease. It indicates that the heart is larger than normal. The underlying cause needs further investigation. Potential causes include:
+
+1.  **Hypertensive Heart Disease:** Chronic high blood pressure can lead to left ventricular hypertrophy and subsequent enlargement.
+2.  **Dilated Cardiomyopathy:** Weakening of the heart muscle leading to chamber dilation.
+3.  **Ischemic Heart Disease:** Previous myocardial infarction or chronic ischemia can cause ventricular remodeling and enlargement.
+4.  **Valvular Heart Disease:** Conditions like aortic stenosis, mitral regurgitation, or aortic regurgitation can cause volume or pressure overload, leading to chamber enlargement.
+5.  **Congenital Heart Disease:** Certain congenital defects can cause cardiomegaly.
+6.  **Pericardial Effusion:** Fluid accumulation around the heart can make the cardiac silhouette appear enlarged (though often with a &quot;water bottle&quot; shape).
+7.  **Myocarditis:** Inflammation of the heart muscle.
+8.  **Arrhythmogenic Cardiomyopathy:** A condition where heart muscle is replaced by fibrous tissue.
+9.  **Hypertrophic Cardiomyopathy:** While often associated with normal or small heart size on X-ray, severe cases can sometimes show enlargement.
+
+**Clinical Correlation:**
+
+The patient&#x27;s presentation of shortness of breath is consistent with cardiomegaly, as an enlarged heart may lead to heart failure, causing fluid backup into the lungs (pulmonary congestion) or reduced cardiac output, both of which can cause dyspnea.
+
+**Next Steps:**
+
+Further investigations are necessary to determine the specific cause of the cardiomegaly. These typically include:
+
+*   **Electrocardiogram (ECG):** To assess heart rhythm and look for signs of ischemia, hypertrophy, or conduction abnormalities.
+*   **Echocardiogram:** To evaluate heart size, chamber function, valve function, and wall thickness. This is the most crucial test for determining the cause and severity of cardiomegaly.
+*   **Blood tests:** Including cardiac enzymes (if acute ischemia is suspected), BNP (brain natriuretic peptide, elevated in heart failure), and other markers.
+*   **Clinical history and physical examination:** To gather information about risk factors (hypertension, diabetes, smoking, family history), symptoms (chest pain, palpitations, edema), and physical findings (murmurs, jugular venous distension, edema).
+
+**Conclusion:**
+
+The chest X-ray shows cardiomegaly in an adult male presenting with shortness of breath. This finding warrants further investigation to determine the underlying etiology.</pre>
+
+中文要点翻译：
+
+<pre>胸片显示心影增大并呈球形，肺血管和肺野相对正常；模型诊断心脏增大，并把心包积液列为可能病因之一。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>**Image Description:**
+
+The image is a frontal chest X-ray of an adult male patient. The patient is lying down, likely supine, as indicated by the mobile X-ray label. The image shows the heart, lungs, mediastinum, and diaphragm. The lungs appear relatively clear, although there might be subtle opacities, especially in the lower lung fields, which could be due to patient positioning, overlying soft tissues, or underlying pathology. The heart size appears within normal limits, and the mediastinal structures are unremarkable. The diaphragm is visible, and the costophrenic angles appear sharp, suggesting no significant pleural effusion.
+
+**Analysis of Segmentations:**
+
+*   **Medical-SAM2:** This segmentation highlights the heart and cardiac silhouette.
+*   **Medical-SAM3:** This segmentation identifies the left lung, right lung, heart, and cardiac silhouette.
+*   **BiomedParse:** This segmentation identifies the left lung, right lung, heart, and cardiac silhouette.
+*   **TorchXRayVision:** This segmentation provides a more detailed breakdown, identifying the lungs (left and right), diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, and stomach.
+
+**Clinical Context and Diagnosis:**
+
+The patient presents with shortness of breath. The chest X-ray is a standard initial investigation for this symptom.
+
+*   **Findings:** The X-ray shows a normal-sized heart and relatively clear lung fields. There are no obvious signs of pneumonia (consolidation), pneumothorax (collapsed lung), large pleural effusion (fluid around the lung), or significant pulmonary edema (fluid in the lungs).
+*   **Interpretation:** While the X-ray doesn&#x27;t show any acute, obvious pathology like pneumonia or heart failure, subtle findings or underlying conditions cannot be ruled out based solely on this single image. The shortness of breath could be due to various causes, including cardiac issues, respiratory conditions (like asthma, COPD, or early pneumonia), anxiety, or other systemic problems.
+*   **Diagnosis:** Based *only* on this single chest X-ray, a definitive diagnosis cannot be made. The X-ray appears largely unremarkable, but further investigation (e.g., clinical history, physical examination, blood tests, ECG, CT scan, pulmonary function tests) is necessary to determine the cause of the patient&#x27;s shortness of breath.
+
+**In summary:** The chest X-ray shows a normal cardiac silhouette and relatively clear lung fields. While it doesn&#x27;t reveal an obvious cause for the patient&#x27;s shortness of breath, it doesn&#x27;t rule out underlying pathology either. Further clinical evaluation is required.</pre>
+
+中文要点翻译：
+
+<pre>加入心脏、心纵隔和肺部 overlay 后，模型改称心脏大小正常、纵隔无异常、肺野清晰，认为单张胸片不能给出明确诊断。</pre>
+
+**对模型图片 caption 能力及 Segmentation 影响的分析：**
+
+原始 caption 已抓住最关键的巨大球形心影，并接近水瓶征；segmentation 后反而否定心影增大。这说明错误或边界不稳定的心脏 mask 可能覆盖原始轮廓线索，使模型过度信任 overlay，是非常明确的负向案例。
+
+</details>
+
+### 2.11 [Round pneumonia](https://radiopaedia.org/cases/round-pneumonia-3?lang=us) (`round-pneumonia-3`)
+
+| Original image | Medical-SAM2 | Medical-SAM3: lung, lung opacity, heart, diaphragm | BiomedParse v1: lung, lung opacity, heart, diaphragm | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+|---|---|---|---|---|
+| <img src="assets/round-pneumonia-3/original.jpg" width="100%"> | <img src="assets/round-pneumonia-3/medical_sam2_overlay.png" width="100%"> | <img src="assets/round-pneumonia-3/medical_sam3_overlay.png" width="100%"> | <img src="assets/round-pneumonia-3/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/round-pneumonia-3/torchxrayvision_anatomy_overlay.png" width="100%"> |
+
+- **背景信息：**Age: Infant; Febrile and clinically unwell.；婴儿，发热且临床状况不佳。
+- **原始图片 caption：**
+
+<pre>Rounded region of consolidation is seen in the right anterior segment of the upper lobe.</pre>
+
+- **原始图片 caption 翻译：**右上叶前段可见圆形实变区。
+
+<details>
+<summary><strong>InternVL3.5-14B：轻度有帮助：强化肺炎定位，但仍未识别圆形形态</strong></summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>&lt;think&gt;
+Okay, let&#x27;s tackle this X-ray image. The patient is an infant who&#x27;s febrile and clinically unwell. The X-ray is a frontal chest view. I need to look for signs of respiratory issues.
+
+First, the lungs. In infants, the lungs are smaller and have more cartilage, so the bronchial tubes are more visible. Normally, the lungs should appear dark (radiolucent) because of air. But here, there&#x27;s increased opacity in the right lung, especially in the lower zones. That could be consolidation, which is often due to infection like pneumonia. The left lung looks clearer, but maybe there&#x27;s some subtle changes too.
+
+The heart size seems normal for an infant, not enlarged. The diaphragm is visible, and the costophrenic angles are sharp, so no pleural effusion. The trachea is midline. The ribs and bones look normal, no fractures.
+
+Since the infant is febrile and sick, and the X-ray shows consolidation, the most likely diagnosis is bacterial pneumonia. Viral infections might present with interstitial patterns, but consolidation is more bacterial. The right lower lobe involvement is common in aspiration or pneumonia. I should also consider bronchiolitis, but that usually has a more diffuse, peribronchial pattern. The presence of lobar consolidation points more to pneumonia.
+
+Need to check if there&#x27;s any air bronchogram sign, which is when air-filled bronchi are visible against consolidated lung. If present, that supports pneumonia. The image here might have that, but I&#x27;m not sure. The right lung&#x27;s opacity is dense, so maybe. Also, the mediastinum isn&#x27;t shifted, so no tension pneumothorax.
+
+Other possibilities: Foreign body, but that usually has a more focal opacity and maybe a history. Congenital issues? Less likely with acute presentation. So, the diagnosis is likely bacterial pneumonia, possibly with lobar consolidation in the right lung. Treatment would involve antibiotics, supportive care.
+&lt;/think&gt;
+
+**Image Description:**
+The frontal chest X-ray of the infant demonstrates increased opacity in the right lower lung zone, suggestive of lobar consolidation. The left lung appears relatively clear. The cardiac silhouette is within normal size limits for an infant, and the diaphragm and costophrenic angles are sharp, with no evidence of pleural effusion. The trachea is midline, and the bony structures (ribs, clavicles) are unremarkable.
+
+**Diagnosis:**
+**Bacterial pneumonia** (likely lobar consolidation) is the most probable diagnosis. The radiographic findings of localized opacity in the right lower lobe, combined with the clinical presentation of fever and illness, strongly support this. Bacterial pathogens such as *Streptococcus pneumoniae* or *Staphylococcus aureus* are common culprits in infants.
+
+**Key Supporting Features:**
+- **Lobar consolidation**: Dense opacity with possible air bronchograms (if visible) indicates alveolar filling (e.g., pus, fluid).
+- **Clinical context**: Fever and systemic illness in an infant heighten suspicion for bacterial infection.
+- **Exclusion of other causes**: No signs of interstitial disease (viral bronchiolitis), pleural effusion, or skeletal abnormalities.
+
+**Next Steps:**
+- Confirmatory tests: Blood cultures, C-reactive protein (CRP), and possibly a lateral chest X-ray.
+- Empirical antibiotic therapy (e.g., amoxicillin or amoxicillin-clavulanate) should be initiated promptly.
+- Monitor respiratory status and consider hospitalization for supportive care if needed.
+
+This presentation aligns with community-acquired bacterial pneumonia, a critical diagnosis in febrile infants requiring urgent management.</pre>
+
+中文要点翻译：
+
+<pre>婴儿正位胸片右下肺野密度增高，考虑叶性实变；结合发热和全身状况差，模型倾向细菌性肺炎。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>&lt;think&gt;
+Okay, let me try to work through this. The patient is an infant presenting with fever and being clinically unwell. The chest X-ray is provided, along with some segmentation images from different models. I need to analyze the X-ray and the segments to figure out the possible diagnosis.
+
+First, looking at the original X-ray image. The right side (marked with R) shows some areas that are more opaque. The left lung seems more translucent. The right lung has a large area of increased opacity, especially in the middle and lower zones. The left lung appears clearer, but maybe there&#x27;s some subtle opacity too. The heart is visible, and the diaphragm is seen at the bottom. The right hemidiaphragm might be elevated? Or maybe the opacity is obscuring it.
+
+Now, the segmentations. Medical-SAM2&#x27;s segmentation highlights a region on the left side (purple), which might be an area of interest. Medical-SAM3 segments the lungs in blue and purple. The right lung (blue) has a large opacity, while the left (purple) is more normal. BiomedParse&#x27;s segmentation shows both lungs in light blue, but the right lung&#x27;s opacity is more pronounced. TorchXRayVision&#x27;s segmentation uses different colors for lungs, heart, etc. The right lung (green) has areas of yellow, which might indicate consolidation or opacity.
+
+In infants, common causes of fever and respiratory symptoms include pneumonia, bronchiolitis, or maybe even a foreign body. Pneumonia in infants often presents with lobar consolidation. The right lung&#x27;s opacity here could be a lobar pneumonia. The left lung seems clearer, so maybe unilateral involvement. The heart size seems normal, no signs of cardiomegaly. The diaphragm on the right might be obscured by the opacity, which could indicate fluid or consolidation.
+
+The segmentation models highlight the right lung&#x27;s opacity. The presence of a large, dense opacity in the right lung suggests consolidation, which is typical for bacterial pneumonia. In infants, Streptococcus pneumoniae or Staphylococcus aureus could be culprits. The clinical presentation of fever and being unwell aligns with pneumonia.
+
+Another possibility is aspiration pneumonia, but that might have a different pattern. Bronchiolitis usually has a more diffuse, peribronchial pattern, which might not be as lobar. The X-ray here shows a more focal opacity, so lobar pneumonia is more likely.
+
+The left lung appears clear, so if there&#x27;s consolidation, it&#x27;s unilateral. The mediastinum doesn&#x27;t seem shifted, so no large pleural effusion or tension pneumothorax. The trachea is midline.
+
+So putting it all together: the infant has a febrile illness with a chest X-ray showing right middle/lower lobe consolidation. The diagnosis is likely bacterial pneumonia, possibly requiring antibiotics. The segmentation models help confirm the area of opacity, supporting the diagnosis.
+&lt;/think&gt;
+
+**Image Description and Diagnosis:**
+
+**Clinical Context:**
+An infant presents with fever and clinical signs of illness. The chest X-ray reveals significant findings in the right lung.
+
+**Radiographic Findings:**
+1. **Right Lung Opacity:** The frontal chest X-ray shows a large, dense opacity in the right middle and lower lung zones, obscuring the right heart border and hemidiaphragm. This suggests consolidation, likely due to infection.
+2. **Left Lung:** The left lung appears clearer, with no prominent opacities, indicating unilateral involvement.
+3. **Cardiomediastinal Silhouette:** The heart size is normal, and the mediastinum is midline, ruling out significant effusion or pneumothorax.
+4. **Diaphragm:** The right hemidiaphragm is poorly visualized due to the overlying opacity, consistent with consolidation.
+
+**Segmentation Analysis:**
+- **Medical-SAM3 and BiomedParse:** Highlight the right lung’s opacity (blue/purple), confirming its extent.
+- **TorchXRayVision:** Emphasizes abnormal opacities in the right lung (yellow regions), aligning with consolidation.
+
+**Diagnosis:**
+**Bacterial Pneumonia (Lobar Pneumonia).**
+- **Rationale:** The infant’s fever, clinical illness, and imaging findings of unilateral lobar consolidation are classic for bacterial pneumonia. Common pathogens in infants include *Streptococcus pneumoniae* or *Staphylococcus aureus*.
+- **Differential Considerations:**
+  - **Aspiration Pneumonia:** Less likely unless history suggests aspiration.
+  - **Bronchiolitis:** Typically presents with diffuse peribronchial thickening, not lobar consolidation.
+  - **Foreign Body:** Unlikely without a history of choking.
+
+**Management Implications:**
+- **Antibiotics:** Empirical coverage for community-acquired pneumonia (e.g., amoxicillin or amoxicillin-clavulanate).
+- **Supportive Care:** Monitoring for respiratory distress, hydration, and oxygen if needed.
+- **Follow-up Imaging:** To assess resolution after treatment.
+
+The segmentation tools corroborate the radiographic findings, reinforcing the diagnosis of right-sided lobar pneumonia in this febrile infant.</pre>
+
+中文要点翻译：
+
+<pre>模型依据肺部 segmentation 进一步强调右肺中下区大片致密影和右侧叶性实变，仍诊断右侧细菌性肺炎。</pre>
+
+**对模型图片 caption 能力及 Segmentation 影响的分析：**
+
+分割前后疾病大类一致；加入 overlay 后肺侧别和受累范围更稳定，减少了泛化描述。但参考 caption 的判别点是右上叶前段“圆形”实变，模型仍写成右中下肺叶性肺炎，所以属于定位层面的有限帮助，而不是对圆形肺炎表型的识别。
+
+</details>
+
+### 2.12 [Spalding sign](https://radiopaedia.org/cases/spalding-sign?lang=us) (`spalding-sign`)
+
+| Original image | Medical-SAM2 | Medical-SAM3: fetal head, fetal skull, brain | BiomedParse v1: fetal head, fetal skull, brain |
+|---|---|---|---|
+| <img src="assets/spalding-sign/original.jpeg" width="100%"> | <img src="assets/spalding-sign/medical_sam2_overlay.png" width="100%"> | <img src="assets/spalding-sign/medical_sam3_overlay.png" width="100%"> | <img src="assets/spalding-sign/biomedparse_v1_overlay.png" width="100%"> |
+
+- **背景信息：**Gender: Female; Antenatal scan at 28 weeks gestation.；女性，孕 28 周接受产前超声。
+- **原始图片 caption：**
+
+<pre>A single image from a prenatal ultrasound demonstrates the Spalding sign, overlapping of the fetal skull bones.</pre>
+
+- **原始图片 caption 翻译：**单张产前超声显示 Spalding 征，即胎儿颅骨骨片相互重叠。
+
+<details>
+<summary><strong>Lingshu-32B：部分有帮助：纠正扫描部位，但遗漏颅骨重叠征</strong></summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>The ultrasound image shows a transverse view of the fetal thorax. The heart appears to be located on the right side of the thorax, which is indicative of dextrocardia. Additionally, there is an abnormal positioning of the stomach bubble, suggesting situs inversus. These findings are consistent with a diagnosis of heterotaxy syndrome, specifically dextrocardia with situs inversus. This condition involves the abnormal arrangement of thoracic and abdominal organs across the midline. Further evaluation and correlation with clinical findings are necessary for comprehensive management.</pre>
+
+中文要点翻译：
+
+<pre>模型把超声误认为胎儿胸部横断面，报告右位心和胃泡位置异常，诊断右位心伴内脏反位的异位综合征。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>The ultrasound image shows a transverse view of the fetal head at 28 weeks gestation. The segmented regions highlight the fetal head, skull, and brain. The segmentation appears to accurately delineate these structures, with clear boundaries between the different anatomical features. The fetal head is well-defined, and the brain structures within the skull are visible. There are no obvious abnormalities or anomalies detected in the segmented regions. Based on the provided information and the visual assessment of the ultrasound image, the diagnosis would be a normal, healthy fetal development at 28 weeks gestation.</pre>
+
+中文要点翻译：
+
+<pre>加入 fetal head、skull、brain 分割后，模型正确识别为 28 周胎儿头部横断面，但认为颅骨和脑结构正常、无明显异常。</pre>
+
+**对模型图片 caption 能力及 Segmentation 影响的分析：**
+
+segmentation 成功纠正了器官和扫描平面，避免了完全无关的胸腹部诊断；但模型仍未识别 Spalding 征所需的胎儿颅骨骨片相互重叠，因此没有获得胎死宫内这一结论。它说明解剖路由改善不等于细粒度征象识别成功。
+
+</details>
+
+### 2.13 [Surgical ankylosis](https://radiopaedia.org/cases/surgical-ankylosis?lang=us) (`surgical-ankylosis`)
+
+| Original image | Medical-SAM2 | Medical-SAM3: femur, tibia, knee joint, intramedullary nail | BiomedParse v1: femur, tibia, knee joint, intramedullary nail |
+|---|---|---|---|
+| <img src="assets/surgical-ankylosis/original.jpg" width="100%"> | <img src="assets/surgical-ankylosis/medical_sam2_overlay.png" width="100%"> | <img src="assets/surgical-ankylosis/medical_sam3_overlay.png" width="100%"> | <img src="assets/surgical-ankylosis/biomedparse_v1_overlay.png" width="100%"> |
+
+- **背景信息：**Age: 75 Gender: Female; Knee immobility post surgery for failed joint replacement；75 岁女性，关节置换失败后接受手术，术后膝关节不能活动。
+- **原始图片 caption：**
+
+<pre>There is ankylosis of the left knee joint with an intramedullary nail traversing the joint extending to the proximal third of the tibia. Osteolysis of the fibula head and proximal fibula with a bony fragment at the lateral aspect mid-shaft of the fibula.</pre>
+
+- **原始图片 caption 翻译：**左膝关节强直，髓内钉跨越关节并延伸至胫骨近端三分之一；腓骨头及近端腓骨溶骨，腓骨干中段外侧可见骨片。
+
+<details>
+<summary><strong>Qwen3-VL-4B：部分有帮助：识别髓内钉和失败术后状态，但仍未说出关节强直</strong></summary>
+
+**原始图像 → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>This is a frontal (AP) X-ray of the left lower leg, labeled “L” and “CVI” (likely indicating “C”enter “V”iew “I”nstitution or similar), showing a recent surgical intervention in the knee region. The image reveals a long, linear, metallic implant running vertically along the tibia and extending into the knee joint space — consistent with a **total knee replacement (TKR)** prosthesis.
+
+Key observations:
+- The implant appears to be a **biological knee prosthesis**, with a visible stem or implant body within the tibia and a component likely in the femur or patella (though the patella is not clearly visible in this view).
+- The implant is well-aligned with the bone anatomy and shows no signs of loosening, fracture, or dislocation.
+- The surrounding bone appears intact, with no evidence of osteomyelitis, fracture, or hardware malposition.
+- The patient’s age (75) and history of “failed joint replacement” are critical context. A failed knee replacement typically implies implant loosening, wear, infection, or mechanical failure — none of which are evident on this radiograph.
+
+Diagnosis: **Postoperative X-ray of a total knee replacement (TKR) in a 75-year-old female, showing successful implant placement with no immediate complications.**
+
+However, given the patient’s history of “failed joint replacement,” this image likely represents a **follow-up or initial postoperative X-ray after a revision or reoperation**. The absence of signs of failure (e.g., implant migration, loosening, or bone destruction) suggests that this may be the **first postoperative image after successful revision surgery** or a **preoperative imaging to confirm implant placement prior to surgery**.
+
+Important note: Since the patient has a history of failed joint replacement, this image should be interpreted in the context of a **revision surgery**. If this is a preoperative image, the diagnosis is likely “**Preoperative X-ray for revision total knee arthroplasty**.” If this is a postoperative image, and the implant is properly aligned and stable, the diagnosis is “**Successful revision total knee arthroplasty**.”
+
+Conclusion: Based on the image and patient history, this is a **postoperative X-ray showing a properly placed total knee replacement implant**. The absence of complications on this image suggests the surgery was technically successful. However, the patient’s history of failure implies this is likely a **revision procedure**, and follow-up imaging and clinical assessment are essential to monitor for long-term outcomes.
+
+Final Diagnosis: **Revision total knee arthroplasty — successful implant placement with no immediate complications.**
+
+*Note: Without clinical correlation or additional imaging (e.g., MRI or CT), definitive diagnosis of “failed joint replacement” cannot be confirmed from this single X-ray. This image is consistent with a successful revision surgery.*</pre>
+
+中文要点翻译：
+
+<pre>模型把图像解释为全膝关节置换术后，认为假体位置良好、无松动或骨折，最终称为成功的翻修全膝关节置换。</pre>
+
+**原始图像 + Segmentation → Single-image caption 回答**
+
+英文原始回答：
+
+<pre>Based on the patient’s presentation of “knee immobility post surgery for failed joint replacement” and the radiographic image, the following interpretation can be made:
+
+**Image Description:**
+The image is a frontal (anteroposterior) X-ray of the left lower leg, as indicated by the “L” marker. It clearly shows an intramedullary nail (a long, thin, metallic rod) placed within the tibia, running from the mid-shaft down to the distal end. The nail is positioned centrally within the tibial medullary canal. The surrounding bone structures, including the femur (proximal) and tibia (distal), are visible. The segmentation masks indicate that the intramedullary nail is the primary object of interest, with the femur and tibia also segmented, though the segmentation of the knee joint is not fully delineated in this view. The image shows no obvious signs of fracture, dislocation, or infection.
+
+**Diagnosis:**
+The patient is a 75-year-old female who has undergone surgery for a failed knee joint replacement. The presence of an intramedullary nail in the tibia is highly indicative of a prior surgical intervention for a lower limb fracture or for stabilization of a joint replacement. In the context of a “failed joint replacement,” this is not a typical post-operative scenario for the knee joint, as joint replacements are typically performed in the knee or hip, not the tibia.
+
+The most likely diagnosis is: **Failed knee arthroplasty with subsequent tibial intramedullary nailing for stabilization or revision.**
+
+This is a complex and unusual clinical scenario. It suggests that the patient may have had a failed total knee arthroplasty (TKA), and due to complications such as infection, loosening, or failure to achieve adequate mobility, the surgeon may have opted for a tibial intramedullary nail to stabilize the lower limb and allow for healing or to prepare for further revision surgery. This is not a common practice, and it is more likely that the tibial nail is being used to stabilize a fracture or to provide mechanical support for a failed joint replacement.
+
+Alternatively, if the patient has a history of a failed knee replacement and now has immobility, the tibial nail could be a result of a prior fracture or surgical intervention that was not related to the knee replacement, such as a tibial fracture that was treated with intramedullary nailing.
+
+**Conclusion:**
+The image shows an intramedullary nail in the tibia, which is not typical for a knee replacement surgery. The diagnosis is likely **Failed knee arthroplasty with subsequent tibial intramedullary nailing for stabilization or revision**. The patient’s immobility is likely due to the surgical intervention and the need for rehabilitation following the failed joint replacement.
+
+This is a complex case that requires further clinical evaluation, including a detailed history, physical examination, and possibly additional imaging (e.g., MRI or CT) to determine the exact cause of the immobility and the appropriate next steps in management.</pre>
+
+中文要点翻译：
+
+<pre>加入股骨、胫骨、膝关节和髓内钉分割后，模型识别到跨越下肢的髓内钉，并改判为失败膝关节置换术后使用髓内钉稳定或翻修。</pre>
+
+**对模型图片 caption 能力及 Segmentation 影响的分析：**
+
+segmentation 纠正了“标准膝关节假体且手术成功”的基本误读，并把注意力转向髓内钉和失败术后状态；但模型把钉的位置和用途描述得不够准确，也没有识别左膝关节被手术性融合、不能活动的核心诊断。
+
+</details>
+
+<!-- SECTION_2_CAPTION_ANALYSIS_END -->
