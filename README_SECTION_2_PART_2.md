@@ -2408,9 +2408,6 @@ The X-ray demonstrates classic radiographic features of **nutritional vitamin D 
 |---|---|---|---|---|
 | <img src="assets/pericardial-effusion-water-bottle-sign-2/original.jpg" width="100%"> | <img src="assets/pericardial-effusion-water-bottle-sign-2/medical_sam2_overlay.png" width="100%"> | <img src="assets/pericardial-effusion-water-bottle-sign-2/medical_sam3_overlay.png" width="100%"> | <img src="assets/pericardial-effusion-water-bottle-sign-2/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/pericardial-effusion-water-bottle-sign-2/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
-> **备注：** 太困了，起来再check。
-
-<!-- MODEL_CONTENT_TODO_2_10
 - **背景信息：**Age: Adult Gender: Male; Shortness of breath.；成年男性，呼吸困难。
 - **原始图片 caption：**
 
@@ -2664,14 +2661,14 @@ The chest X-ray reveals several critical findings in the context of a male adult
 
 **Segmentation 对 caption 的影响分析：**
 
-无明显提升改善。
+都提到了心脏增大，可能有积液；无明显提升。
 
 </details>
 
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无明显提升改善。
+**Segmentation 对 caption 的总体影响：**无明显提升。
 
 **原始图像 → Single-image caption 回答**
 
@@ -2695,7 +2692,7 @@ The chest X-ray reveals several critical findings in the context of a male adult
 
 **Segmentation 对 caption 的影响分析：**
 
-无明显改善
+无明显改善；都提到了“心脏肥大”
 
 </details>
 
@@ -2789,7 +2786,7 @@ The patient presents with shortness of breath. The chest X-ray is a standard ini
 
 **对模型图片 caption 能力及 Segmentation 影响的分析：**
 
-无明显。
+都说“胸腔积液”，没有明显提升。
 
 </details>
 
@@ -2820,7 +2817,7 @@ The patient presents with shortness of breath. The chest X-ray is a standard ini
 
 **Segmentation 对 caption 的影响分析：**
 
-无明显提升。
+无明显提升，都分析不好。
 
 </details>
 
@@ -2906,18 +2903,27 @@ Further evaluation, including a detailed history, physical examination, and poss
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：胃食管反流病。涉及的主要影像要点包括：起搏器在位、膈肌异常或定位、心影异常、肺实变。</pre>
+<pre>**图像描述：**
+
+这是一张成年男性患者的移动式胸部前后位（AP）立位X光片。图像显示：
+
+1.  **肺野：** 双肺可见。肺野清晰，肺血管纹理正常。未见提示肺炎或急性间质性肺病的大片弥漫性致密影、实变或磨玻璃影。肺容积正常。
+2.  **心影：** 心脏位于中央，大小和形态正常。心影未见增大，无心脏肥大或显著心脏扩大的征象。
+3.  **膈肌：** 膈肌可见，位置正常，无抬高或变平。
+4.  **纵隔：** 纵隔居中，宽度正常。
+5.  **伪影：** 胸部可见两根金属导线（可能来自起搏器或除颤器），双侧各一根；对于植入心脏装置的患者，这是正常表现。
+6.  **总体表现：** 图像未显示急性呼吸窘迫的征象，如胸腔积液、气胸或明显的肺内气体潴留。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：球形/增大心影（结论）；加入 segmentation 后：球形/增大心影（否定/鉴别）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+都说没有积液，都不对，无明显提升。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**基本持平：前后均提及部分参考关键点
+**Segmentation 对 caption 的总体影响：**略微提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -2956,7 +2962,18 @@ The chest X-ray demonstrates cardiomegaly, which is likely contributing to the p
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：心脏增大。涉及的主要影像要点包括：心影异常、起搏器在位、膈肌异常或定位、肺实变。</pre>
+<pre>**图像描述：**
+
+这是一张成年男性患者的移动式胸部前后位（AP）立位X光片。图像显示：
+
+1.  **肺野：** 双肺可见。肺野清晰，肺血管纹理正常。未见提示肺炎或急性间质性肺病的大片弥漫性致密影、实变或磨玻璃影。肺容积正常。
+2.  **心影：** 心脏位于中央，大小和形态正常。心影未见增大，无心脏肥大或显著心脏扩大的征象。
+3.  **膈肌：** 膈肌可见，位置正常，无抬高或变平。
+4.  **纵隔：** 纵隔居中，宽度正常。
+5.  **伪影：** 胸部可见两根金属导线（可能来自起搏器或除颤器），双侧各一根；对于植入心脏装置的患者，这是正常表现。
+6.  **总体表现：** 图像未显示急性呼吸窘迫的征象，如胸腔积液、气胸或明显的肺内气体潴留。
+
+</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2993,18 +3010,28 @@ The chest X-ray shows significant cardiomegaly, an elevated diaphragm, and a wid
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：心力衰竭、充血性心力衰竭、心脏增大。涉及的主要影像要点包括：起搏器在位、膈肌异常或定位、肺实变、心影异常。</pre>
+<pre>**图像描述：**
+
+这是一张站立位前后位（AP）胸部X光片，很可能是使用移动设备拍摄的。图像显示了胸腔情况，主要观察结果如下：
+
+1.  **心脏增大（心影扩大）：** 心脏轮廓显著增大，占据了胸腔的很大一部分。这是一个显著的征象。
+2.  **肺野：** 双侧肺野看起来相对清晰，未见明显的局灶性实变、浸润影或胸腔积液。肺纹理可见，但整体肺容积似乎减小，这与心脏增大相一致。
+3.  **膈肌：** 膈肌位置升高，这是心脏增大常见伴随的征象，也可能导致呼吸急促。
+4.  **纵隔：** 纵隔增宽，这通常是心脏增大压迫周围结构的结果。
+5.  **医疗装置：** 可见两根起搏器导线，分别位于右侧胸部和左侧胸部，表明患者植入了心脏起搏器。导线在心腔内的位置良好。
+</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：球形/增大心影（结论）；加入 segmentation 后：球形/增大心影（结论）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+加入seg后提到“心脏增大”，但是对“积液”判断和之前一样，错了；略微提升
+
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无明确增益：仅在鉴别或否定语境中提及关键点
+**Segmentation 对 caption 的总体影响：**略微提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -3065,7 +3092,21 @@ Given the **acute presentation of dyspnea** and the **radiographic finding of le
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变、起搏器在位、膈肌异常或定位、游离气体。</pre>
+<pre>**图像描述：**
+
+这是一张站立位拍摄的胸部前后位（AP）床旁X光片（左上角标有“MOBILE AP ERECT”字样）。图像显示了胸腔结构，包括双肺、心脏以及肋骨、锁骨和椎体等骨性结构。
+
+主要观察结果：
+
+- **肺野**：右肺野相对清晰，可见血管纹理延伸至肺外周。左肺显示**左下肺野密度增高**（透光度降低），病变主要位于左下肺叶。可见**模糊的斑片状实变影**，伴有疑似支气管充气征，提示存在肺泡腔内填充病变。
+
+- **心影及纵隔轮廓**：心脏大小正常。纵隔居中，无明显增宽。
+
+- **膈肌**：可见双侧膈肌，右侧膈肌位置略高于左侧，属正常表现。膈下未见明显的游离气体影。
+
+- **骨性结构**：肋骨和锁骨形态完整。可见**两个金属装置**——双侧上肺野附近各一个——极有可能是**起搏器或植入式心律转复除颤器（ICD）的导线**，其脉冲发生器位于胸前区。这些影像特征符合已知的心脏植入装置表现。
+
+- **软组织**：未见明显的软组织肿块或皮下气肿。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3151,35 +3192,52 @@ This chest X-ray in a shortness-of-breath adult male with a pacemaker shows **cl
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：胸腔积液、心力衰竭、心脏增大、肺水肿。涉及的主要影像要点包括：起搏器在位、肺实变、膈肌异常或定位、心影异常、溶骨性病灶。</pre>
+<pre>### **影像描述**
+
+- **投照方式**：前后位（AP）立位，使用移动式X光机拍摄。
+- **患者体位**：立位（由“ERECT”标识及清晰可见的膈肌证实）。
+- **技术质量**：穿透力适中；胸廓骨骼（肋骨、锁骨、脊柱）可见。心影及膈肌轮廓清晰可辨。
+- **主要发现**：
+- **心影**：呈**增大**表现（心脏肥大），横径增宽。心胸比可能超过50%（尽管在无校准的情况下无法精确测量）。 
+- **肺部**：双肺可见**密度增高影**，尤以**肺底及肺门周围区域**为甚，呈**斑片状、网状或磨玻璃样**改变。**肋膈角变钝**，提示存在**双侧胸腔积液**。 
+- **膈肌**：膈肌位置**抬高**且**变平**（尤以右侧明显），可能提示慢性容量负荷过重或潜在的肺部疾病。 
+- **纵隔**：无明显增宽。气管居中。 
+- **异物**：可见两根**起搏器导线**，且在右上胸和左上胸可见脉冲发生器囊袋——提示患者植入了**双腔起搏器**。 
+- **骨骼**：未见骨折或溶骨性病变。
+
+---
+
+### **分割分析**
+
+- **Medical-SAM2**：仅分割了左上角区域（可能是颈部/软组织的一部分），该区域无临床意义。
+- **Medical-SAM3**：仅分割了**右肺**及其内部的部分高密度影（紫色），提示存在实变或纤维化区域。然而，未分割左肺——这是其局限性所在。
+- **BiomedParse**：对称地分割了**双肺**，解剖学定位准确。分割轮廓平滑且与肺野吻合良好，但未突出显示病变区域。
+- **TorchXRayVision**：在肺部和纵隔区域提供了一种类似**热图的叠加显示**（呈绿色/黄色调），提示密度增高或存在病变的区域。 **心脏和纵隔影也显得突出**，这与心脏增大及可能存在的肺淤血相符。
+</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：球形/增大心影（否定/鉴别）。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+加入seg之后，对“心脏增大”的情况有改善；但是“积液”情况和之前一样；略微改善
 
 </details>
 
--->
 ### 2.11 [Round pneumonia](https://radiopaedia.org/cases/round-pneumonia-3?lang=us) (`round-pneumonia-3`)
 
-| Original image | Medical-SAM2 | Medical-SAM3: lung, lung opacity, heart, diaphragm | BiomedParse v1: lung, lung opacity, heart, diaphragm | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach |
+| Original image | Medical-SAM2 | Medical-SAM3: lung, lung opacity, heart, diaphragm 肺、肺部阴影、心脏、膈肌 | BiomedParse v1: lung, lung opacity, heart, diaphragm 肺、肺部阴影、心脏、膈肌 | TorchXRayVision CXAS: lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach 肺、右肺、左肺、膈、心脏、心纵隔、上纵隔、下纵隔、胃 |
 |---|---|---|---|---|
 | <img src="assets/round-pneumonia-3/original.jpg" width="100%"> | <img src="assets/round-pneumonia-3/medical_sam2_overlay.png" width="100%"> | <img src="assets/round-pneumonia-3/medical_sam3_overlay.png" width="100%"> | <img src="assets/round-pneumonia-3/biomedparse_v1_overlay.png" width="100%"> | <img src="assets/round-pneumonia-3/torchxrayvision_anatomy_overlay.png" width="100%"> |
 
-> **备注：** 太困了，起来再check。
-
-<!-- MODEL_CONTENT_TODO_2_11
 - **背景信息：**Age: Infant; Febrile and clinically unwell.；婴儿，发热且临床状况不佳。
 - **原始图片 caption：**
 
 <pre>Rounded region of consolidation is seen in the right anterior segment of the upper lobe.</pre>
 
-- **原始图片 caption 翻译：**右上叶前段可见圆形实变区。
+- **原始图片 caption 翻译：**右肺上叶前段可见圆形实变区。。
 
 <details>
 <summary><strong>InternVL3-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**基本持平：前后均提及部分参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -3233,7 +3291,24 @@ Viral Upper Respiratory Tract Infection or Mild Bronchiolitis / Early Onset Bron
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎、细支气管炎。涉及的主要影像要点包括：肺实变、膈肌异常或定位、游离气体。</pre>
+<pre>提供的图像为婴儿胸部正位X光片。主要观察结果如下：
+
+1. **肺野：**
+- 需评估双侧肺野是否存在实变、间质纹理改变、肺不张或气胸征象。未见大片实变或明显浸润影等特异性异常，肺野显示相对清晰。
+
+2. **心脏与纵隔：**
+- 心脏大小在正常范围内。 
+- 纵隔轮廓无明显增宽。
+
+3. **胸廓骨骼：**
+- 骨性结构（包括肋骨、锁骨及可见的脊柱部分）完整，未见明显骨折或异常。
+
+4. **膈肌：**
+- 双侧膈肌轮廓清晰，位置正常，未见膈下游离气体征象。
+
+5. **软组织：**
+- 胸部周围软组织未见异常，无异常积液或肿块影。
+</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3279,18 +3354,32 @@ Given the clinical presentation of fever and ill health in an infant along with 
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变、膈肌异常或定位。</pre>
+<pre>1. **肺野与肺部密度增高影**：
+- 肺部可见密度增高影，尤以肺下野为著。这些密度增高影可能提示存在浸润或实变，这在肺炎（特别是婴幼儿肺炎）中较为常见。
+
+2. **心脏与纵隔**：
+- 根据此正位片，心脏大小正常。心影及纵隔轮廓未见明显异常，如增宽或其他形态改变。
+
+3. **膈肌**：
+- 膈肌轮廓清晰，未见明显抬高或形态异常。肋膈角锐利，提示无胸腔积液。
+
+4. **胸廓骨骼**：
+- 肋骨及锁骨形态完整，未见骨折或明显病变。未见急性骨骼异常。
+
+5. **软组织**：
+- 软组织未见明显异常；在此投照体位下，未见皮下气肿或其他异常征象。
+</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：肺炎/实变（结论）；加入 segmentation 后：肺炎/实变（文本提及）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+差不多，无明显改善。
 
 </details>
 
 <details>
 <summary><strong>InternVL3.5-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**轻度有帮助：强化肺炎定位，但仍未识别圆形形态
+**Segmentation 对 caption 的总体影响：**略微有帮助：强化肺炎定位
 
 **原始图像 → Single-image caption 回答**
 
@@ -3330,7 +3419,8 @@ This presentation aligns with community-acquired bacterial pneumonia, a critical
 
 中文要点翻译：
 
-<pre>婴儿正位胸片右下肺野密度增高，考虑叶性实变；结合发热和全身状况差，模型倾向细菌性肺炎。</pre>
+<pre>**影像描述：**
+婴儿胸部正位X光片显示右肺下野密度增高，提示肺叶实变。左肺野清晰。心影大小在婴儿正常范围内；膈肌轮廓及肋膈角锐利，未见胸腔积液征象。气管居中，骨性结构（肋骨、锁骨）未见异常。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3386,18 +3476,32 @@ The segmentation tools corroborate the radiographic findings, reinforcing the di
 
 中文要点翻译：
 
-<pre>模型依据肺部 segmentation 进一步强调右肺中下区大片致密影和右侧叶性实变，仍诊断右侧细菌性肺炎。</pre>
+<pre>**图像描述与诊断：**
+
+**临床背景：**
+患儿出现发热及相关临床病症。胸部X光片显示右肺有显著异常发现。
+
+**影像学表现：**
+1. **右肺致密影：** 胸部正位X光片显示右肺中下野有一大片致密影，遮蔽了右侧心缘及半侧膈肌。这提示存在实变，很可能是由感染引起的。
+2. **左肺：** 左肺影像清晰，未见明显致密影，表明病变仅累及单侧。
+3. **心影及纵隔轮廓：** 心脏大小正常，纵隔居中，排除了大量胸腔积液或气胸的可能性。
+4. **膈肌：** 由于上方致密影的遮挡，右侧半膈肌显示不清，这一征象与肺实变相符。
+
+**分割分析：**
+- **Medical-SAM3 和 BiomedParse：** 突出显示了右肺的致密影（蓝色/紫色区域），确认了其病变范围。
+- **TorchXRayVision：** 重点标示了右肺的异常致密影（黄色区域），与肺实变表现一致。
+</pre>
 
 **对模型图片 caption 能力及 Segmentation 影响的分析：**
 
-分割前后疾病大类一致；加入 overlay 后肺侧别和受累范围更稳定，减少了泛化描述。但参考 caption 的判别点是右上叶前段“圆形”实变，模型仍写成右中下肺叶性肺炎，所以属于定位层面的有限帮助，而不是对圆形肺炎表型的识别。
+加入seg之后，进一步强化对右肺理解，虽都是有上肺，实际应该是下部，
 
 </details>
 
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无明确增益：仅在鉴别或否定语境中提及关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -3407,7 +3511,7 @@ The segmentation tools corroborate the radiographic findings, reinforcing the di
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：气胸。 </pre>
+<pre>胸部X光片显示该婴儿患有右侧气胸。右肺呈部分萎陷状态，表现为可见的胸膜线，且该线外侧无肺纹理。这一影像学发现与患儿发热及全身状况不佳的临床表现相吻合，提示可能存在导致气胸的潜在感染或其他病变。需立即进行医疗干预，以处理气胸并查明病因。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3417,18 +3521,18 @@ The segmentation tools corroborate the radiographic findings, reinforcing the di
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎、细支气管炎。涉及的主要影像要点包括：膈肌异常或定位、游离气体、肺实变。</pre>
+<pre>该胸部X光片显示一名伴有发热及临床患病体征的婴儿。肺部影像清晰，未见实变或胸腔积液等明显异常。心脏大小在婴儿正常范围内，无心脏扩大征象。膈肌轮廓清晰，未见提示气腹的膈下游离气体征象。结合发热及患病这一临床背景，最可能的诊断是病毒性感染（如细支气管炎或病毒性肺炎），因为婴儿感染这些疾病时常呈现此类影像学表现。需结合进一步的临床情况及可能的辅助检查（如针对呼吸道病毒的鼻咽拭子检测）以确诊。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：肺炎/实变（否定/鉴别）。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**正向：新增或强化参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升。
 
 **原始图像 → Single-image caption 回答**
 
@@ -3459,7 +3563,7 @@ The chest X-ray findings in the context of a febrile, clinically unwell infant s
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎。 </pre>
+<pre>该图像为一名婴儿的胸部正位X光片，重点观察部位为肺部。可见双侧肺部存在斑片状、边界模糊的致密影，主要分布于肺下叶，并延伸至肺中部区域；这些致密影呈现出某种程度的蓬松感或模糊感。心脏大小正常，纵隔轮廓无异常，骨骼结构完整。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3490,18 +3594,18 @@ The chest X-ray findings are consistent with **pneumonia** in an infant presenti
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：膈肌异常或定位。</pre>
+<pre>该图像为一名婴儿的胸部正位X光片。肺部是影像中主要的可见结构。可见双侧肺部有不透光影（致密影），以右侧肺野（尤其是右肺下叶）更为明显。这些阴影呈斑片状，边界模糊。心脏大小与患儿年龄相符，未见异常。纵隔轮廓无异常。可见膈肌，肋膈角清晰。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：肺炎/实变（否定/鉴别）；加入 segmentation 后：肺炎/实变（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升，都是关注到“右肺下叶”。
 
 </details>
 
 <details>
 <summary><strong>MedMO-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无明确增益：仅在鉴别或否定语境中提及关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -3511,7 +3615,7 @@ The chest X-ray findings are consistent with **pneumonia** in an infant presenti
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：胸腔积液、气胸。涉及的主要影像要点包括：肺实变。</pre>
+<pre>未见局灶性实变。无气胸或胸腔积液。心影及纵隔轮廓正常。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3521,18 +3625,17 @@ The chest X-ray findings are consistent with **pneumonia** in an infant presenti
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：胸腔积液。 </pre>
+<pre>肺容积正常。肺实质清晰。无胸腔积液。心影及纵隔轮廓正常。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：肺炎/实变（否定/鉴别）；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
-
+无明显提升
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-4B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**基本持平：前后均提及部分参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -3550,7 +3653,7 @@ The pattern is consistent with **pneumonia** — specifically, **bacterial pneum
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变。</pre>
+<pre>这是一张发热且临床状况不佳的婴儿胸部正位X光片。影像显示双肺呈弥漫性斑片状致密影，肺下野密度增高，尤以右侧为甚。此外，可见支气管气体滞留及可能累及小气道的征象，表现为“支气管充气征”——即在肺实变背景下可见含气的支气管影。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3576,18 +3679,24 @@ In summary, the image shows a chest X-ray of an infant with a focal area of lung
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎、心脏增大。涉及的主要影像要点包括：肺部致密影、膈肌异常或定位。</pre>
+<pre>- **影像学表现**：
+- 该X光片为正位像。 
+- 对肺野进行了分割处理（利用多种AI工具），以识别正常解剖结构与病变。 
+- 各类分割掩模（源自Medical-SAM2、Medical-SAM3、BiomedParse及TorchXRayVision）均显示肺部为主要的关注区域。 
+- 关键发现为**非对称性致密影**。与左肺相比，右肺（标记为“R”）可见一处明显的局限性密度增高区（致密影）。这一特征在分割掩模中也有所体现，表现为右肺呈现出更明显的实变或模糊影。 
+- 该致密影分布不均匀且呈局限性，符合细菌性肺炎等局灶性感染的影像学特征。 
+- 心脏及膈肌的大小与位置均正常，未见心脏扩大或膈肌抬高征象。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：肺炎/实变（文本提及）；加入 segmentation 后：肺炎/实变（结论）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+都关注的差不多，无明显提升
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**基本持平：前后均提及部分参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -3619,7 +3728,7 @@ This diagnosis is based on the clinical presentation and radiographic findings. 
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎、气胸、胸腔积液。涉及的主要影像要点包括：肺实变、膈肌异常或定位、心影异常。</pre>
+<pre>这是一张婴儿的胸部正位X光片。影像显示双侧肺下野可见斑片状、边界模糊的致密影，以右肺为主。这些致密影在右肺下叶更为显著，并延伸至左肺下叶。病变表现为磨玻璃影及实变影，部分区域呈网状结节样改变。未见明显的胸腔积液或气胸。心影大小及形态正常。膈肌位置抬高，这可能与肺实变或患儿的呼吸窘迫有关。气管居中。肋骨及胸廓骨骼结构完整。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3649,18 +3758,20 @@ The chest X-ray findings are consistent with **bilateral pneumonia** in an infan
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：膈肌异常或定位、肺实变。</pre>
+<pre>**影像描述：**
+
+该婴儿的胸部正位X光片显示双侧肺部有明显的致密影。这些致密影呈弥漫性分布，表现为遍布双肺野的密度增高区（呈白色），提示存在肺实变或间质性浸润。病变范围广泛，累及双侧肺部，而非局限于某个肺叶或肺段。心脏和膈肌的大小在婴儿正常范围内，尽管右侧膈肌位置略高，但这在婴儿中属于常见现象。未见胸腔积液或气胸征象。肺野透亮度降低，提示存在病变。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：肺炎/实变（文本提及）；加入 segmentation 后：肺炎/实变（结论）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+都差不多，无明显提升
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**基本持平：前后均提及部分参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -3712,7 +3823,9 @@ This chest X-ray demonstrates **right lower lobe consolidation consistent with p
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变、膈肌异常或定位。</pre>
+<pre>这是一张婴儿的胸部正位X光片，依据包括胸廓较小、肋骨清晰可见以及右上角的“R”标记（指示患者右侧）。包括肋骨和椎体在内的骨性结构显示清晰。气管居中，心脏大小及位置正常。
+
+肺野显示**右下肺叶密度增高**，表现为斑片状、边界不清的实变影。该区域还可见**间质纹理增粗**及**支气管充气征**，提示肺泡受累。左肺野相对清晰，但肺门周围可见轻度模糊影，可能由轻度间质水肿或早期病变引起。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3785,35 +3898,41 @@ This frontal chest X-ray in a febrile, unwell infant demonstrates **left lower l
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺部致密影、肺实变、膈肌异常或定位。</pre>
+<pre>### **影像描述：**
+
+- **检查类型**：胸部正位X光片（前后位，可能因婴儿体位所致）。
+- **显示解剖结构**：胸腔，包括肋骨、脊柱、心脏、膈肌及双肺。
+- **肺野**：
+- **右肺**：肺野相对清晰，可见肺纹理，充气良好。 
+- **左肺**：**中下肺野**（尤其是**左下肺叶**）可见**密度增高影**。可见**模糊的斑片状实变影**，且左侧膈肌轮廓模糊（“轮廓征”），提示病变累及左下肺叶。
+- **心脏与纵隔**：心影及纵隔轮廓大小、形态正常。未见心脏增大或纵隔增宽征象。
+- **膈肌**：右侧膈肌轮廓清晰，位置正常。**左侧膈肌轮廓因左下肺密度增高影而模糊**，符合实变表现。
+- **骨骼**：未见骨折或骨骼异常。
+- **气道**：未见明显气体潴留或肺过度充气征象。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：肺炎/实变（结论）；加入 segmentation 后：肺炎/实变（结论）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+原来是“右下肺叶”，加了之后变成“左下肺叶”，都不对；无明显提升。
 
 </details>
 
--->
 ### 2.12 [Spalding sign](https://radiopaedia.org/cases/spalding-sign?lang=us) (`spalding-sign`)
 
-| Original image | Medical-SAM2 | Medical-SAM3: fetal head, fetal skull, brain | BiomedParse v1: fetal head, fetal skull, brain |
+| Original image | Medical-SAM2 | Medical-SAM3: fetal head, fetal skull, brain 胎儿头部、胎儿颅骨、脑 | BiomedParse v1: fetal head, fetal skull, brain 胎儿头部、胎儿颅骨、脑 |
 |---|---|---|---|
 | <img src="assets/spalding-sign/original.jpeg" width="100%"> | <img src="assets/spalding-sign/medical_sam2_overlay.png" width="100%"> | <img src="assets/spalding-sign/medical_sam3_overlay.png" width="100%"> | <img src="assets/spalding-sign/biomedparse_v1_overlay.png" width="100%"> |
 
-> **备注：** 太困了，起来再check。
-
-<!-- MODEL_CONTENT_TODO_2_12
 - **背景信息：**Gender: Female; Antenatal scan at 28 weeks gestation.；女性，孕 28 周接受产前超声。
 - **原始图片 caption：**
 
 <pre>A single image from a prenatal ultrasound demonstrates the Spalding sign, overlapping of the fetal skull bones.</pre>
 
-- **原始图片 caption 翻译：**单张产前超声显示 Spalding 征，即胎儿颅骨骨片相互重叠。
+- **原始图片 caption 翻译：**一张产前超声图像显示了斯伯丁征（Spalding sign），即胎儿颅骨重叠。
 
 <details>
 <summary><strong>InternVL3-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**明显提升。
 
 **原始图像 → Single-image caption 回答**
 
@@ -3845,7 +3964,12 @@ In conclusion, while the ultrasound suggests a potential abnormality within the 
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：先天性巨结肠、肠麻痹、胎粪性肠梗阻、便秘。 </pre>
+<pre>该超声图像采集自妊娠28周的产前检查。图像显示的是一个底部标有“TRANS”（横切面）的切面，重点关注胎儿的腹部区域。图像中央可见一个圆形低回声区，周围环绕着高回声（明亮）线条；这可能代表具有明确管壁的充液结构，通常提示为肠管，尽管在缺乏更多背景信息的情况下，也不能完全排除其他腹部器官的可能性。
+
+**观察到的关键特征：**
+1. **晕环征（Halo Sign）：** 中央区域似乎被一圈明亮（高回声）的晕环包围，这可能提示内部含有液体，很可能是羊水或胃肠道内容物。
+2. **管状/环形结构：** 这种圆形形态可能代表胃肠道（小肠或大肠）的肠段。
+3. **周围组织：** 背景纹理呈不均匀状，这是腹部周围软组织及结构的典型表现。 </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3894,18 +4018,34 @@ In summary, without overt abnormal findings visible in the provided segmentation
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：脑积水。涉及的主要影像要点包括：胎儿颅骨异常。</pre>
+<pre>1. **原始超声图像：**
+- 第一张图像是胎儿头部的标准横切面超声图。该灰度图像显示了典型的超声特征：深色区域代表充满液体的腔隙或软组织，而较亮的区域则代表骨骼等密度较高的结构。
+2. **Medical-SAM2 分割结果：**
+- 绿色区域可能代表胎儿躯干或周围区域的分割，而紫色区域可能标示了胎儿头部或脑部区域。
+3. **Medical-SAM3 分割结果（胎儿头部、颅骨、脑部）：**
+- 在此图像中，紫色结构似乎勾勒出了胎儿的头部轮廓。粉色轮廓可能代表颅骨，其内部较小的区域可能是脑部。
+4. **BiomedParse 分割结果（胎儿头部、颅骨、脑部）：**
+- 在此，洋红色区域可能代表胎儿脑部，蓝色区域可能是胎儿颅骨，同时还勾勒出了另一个结构（可能是肌肉或其他组织）。
+#### 结构评估：
+- **颅骨与脑部发育：**
+- Medical-SAM3 和 BiomedParse 的分割结果旨在识别颅骨、脑部及周围组织。通常在孕28周时，胎儿脑部正处于活跃发育期，表现为脑组织持续的分化与生长。
+
+- **正常与异常发现：**
+- **正常发现**：在健康发育的情况下，颅骨应呈现为轮廓清晰的椭圆形结构；脑组织回声均匀，无大片低回声或高回声区域（这些区域可能提示囊肿或肿瘤等异常）。 
+- **可疑发现**（需通过后续影像检查或临床评估确认）：
+- 形状、大小或回声纹理的任何不规则变化，都可能提示潜在问题，如颅缝早闭、脑积水或脑部畸形。 
+- 如果脑部分割区域显示大片深色（低回声）区域，可能提示脑室扩大或其他病变。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+加入seg之后，明显定位到了儿童的脑部/头骨。
 
 </details>
 
 <details>
 <summary><strong>InternVL3.5-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -3944,7 +4084,8 @@ This interpretation assumes no additional clinical context (e.g., maternal sympt
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：羊水过少。涉及的主要影像要点包括：羊水量减少。</pre>
+<pre>**图像描述：**
+提供的超声图像为孕28周产前检查时的横切面（TRANS）视图。胎儿位于图像中央，颅骨、脊柱及周围羊水显示清晰。颅骨形态完整，颅缝走行正常；脊柱未见排列异常或结构缺陷。可见胎儿肢体，未见明显的软组织异常。尽管该切面未重点显示胎盘，但羊水量看起来正常，无羊水过多或羊水过少的征象。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4017,18 +4158,27 @@ The provided ultrasound image is a transverse (TRANS) view of a fetal head at 28
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：脑室扩大、胎儿头部结构正常、脑积水。涉及的主要影像要点包括：胼胝体改变、脑室扩大、胎儿颅骨异常、钙化。</pre>
+<pre>**图像描述与诊断：**
+
+提供的超声图像为孕28周胎儿头部的横切面（TRANS）视图。可见的关键结构包括胎儿颅骨（呈高回声的轮廓）和脑部（较暗的中央区域）。分割结果标示了不同的区域：
+- **Medical-SAM3**：分割出胎儿颅骨（紫色）和脑部（红色）。
+- **BiomedParse**：区分出胎儿头部（粉色）和脑部（蓝色）。
+
+**关键观察点：**
+1. **胎儿头部与脑部的比例**：如果脑部区域（BiomedParse中为蓝色，或Medical-SAM3中为红色）相对于胎儿头部（粉色）显得不成比例地小，则提示可能存在**小头畸形**（即相对于孕周而言，头部尺寸异常偏小）。
+2. **颅骨与脑部形态**：颅骨的回声环看起来完整，但如果形状或厚度出现异常（例如颅骨增厚或颅缝闭合），则可能提示**颅缝早闭**。提供的图像中未见明显的囊性结构或积液。
+3. **脑部回声纹理**：脑实质回声均匀，未见明显的病变、囊肿或脑室扩大（充满液体的腔隙增大）。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**部分有帮助：纠正扫描部位，但遗漏颅骨重叠征
+**Segmentation 对 caption 的总体影响：**提升原因存疑。潜在提升。
 
 **原始图像 → Single-image caption 回答**
 
@@ -4038,7 +4188,7 @@ The provided ultrasound image is a transverse (TRANS) view of a fetal head at 28
 
 中文要点翻译：
 
-<pre>模型把超声误认为胎儿胸部横断面，报告右位心和胃泡位置异常，诊断右位心伴内脏反位的异位综合征。</pre>
+<pre>超声图像显示了胎儿胸部的横切面。心脏位于胸腔右侧，提示存在右位心。此外，胃泡位置异常，提示存在内脏反位。这些发现符合异位综合征（heterotaxy syndrome）的诊断，具体表现为右位心伴内脏反位。该病症涉及胸腹部脏器相对于身体中线的异常排列。为制定全面的诊疗方案，有必要进行进一步评估并结合临床表现进行综合分析。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4048,18 +4198,18 @@ The provided ultrasound image is a transverse (TRANS) view of a fetal head at 28
 
 中文要点翻译：
 
-<pre>加入 fetal head、skull、brain 分割后，模型正确识别为 28 周胎儿头部横断面，但认为颅骨和脑结构正常、无明显异常。</pre>
+<pre>该超声图像显示了孕28周时胎儿头部的横切面视图。分割区域突出显示了胎儿头部、颅骨及脑部结构。分割结果准确勾勒出了这些结构，不同解剖特征之间的边界清晰可见。胎儿头部轮廓清晰，颅内脑部结构亦清晰可辨。分割区域内未见明显异常或畸形。综合所提供的信息及对超声图像的目视评估，诊断结果为孕28周胎儿发育正常且健康。</pre>
 
 **对模型图片 caption 能力及 Segmentation 影响的分析：**
 
-segmentation 成功纠正了器官和扫描平面，避免了完全无关的胸腹部诊断；但模型仍未识别 Spalding 征所需的胎儿颅骨骨片相互重叠，因此没有获得胎死宫内这一结论。它说明解剖路由改善不等于细粒度征象识别成功。
+seg纠正器官，但存疑，可能是prompt文字提示带来的提升。
 
 </details>
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -4084,7 +4234,14 @@ The ultrasound image shows a fetus at 28 weeks gestation with normal anatomical 
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>**图像描述：**
+
+该图像为宫内胎儿的灰阶超声扫描图，呈现的是胎儿腹部和头部的横断面视图。
+
+*   **胎儿结构：** 图像左侧可见胎儿头部，显示出颅骨及脑部结构；右侧为胎儿腹部，显示出胃、肠道以及可能包含的部分肝脏和脾脏。可见脐带连接着胎儿与胎盘（胎盘未完全显示）。
+*   **胎盘：** 图像下部可见胎盘，呈现为大块的高回声（明亮）结构。
+*   **羊水：** 胎儿周围环绕着羊水，表现为暗区（无回声区）。
+*   **孕周：** 根据患者情况，该图像显示的是孕周约为28周的胎儿。胎儿各结构的尺寸与发育状况均与该孕周相符。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4102,18 +4259,20 @@ Normal fetal head anatomy at 28 weeks gestation based on this single ultrasound 
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：胎儿头部结构正常。涉及的主要影像要点包括：胎儿颅骨异常。</pre>
+<pre>该图像是孕28周胎儿的灰度超声扫描图，显示了胎儿头部的横截面。图中可见胎儿的脑部结构（包括脑室和大脑半球）以及胎儿颅骨。提供的分割掩模标示出了胎儿头部、颅骨及脑部区域。
+
+根据该图像及提供的分割结果，胎儿头部呈现出符合孕28周发育状况的正常形态。脑部结构清晰可见，颅骨形态完整；仅凭此单张图像，未见明显的肉眼可见异常。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 
 <details>
 <summary><strong>MedMO-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -4123,7 +4282,7 @@ Normal fetal head anatomy at 28 weeks gestation based on this single ultrasound 
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>该图像显示了子宫内的胎儿。图像下部可见胎儿头部，上部可见胎儿躯干，下部亦可见胎盘。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4133,18 +4292,18 @@ Normal fetal head anatomy at 28 weeks gestation based on this single ultrasound 
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：胎儿颅骨异常。</pre>
+<pre>该图像显示了孕龄为28周胎儿的横断面。可见胎儿头部、颅骨及脑部。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-4B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -4164,7 +4323,15 @@ The diagnosis is: Normal fetal anatomy at 28 weeks gestation.</pre>
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>这是一张孕28周女性患者的经腹部超声图像。图像显示了胎儿的侧面轮廓，可见胎儿的背部和脊柱呈线状高回声结构，沿图像中心垂直延伸。胎儿头部位于图像上方，身体向下延伸；同时可见胎儿肢体，其中右臂和右腿轮廓清晰。
+
+胎儿呈典型的纵向体位，背部朝向超声探头。胎儿头部轻微屈曲，这属于该孕周的正常表现。
+
+图像中心附近可见一小而明亮的结构，即胎儿心脏，其位置符合正常胎儿心脏解剖位置。
+
+图像中亦可见胎儿腹部，其中肝脏及其他腹部结构呈低回声区。
+
+该图像显示了孕28周胎儿正常的解剖结构；未见胎儿体位、大小或解剖结构方面的明显异常。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4190,18 +4357,26 @@ The ultrasound image at 28 weeks gestation shows a normal fetal head and brain s
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：正常妊娠、胎儿头部结构正常。涉及的主要影像要点包括：胎儿颅骨异常。</pre>
+<pre>### 图像描述：
+该图像为一名妊娠28周孕妇的经腹部（ATL）超声扫描图。图像的重点在于胎儿头部，其在图像中央区域清晰可见。胎儿头部呈现为一个巨大的圆形结构，具有清晰、明亮且弯曲的轮廓，这是超声成像中胎儿颅骨和脑部结构的典型特征。
+
+### 分割分析：
+1. **Medical-SAM2 分割（紫色覆盖层）**：该模型将整个胎儿头部（包括颅骨和脑部）分割为一个单一的大型紫色区域。分割结果涵盖了整个胎儿头部，但在边缘处存在些许细微误差。
+
+2. **Medical-SAM3 分割（紫色覆盖层）**：该模型专门分割胎儿头部、胎儿颅骨及脑部，结果与 Medical-SAM2 的分割一致。该分割更为精确，清晰地勾勒出了胎儿颅骨和脑部的轮廓。
+
+3. **BiomedParse 分割（紫色和蓝色覆盖层）**：该模型分别分割了胎儿头部（紫色）以及胎儿颅骨和脑部（蓝色）。分割更为细致，区分了胎儿头部与颅骨，显示出对胎儿头部及脑部结构更精细的分割效果。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -4229,7 +4404,9 @@ The ultrasound image is consistent with a normal fetal anatomy scan at 28 weeks 
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>**图像描述：**
+
+这是一张孕28周时拍摄的经阴道超声图像（底部标有“TRANS”字样）。图像显示了一个被羊水包围的胎儿结构，其轮廓呈弧形且具有高回声特征（可能是胎儿头部或躯干）。图像上的“GI”标签（可能代表“Gestational Interval”或“Gestational sac”/孕囊）和“ATL”标签（可能代表“Anterior Transvaginal”/经阴道前壁扫查）表明这是一次经阴道超声检查。图像颗粒感较强，缺乏清晰的胎儿解剖结构细节；除非进行针对性扫查，否则在这一孕周进行经阴道超声检查时，出现此类图像特征是常见的。图像中胎儿的侧面轮廓不清晰，也无法清楚地显示胎儿心脏、肢体或其他结构。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4260,18 +4437,27 @@ The ultrasound is normal, with no evidence of fetal structural abnormalities in 
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：胎儿头部结构正常。涉及的主要影像要点包括：胎儿颅骨异常。</pre>
+<pre>**图像描述：**
+
+这是一张孕28周时获取的经阴道超声图像。图像显示了胎儿头部的横切面，可见胎儿颅骨及脑部结构。图像底部标有“TRANS”（经阴道），顶部标有“ATL”（经腹或经阴道探头），指示了所使用的超声模式。“GI”标签可能指代孕周或图像标识符。
+
+分割掩模（segmentation masks）标示了不同的区域：
+- Medical-SAM2 分割结果（紫色）勾勒出了胎儿头部的整体区域，涵盖了颅骨和脑部。
+- Medical-SAM3 分割结果（蓝色）专门提取了胎儿颅骨区域。
+- BiomedParse 分割结果（紫色与蓝色）进一步细化了分割范围：紫色代表胎儿头部及脑部，蓝色代表胎儿颅骨。
+
+该图像质量足以评估此孕周下的胎儿解剖结构。胎儿头部轮廓清晰，颅骨及脑部结构可见度良好。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -4313,7 +4499,15 @@ This ultrasound image demonstrates **abnormal fetal intracranial findings** sugg
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：脑室扩大、脑积水。涉及的主要影像要点包括：脑室扩大、钙化、胎儿颅骨异常。</pre>
+<pre>**图像描述：**
+- 扫描图像显示一个圆形、边界清晰、呈低回声（暗色）的结构，其外周有一圈明亮的高回声（白色）边缘，这与胎儿颅骨或颅盖骨的特征相符。
+- 中心区域可见多个细小、明亮的高回声灶，并呈现出较为复杂的非均匀回声纹理，这可能代表了发育中的脑实质和脑室结构。
+- 周围的高回声环很可能是骨性颅盖骨，表现为厚实且均匀明亮。
+- 图像清晰度尚可，虽存在些许运动伪影或轻微模糊，但这在实时胎儿超声成像中属于常见现象。
+- 图像顶部的“ATL”标签可能指代超声设备制造商（Atlantis，可能是飞利浦或GE的机型），而“GI”可能表示成像切面或扫描扇区。
+
+**解读与诊断：**
+最显著的发现是胎儿头部周围存在**增宽的高回声边缘**，这提示可能存在**头围增大**或**颅骨发育异常**。中心区域显示出**回声异常**，并可能伴有**脑室扩张**，这可能提示存在**脑室扩大**或**脑积水**。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4390,35 +4584,45 @@ This ultrasound image shows a **fetal head with normal-appearing skull and brain
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：脑室扩大、脑积水。涉及的主要影像要点包括：脑室扩大、胼胝体改变、胎儿颅骨异常、脉络丛异常。</pre>
+<pre>### **图像描述：**
+
+该图像为胎儿头部的灰度横断面（轴位）超声扫描图，很可能是通过经腹途径获取的（由“TRANS”标签标示）。由于骨骼的高反射性，胎儿颅骨呈现为一个明亮的高回声（白色）环。在颅骨内部，脑实质呈现为回声较低（较暗）的区域，其中包含一些内部高回声结构，这些结构可能代表中线结构（如大脑镰、脉络丛）或正常的解剖变异。
+
+该胎儿头部图像处于相对适宜评估的切面上，尽管存在一些运动伪影和分辨率不理想的情况，但这在实时超声成像中很常见。
+
+---
+
+### **分割分析：**
+
+- **Medical-SAM2（紫色覆盖层）：** 该分割结果似乎覆盖了图像的很大一部分，包括胎儿头部、周围的母体组织以及可能的部分羊水。它缺乏特异性，很可能代表了一种宽泛且解剖学上不精确的分割——例如整个胎儿身体或一个大的感兴趣区域——对于精确评估胎儿大脑并无助益。
+
+- **Medical-SAM3（蓝色覆盖层）：** 该分割结果更具针对性，似乎能更准确地勾勒出胎儿颅骨和大脑的轮廓。其形状与横断面上的胎儿头部相符，显示了明亮的高回声边缘（颅骨）和中央脑组织。这是一个更具临床意义的分割结果。
+
+- **BiomedParse（紫色和蓝色覆盖层）：** 该分割尝试区分胎儿头部内部的结构。较大的紫色区域可能代表脑实质，而较小的蓝色区域可能对应小脑或后颅窝的一部分。这表明了一种更高级的解剖学分割，能够区分脑组织与其他颅内结构。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升，只是提供了更多分析来源。
 
 </details>
 
--->
 ### 2.13 [Surgical ankylosis](https://radiopaedia.org/cases/surgical-ankylosis?lang=us) (`surgical-ankylosis`)
 
-| Original image | Medical-SAM2 | Medical-SAM3: femur, tibia, knee joint, intramedullary nail | BiomedParse v1: femur, tibia, knee joint, intramedullary nail |
+| Original image | Medical-SAM2 | Medical-SAM3: femur, tibia, knee joint, intramedullary nail 股骨、胫骨、膝关节、髓内钉 | BiomedParse v1: femur, tibia, knee joint, intramedullary nail 股骨、胫骨、膝关节、髓内钉 |
 |---|---|---|---|
 | <img src="assets/surgical-ankylosis/original.jpg" width="100%"> | <img src="assets/surgical-ankylosis/medical_sam2_overlay.png" width="100%"> | <img src="assets/surgical-ankylosis/medical_sam3_overlay.png" width="100%"> | <img src="assets/surgical-ankylosis/biomedparse_v1_overlay.png" width="100%"> |
 
-> **备注：** 太困了，起来再check。
-
-<!-- MODEL_CONTENT_TODO_2_13
 - **背景信息：**Age: 75 Gender: Female; Knee immobility post surgery for failed joint replacement；75 岁女性，关节置换失败后接受手术，术后膝关节不能活动。
 - **原始图片 caption：**
 
 <pre>There is ankylosis of the left knee joint with an intramedullary nail traversing the joint extending to the proximal third of the tibia. Osteolysis of the fibula head and proximal fibula with a bony fragment at the lateral aspect mid-shaft of the fibula.</pre>
 
-- **原始图片 caption 翻译：**左膝关节强直，髓内钉跨越关节并延伸至胫骨近端三分之一；腓骨头及近端腓骨溶骨，腓骨干中段外侧可见骨片。
+- **原始图片 caption 翻译：**左膝关节呈强直状态，一枚髓内钉穿过关节并延伸至胫骨近端三分之一处。可见腓骨头及腓骨近端骨溶解，腓骨干中部外侧可见一骨碎片。
 
 <details>
 <summary><strong>InternVL3-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负向：参考关键点减少或被错误结论取代
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -4451,7 +4655,11 @@ The X-ray highlights the complexity of managing post-surgical complications in e
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：关节置换失败。涉及的主要影像要点包括：骨溶解。</pre>
+<pre>### 图像描述：
+1. **关节解剖结构**：显示的膝关节包括上方的股骨（大腿骨）、下方的胫骨（小腿骨）以及部分腓骨（位于侧面的较细骨骼）。
+2. **手术植入物**：可见一根长条状的垂直金属杆和一块水平放置的钢板。该金属杆很可能是一种固定装置，而水平钢板则可能是既往手术留下的，或者是用于提供额外稳定性的部件。
+3. **骨骼结构**：骨骼呈现出经手术处理的形态，表明该关节曾接受过置换或重建手术。
+4. **关节间隙**：股骨与胫骨之间的间隙看起来不规则，提示关节置换术可能存在问题。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4493,18 +4701,28 @@ In conclusion, the X-ray image reveals critical post-surgical changes in the kne
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：关节置换失败。涉及的主要影像要点包括：髓内钉。</pre>
+<pre>提供的X光图像显示了膝关节的正位视图，该关节曾接受过手术治疗，股骨内可见一枚髓内钉。患者为一名75岁女性，因关节置换术失败后的膝关节活动受限而就诊。
+
+### 详细描述：
+1. **髓内钉**：
+   - 图像中可见一根金属杆（髓内钉）沿股骨干走行。这表明患者曾接受过股骨固定手术，原因可能是既往关节置换术失败或其他骨骼问题。
+
+2. **骨骼结构**：
+   - 骨骼形态似乎发生了一些变化，这可能与既往的关节置换手术有关。股骨与胫骨的对线关系基本维持正常；不过，仅凭此图像无法明确观察到骨折或假体松动等问题。
+
+3. **可能的骨骼病变**：
+   - 图像中的分割区域突显了股骨和胫骨的部分结构，表明关注重点在于骨骼组件。虽然图像中未明确显示骨折或骨吸收等异常情况，但结合患者的病史，可对相关病变进行推断。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：腓骨近端骨溶解（结论）；加入 segmentation 后：髓内钉（文本提及）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升和改变。
 
 </details>
 
 <details>
 <summary><strong>InternVL3.5-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**正向：新增或强化参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -4545,7 +4763,8 @@ The frontal X-ray of the left knee reveals a long intramedullary nail spanning t
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：植入物松动、假体周围骨折、关节置换失败。涉及的主要影像要点包括：髓内钉。</pre>
+<pre>**图像描述：**  
+左膝正位X光片显示一枚横跨股骨和胫骨的长髓内钉，该装置通常用于骨折固定。在胫骨远端、紧邻髓内钉处可见一条骨折线。骨折部位的骨痂形成有限，提示愈合延迟或不完全。髓内钉的排列位置看似良好，但胫骨骨折处显示出骨不连的征象，表现为骨折端硬化及持续存在的间隙。未见明显的内固定装置失效（如髓内钉断裂）。膝关节间隙显示不清，这可能是由于重叠的内固定装置或软组织肿胀所致。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4592,18 +4811,19 @@ The imaging and clinical context indicate a **periprosthetic fracture stabilized
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：关节置换失败、假体周围骨折。涉及的主要影像要点包括：髓内钉。</pre>
+<pre>**图像描述：**
+该X光片显示了左下肢的正位视图，可见一枚贯穿股骨和胫骨的髓内钉。髓内钉位于髓腔内，并穿过膝关节。图像中股骨和胫骨呈分段显示，膝关节区域被特别标示。胫骨外侧可见骨折征象，位置可能位于膝关节远端。关节间隙形态不规则，提示可能存在退行性改变或既往手术干预。髓内钉穿过膝关节的放置方式较为特殊，表明其用于稳定涉及股骨和胫骨骨干的骨折，且该骨折可能跨越了膝关节。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：髓内钉（文本提及）；加入 segmentation 后：髓内钉（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升
 
 </details>
 
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负向：参考关键点减少或被错误结论取代
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -4617,7 +4837,9 @@ Based on the provided information and the radiographic findings, the most likely
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：假体周围骨折。涉及的主要影像要点包括：髓内钉。</pre>
+<pre>该X光片显示了左小腿（包括膝关节）的正位影像。股骨内可见一根金属杆或髓内钉，表明患者曾接受过涉及植入内固定装置的外科手术。这种内固定装置的存在提示患者此前可能发生过股骨骨折或其他损伤，因而需要使用髓内钉进行固定。
+
+鉴于患者已75岁，且在关节置换手术失败后出现膝关节活动受限，患者可能出现了与既往关节置换术相关的并发症，例如假体周围骨折或植入物松动。目前的影像学表现提示，患者可能已接受翻修手术以处理上述问题；该手术过程可能包括移除失效的关节置换组件，并植入髓内钉以稳定骨骼。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4627,18 +4849,18 @@ Based on the provided information and the radiographic findings, the most likely
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：关节置换失败、骨关节炎。涉及的主要影像要点包括：髓内钉。</pre>
+<pre>该X光片显示了左下肢的正位影像，重点关注股骨和胫骨。股骨内可见一枚髓内钉，表明曾进行过手术干预。股骨形态显示出显著改变，这很可能是由关节置换术失败及后续手术造成的。胫骨亦可见手术干预的迹象，同样可见一枚髓内钉。膝关节间隙变窄，这可能提示存在骨关节炎或其他退行性病变。鉴于患者的年龄及关节置换术失败的病史，最可能的诊断是术后并发症导致的膝关节活动受限；其成因可能是感染、骨不连或植入物机械故障。需结合临床情况并可能进行进一步影像学检查，以明确导致活动受限的确切原因。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：髓内钉（结论）；加入 segmentation 后：髓内钉（文本提及）。加入 segmentation 后参考证据减少，说明 mask 或其文本提示产生了干扰，不能视为 caption 改善。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**正向：新增或强化参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -4668,7 +4890,7 @@ Based on the X-ray findings and the patient&#x27;s history, the diagnosis is lik
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：关节置换失败。涉及的主要影像要点包括：髓内钉。</pre>
+<pre>该图像为小腿及膝关节的正位X光片，显示了股骨和胫骨的骨骼结构。可见一根细长的金属杆（很可能是髓内钉或髓内杆）贯穿股骨中心，表明曾进行过手术干预。膝关节本身似乎处于固定状态，这可能是由手术植入物或术后僵硬引起的。膝关节周围存在明显的骨重塑和潜在畸形，这与既往关节置换手术失败的情况相符。腿部的力线排列似乎发生了一定程度的改变。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4708,18 +4930,24 @@ Based on the X-ray findings and the patient&#x27;s history, the most likely diag
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：植入物松动、关节置换失败。涉及的主要影像要点包括：髓内钉、骨溶解。</pre>
+<pre>该图像为小腿和膝关节的正位X光片，显示了以下情况：
+
+*   **骨骼：** 可见股骨（大腿骨）和胫骨（小腿骨），两者共同构成膝关节。
+*   **植入物：** 股骨内植入了一枚髓内钉，并向下延伸至膝关节区域。这是一种用于稳定骨折的手术植入物。
+*   **膝关节：** 膝关节本身呈现异常。可见明显的骨质破坏和畸形，尤其是在胫骨平台（胫骨与股骨相连的顶部关节面）周围。
+*   **软组织：** 膝关节周围的软组织呈现肿胀或异常，这与炎症或感染的征象相符。
+*   **排列：** 腿部的排列呈现异常，这可能是由关节置换失败及随后的骨质破坏所致。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：髓内钉（文本提及）；加入 segmentation 后：髓内钉（结论）、腓骨近端骨溶解（结论）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升。
 
 </details>
 
 <details>
 <summary><strong>MedMO-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -4729,7 +4957,7 @@ Based on the X-ray findings and the patient&#x27;s history, the most likely diag
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>可见膝关节假体。股骨远端与胫骨对线良好。未见不透光异物。未见骨折。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4739,18 +4967,17 @@ Based on the X-ray findings and the patient&#x27;s history, the most likely diag
 
 中文医学要点：
 
-<pre>回答未形成可稳定提取的明确疾病结论。 </pre>
+<pre>可见膝关节假体。股骨远端与胫骨对线良好。未见不透光异物。未见骨折。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：未命中核心征象；加入 segmentation 后：未命中核心征象。前后都没有覆盖决定性征象；回答即使变长，也不能视为有效的视觉理解增益。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
-
+无明显提升
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-4B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**部分有帮助：识别髓内钉和失败术后状态，但仍未说出关节强直
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -4778,7 +5005,13 @@ Final Diagnosis: **Revision total knee arthroplasty — successful implant place
 
 中文要点翻译：
 
-<pre>模型把图像解释为全膝关节置换术后，认为假体位置良好、无松动或骨折，最终称为成功的翻修全膝关节置换。</pre>
+<pre>这是一张左小腿的正位（AP）X光片，标有“L”和“CVI”（可能代表“中心/视图/机构”等含义），显示了膝关节区域近期进行过手术干预。影像显示一个沿胫骨纵向延伸并伸入膝关节间隙的长条形金属植入物——这与**全膝关节置换术（TKR）**的假体特征相符。
+
+主要观察结果：
+- 该植入物看起来是一种**膝关节假体**，可见位于胫骨内的柄部或假体主体，以及可能位于股骨或髌骨的组件（尽管在此视图中髌骨显示不清晰）。
+- 假体与骨骼解剖结构对位良好，未见松动、断裂或脱位的迹象。
+- 周围骨骼看起来完整，未见骨髓炎、骨折或内固定物位置异常的征象。
+- 患者的年龄（75岁）及“关节置换失败”的病史是关键的背景信息。膝关节置换失败通常意味着假体松动、磨损、感染或机械故障——而这些情况在此X光片上均未见明显表现。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4805,18 +5038,19 @@ This is a complex case that requires further clinical evaluation, including a de
 
 中文要点翻译：
 
-<pre>加入股骨、胫骨、膝关节和髓内钉分割后，模型识别到跨越下肢的髓内钉，并改判为失败膝关节置换术后使用髓内钉稳定或翻修。</pre>
+<pre>**图像描述：**
+该图像为左小腿的正位（前后位）X光片（由“L”标记指示）。图像清晰显示了置于胫骨内的髓内钉（一种细长的金属杆），其走向从骨干中部延伸至远端，且位于胫骨髓腔的中心位置。周围的骨骼结构（包括近端的股骨和远端的胫骨）均可见。分割掩模表明髓内钉是主要的关注对象，股骨和胫骨也进行了分割，尽管在该视图中膝关节的分割轮廓未完全勾勒出来。图像未显示明显的骨折、脱位或感染迹象。</pre>
 
 **对模型图片 caption 能力及 Segmentation 影响的分析：**
 
-segmentation 纠正了“标准膝关节假体且手术成功”的基本误读，并把注意力转向髓内钉和失败术后状态；但模型把钉的位置和用途描述得不够准确，也没有识别左膝关节被手术性融合、不能活动的核心诊断。
+无明显提升
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**基本持平：前后均提及部分参考关键点
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -4856,7 +5090,9 @@ The patient has a femoral shaft fracture that has been treated with intramedulla
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：关节置换失败。涉及的主要影像要点包括：髓内钉。</pre>
+<pre>**图像描述：**
+
+这是一张左下肢的正位（前后位）X光片，由“L”标记指示。图像清晰显示了一个金属植入物——具体而言，是一根细长的直形髓内杆（或称髓内钉），从股骨近端向下延伸穿过股骨干。该髓内钉位于股骨髓腔内，表明其为股骨髓内钉，很可能是用于固定股骨骨折的。髓内钉的远端似乎位于膝关节附近或内部，但图像中未见膝关节假体（如股骨或胫骨组件）。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4891,18 +5127,23 @@ This case highlights the challenges of revision arthroplasty in elderly patients
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：关节置换失败。涉及的主要影像要点包括：髓内钉。</pre>
+<pre>**图像描述：**
+该X光片为左下肢的正位视图，清晰显示了以下内容：
+- 沿股骨置入了一枚髓内钉（IM nail），其走向从股骨近端延伸至股骨远端，并进入胫骨近端。这是稳定股骨骨折或进行关节置换翻修术的常用方法。
+- 可见股骨和胫骨，膝关节位于两者之间。
+- “L”标记确认这是左腿。
+- 骨骼结构与植入物对位良好，表明手术器械已准确就位。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：髓内钉（结论）；加入 segmentation 后：髓内钉（结论）。前后对参考征象的覆盖基本不变；segmentation 没有带来可辨认的疾病特异性增量。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+无明显提升
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**正向：新增或强化参考关键点
+**Segmentation 对 caption 的总体影响：**正向：新增参考点
 
 **原始图像 → Single-image caption 回答**
 
@@ -4945,7 +5186,15 @@ The X-ray demonstrates a failed total knee replacement with periprosthetic fract
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：植入物松动、假体周围骨折。涉及的主要影像要点包括：髓内钉。</pre>
+<pre>**图像描述：**
+
+这是一张左下肢的正位（前后位）X光片，右下角的“L”标记指示了左侧。图像显示了一个长骨固定装置（很可能是髓内钉），其从股骨远端穿过膝关节延伸至胫骨近端。该髓内钉位置良好且结构完整，未见明显的骨折或移位征象。
+
+膝关节本身显示出明显的异常。关节间隙显著变窄，伴有严重的骨关​​节炎性改变，包括软骨下骨硬化、骨赘形成以及可能的关节面不平整。构成膝关节的股骨和胫骨部分似乎对线不良或位置异常，提示全膝关节置换术（TKA）或翻修手术失败。
+
+值得注意的是，植入物周围（尤其是胫骨近端）可见骨吸收或骨溶解的征象，这可能提示存在松动、感染或骨不连。此外，在胫骨近端外侧可见骨折碎片或皮质不连续，这可能代表假体周围骨折。
+
+股骨远端和胫骨近端显示出骨重塑及可能的骨量减少（骨质减少）征象；这种情况在老年患者中很常见，并可能因制动或慢性炎症而加重。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -5036,15 +5285,42 @@ This is a complex orthopedic case requiring multidisciplinary management.</pre>
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：假体周围骨折。涉及的主要影像要点包括：髓内钉、骨溶解。</pre>
+<pre>### **图像描述**
+
+这是一张**左下肢正位（前后位）X光片**（图像中的“L”标记指示了左侧）。图像展示了从股骨远端到胫腓骨近端的**股骨、膝关节、胫骨和腓骨**。
+
+关键影像学发现：
+
+1. **髓内钉 (IM nail)**：可见一根长而笔直、不透X光的金属杆，从股骨近端向下穿过股骨干，延伸至胫骨近端。这符合**髓内固定**的特征，很可能是在全膝关节置换术 (TKA) 失败后或翻修术后的骨折情况下植入的。
+
+2. **膝关节处的骨骼改变**：
+- 膝关节处**正常的关节间隙消失**，提示存在**关节炎性改变**或**关节破坏**。 
+- **股骨和胫骨的骨端呈现不规则及硬化**，植入物周围可能存在**骨溶解**或**骨吸收**——这些在关节置换失败的病例中很常见。 
+- **关节表面不光滑**；有**骨碎片或塌陷**的迹象，这可能提示**骨不连、畸形愈合或感染**。
+
+3. **胫骨骨折或骨不连**：
+- 在胫骨近端（膝关节下方），可见一条**透光线**或**皮质连续性中断**，提示存在**骨折**或**骨不连**。 
+- 髓内钉穿过了该区域，表明其植入目的是为了稳定骨折或修复失败的固定。
+
+4. **软组织与内固定物**：
+- 髓内钉在髓腔内的排列位置良好。 
+- 未见明显的内固定物松动或移位。 
+- X光片上未见明显的**骨膜反应**或**软组织肿胀**迹象，但这并不能排除感染的可能性。
+
+### **分割分析**
+
+- **Medical-SAM2 分割**（第一张分割图像）：显示覆盖整个肢体（包括骨骼和软组织）的宽大紫色叠加层，其中髓内钉以蓝色高亮显示。这是一种**粗略分割**，并未针对特定的解剖结构进行细分。 - **Medical-SAM3 分割结果**（第二张图）：尝试分割**股骨（绿色）、胫骨（紫色）、膝关节（粉色）和髓内钉（蓝色）**。然而，分割结果**不准确**——股骨和胫骨的轮廓未能正确勾勒，膝关节区域也呈现破碎状。髓内钉虽被正确识别，但仅显示为一小块蓝色区域，未能呈现其全长。
+
+- **BiomedParse 分割结果**（第三张图）：显示了一个勾勒出**髓腔**及髓内钉轮廓的**浅蓝色区域**。该结果在描绘**髓内植入物与骨髓腔**方面更为准确，但并未将股骨、胫骨或关节进行单独分割。
+
+→ **分割结果结论**：上述分割结果均无法达到临床精确诊断所需的准确度。就髓内钉和髓腔而言，BiomedParse 的结果在解剖学上最为合理，但所有方法在进行详细的骨科评估时均缺乏足够的精确度。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原始 caption：髓内钉（文本提及）；加入 segmentation 后：膝关节强直/融合（文本提及）、髓内钉（结论）、腓骨近端骨溶解（文本提及）。加入 segmentation 后参考证据增加，说明 overlay 至少改善了相关结构或病灶的注意力分配。该判断以是否接近 Radiopaedia 原始 caption 为准，不依据回答篇幅。
+加入 segmentation 后提到了可能的骨溶解（文本提及），新增参考依据。
 
 </details>
 
--->
 <!-- SECTION_2_CAPTION_ANALYSIS_END -->
 
 ---

@@ -261,7 +261,7 @@ X光片未显示明显的钙化或异物。骨骼和软组织形态正常。胃�
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -271,7 +271,7 @@ X光片未显示明显的钙化或异物。骨骼和软组织形态正常。胃�
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肠梗阻、小肠梗阻。 </pre>
+<pre>腹部X光片显示多处小肠肠管扩张并伴有气液平面，这些征象提示存在小肠梗阻。肠管扩张表明存在阻碍肠内容物正常通过的梗阻。结合患者腹痛、呕吐和腹胀的临床表现以及影像学检查结果，最可能的诊断为小肠梗阻。该病症需要及时就医以明确病因，并采取适当治疗，从而预防缺血或穿孔等并发症。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -281,18 +281,18 @@ X光片未显示明显的钙化或异物。骨骼和软组织形态正常。胃�
 
 中文医学要点：
 
-<pre>回答提及或最终倾向的诊断包括：肠梗阻、小肠梗阻。涉及的主要影像要点包括：膈肌异常或定位、游离气体。</pre>
+<pre>腹部X光片显示多处小肠肠管扩张并伴有气液平面，这是小肠梗阻的征象。这些扩张的肠管提示存在阻碍肠内容物正常通过的梗阻。膈下未见游离气体，从而排除了肠穿孔的可能性。结合腹痛、呕吐和腹胀的临床表现以及影像学检查结果，最可能的诊断为小肠梗阻。可能需要进一步进行CT扫描，以明确梗阻的确切病因和部位。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-原无主要变化。
+无明显提升，都提到了“小肠梗阻”。
 
 </details>
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -509,14 +509,14 @@ In summary, the radiograph is consistent with a mechanical small bowel obstructi
 
 **Segmentation 对 caption 的影响分析：**
 
-无影响
+无影响，都有提到”肠袢扩张“。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -602,14 +602,14 @@ This patient requires further evaluation to determine the cause of the obstructi
 
 **Segmentation 对 caption 的影响分析：**
 
-无变化。
+无变化，都有提到”肠袢扩张“。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -747,7 +747,7 @@ The supine abdominal X-ray demonstrates **multiple dilated small bowel loops wit
 
 **Segmentation 对 caption 的影响分析：**
 
-无变化。
+无变化，都有提到”肠袢扩张“。
 
 </details>
 
@@ -1046,7 +1046,7 @@ The ultrasound findings suggest a **suspicious solid lesion** with features conc
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无明显差异
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -1058,8 +1058,7 @@ The ultrasound findings suggest a **suspicious solid lesion** with features conc
 
 <pre>
 超声图像显示，一位乳腺实质致密的50岁女性左侧乳房内存在一个实性病变。该病变边界清晰，与周围组织相比呈低回声。鉴于患者的年龄、乳腺组织致密性以及存在实性病变，有必要进行进一步评估。鉴别诊断可包括纤维腺瘤或囊肿等良性病变，但考虑到病变的实性特征，不能排除恶性肿瘤的可能性。建议进行活检以明确病变的性质。
-
-回答提及或最终倾向的诊断包括：纤维腺瘤。 </pre>
+ </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1071,7 +1070,7 @@ The ultrasound findings suggest a **suspicious solid lesion** with features conc
 
 <pre>
 超声图像显示，一位乳腺实质致密的50岁女性患者左侧乳房内存在一个实性病变。与周围组织相比，该病变边界清晰，呈低回声。鉴于患者的年龄、乳腺组织致密性以及存在实性病变，有必要进行进一步评估。鉴别诊断包括纤维腺瘤或囊肿等良性病变，但考虑到病变的实性特征，不能排除恶性肿瘤的可能性。建议进行活检以明确病变的性质。虽然患者无乳腺癌家族史，这在一定程度上降低了风险，但并不能完全排除患病可能。放射科医生应仔细评估该病变的超声特征（包括大小、形态和回声特性），以指导后续的诊疗方案。
-回答提及或最终倾向的诊断包括：乳腺癌、纤维腺瘤。 </pre>
+</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
@@ -1159,7 +1158,7 @@ Given the classic ultrasound features (solid, well-defined, oval, hypoechoic, sm
 *   病变体积较小（无标尺难以精确测量，但目测约为数厘米大小）。 
 *   周围乳腺组织外观相对正常。
 
-回答提及或最终倾向的诊断包括：纤维腺瘤。 </pre>
+ </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1194,7 +1193,7 @@ The ultrasound image shows a suspicious solid lesion in the left breast of a 50-
 1.  **检查发现：** 超声检查显示左侧乳腺内有一个边界不规则的实性低回声病变。这一发现具有可疑性。
 2.  **风险因素：** 患者为50岁女性，处于乳腺癌高发年龄段。致密的乳腺实质可能降低乳房X光摄影（钼靶）的敏感性，因此常需辅以超声检查；本病例中的病变即由超声检查发现。
 3.  **鉴别诊断：** 超声发现的乳腺实性病变可能是良性或恶性的。病变表现出的边界不规则、低回声及实性特征，提示存在恶性可能。
-4.  **后续步骤：** 鉴于该50岁女性患者的超声检查结果具有可疑性，常规的后续步骤通常是进行活检，以明确病变的性质（良性或恶性）。活检方式可选择空芯针穿刺活检或手术切除活检。 回答提及或最终倾向的诊断包括：乳腺癌。 </pre>
+4.  **后续步骤：** 鉴于该50岁女性患者的超声检查结果具有可疑性，常规的后续步骤通常是进行活检，以明确病变的性质（良性或恶性）。活检方式可选择空芯针穿刺活检或手术切除活检。 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
@@ -1205,7 +1204,7 @@ The ultrasound image shows a suspicious solid lesion in the left breast of a 50-
 <details>
 <summary><strong>MedMO-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负向：参考关键点减少或被错误结论取代
+**Segmentation 对 caption 的总体影响：**无明显提升
 
 **原始图像 → Single-image caption 回答**
 
@@ -1334,8 +1333,7 @@ This is a **clinical case requiring further diagnostic evaluation**, not a defin
 - “MIm: [1,1]” —— 可能表示成像模式或视野。 
 - “18LX7” —— 可能表示图像尺寸或视野。 
 - “dift13.0” —— 可能是设备标识符或版本号。
-
-回答提及或最终倾向的诊断包括：乳腺癌、纤维腺瘤。涉及的主要影像要点包括：钙化。</pre>
+</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1387,8 +1385,7 @@ The patient is 50 years old with a solid lesion in her left breast on ultrasound
 超声图像显示左侧乳房内存在一个边界清晰的实性病变（右侧面板标记为“A”，左侧面板标记为“B”）。该病变呈椭圆形，边缘光滑，内部结构均匀（在分割掩模中显示为实心的紫色区域）。
 
 来自不同AI模型（Medical-SAM2、Medical-SAM3、BiomedParse）的分割掩模均一致地识别出了同一病变，表明其为实性肿块，而非囊肿或充满液体的结构。
-
-回答提及或最终倾向的诊断包括：乳腺癌。 </pre>
+ </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
@@ -1441,7 +1438,7 @@ This is a prudent approach given the patient’s age and the lesion’s characte
 
 该超声图像（图1）显示左侧乳腺内有一个实性低回声病灶。病灶边界清晰，边缘光滑、规则，内部回声质地不均匀。病灶内未见钙化（无后方声影或可见钙化灶）。病灶大小约为 18 x 7 mm（由元数据“18X7”标示）。周围乳腺实质呈致密状，与患者已知的致密型乳腺组织特征相符。病灶未伴有明显的结构扭曲或皮肤回缩。该图像为横断面视图，病灶位于左侧乳腺外上象限。
 
-回答提及或最终倾向的诊断包括：乳腺癌、纤维腺瘤。涉及的主要影像要点包括：钙化。</pre>
+。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -1485,7 +1482,7 @@ The ultrasound images show two solid, hypoechoic, well-defined masses in the lef
 
 <pre>**图像描述：**
 超声图像显示了两个边界清晰的实性病变（分别位于图像两侧，标记为 A 和 B）。与周围组织相比，这两个病变均呈低回声（较暗），这是实性肿块的典型特征。与右侧病变（标记为 A）相比，左侧病变（标记为 B）的轮廓显得稍不规则。分割掩模（紫色和蓝色）标示出了感兴趣区域，证实了边界清晰的实性肿块的存在。
-回答提及或最终倾向的诊断包括：纤维腺瘤。 </pre>
+ </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
@@ -1809,11 +1806,11 @@ Further clinical correlation and possibly additional imaging or microbiological 
 - **肺炎：** 感染常导致肺部不透光度增加。 
 - **胸腔积液：** 胸膜腔内积液可引起不透光度增加。 
 - **肺实变：** 由于肺泡内被填充物占据，X光片上常表现为致密的白色区域。
-回答提及或最终倾向的诊断包括：肺炎。涉及的主要影像要点包括：肺实变、肺部致密影。</pre>
+</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-无明显差异
+无明显差异，都是不对的。
 
 </details>
 
@@ -1952,7 +1949,7 @@ The chest X-ray findings, combined with the clinical presentation, strongly sugg
 
 **Segmentation 对 caption 的影响分析：**
 
-无明显差异
+无明显差异，都不对。
 
 </details>
 
@@ -1987,14 +1984,14 @@ The chest X-ray findings, combined with the clinical presentation, strongly sugg
 
 **Segmentation 对 caption 的影响分析：**
 
-无明显差异
+无明显差异，都不对
 
 </details>
 
 <details>
 <summary><strong>MedGemma-27B-IT</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助：前后均未命中参考核心征象
+**Segmentation 对 caption 的总体影响：**无提升。
 
 **原始图像 → Single-image caption 回答**
 
@@ -2117,14 +2114,14 @@ The chest X-ray shows increased opacity in the lower lung fields, particularly o
 
 **Segmentation 对 caption 的影响分析：**
 
-无明显差异。
+无明显差异，都不对。
 
 </details>
 
 <details>
 <summary><strong>MedMO-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**负面：始终未识别膈下结肠袢
+**Segmentation 对 caption 的总体影响：**无明显提升。
 
 **原始图像 → Single-image caption 回答**
 
@@ -2148,7 +2145,7 @@ The chest X-ray shows increased opacity in the lower lung fields, particularly o
 
 **对模型图片 caption 能力及 Segmentation 影响的分析：**
 
-原图和 segmentation 增强 caption 都把注意力放在肺或胸腔液体上，没有识别肠袢。都不对。
+无提升，没有识别肠袢。都不对。
 
 </details>
 
@@ -2241,14 +2238,14 @@ The patient should be **advised for further investigations**, including **blood 
 
 **Segmentation 对 caption 的影响分析：**
 
-无明显差异
+无明显差异，都不对。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-8B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助
+**Segmentation 对 caption 的总体影响：**无明显差异
 
 **原始图像 → Single-image caption 回答**
 
@@ -2343,14 +2340,14 @@ The chest X-ray shows a right lower lobe consolidation, which is highly suggesti
 
 **Segmentation 对 caption 的影响分析：**
 
-无明显。
+无明显，都不对。
 
 </details>
 
 <details>
 <summary><strong>Qwen3-VL-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助
+**Segmentation 对 caption 的总体影响：**无帮助，SEG只是提供了更多的参考
 
 **原始图像 → Single-image caption 回答**
 
@@ -2530,7 +2527,7 @@ The chest X-ray demonstrates **right lower lobe atelectasis** with associated **
 
 **Segmentation 对 caption 的影响分析：**
 
-无明显帮助。
+无明显帮助，都不对，SEG只是提供了更多的参考。
 
 </details>
 
@@ -2550,7 +2547,7 @@ The chest X-ray demonstrates **right lower lobe atelectasis** with associated **
 <details>
 <summary><strong>InternVL3-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**无帮助
+**Segmentation 对 caption 的总体影响：**无明显提升，但是提供了更多参考点。
 
 **原始图像 → Single-image caption 回答**
 
@@ -2592,7 +2589,7 @@ This general approach ensures thorough assessment while the pregnancy progresses
 - **周围区域：** 中央区域周围的结构回声特性各异，呈现出明暗交替的混合区域，这是复杂的胎儿解剖结构的典型特征。
 - **附加标记：** 标注文字（COR RT）有助于确定切面的方位。
 
-回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：脉络丛异常。</pre>
+。</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2647,11 +2644,11 @@ The normal development of the choroid plexus and lateral ventricles, at this sta
 - **紫色区域**：这些区域很可能代表脉络丛，这是位于脑室内的结构，负责产生脑脊液（CSF）。
 - **蓝色区域**：这些区域很可能代表侧脑室，这是脑内充满脑脊液的主要结构。
 
-回答提及或最终倾向的诊断包括：脑室扩大。涉及的主要影像要点包括：脉络丛异常、脑室扩大。</pre>
+。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
-分隔区域更明显涉及脉络丛。
+分隔区域更明显涉及脉络丛，提供更多参考。
 
 </details>
 
@@ -2735,8 +2732,7 @@ The ultrasound findings suggest possible ventriculomegaly and microcephaly. Furt
 
 **步骤 5：考虑其他异常**
 应检查图像是否存在胼胝体发育不全的征象，该病表现为连接左右大脑半球的中线结构缺失。图像中可见胼胝体，但仅凭单一冠状切面无法对其完整性进行全面评估。
-
-回答提及或最终倾向的诊断包括：脑室扩大。涉及的主要影像要点包括：脑室扩大、胼胝体改变。</pre>
+</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2804,14 +2800,14 @@ In the absence of specific measurements or visible abnormalities in the provided
 
 **Segmentation 对 caption 的影响分析：**
 
-无明显差异。
+无明显差异；但是提供了“脉络丛”参考点，更多来源可能是prompt文字信息。
 
 </details>
 
 <details>
 <summary><strong>Lingshu-32B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**部分有帮助：主要体现在定位上，纠正脑室扩大，但遗漏小囊肿
+**Segmentation 对 caption 的总体影响：**部分有帮助：主要体现在定位上，纠正脑室扩大，但遗漏小囊肿真正的病原。
 
 **原始图像 → Single-image caption 回答**
 
@@ -2884,7 +2880,7 @@ The fetal brain ultrasound at 26 weeks gestation appears normal.</pre>
 *   **脑干：** 位于下方，连接大脑与脊髓。
 *   **胼胝体：** 连接两侧大脑半球的结构，在正中线上呈现为一条亮线。
 
-回答提及或最终倾向的诊断包括：脑室扩大。涉及的主要影像要点包括：脑室扩大、胼胝体改变、第三脑室异常。</pre>
+</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -2938,7 +2934,7 @@ Based on the image and the provided information (routine evaluation at 26 weeks 
 *   **Medical-SAM3：** 显示胎儿脑、脉络丛（紫色）和侧脑室（蓝色）的分割结果。
 *   **BiomedParse：** 显示胎儿脑、脉络丛（紫色）和侧脑室（蓝色）的分割结果。
 
-回答未形成可稳定提取的明确疾病结论。涉及的主要影像要点包括：脉络丛异常。</pre>
+</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
@@ -3065,7 +3061,7 @@ This is a **normal fetal brain ultrasound at 26 weeks gestation**. The segmentat
 *   **侧脑室（蓝色）：** 分割结果显示侧脑室大小适中且位置对称。在孕26周时，侧脑室宽度通常在10-15毫米左右。分割结果未显示**脑室扩张**（脑室增大）或**脑积水**的迹象。
 *   **脉络丛（紫色）：** 脉络丛的分割结果也符合正常发育情况。脉络丛是脑室内产生脑脊液（CSF）的结构，其存在状态及外观均正常。 *   **脑实质（BiomedParse 中显示为紫色）：** 脑实质分割结果正常，未见囊肿、畸形或异常组织等结构性异常的征象。
 
-回答提及或最终倾向的诊断包括：脑积水、脑室扩大。涉及的主要影像要点包括：脉络丛异常、脑室扩大。</pre>
+</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
@@ -3122,8 +3118,7 @@ This coronal view is part of the comprehensive fetal survey and appears normal.
 - 颅骨的**骨性结构**轮廓不甚清晰，这在孕26周时属于正常现象，因为此时骨骼尚未充分钙化，无法清晰显影。
 - **回声特性**与正常的胎儿脑组织一致，呈现出不均匀的灰阶外观。
 - 在此图像中，**脑室**和**大脑内部结构**的界限并不清晰；对于这一孕周的冠状面图像而言，这是典型情况，因为胎儿大脑尚在发育中，且图像分辨率有限。 
-
-回答未形成可稳定提取的明确疾病结论。 </pre>
+ </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3159,7 +3154,7 @@ This is a routine ultrasound evaluation with normal findings. The fetal brain st
 - Medical-SAM3 分割结果（紫色和蓝色）勾勒出了胎儿脑部、脉络丛和侧脑室的轮廓，其中侧脑室呈现为较大且形状较不规则的区域。
 - BiomedParse 分割结果（蓝色和紫色）​​同样识别出了胎儿脑部和脑室结构，并用不同颜色标示了脉络丛和侧脑室。
 
-回答提及或最终倾向的诊断包括：脑积水、脑室扩大。涉及的主要影像要点包括：脑室扩大、脉络丛异常。</pre>
+。</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
@@ -3204,7 +3199,7 @@ This is a **normal fetal brain ultrasound** at 26 weeks gestation. The anatomy i
 - 侧脑室大小在孕周对应的正常范围内（此阶段通常 <10 mm），无脑室扩张征象。
 - 图像质量良好，脑部结构显示清晰。
 
-回答提及或最终倾向的诊断包括：脑室扩大。这是一例孕26周时的**胎儿脑部超声正常**图像。解剖结构发育良好，该冠状切面未见异常。建议进行常规超声复查，以持续监测胎儿的生长发育情况。</pre>
+</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -3449,7 +3444,7 @@ This interpretation should be correlated with clinical findings and managed by a
 <details>
 <summary><strong>InternVL3.5-14B</strong></summary>
 
-**Segmentation 对 caption 的总体影响：**正向：新增或强化参考关键点
+**Segmentation 对 caption 的总体影响：**正向：新增参考点
 
 **原始图像 → Single-image caption 回答**
 
@@ -4190,7 +4185,7 @@ This description ensures that all critical aspects of the ultrasound findings an
 
 3. **整体回声结构**：周围组织（可能代表子宫内膜线）呈现不均匀回声，包含高回声（较亮）和低回声（较暗）区域。在此阶段，解剖结构尚不明显，发育中的胚胎体积微小。
 
-回答提及或最终倾向的诊断包括：正常妊娠。 </pre>
+ </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4334,8 +4329,7 @@ This is a normal early pregnancy scan with no apparent complications. Continued 
 不过，如果孕周极早，图像可能无法清晰显示胚胎。有时可能只看到孕囊而看不到胚胎，这可能提示空孕囊（枯萎卵）或异位妊娠。但头臀长的测量结果表明胚胎是存在的。等等，头臀长是从头顶测量到臀部的，既然能测出这个数值，说明胚胎确实存在。
 
 还需要考虑的一点是位置。鉴于图像的清晰度，这很可能是经阴道超声检查。如果孕囊位于子宫内，则为宫内妊娠；如果位于其他部位（如输卵管），则为异位妊娠。虽然图像未显示完整的解剖结构，但子宫内可见妊娠囊及可测量的头臀长（CRL），提示为宫内妊娠。 
-
-回答提及或最终倾向的诊断包括：异位妊娠。 </pre>
+</pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4395,7 +4389,7 @@ The findings suggest a healthy intrauterine pregnancy. The patient should contin
 
 另一个需要关注的因素是孕囊的数量。影像显示只有一个孕囊，因此属于单胎妊娠，未发现双胞胎或多胞胎。孕囊形态规则，既不畸形也不过大，这通常提示为正常妊娠。 
 
-回答提及或最终倾向的诊断包括：正常妊娠。 </pre>
+</pre>
 
 **Segmentation 对 caption 的影响分析：**
 
@@ -4478,8 +4472,7 @@ The ultrasound image shows a normal intrauterine pregnancy at approximately 5 we
 *   **卵黄囊：** 在孕囊内部，可见一个微小的圆形高回声结构。这就是卵黄囊，它是为胚胎提供营养的早期结构。
 *   **胚胎/胎芽：** 紧邻卵黄囊处有一个微小的高回声点。这代表了处于早期发育阶段的胚胎（也称为胎芽）。
 *   **CRL：** 图像上标有一项测量数据，标注为“CRL 0.35 cm”。CRL 代表“头臀长”（Crown-Rump Length），这是早孕期确定孕周的标准测量指标。该测量值为 0.35 厘米。
-
-回答未形成可稳定提取的明确疾病结论。 </pre>
+ </pre>
 
 **原始图像 + Segmentation → Single-image caption 回答**
 
@@ -4532,7 +4525,7 @@ Based on the ultrasound findings of a gestational sac within the uterus at 5-6 w
 
 **Segmentation 对 caption 的影响分析：**
 
-无明显提升。
+太短了，看不出来。
 
 </details>
 
