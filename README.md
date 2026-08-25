@@ -4051,3 +4051,6 @@ Section 2 的完整模型回答较长，已拆分为两个独立 Markdown 文件
 |---|---|---|
 | Section 2，Part 1 | 2.1–2.6 | [查看 2.1–2.6](README_SECTION_2.md) |
 | Section 2，Part 2 | 2.7–2.13 | [查看 2.7–2.13](README_SECTION_2_PART_2.md) |
+
+
+Notes: 08-26 补充了FluoroSAM / SonoCLIP / UltraSam / BUSSeg 等分隔模型，看看效果[补充](README_3.md)和MedSAM/BiomedParser也差不多；影响不大；
