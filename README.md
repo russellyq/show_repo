@@ -52,6 +52,724 @@ Diagnosis QA 用于观察加入 segmentation 后最终诊断是否发生变化�
 | GPT-5.6-Luna-Pro | 7/23（30.43%） | 8/23（34.78%） | +4.35 pp | 3 / 2 |
 | **合计** | **14/207（6.76%）** | **23/207（11.11%）** | **+4.35 pp** | **15 / 6** |
 
+### 逐病例 correctness 明细
+
+“原始”列表示只输入原始图像时的判断；“+Seg”列表示加入 Segmentation 后的判断，括号内给出该病例在对应模型上的前后转换。
+
+<table>
+<thead>
+<tr>
+<th rowspan="2">Case</th>
+<th colspan="2">InternVL3-14B</th>
+<th rowspan="2">│</th>
+<th colspan="2">InternVL3.5-14B</th>
+<th rowspan="2">│</th>
+<th colspan="2">MedMO-8B</th>
+<th rowspan="2">│</th>
+<th colspan="2">MedGemma-27B-IT</th>
+<th rowspan="2">│</th>
+<th colspan="2">Qwen3-VL-4B</th>
+<th rowspan="2">│</th>
+<th colspan="2">Qwen3-VL-8B</th>
+<th rowspan="2">│</th>
+<th colspan="2">Qwen3-VL-32B</th>
+<th rowspan="2">│</th>
+<th colspan="2">Lingshu-32B</th>
+<th rowspan="2">│</th>
+<th colspan="2">GPT-5.6-Luna-Pro</th>
+</tr>
+<tr>
+<th>原始</th>
+<th>+Seg</th>
+<th>原始</th>
+<th>+Seg</th>
+<th>原始</th>
+<th>+Seg</th>
+<th>原始</th>
+<th>+Seg</th>
+<th>原始</th>
+<th>+Seg</th>
+<th>原始</th>
+<th>+Seg</th>
+<th>原始</th>
+<th>+Seg</th>
+<th>原始</th>
+<th>+Seg</th>
+<th>原始</th>
+<th>+Seg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://radiopaedia.org/cases/aqueductal-stenosis-3?lang=us">aqueductal-stenosis-3</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/ascites-6?lang=us">ascites-6</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/birads-iii-lesion-infiltrating-ductal-carcinoma-1?lang=us">birads-iii-lesion-infiltrating-ductal-carcinoma-1</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">对</td>
+<td align="center">对（对→对）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/chilaiditi-sign-2?lang=us">chilaiditi-sign-2</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/choroid-plexus-cyst-antenatal?lang=us">choroid-plexus-cyst-antenatal</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/congenital-diaphragmatic-hernia?lang=us">congenital-diaphragmatic-hernia</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">对</td>
+<td align="center">对（对→对）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/congenital-diaphragmatic-hernia-26?lang=us">congenital-diaphragmatic-hernia-26</a></td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/fetal-cardiac-rhabdomyoma-1?lang=us">fetal-cardiac-rhabdomyoma-1</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/first-trimester-oligohydramnios?lang=us">first-trimester-oligohydramnios</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/hiatus-hernia-15?lang=us">hiatus-hernia-15</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">对</td>
+<td align="center">错（对→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">对</td>
+<td align="center">对（对→对）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/kienbock-disease-3?lang=us">kienbock-disease-3</a></td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">对</td>
+<td align="center">错（对→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+<td align="center">│</td>
+<td align="center">对</td>
+<td align="center">对（对→对）</td>
+<td align="center">│</td>
+<td align="center">对</td>
+<td align="center">对（对→对）</td>
+<td align="center">│</td>
+<td align="center">对</td>
+<td align="center">对（对→对）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/lytic-bone-lesion-myeloma?lang=us">lytic-bone-lesion-myeloma</a></td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">对</td>
+<td align="center">错（对→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/mandible-fractures-1?lang=us">mandible-fractures-1</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/massive-pleural-effusion-2?lang=us">massive-pleural-effusion-2</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">对</td>
+<td align="center">错（对→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/osteogenesis-imperfecta-15?lang=us">osteogenesis-imperfecta-15</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/pancoast-tumour-11?lang=us">pancoast-tumour-11</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">对</td>
+<td align="center">错（对→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/pericardial-effusion-water-bottle-sign-2?lang=us">pericardial-effusion-water-bottle-sign-2</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">对</td>
+<td align="center">对（对→对）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/pneumoperitoneum-55?lang=us">pneumoperitoneum-55</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">对</td>
+<td align="center">错（对→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/round-pneumonia-3?lang=us">round-pneumonia-3</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/small-bowel-obstruction-14?lang=us">small-bowel-obstruction-14</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/spalding-sign?lang=us">spalding-sign</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/surgical-ankylosis?lang=us">surgical-ankylosis</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+</tr>
+<tr>
+<td><a href="https://radiopaedia.org/cases/tension-pneumoperitoneum?lang=us">tension-pneumoperitoneum</a></td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">对（错→对）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">错</td>
+<td align="center">错（错→错）</td>
+<td align="center">│</td>
+<td align="center">对</td>
+<td align="center">对（对→对）</td>
+</tr>
+</tbody>
+</table>
+
 ### 1.1 [Aqueductal stenosis](https://radiopaedia.org/cases/aqueductal-stenosis-3?lang=us) (`aqueductal-stenosis-3`)
 
 
