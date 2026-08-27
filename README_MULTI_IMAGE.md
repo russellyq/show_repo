@@ -6,16 +6,16 @@
 
 > 本文件只汇总原始内容。所有“中文医学要点（翻译）”和“Segmentation 对 caption 的影响分析”均故意留空，等待人工检查。
 
-## 1. [Aspergilloma](https://radiopaedia.org/cases/aspergilloma-1?lang=us) (`aspergilloma-1`)
+## 1. [Aspergilloma](https://radiopaedia.org/cases/aspergilloma-1?lang=us) (`aspergilloma-1`)曲霉球
 
 - **背景信息：** Gender: Male
 - **影像组合：** X-ray + CT；3 个 studies，4 张原图。
 
 ### 1.1 Study 0: X-ray
 
-- **Medical-SAM3 prompts：** lung, right lung, lung cavity, intracavitary mass
-- **BiomedParse v1 prompts：** lung, right lung, lung cavity, intracavitary mass
-- **TorchXRayVision anatomy labels：** lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach
+- **Medical-SAM3 prompts：** lung, right lung, lung cavity, intracavitary mass 肺、右肺、肺腔、腔内肿块
+- **BiomedParse v1 prompts：** lung, right lung, lung cavity, intracavitary mass 肺、右肺、肺腔、腔内肿块
+- **TorchXRayVision anatomy labels：** lung, right lung, left lung, diaphragm, heart, cardiomediastinum, upper mediastinum, lower mediastinum, stomach 肺、右肺、左肺、膈、心脏、心纵隔、上纵隔、下纵隔、胃
 
 | Image | Original image | Medical-SAM3 | BiomedParse v1 | TorchXRayVision |
 |---|---|---|---|---|
@@ -28,7 +28,7 @@
 **原始图片 caption 中文医学要点（翻译）：**
 
 <pre>
-
+广泛性肺大疱病变显示右肺尖内侧可见一圆形致密影。
 </pre>
 
 #### Study 0 的 8 个模型 Single-modality caption 对比
@@ -47,7 +47,8 @@ Based on the image and the patient's background of having COVID-19, a probable d
 中文医学要点（翻译）：
 
 <pre>
-
+该胸部X光片显示双肺弥漫性密度增高影（即“不透光区”），这可能提示存在严重的感染或炎症过程。这种弥漫性浸润影（常被称为“白肺”表现）是急性呼吸窘迫综合征（ARDS）或重症病毒性肺炎（如COVID-19引起的肺炎）的典型特征。此外，影像中可见医疗器械（可能包括中心静脉导管或插管），提示患者病情危重，正在接受重症监护。
+结合影像表现及患者确诊COVID-19的病史，可能的诊断为重症COVID-19肺炎继发ARDS。这一诊断与影像学发现及临床情况相符。为确诊并指导治疗，需密切结合临床表现，并可能需要进行进一步的影像学检查或实验室检测。
 </pre>
 
 **原始图像 + Segmentation → Single-modality caption 回答**
@@ -107,13 +108,59 @@ Given the diffuse opacifications and consolidation pattern in the right lung, al
 中文医学要点（翻译）：
 
 <pre>
+所提供的图像展示了一张胸部正位X光片以及针对不同解剖区域和病理特征进行分割处理后的图像。以下是结合分割图像进行的详细分析，以便更好地理解病情：
 
+### 图像描述：
+1. **原始胸部X光片：**
+- 该X光片显示了胸部的正位视图，可见双肺及心脏。 
+- 双肺之间的放射密度存在显著差异。 
+- 右肺（患者左侧）显示出较高的放射不透光度（即影像较白），伴有弥漫性斑片状阴影，提示通气减少。 
+- 左肺（患者右侧）影像相对清晰，但可见少量散在的模糊影。 
+- 右侧肋膈角变钝现象明显。 
+- 胸部左侧可见一医疗装置，可能是起搏器或类似的植入物。
+
+2. **Medical-SAM3 分割图像：**
+- 该图像突出显示了不同区域，包括肺部、右肺、肺内空腔及腔内肿块。 
+- 右肺以紫色标示，显示肺实质受累范围广泛，这与X光片中观察到的高密度阴影（不透光区）相吻合。 
+- 分割结果提示右肺内存在明显的实变或肿块。 
+
+分析观察：大面积的紫色区域指示存在实变，这与此前观察到的弥漫性阴影一致。
+
+3. **BiomedParse 分割图像：**
+- 该图像主要勾勒了肺部的轮廓。 
+- 肺野以不同颜色标示，突显了肺部通气状况的差异。 
+- 与左肺相比，右肺再次显示出广泛的阴影（不透光区）。 
+- 这强调了原始X光片中观察到的不对称性，并支持了右肺（患者左侧）存在病变的发现。 
+
+分析观察：这进一步证实了右侧存在通气不良及实变现象。
+
+4. **TorchXRayVision 综合分割图像：**
+- 该分割图像采用多色显示，突出了肺部、膈肌、心脏、纵隔及胃部。 
+- 绿黄色区域代表肺部，其中右肺显示出较致密的区域，对应于实变阴影。 
+- 纵隔和心脏轮廓位于中央，但右肺的病变影响了邻近区域。影像分析观察：显示以右侧为主的显著病理改变，且受累的解剖结构界限清晰。
+
+### 诊断：
+基于影像学表现及分割结果：
+
+1. **右侧肺部病变：**
+- 右肺弥漫性阴影及密度增高表现，符合肺炎、肺实变或恶性肿瘤等多种病况的特征。 
+- 肋膈角变钝可能提示存在胸腔积液，这通常伴随上述病变出现。
+
+2. **潜在的肺实变和/或感染：**
+- 结合患者性别以及阴影的分布与性质，肺实变的可能性较大，病因可能为肺炎。 
+- 分割图像中显示的疑似腔内肿块影，提示需进行进一步检查（如CT扫描或活检），以排除支气管源性癌或转移瘤等恶性病变。
+
+3. **心脏及纵隔结构：**
+- 纵隔及心脏轮廓未见明显移位或异常，尽管右侧病变可能产生轻微影响。
+
+### 结论：
+鉴于右肺存在弥漫性阴影及实变征象，且分割结果显示病变范围广泛并伴有疑似肿块，患者极可能患有严重的肺部疾病，如重症肺炎、肺实变或潜在的恶性肿瘤。建议进行全面评估，包括补充影像学检查（如胸部CT）并结合临床情况，以明确诊断并制定适宜的治疗方案。此外，还应根据临床表现及病情进展，考虑进行微生物学检测或组织病理学检查的必要性。
 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
 <pre>
-
+强化其对右肺存在病变的结论。
 </pre>
 
 </details>
@@ -167,7 +214,29 @@ In summary, the chest X-ray findings are highly suggestive of COVID-19 pneumonia
 中文医学要点（翻译）：
 
 <pre>
+该X光片显示了胸部的正位视图。双肺野可见弥漫性斑片状阴影，提示可能存在浸润性病变。心脏大小正常。膈肌和肋膈角清晰可见，未见明显胸腔积液征象。气管居中，包括肋骨和锁骨在内的骨骼结构完整。可见起搏器等医疗装置。影像表现符合病毒性肺炎特征，结合患者病史，极有可能是COVID-19肺炎。阴影在肺下叶更为明显，这是COVID-19肺炎的典型表现。未见气胸或明显的淋巴结肿大。
 
+提供的X光图像为一名男性患者的胸部正位片。图像显示了数个符合COVID-19肺炎诊断的关键特征。以下是基于图像的详细描述与诊断：
+
+### 图像描述：
+1. **肺野：**
+- **弥漫性阴影：** 双侧肺野可见弥漫性斑片状阴影。这些阴影在肺下叶更为显著，这是COVID-19肺炎的典型特征。 
+- **磨玻璃影：** 存在磨玻璃影区域，表现为模糊的阴影区，但未遮挡其后的支气管结构或肺血管。
+
+2. **心脏与纵隔：**
+- 心脏大小正常，无心脏肥大征象。 
+- 纵隔宽度正常，未见明显淋巴结肿大。
+
+3. **膈肌与肋膈角：**
+- 膈肌轮廓清晰，肋膈角锐利，提示无胸腔积液。
+
+4. **气管与骨骼结构：**
+- 气管居中，无偏移。 
+- 骨骼结构（包括肋骨、锁骨和脊柱）完整，未见骨折或病变。
+
+5. **医疗装置：**
+- 胸部左侧可见起搏器，导线位置正常。 ### 诊断：
+根据影像学表现及患者的病史资料，最可能的诊断为**COVID-19肺炎**。弥漫性双侧磨玻璃影及斑片状实变影是COVID-19感染的典型影像学特征。结合临床情况，这些发现支持符合COVID-19特征的病毒性肺炎这一诊断。
 </pre>
 
 **原始图像 + Segmentation → Single-modality caption 回答**
@@ -249,13 +318,40 @@ The chest X-ray findings are consistent with interstitial lung disease, most lik
 中文医学要点（翻译）：
 
 <pre>
+提供的X光片为一名男性患者的胸部正位片。影像显示出以下显著特征：
 
+1. **肺野**：双肺可见弥漫性阴影，表现为密度增高区。这些阴影在双肺下野更为明显，且呈双侧对称分布。阴影呈网状，提示存在肺间质病变。
+
+2. **心脏与纵隔**：心影增大，提示可能存在心脏肥大。纵隔未见明显增宽。
+
+3. **膈肌**：膈肌轮廓可见，但边缘有些模糊（尤其是左侧），这可能是由邻近肺部病变引起的。
+
+4. **骨骼与软组织**：胸廓骨骼（包括肋骨、锁骨和脊柱）形态完整，未见明显骨折或病变。胸廓周围软组织未见明显异常。
+
+5. **医疗器械**：可见医疗器械，包括右侧疑似起搏器导线以及左侧疑似中心静脉导管。
+
+### 分析与诊断
+
+肺部弥漫性网状阴影提示存在间质性肺病。可能的病因包括：
+
+- **肺纤维化**：网状影是肺实质纤维化改变的典型特征。
+- **肺水肿**：尽管影像学表现不太典型，但肺水肿也可表现为双侧阴影。
+- **感染性病变**：如病毒性肺炎，可表现为弥漫性阴影。
+- **慢性间质性炎症**：如结节病或过敏性肺炎等疾病。
+
+心影增大可能由潜在的心脏病引起，这可能导致肺淤血和肺水肿。然而，网状影的特征更多指向间质性病变，而非单纯的肺水肿。
+
+### 结论
+
+根据X光影像表现，最可能的诊断是**间质性肺病**，可能为肺纤维化。需进一步进行胸部高分辨率CT（HRCT）检查、肺功能测试以及可能的活检，以确诊并明确病因。此外，评估患者的临床病史、症状及相关实验室检查结果，对于进行全面评估至关重要。
+
+根据提供的胸部X光片及所述特征，最可能的诊断是**间质性肺病（ILD）**，且极有可能是**肺纤维化**。
 </pre>
 
 **Segmentation 对 caption 的影响分析：**
 
 <pre>
-
+无明显提升。
 </pre>
 
 </details>
@@ -272,7 +368,7 @@ The chest X-ray findings are consistent with interstitial lung disease, most lik
 中文医学要点（翻译）：
 
 <pre>
-
+胸部X光片显示双侧弥漫性间质性浸润影，提示可能存在间质性肺病或肺水肿。这些浸润影的存在表明肺部间质内有液体积聚。结合患者慢性咳嗽、呼吸困难及近期体重增加的病史，以及听诊时闻及湿啰音的临床表现，最可能的诊断是继发于充血性心力衰竭的肺水肿。该病症的特征是由于肺循环压力升高（通常由左心衰竭引起）导致肺组织内液体积聚。影像学表现与此诊断相符，呈现出典型的间质性水肿征象。
 </pre>
 
 **原始图像 + Segmentation → Single-modality caption 回答**
@@ -284,7 +380,7 @@ The chest X-ray findings are consistent with interstitial lung disease, most lik
 中文医学要点（翻译）：
 
 <pre>
-
+胸部X光片显示双侧弥漫性间质性浸润影，且肺下野病变更为显著。肺野呈现网状改变，提示存在间质性病变。未见胸腔积液或气胸征象。心影大小正常。影像中可见医疗器械，提示患者可能正在接受持续治疗或监测。鉴于浸润影呈弥漫性分布并结合临床背景，上述影像表现符合COVID-19肺炎特征；图像中可见典型的双侧磨玻璃影及间质增厚，进一步支持了这一诊断。
 </pre>
 
 **Segmentation 对 caption 的影响分析：**
@@ -711,7 +807,7 @@ The chest X-ray demonstrates **bilateral reticular opacities** with **cardiomega
 **原始图片 caption 中文医学要点（翻译）：**
 
 <pre>
-
+右肺尖放大图像，显示圆形致密影。
 </pre>
 
 #### Study 1 的 8 个模型 Single-modality caption 对比
@@ -1328,7 +1424,7 @@ Additional findings:
 **原始图片 caption 中文医学要点（翻译）：**
 
 <pre>
-
+CT 证实右肺尖空洞内存在一类圆形致密影。该致密影与邻近洞壁之间由一弯新月形透亮气带（即 Monod 征）分隔，影像表现符合曲霉球。
 </pre>
 
 #### Study 2 的 8 个模型 Single-modality caption 对比
@@ -2838,7 +2934,7 @@ The patient exhibits **end-stage lung disease** with **extensive bronchiectasis*
 
 </details>
 
-## 2. [Infected emphysematous bulla](https://radiopaedia.org/cases/infected-emphysematous-bulla?lang=us) (`infected-emphysematous-bulla`)
+## 2. [Infected emphysematous bulla](https://radiopaedia.org/cases/infected-emphysematous-bulla?lang=us) (`infected-emphysematous-bulla`)感染性肺气肿大疱
 
 - **背景信息：** Age: 75 years Gender: Female; GP referral for haemoptosis
 - **影像组合：** X-ray + CT；2 个 studies，4 张原图。
@@ -2861,7 +2957,7 @@ The patient exhibits **end-stage lung disease** with **extensive bronchiectasis*
 **原始图片 caption 中文医学要点（翻译）：**
 
 <pre>
-
+肺部过度充气。右肺可见一巨大的圆形肿块，伴有气液平面。
 </pre>
 
 #### Study 0 的 8 个模型 Single-modality caption 对比
@@ -3748,7 +3844,7 @@ Based on the clinical presentation of **haemoptysis** in a **75-year-old female*
 **原始图片 caption 中文医学要点（翻译）：**
 
 <pre>
-
+背景为肺气肿。右肺下叶（RLL）尖段可见巨大脓肿，伴气液平面。
 </pre>
 
 #### Study 1 的 8 个模型 Single-modality caption 对比
@@ -5294,7 +5390,7 @@ The imaging findings are consistent with a **large emphysematous bulla in the ri
 
 </details>
 
-## 3. [Loculated pneumothorax](https://radiopaedia.org/cases/loculated-pneumothorax?lang=us) (`loculated-pneumothorax`)
+## 3. [Loculated pneumothorax](https://radiopaedia.org/cases/loculated-pneumothorax?lang=us) (`loculated-pneumothorax`)局限性气胸
 
 - **背景信息：** Age: Elderly Gender: Male; Status post subdural evacuation with positive pressure ventilation became short of breath.
 - **影像组合：** X-ray + CT；3 个 studies，4 张原图。
@@ -5316,7 +5412,7 @@ The imaging findings are consistent with a **large emphysematous bulla in the ri
 **原始图片 caption 中文医学要点（翻译）：**
 
 <pre>
-
+右侧可见大片透亮区，周围肺组织受压，未见明确的纵隔移位。
 </pre>
 
 #### Study 0 的 8 个模型 Single-modality caption 对比
@@ -6071,7 +6167,7 @@ The chest X-ray shows **left lower lobe atelectasis**, a likely consequence of r
 **原始图片 caption 中文医学要点（翻译）：**
 
 <pre>
-
+单幅冠状面及轴位CT图像显示右肺尖广泛粘连伴气胸。
 </pre>
 
 #### Study 1 的 8 个模型 Single-modality caption 对比
@@ -6785,7 +6881,7 @@ The CT findings are diagnostic of **right-sided pneumothorax with lung collapse*
 **原始图片 caption 中文医学要点（翻译）：**
 
 <pre>
-
+术前胸部X光片显示广泛的瘢痕形成，尤以右肺尖部为甚。
 </pre>
 
 #### Study 2 的 8 个模型 Single-modality caption 对比
@@ -8366,7 +8462,7 @@ The patient developed **barotrauma-induced right pneumothorax with associated ri
 
 </details>
 
-## 4. [Sheared Port-a-Cath remnant](https://radiopaedia.org/cases/sheared-port-a-cath-remnant?lang=us) (`sheared-port-a-cath-remnant`)
+## 4. [Sheared Port-a-Cath remnant](https://radiopaedia.org/cases/sheared-port-a-cath-remnant?lang=us) (`sheared-port-a-cath-remnant`)断裂的植入式输液港（Port-a-Cath）残留物
 
 - **背景信息：** Age: 40 years Gender: Female; For workup prior to stem cell transplant.
 - **影像组合：** X-ray + CT；2 个 studies，5 张原图。
@@ -8391,7 +8487,7 @@ The patient developed **barotrauma-induced right pneumothorax with associated ri
 **原始图片 caption 中文医学要点（翻译）：**
 
 <pre>
-
+一段长 5 厘米、断裂脱落的 Port-A-Cath（植入式静脉输液港）导管，可能位于左肺下叶肺动脉分支内。
 </pre>
 
 #### Study 0 的 8 个模型 Single-modality caption 对比
@@ -9096,7 +9192,7 @@ This finding is **not consistent with a normal pre-transplant evaluation**. Atel
 **原始图片 caption 中文医学要点（翻译）：**
 
 <pre>
-
+左肺下动脉的分支内可见一段既往锁骨下静脉导管的断裂残留段，位置无变化。
 </pre>
 
 #### Study 1 的 8 个模型 Single-modality caption 对比
@@ -10497,7 +10593,7 @@ This requires further evaluation and management prior to proceeding with stem ce
 
 </details>
 
-## 5. [Morgagni hernia](https://radiopaedia.org/cases/morgagni-hernia-8?lang=us) (`morgagni-hernia-8`)
+## 5. [Morgagni hernia](https://radiopaedia.org/cases/morgagni-hernia-8?lang=us) (`morgagni-hernia-8`)莫尔加尼疝
 
 - **背景信息：** Age: 35 years Gender: Male; Screening chest x-ray.
 - **影像组合：** X-ray + CT；2 个 studies，5 张原图。
@@ -10520,7 +10616,7 @@ This requires further evaluation and management prior to proceeding with stem ce
 **原始图片 caption 中文医学要点（翻译）：**
 
 <pre>
-
+右心区可见软组织密度肿块影。
 </pre>
 
 #### Study 0 的 8 个模型 Single-modality caption 对比
@@ -11220,7 +11316,7 @@ This case highlights the importance of **clinical correlation and human oversigh
 **原始图片 caption 中文医学要点（翻译）：**
 
 <pre>
-
+CT显示为充满脂肪的莫尔加尼（Morgagni）疝。
 </pre>
 
 #### Study 1 的 8 个模型 Single-modality caption 对比
@@ -12678,7 +12774,7 @@ The patient has a **small, asymptomatic, fat-containing mass in the right cardio
 
 </details>
 
-## 6. [Calcified abdominal lymph nodes](https://radiopaedia.org/cases/calcified-abdominal-lymph-nodes?lang=us) (`calcified-abdominal-lymph-nodes`)
+## 6. [Calcified abdominal lymph nodes](https://radiopaedia.org/cases/calcified-abdominal-lymph-nodes?lang=us) (`calcified-abdominal-lymph-nodes`)腹部淋巴结钙化
 
 - **背景信息：** Age: 65 years Gender: Male; History of head and neck squamous cell cancer 12 years ago. History of radiation therapy and chemotherapy.
 - **影像组合：** X-ray + CT；2 个 studies，5 张原图。
@@ -12702,7 +12798,7 @@ The patient has a **small, asymptomatic, fat-containing mass in the right cardio
 **原始图片 caption 中文医学要点（翻译）：**
 
 <pre>
-
+肺门、纵隔及肺实质钙化。
 </pre>
 
 #### Study 0 的 8 个模型 Single-modality caption 对比
@@ -13493,7 +13589,7 @@ The chest X-rays demonstrate **multiple, small, calcified pulmonary nodules**, m
 **原始图片 caption 中文医学要点（翻译）：**
 
 <pre>
-
+腹部淋巴结钙化。
 </pre>
 
 #### Study 1 的 8 个模型 Single-modality caption 对比
