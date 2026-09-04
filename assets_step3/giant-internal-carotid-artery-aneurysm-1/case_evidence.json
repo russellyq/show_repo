@@ -1,0 +1,4203 @@
+{
+  "step": 3,
+  "case_id": "giant-internal-carotid-artery-aneurysm-1",
+  "case_url": "https://radiopaedia.org/cases/giant-internal-carotid-artery-aneurysm-1?lang=us",
+  "case_title": "Giant internal carotid artery aneurysm",
+  "status": "complete",
+  "configuration": {
+    "prompt_version": "step_3_directed_cross_image_grounding_v1",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "max_pixels": 1048576,
+    "iou_threshold": 0.5,
+    "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e",
+    "evidence_prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+    "query_order": "upper_triangle_by_image_then_anchor_bbox",
+    "strong_supported_anchor_skip": true
+  },
+  "source_step_2": {
+    "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/structured/case_evidence.json",
+    "fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+  },
+  "patient": {
+    "age": "unknown",
+    "age_unit": "unknown",
+    "gender": "unknown",
+    "raw_patient_data": "Age: Adult",
+    "clinical_context": "Headaches"
+  },
+  "images": [
+    {
+      "image_position": 0,
+      "image_id": "study_000_mri_image_000_axial_t2",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0000.jpeg",
+      "examination": {
+        "image_id": "study_000_mri_image_000_axial_t2",
+        "study_index": 0,
+        "modality": "MRI",
+        "subcategory": "Axial T2"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_000_mri_image_000_axial_t2_f01"
+      ]
+    },
+    {
+      "image_position": 1,
+      "image_id": "study_000_mri_image_001_axial_flair",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0002.jpeg",
+      "examination": {
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "study_index": 0,
+        "modality": "MRI",
+        "subcategory": "Axial FLAIR"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_000_mri_image_001_axial_flair_f01",
+        "study_000_mri_image_001_axial_flair_f02",
+        "study_000_mri_image_001_axial_flair_f03"
+      ]
+    },
+    {
+      "image_position": 2,
+      "image_id": "study_000_mri_image_002_axial_gradient_echo",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0004.jpeg",
+      "examination": {
+        "image_id": "study_000_mri_image_002_axial_gradient_echo",
+        "study_index": 0,
+        "modality": "MRI",
+        "subcategory": "Axial Gradient Echo"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_000_mri_image_002_axial_gradient_echo_f01"
+      ]
+    },
+    {
+      "image_position": 3,
+      "image_id": "study_000_mri_image_003_mra",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0013.jpeg",
+      "examination": {
+        "image_id": "study_000_mri_image_003_mra",
+        "study_index": 0,
+        "modality": "MRI",
+        "subcategory": "MRA"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_000_mri_image_003_mra_f01"
+      ]
+    },
+    {
+      "image_position": 4,
+      "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0006.jpeg",
+      "examination": {
+        "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+        "study_index": 1,
+        "modality": "CT",
+        "subcategory": "Axial C+ arterial phase"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_001_ct_image_000_axial_c_arterial_phase_f01"
+      ]
+    },
+    {
+      "image_position": 5,
+      "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0008.jpeg",
+      "examination": {
+        "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "study_index": 2,
+        "modality": "DSA (angiography)",
+        "subcategory": "Lateral Internal carotid artery"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01"
+      ]
+    },
+    {
+      "image_position": 6,
+      "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0011.jpeg",
+      "examination": {
+        "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+        "study_index": 2,
+        "modality": "DSA (angiography)",
+        "subcategory": "Frontal Internal carotid artery"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "study_000_mri_image_000_axial_t2_f01",
+      "region_id": "study_000_mri_image_000_axial_t2_r01",
+      "image_id": "study_000_mri_image_000_axial_t2",
+      "image_position": 0,
+      "finding_position": 1,
+      "bbox_2d": [
+        495,
+        365,
+        690,
+        545
+      ],
+      "bbox_pixels": [
+        305,
+        229,
+        425,
+        343
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_000_axial_t2/study_000_mri_image_000_axial_t2_r01_bbox.png",
+      "lingshu_caption": "The red box is located in the left temporal lobe. Within this region there is a ring enhancing lesion with surrounding vasogenic edema. The lesion measures approximately 1.5 cm in diameter. There is no mass effect on the adjacent structures.",
+      "observation": {
+        "location": "left temporal lobe",
+        "morphology": "ring enhancing lesion",
+        "size": {
+          "long_axis": "1.5 cm",
+          "short_axis": "unknown",
+          "unit": "cm"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "vasogenic edema",
+        "visible_signs": "no mass effect on the adjacent structures",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_000_mri_image_000_axial_t2",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0000.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_000_axial_t2",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "Axial T2"
+        }
+      }
+    },
+    {
+      "node_id": "study_000_mri_image_001_axial_flair_f01",
+      "region_id": "study_000_mri_image_001_axial_flair_r01",
+      "image_id": "study_000_mri_image_001_axial_flair",
+      "image_position": 1,
+      "finding_position": 1,
+      "bbox_2d": [
+        268,
+        58,
+        424,
+        194
+      ],
+      "bbox_pixels": [
+        165,
+        36,
+        261,
+        122
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r01_bbox.png",
+      "lingshu_caption": "The right frontal lobe demonstrates a hyperintense signal on this axial flair sequence. The hyperintensity is located just above the Sylvian fissure. There is no evidence of mass effect or midline shift. The left frontal lobe appears unremarkable.",
+      "observation": {
+        "location": "right frontal lobe",
+        "morphology": "unknown",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "hyperintense",
+        "margin": "unknown",
+        "surrounding": "just above the Sylvian fissure",
+        "visible_signs": "no evidence of mass effect or midline shift",
+        "appearance": "unknown",
+        "description": "The right frontal lobe demonstrates a hyperintense signal on this axial flair sequence. The hyperintensity is located just above the Sylvian fissure. There is no evidence of mass effect or midline shift. The left frontal lobe appears unremarkable.",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0002.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_001_axial_flair",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "Axial FLAIR"
+        }
+      }
+    },
+    {
+      "node_id": "study_000_mri_image_001_axial_flair_f02",
+      "region_id": "study_000_mri_image_001_axial_flair_r02",
+      "image_id": "study_000_mri_image_001_axial_flair",
+      "image_position": 1,
+      "finding_position": 2,
+      "bbox_2d": [
+        598,
+        58,
+        754,
+        194
+      ],
+      "bbox_pixels": [
+        368,
+        36,
+        465,
+        122
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r02_bbox.png",
+      "lingshu_caption": "The left frontal lobe demonstrates a small focus of increased signal intensity on this FLAIR sequence. There is no associated mass effect or contrast enhancement.",
+      "observation": {
+        "location": "left frontal lobe",
+        "morphology": "small focus",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "increased signal intensity",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "no associated mass effect or contrast enhancement",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0002.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_001_axial_flair",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "Axial FLAIR"
+        }
+      }
+    },
+    {
+      "node_id": "study_000_mri_image_001_axial_flair_f03",
+      "region_id": "study_000_mri_image_001_axial_flair_r03",
+      "image_id": "study_000_mri_image_001_axial_flair",
+      "image_position": 1,
+      "finding_position": 3,
+      "bbox_2d": [
+        464,
+        346,
+        688,
+        554
+      ],
+      "bbox_pixels": [
+        286,
+        217,
+        424,
+        349
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r03_bbox.png",
+      "lingshu_caption": "The axial FLAIR MRI image shows a hyperintense lesion located in the right basal ganglia region. The lesion appears to have a ring-like structure with a central hypointense area, suggesting a possible cystic or necrotic component. Surrounding the lesion, there is evidence of perilesional edema, indicated by the hyperintense signal extending into the adjacent white matter. The lesion's borders are well-defined, and there is no significant mass effect observed on the surrounding brain structures. The ventricles appear symmetrical, and there is no midline shift noted.",
+      "observation": {
+        "location": "right basal ganglia region",
+        "morphology": "ring-like structure with a central hypointense area",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "hyperintense",
+        "margin": "well-defined",
+        "surrounding": "perilesional edema, adjacent white matter",
+        "visible_signs": "no significant mass effect, symmetrical ventricles, no midline shift",
+        "appearance": "cystic or necrotic component",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0002.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_001_axial_flair",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "Axial FLAIR"
+        }
+      }
+    },
+    {
+      "node_id": "study_000_mri_image_002_axial_gradient_echo_f01",
+      "region_id": "study_000_mri_image_002_axial_gradient_echo_r01",
+      "image_id": "study_000_mri_image_002_axial_gradient_echo",
+      "image_position": 2,
+      "finding_position": 1,
+      "bbox_2d": [
+        420,
+        308,
+        680,
+        550
+      ],
+      "bbox_pixels": [
+        259,
+        194,
+        419,
+        346
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_002_axial_gradient_echo/study_000_mri_image_002_axial_gradient_echo_r01_bbox.png",
+      "lingshu_caption": "The red box is located over the left temporal lobe. Within this area there is a large heterogeneous mass with areas of T2 hypointensity likely representing hemorrhage. There is surrounding vasogenic edema. The mass effect from this lesion is causing a midline shift to the right.",
+      "observation": {
+        "location": "left temporal lobe",
+        "morphology": "large heterogeneous mass",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "T2 hypointensity",
+        "margin": "unknown",
+        "surrounding": "vasogenic edema",
+        "visible_signs": "midline shift to the right",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_000_mri_image_002_axial_gradient_echo",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0004.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_002_axial_gradient_echo",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "Axial Gradient Echo"
+        }
+      }
+    },
+    {
+      "node_id": "study_000_mri_image_003_mra_f01",
+      "region_id": "study_000_mri_image_003_mra_r01",
+      "image_id": "study_000_mri_image_003_mra",
+      "image_position": 3,
+      "finding_position": 1,
+      "bbox_2d": [
+        527,
+        320,
+        700,
+        530
+      ],
+      "bbox_pixels": [
+        328,
+        201,
+        436,
+        333
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_003_mra/study_000_mri_image_003_mra_r01_bbox.png",
+      "lingshu_caption": "The image shows a magnetic resonance angiography (MRA) scan of the brain. Within the red box, there appears to be an area of increased signal intensity, which could potentially indicate an abnormality such as a vascular lesion or malformation. The surrounding vasculature appears relatively normal, with no obvious signs of stenosis or occlusion. However, without additional clinical information, it is difficult to determine the exact nature or significance of the observed finding.",
+      "observation": {
+        "location": "unknown",
+        "morphology": "unknown",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_000_mri_image_003_mra",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0013.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_003_mra",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "MRA"
+        }
+      }
+    },
+    {
+      "node_id": "study_001_ct_image_000_axial_c_arterial_phase_f01",
+      "region_id": "study_001_ct_image_000_axial_c_arterial_phase_r01",
+      "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+      "image_position": 4,
+      "finding_position": 1,
+      "bbox_2d": [
+        492,
+        368,
+        614,
+        475
+      ],
+      "bbox_pixels": [
+        303,
+        231,
+        378,
+        299
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_001_ct_image_000_axial_c_arterial_phase/study_001_ct_image_000_axial_c_arterial_phase_r01_bbox.png",
+      "lingshu_caption": "The image shows a hyperdense lesion in the left middle cerebral artery territory, suggestive of an acute ischemic stroke. The lesion appears to be located in the left temporal lobe, with surrounding edema and mass effect. There is also evidence of contrast enhancement, indicating disruption of the blood-brain barrier.",
+      "observation": {
+        "location": "left temporal lobe",
+        "morphology": "hyperdense lesion",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "hyperdense",
+        "margin": "unknown",
+        "surrounding": "edema and mass effect",
+        "visible_signs": "contrast enhancement",
+        "appearance": "suggestive of an acute ischemic stroke",
+        "description": "The image shows a hyperdense lesion in the left middle cerebral artery territory, suggestive of an acute ischemic stroke. The lesion appears to be located in the left temporal lobe, with surrounding edema and mass effect. There is also evidence of contrast enhancement, indicating disruption of the blood-brain barrier.",
+        "evidence_quality": "unknown",
+        "suspicion_level": "suggestive of an acute ischemic stroke",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0006.jpeg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial C+ arterial phase"
+        }
+      }
+    },
+    {
+      "node_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01",
+      "region_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_r01",
+      "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+      "image_position": 5,
+      "finding_position": 1,
+      "bbox_2d": [
+        231,
+        485,
+        376,
+        625
+      ],
+      "bbox_pixels": [
+        145,
+        305,
+        236,
+        393
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_002_dsa_angiography_image_000_lateral_internal_carotid_artery/study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_r01_bbox.png",
+      "lingshu_caption": "The image shows a lateral view of the internal carotid artery. Within the boxed region, there is a saccular outpouching consistent with an aneurysm. The aneurysm appears to be located on the anterior communicating artery. The surrounding vasculature is well-visualized, with no apparent signs of occlusion or significant stenosis. The contrast flow through the arteries is smooth, indicating good perfusion. There are no other obvious abnormalities noted in the immediate vicinity of the aneurysm.",
+      "observation": {
+        "location": "anterior communicating artery",
+        "morphology": "saccular outpouching",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "well-visualized vasculature, no apparent signs of occlusion or significant stenosis",
+        "visible_signs": "contrast flow through the arteries is smooth, indicating good perfusion",
+        "appearance": "aneurysm",
+        "description": "aneurysm",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Lateral Internal carotid artery"
+        }
+      }
+    },
+    {
+      "node_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01",
+      "region_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_r01",
+      "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+      "image_position": 6,
+      "finding_position": 1,
+      "bbox_2d": [
+        528,
+        590,
+        668,
+        720
+      ],
+      "bbox_pixels": [
+        332,
+        371,
+        420,
+        453
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_002_dsa_angiography_image_001_frontal_internal_carotid_artery/study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_r01_bbox.png",
+      "lingshu_caption": "The image shows a frontal view of the internal carotid artery. Within the boxed region, there is a saccular outpouching consistent with an aneurysm. The aneurysm appears to be located on the anterior cerebral artery (ACA) segment. The surrounding vasculature is well-visualized, with no apparent signs of occlusion or significant stenosis. The aneurysm's neck appears narrow, and its sac is rounded. There are no signs of rupture or hemorrhage in the immediate vicinity.",
+      "observation": {
+        "location": "unknown",
+        "morphology": "unknown",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0011.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Frontal Internal carotid artery"
+        }
+      }
+    }
+  ],
+  "node_support": [
+    {
+      "node_id": "study_000_mri_image_000_axial_t2_f01",
+      "strong_relation_ids": [
+        "strong_location_00001_01",
+        "strong_location_00002_01"
+      ],
+      "strong_peer_node_ids": [
+        "study_000_mri_image_001_axial_flair_f03",
+        "study_000_mri_image_002_axial_gradient_echo_f01"
+      ],
+      "outgoing_query_ids": [
+        "location_00001",
+        "location_00002",
+        "location_00003",
+        "location_00004",
+        "location_00005",
+        "location_00006"
+      ],
+      "partial_support_target_image_ids": [
+        "study_001_ct_image_000_axial_c_arterial_phase"
+      ],
+      "not_support_target_image_ids": [
+        "study_000_mri_image_003_mra",
+        "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery"
+      ],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "strong_support"
+    },
+    {
+      "node_id": "study_000_mri_image_001_axial_flair_f01",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [
+        "location_00007",
+        "location_00008",
+        "location_00009",
+        "location_00010",
+        "location_00011"
+      ],
+      "partial_support_target_image_ids": [
+        "study_000_mri_image_002_axial_gradient_echo"
+      ],
+      "not_support_target_image_ids": [
+        "study_000_mri_image_003_mra",
+        "study_001_ct_image_000_axial_c_arterial_phase",
+        "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery"
+      ],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "partial_support"
+    },
+    {
+      "node_id": "study_000_mri_image_001_axial_flair_f02",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [
+        "location_00012",
+        "location_00013",
+        "location_00014",
+        "location_00015",
+        "location_00016"
+      ],
+      "partial_support_target_image_ids": [
+        "study_000_mri_image_002_axial_gradient_echo",
+        "study_001_ct_image_000_axial_c_arterial_phase"
+      ],
+      "not_support_target_image_ids": [
+        "study_000_mri_image_003_mra",
+        "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery"
+      ],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "partial_support"
+    },
+    {
+      "node_id": "study_000_mri_image_001_axial_flair_f03",
+      "strong_relation_ids": [
+        "strong_location_00001_01"
+      ],
+      "strong_peer_node_ids": [
+        "study_000_mri_image_000_axial_t2_f01"
+      ],
+      "outgoing_query_ids": [],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "strong_support"
+    },
+    {
+      "node_id": "study_000_mri_image_002_axial_gradient_echo_f01",
+      "strong_relation_ids": [
+        "strong_location_00002_01"
+      ],
+      "strong_peer_node_ids": [
+        "study_000_mri_image_000_axial_t2_f01"
+      ],
+      "outgoing_query_ids": [],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "strong_support"
+    },
+    {
+      "node_id": "study_000_mri_image_003_mra_f01",
+      "strong_relation_ids": [
+        "strong_location_00027_01"
+      ],
+      "strong_peer_node_ids": [
+        "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01"
+      ],
+      "outgoing_query_ids": [
+        "location_00026",
+        "location_00027",
+        "location_00028"
+      ],
+      "partial_support_target_image_ids": [
+        "study_001_ct_image_000_axial_c_arterial_phase"
+      ],
+      "not_support_target_image_ids": [
+        "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery"
+      ],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "strong_support"
+    },
+    {
+      "node_id": "study_001_ct_image_000_axial_c_arterial_phase_f01",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [
+        "location_00029",
+        "location_00030"
+      ],
+      "partial_support_target_image_ids": [
+        "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery"
+      ],
+      "not_support_target_image_ids": [
+        "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery"
+      ],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "partial_support"
+    },
+    {
+      "node_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01",
+      "strong_relation_ids": [
+        "strong_location_00027_01"
+      ],
+      "strong_peer_node_ids": [
+        "study_000_mri_image_003_mra_f01"
+      ],
+      "outgoing_query_ids": [],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "strong_support"
+    },
+    {
+      "node_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "unvalidated"
+    }
+  ],
+  "cross_image_grounding": [
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 1,
+      "query_id": "location_00001",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_000_axial_t2_f01",
+        "image_id": "study_000_mri_image_000_axial_t2",
+        "bbox_2d": [
+          495,
+          365,
+          690,
+          545
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_000_axial_t2/study_000_mri_image_000_axial_t2_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0002.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_001_axial_flair",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "Axial FLAIR"
+        },
+        "existing_node_ids": [
+          "study_000_mri_image_001_axial_flair_f01",
+          "study_000_mri_image_001_axial_flair_f02",
+          "study_000_mri_image_001_axial_flair_f03"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [450, 380, 650, 580]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "strong_support",
+        "support_type": "bbox_to_bbox",
+        "target_found": true,
+        "target_bbox_2d": [
+          450,
+          380,
+          650,
+          580
+        ],
+        "target_bbox_pixels": [
+          277,
+          239,
+          401,
+          365
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.59698,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_000_mri_image_001_axial_flair_f01",
+            "region_id": "study_000_mri_image_001_axial_flair_r01",
+            "bbox_2d": [
+              268,
+              58,
+              424,
+              194
+            ],
+            "bbox_pixels": [
+              165,
+              36,
+              261,
+              122
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          },
+          {
+            "target_node_id": "study_000_mri_image_001_axial_flair_f02",
+            "region_id": "study_000_mri_image_001_axial_flair_r02",
+            "bbox_2d": [
+              598,
+              58,
+              754,
+              194
+            ],
+            "bbox_pixels": [
+              368,
+              36,
+              465,
+              122
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          },
+          {
+            "target_node_id": "study_000_mri_image_001_axial_flair_f03",
+            "region_id": "study_000_mri_image_001_axial_flair_r03",
+            "bbox_2d": [
+              464,
+              346,
+              688,
+              554
+            ],
+            "bbox_pixels": [
+              286,
+              217,
+              424,
+              349
+            ],
+            "iou": 0.59698,
+            "strong_match": true
+          }
+        ],
+        "matched_existing_nodes": [
+          {
+            "target_node_id": "study_000_mri_image_001_axial_flair_f03",
+            "region_id": "study_000_mri_image_001_axial_flair_r03",
+            "bbox_2d": [
+              464,
+              346,
+              688,
+              554
+            ],
+            "bbox_pixels": [
+              286,
+              217,
+              424,
+              349
+            ],
+            "iou": 0.59698,
+            "strong_match": true
+          }
+        ],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_3/cross_image_grounding/location_00001.png",
+          "target_image_width": 617,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            277,
+            239,
+            401,
+            365
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_000_mri_image_001_axial_flair_f01",
+              "region_id": "study_000_mri_image_001_axial_flair_r01",
+              "bbox_2d": [
+                268,
+                58,
+                424,
+                194
+              ],
+              "bbox_pixels": [
+                165,
+                36,
+                261,
+                122
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            },
+            {
+              "target_node_id": "study_000_mri_image_001_axial_flair_f02",
+              "region_id": "study_000_mri_image_001_axial_flair_r02",
+              "bbox_2d": [
+                598,
+                58,
+                754,
+                194
+              ],
+              "bbox_pixels": [
+                368,
+                36,
+                465,
+                122
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            },
+            {
+              "target_node_id": "study_000_mri_image_001_axial_flair_f03",
+              "region_id": "study_000_mri_image_001_axial_flair_r03",
+              "bbox_2d": [
+                464,
+                346,
+                688,
+                554
+              ],
+              "bbox_pixels": [
+                286,
+                217,
+                424,
+                349
+              ],
+              "iou": 0.59698,
+              "strong_match": true
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [
+        "strong_location_00001_01"
+      ],
+      "validation_ids": [
+        "validation_location_00001_01"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 2,
+      "query_id": "location_00002",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_000_axial_t2_f01",
+        "image_id": "study_000_mri_image_000_axial_t2",
+        "bbox_2d": [
+          495,
+          365,
+          690,
+          545
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_000_axial_t2/study_000_mri_image_000_axial_t2_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_000_mri_image_002_axial_gradient_echo",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0004.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_002_axial_gradient_echo",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "Axial Gradient Echo"
+        },
+        "existing_node_ids": [
+          "study_000_mri_image_002_axial_gradient_echo_f01"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [380, 300, 620, 500]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "strong_support",
+        "support_type": "bbox_to_bbox",
+        "target_found": true,
+        "target_bbox_2d": [
+          380,
+          300,
+          620,
+          500
+        ],
+        "target_bbox_pixels": [
+          234,
+          189,
+          382,
+          315
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.529927,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_000_mri_image_002_axial_gradient_echo_f01",
+            "region_id": "study_000_mri_image_002_axial_gradient_echo_r01",
+            "bbox_2d": [
+              420,
+              308,
+              680,
+              550
+            ],
+            "bbox_pixels": [
+              259,
+              194,
+              419,
+              346
+            ],
+            "iou": 0.529927,
+            "strong_match": true
+          }
+        ],
+        "matched_existing_nodes": [
+          {
+            "target_node_id": "study_000_mri_image_002_axial_gradient_echo_f01",
+            "region_id": "study_000_mri_image_002_axial_gradient_echo_r01",
+            "bbox_2d": [
+              420,
+              308,
+              680,
+              550
+            ],
+            "bbox_pixels": [
+              259,
+              194,
+              419,
+              346
+            ],
+            "iou": 0.529927,
+            "strong_match": true
+          }
+        ],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_3/cross_image_grounding/location_00002.png",
+          "target_image_width": 617,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            234,
+            189,
+            382,
+            315
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_000_mri_image_002_axial_gradient_echo_f01",
+              "region_id": "study_000_mri_image_002_axial_gradient_echo_r01",
+              "bbox_2d": [
+                420,
+                308,
+                680,
+                550
+              ],
+              "bbox_pixels": [
+                259,
+                194,
+                419,
+                346
+              ],
+              "iou": 0.529927,
+              "strong_match": true
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [
+        "strong_location_00002_01"
+      ],
+      "validation_ids": [
+        "validation_location_00002_01"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 3,
+      "query_id": "location_00003",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_000_axial_t2_f01",
+        "image_id": "study_000_mri_image_000_axial_t2",
+        "bbox_2d": [
+          495,
+          365,
+          690,
+          545
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_000_axial_t2/study_000_mri_image_000_axial_t2_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_000_mri_image_003_mra",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0013.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_003_mra",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "MRA"
+        },
+        "existing_node_ids": [
+          "study_000_mri_image_003_mra_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 4,
+      "query_id": "location_00004",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_000_axial_t2_f01",
+        "image_id": "study_000_mri_image_000_axial_t2",
+        "bbox_2d": [
+          495,
+          365,
+          690,
+          545
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_000_axial_t2/study_000_mri_image_000_axial_t2_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0006.jpeg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial C+ arterial phase"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_000_axial_c_arterial_phase_f01"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [450, 480, 550, 580]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          450,
+          480,
+          550,
+          580
+        ],
+        "target_bbox_pixels": [
+          277,
+          302,
+          339,
+          365
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.0,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_001_ct_image_000_axial_c_arterial_phase_f01",
+            "region_id": "study_001_ct_image_000_axial_c_arterial_phase_r01",
+            "bbox_2d": [
+              492,
+              368,
+              614,
+              475
+            ],
+            "bbox_pixels": [
+              303,
+              231,
+              378,
+              299
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_3/cross_image_grounding/location_00004.png",
+          "target_image_width": 617,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            277,
+            302,
+            339,
+            365
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_001_ct_image_000_axial_c_arterial_phase_f01",
+              "region_id": "study_001_ct_image_000_axial_c_arterial_phase_r01",
+              "bbox_2d": [
+                492,
+                368,
+                614,
+                475
+              ],
+              "bbox_pixels": [
+                303,
+                231,
+                378,
+                299
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00004_reground"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 5,
+      "query_id": "location_00005",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_000_axial_t2_f01",
+        "image_id": "study_000_mri_image_000_axial_t2",
+        "bbox_2d": [
+          495,
+          365,
+          690,
+          545
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_000_axial_t2/study_000_mri_image_000_axial_t2_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Lateral Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 6,
+      "query_id": "location_00006",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_000_axial_t2_f01",
+        "image_id": "study_000_mri_image_000_axial_t2",
+        "bbox_2d": [
+          495,
+          365,
+          690,
+          545
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_000_axial_t2/study_000_mri_image_000_axial_t2_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0011.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Frontal Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 7,
+      "query_id": "location_00007",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f01",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          268,
+          58,
+          424,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_000_mri_image_002_axial_gradient_echo",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0004.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_002_axial_gradient_echo",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "Axial Gradient Echo"
+        },
+        "existing_node_ids": [
+          "study_000_mri_image_002_axial_gradient_echo_f01"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [260, 100, 480, 260]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          260,
+          100,
+          480,
+          260
+        ],
+        "target_bbox_pixels": [
+          160,
+          63,
+          296,
+          163
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.0,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_000_mri_image_002_axial_gradient_echo_f01",
+            "region_id": "study_000_mri_image_002_axial_gradient_echo_r01",
+            "bbox_2d": [
+              420,
+              308,
+              680,
+              550
+            ],
+            "bbox_pixels": [
+              259,
+              194,
+              419,
+              346
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_3/cross_image_grounding/location_00007.png",
+          "target_image_width": 617,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            160,
+            63,
+            296,
+            163
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_000_mri_image_002_axial_gradient_echo_f01",
+              "region_id": "study_000_mri_image_002_axial_gradient_echo_r01",
+              "bbox_2d": [
+                420,
+                308,
+                680,
+                550
+              ],
+              "bbox_pixels": [
+                259,
+                194,
+                419,
+                346
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00007_reground"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 8,
+      "query_id": "location_00008",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f01",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          268,
+          58,
+          424,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_000_mri_image_003_mra",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0013.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_003_mra",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "MRA"
+        },
+        "existing_node_ids": [
+          "study_000_mri_image_003_mra_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 9,
+      "query_id": "location_00009",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f01",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          268,
+          58,
+          424,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0006.jpeg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial C+ arterial phase"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_000_axial_c_arterial_phase_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 10,
+      "query_id": "location_00010",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f01",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          268,
+          58,
+          424,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Lateral Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 11,
+      "query_id": "location_00011",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f01",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          268,
+          58,
+          424,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0011.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Frontal Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 12,
+      "query_id": "location_00012",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f02",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          598,
+          58,
+          754,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r02_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_000_mri_image_002_axial_gradient_echo",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0004.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_002_axial_gradient_echo",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "Axial Gradient Echo"
+        },
+        "existing_node_ids": [
+          "study_000_mri_image_002_axial_gradient_echo_f01"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [360, 112, 540, 228]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          360,
+          112,
+          540,
+          228
+        ],
+        "target_bbox_pixels": [
+          222,
+          70,
+          333,
+          143
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.0,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_000_mri_image_002_axial_gradient_echo_f01",
+            "region_id": "study_000_mri_image_002_axial_gradient_echo_r01",
+            "bbox_2d": [
+              420,
+              308,
+              680,
+              550
+            ],
+            "bbox_pixels": [
+              259,
+              194,
+              419,
+              346
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_3/cross_image_grounding/location_00012.png",
+          "target_image_width": 617,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            222,
+            70,
+            333,
+            143
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_000_mri_image_002_axial_gradient_echo_f01",
+              "region_id": "study_000_mri_image_002_axial_gradient_echo_r01",
+              "bbox_2d": [
+                420,
+                308,
+                680,
+                550
+              ],
+              "bbox_pixels": [
+                259,
+                194,
+                419,
+                346
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00012_reground"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 13,
+      "query_id": "location_00013",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f02",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          598,
+          58,
+          754,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r02_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_000_mri_image_003_mra",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0013.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_003_mra",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "MRA"
+        },
+        "existing_node_ids": [
+          "study_000_mri_image_003_mra_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 14,
+      "query_id": "location_00014",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f02",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          598,
+          58,
+          754,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r02_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0006.jpeg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial C+ arterial phase"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_000_axial_c_arterial_phase_f01"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [447, 474, 573, 592]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          447,
+          474,
+          573,
+          592
+        ],
+        "target_bbox_pixels": [
+          275,
+          298,
+          353,
+          372
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.00462,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_001_ct_image_000_axial_c_arterial_phase_f01",
+            "region_id": "study_001_ct_image_000_axial_c_arterial_phase_r01",
+            "bbox_2d": [
+              492,
+              368,
+              614,
+              475
+            ],
+            "bbox_pixels": [
+              303,
+              231,
+              378,
+              299
+            ],
+            "iou": 0.00462,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_3/cross_image_grounding/location_00014.png",
+          "target_image_width": 617,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            275,
+            298,
+            353,
+            372
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_001_ct_image_000_axial_c_arterial_phase_f01",
+              "region_id": "study_001_ct_image_000_axial_c_arterial_phase_r01",
+              "bbox_2d": [
+                492,
+                368,
+                614,
+                475
+              ],
+              "bbox_pixels": [
+                303,
+                231,
+                378,
+                299
+              ],
+              "iou": 0.00462,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00014_reground"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 15,
+      "query_id": "location_00015",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f02",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          598,
+          58,
+          754,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r02_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Lateral Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 16,
+      "query_id": "location_00016",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f02",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          598,
+          58,
+          754,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r02_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0011.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Frontal Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 26,
+      "query_id": "location_00026",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_003_mra_f01",
+        "image_id": "study_000_mri_image_003_mra",
+        "bbox_2d": [
+          527,
+          320,
+          700,
+          530
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_003_mra/study_000_mri_image_003_mra_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0006.jpeg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial C+ arterial phase"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_000_axial_c_arterial_phase_f01"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [420, 470, 560, 590]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          420,
+          470,
+          560,
+          590
+        ],
+        "target_bbox_pixels": [
+          259,
+          296,
+          345,
+          371
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.011029,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_001_ct_image_000_axial_c_arterial_phase_f01",
+            "region_id": "study_001_ct_image_000_axial_c_arterial_phase_r01",
+            "bbox_2d": [
+              492,
+              368,
+              614,
+              475
+            ],
+            "bbox_pixels": [
+              303,
+              231,
+              378,
+              299
+            ],
+            "iou": 0.011029,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_3/cross_image_grounding/location_00026.png",
+          "target_image_width": 617,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            259,
+            296,
+            345,
+            371
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_001_ct_image_000_axial_c_arterial_phase_f01",
+              "region_id": "study_001_ct_image_000_axial_c_arterial_phase_r01",
+              "bbox_2d": [
+                492,
+                368,
+                614,
+                475
+              ],
+              "bbox_pixels": [
+                303,
+                231,
+                378,
+                299
+              ],
+              "iou": 0.011029,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00026_reground"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 27,
+      "query_id": "location_00027",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_003_mra_f01",
+        "image_id": "study_000_mri_image_003_mra",
+        "bbox_2d": [
+          527,
+          320,
+          700,
+          530
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_003_mra/study_000_mri_image_003_mra_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Lateral Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [210, 444, 377, 617]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "strong_support",
+        "support_type": "bbox_to_bbox",
+        "target_found": true,
+        "target_bbox_2d": [
+          210,
+          444,
+          377,
+          617
+        ],
+        "target_bbox_pixels": [
+          132,
+          279,
+          237,
+          388
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.634706,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01",
+            "region_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_r01",
+            "bbox_2d": [
+              231,
+              485,
+              376,
+              625
+            ],
+            "bbox_pixels": [
+              145,
+              305,
+              236,
+              393
+            ],
+            "iou": 0.634706,
+            "strong_match": true
+          }
+        ],
+        "matched_existing_nodes": [
+          {
+            "target_node_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01",
+            "region_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_r01",
+            "bbox_2d": [
+              231,
+              485,
+              376,
+              625
+            ],
+            "bbox_pixels": [
+              145,
+              305,
+              236,
+              393
+            ],
+            "iou": 0.634706,
+            "strong_match": true
+          }
+        ],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_3/cross_image_grounding/location_00027.png",
+          "target_image_width": 630,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            132,
+            279,
+            237,
+            388
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01",
+              "region_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_r01",
+              "bbox_2d": [
+                231,
+                485,
+                376,
+                625
+              ],
+              "bbox_pixels": [
+                145,
+                305,
+                236,
+                393
+              ],
+              "iou": 0.634706,
+              "strong_match": true
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [
+        "strong_location_00027_01"
+      ],
+      "validation_ids": [
+        "validation_location_00027_01"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 28,
+      "query_id": "location_00028",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_003_mra_f01",
+        "image_id": "study_000_mri_image_003_mra",
+        "bbox_2d": [
+          527,
+          320,
+          700,
+          530
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_003_mra/study_000_mri_image_003_mra_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0011.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Frontal Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 29,
+      "query_id": "location_00029",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_001_ct_image_000_axial_c_arterial_phase_f01",
+        "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+        "bbox_2d": [
+          492,
+          368,
+          614,
+          475
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_001_ct_image_000_axial_c_arterial_phase/study_001_ct_image_000_axial_c_arterial_phase_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Lateral Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [260, 375, 420, 540]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          260,
+          375,
+          420,
+          540
+        ],
+        "target_bbox_pixels": [
+          163,
+          236,
+          264,
+          340
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.160118,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01",
+            "region_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_r01",
+            "bbox_2d": [
+              231,
+              485,
+              376,
+              625
+            ],
+            "bbox_pixels": [
+              145,
+              305,
+              236,
+              393
+            ],
+            "iou": 0.160118,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_3/cross_image_grounding/location_00029.png",
+          "target_image_width": 630,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            163,
+            236,
+            264,
+            340
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01",
+              "region_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_r01",
+              "bbox_2d": [
+                231,
+                485,
+                376,
+                625
+              ],
+              "bbox_pixels": [
+                145,
+                305,
+                236,
+                393
+              ],
+              "iou": 0.160118,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00029_reground"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 30,
+      "query_id": "location_00030",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_001_ct_image_000_axial_c_arterial_phase_f01",
+        "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+        "bbox_2d": [
+          492,
+          368,
+          614,
+          475
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_001_ct_image_000_axial_c_arterial_phase/study_001_ct_image_000_axial_c_arterial_phase_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0011.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Frontal Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    }
+  ],
+  "strong_support_relations": [
+    {
+      "step": 3,
+      "unit_type": "strong_bbox_to_bbox_relation",
+      "support_status": "strong_support",
+      "support_type": "bbox_to_bbox",
+      "relation_id": "strong_location_00001_01",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00001",
+      "iou": 0.59698,
+      "iou_threshold": 0.5,
+      "anchor": {
+        "node_id": "study_000_mri_image_000_axial_t2_f01",
+        "image_id": "study_000_mri_image_000_axial_t2",
+        "bbox_2d": [
+          495,
+          365,
+          690,
+          545
+        ]
+      },
+      "target": {
+        "node_id": "study_000_mri_image_001_axial_flair_f03",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "existing_bbox_2d": [
+          464,
+          346,
+          688,
+          554
+        ],
+        "cross_image_bbox_2d": [
+          450,
+          380,
+          650,
+          580
+        ]
+      },
+      "validation_id": "validation_location_00001_01"
+    },
+    {
+      "step": 3,
+      "unit_type": "strong_bbox_to_bbox_relation",
+      "support_status": "strong_support",
+      "support_type": "bbox_to_bbox",
+      "relation_id": "strong_location_00002_01",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00002",
+      "iou": 0.529927,
+      "iou_threshold": 0.5,
+      "anchor": {
+        "node_id": "study_000_mri_image_000_axial_t2_f01",
+        "image_id": "study_000_mri_image_000_axial_t2",
+        "bbox_2d": [
+          495,
+          365,
+          690,
+          545
+        ]
+      },
+      "target": {
+        "node_id": "study_000_mri_image_002_axial_gradient_echo_f01",
+        "image_id": "study_000_mri_image_002_axial_gradient_echo",
+        "existing_bbox_2d": [
+          420,
+          308,
+          680,
+          550
+        ],
+        "cross_image_bbox_2d": [
+          380,
+          300,
+          620,
+          500
+        ]
+      },
+      "validation_id": "validation_location_00002_01"
+    },
+    {
+      "step": 3,
+      "unit_type": "strong_bbox_to_bbox_relation",
+      "support_status": "strong_support",
+      "support_type": "bbox_to_bbox",
+      "relation_id": "strong_location_00027_01",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00027",
+      "iou": 0.634706,
+      "iou_threshold": 0.5,
+      "anchor": {
+        "node_id": "study_000_mri_image_003_mra_f01",
+        "image_id": "study_000_mri_image_003_mra",
+        "bbox_2d": [
+          527,
+          320,
+          700,
+          530
+        ]
+      },
+      "target": {
+        "node_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01",
+        "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "existing_bbox_2d": [
+          231,
+          485,
+          376,
+          625
+        ],
+        "cross_image_bbox_2d": [
+          210,
+          444,
+          377,
+          617
+        ]
+      },
+      "validation_id": "validation_location_00027_01"
+    }
+  ],
+  "validations": [
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00001_01",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00001",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "strong_support",
+      "support_type": "bbox_to_bbox",
+      "anchor_node_id": "study_000_mri_image_000_axial_t2_f01",
+      "target_image_id": "study_000_mri_image_001_axial_flair",
+      "target_node_id": "study_000_mri_image_001_axial_flair_f03",
+      "target_bbox_2d": [
+        450,
+        380,
+        650,
+        580
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target region lacks explicit measurements, and the source image's scale and resolution do not permit reliable comparison of lesion extent.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"inconsistent\",\n    \"reason\": \"The source caption describes a lesion in the left temporal lobe, while the target caption describes a lesion in the right basal ganglia region, indicating different anatomical locations.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The target region lacks explicit measurements, and the source image's scale and resolution do not permit reliable comparison of lesion extent."
+      },
+      "characterization_validation": {
+        "status": "inconsistent",
+        "reason": "The source caption describes a lesion in the left temporal lobe, while the target caption describes a lesion in the right basal ganglia region, indicating different anatomical locations."
+      },
+      "strong_relation_id": "strong_location_00001_01"
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00002_01",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00002",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "strong_support",
+      "support_type": "bbox_to_bbox",
+      "anchor_node_id": "study_000_mri_image_000_axial_t2_f01",
+      "target_image_id": "study_000_mri_image_002_axial_gradient_echo",
+      "target_node_id": "study_000_mri_image_002_axial_gradient_echo_f01",
+      "target_bbox_2d": [
+        380,
+        300,
+        620,
+        500
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target region lacks explicit measurements, and the source image's scale and orientation prevent reliable comparison of lesion extent.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"inconsistent\",\n    \"reason\": \"The source caption describes a ring enhancing lesion without mass effect, while the target caption describes a heterogeneous mass with hemorrhage and mass effect causing midline shift.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The target region lacks explicit measurements, and the source image's scale and orientation prevent reliable comparison of lesion extent."
+      },
+      "characterization_validation": {
+        "status": "inconsistent",
+        "reason": "The source caption describes a ring enhancing lesion without mass effect, while the target caption describes a heterogeneous mass with hemorrhage and mass effect causing midline shift."
+      },
+      "strong_relation_id": "strong_location_00002_01"
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00004_reground",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00004",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_mri_image_000_axial_t2_f01",
+      "target_image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        450,
+        480,
+        550,
+        580
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target region lacks explicit measurements and the scale between the two images cannot be reliably compared.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown, so semantic comparison cannot be performed.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The target region lacks explicit measurements and the scale between the two images cannot be reliably compared."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown, so semantic comparison cannot be performed."
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00007_reground",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00007",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_mri_image_001_axial_flair_f01",
+      "target_image_id": "study_000_mri_image_002_axial_gradient_echo",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        260,
+        100,
+        480,
+        260
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"view, scale, or measurements do not permit a reliable comparison\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"the target Lingshu caption is unknown\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "view, scale, or measurements do not permit a reliable comparison"
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "the target Lingshu caption is unknown"
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00012_reground",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00012",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_mri_image_001_axial_flair_f02",
+      "target_image_id": "study_000_mri_image_002_axial_gradient_echo",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        360,
+        112,
+        540,
+        228
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"view, scale, or measurements do not permit a reliable comparison\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"Target Lingshu caption is unknown\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "view, scale, or measurements do not permit a reliable comparison"
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "Target Lingshu caption is unknown"
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00014_reground",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00014",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_mri_image_001_axial_flair_f02",
+      "target_image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        447,
+        474,
+        573,
+        592
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The source image is an MRI with unknown measurements and the target image is a CT with no stated measurements; scale and view differences prevent reliable comparison.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown, so semantic comparison cannot be performed.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The source image is an MRI with unknown measurements and the target image is a CT with no stated measurements; scale and view differences prevent reliable comparison."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown, so semantic comparison cannot be performed."
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00026_reground",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00026",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_mri_image_003_mra_f01",
+      "target_image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        420,
+        470,
+        560,
+        590
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The source image is a 3D MRA scan with no visible measurements, while the target is a 2D CT slice with no stated measurements; scale and view prevent reliable comparison.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown, so semantic comparison cannot be performed.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The source image is a 3D MRA scan with no visible measurements, while the target is a 2D CT slice with no stated measurements; scale and view prevent reliable comparison."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown, so semantic comparison cannot be performed."
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00027_01",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00027",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "strong_support",
+      "support_type": "bbox_to_bbox",
+      "anchor_node_id": "study_000_mri_image_003_mra_f01",
+      "target_image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+      "target_node_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01",
+      "target_bbox_2d": [
+        210,
+        444,
+        377,
+        617
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The source image lacks explicit measurements or scale indicators for the lesion, and the target image's bounding box does not provide measurable dimensions. The visual extent cannot be reliably compared without scale reference or stated measurements.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"consistent\",\n    \"reason\": \"Both captions describe a vascular abnormality within a boxed region. The source caption suggests an area of increased signal intensity that could indicate a vascular lesion, while the target caption explicitly identifies a saccular outpouching (aneurysm). Both describe the lesion as being within a defined area and note surrounding vasculature as relatively normal or well-visualized without significant obstruction.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The source image lacks explicit measurements or scale indicators for the lesion, and the target image's bounding box does not provide measurable dimensions. The visual extent cannot be reliably compared without scale reference or stated measurements."
+      },
+      "characterization_validation": {
+        "status": "consistent",
+        "reason": "Both captions describe a vascular abnormality within a boxed region. The source caption suggests an area of increased signal intensity that could indicate a vascular lesion, while the target caption explicitly identifies a saccular outpouching (aneurysm). Both describe the lesion as being within a defined area and note surrounding vasculature as relatively normal or well-visualized without significant obstruction."
+      },
+      "strong_relation_id": "strong_location_00027_01"
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00029_reground",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00029",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_001_ct_image_000_axial_c_arterial_phase_f01",
+      "target_image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        260,
+        375,
+        420,
+        540
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The source image is a non-contrast CT scan with no explicit measurements, and the target image is an angiogram with no stated measurements. The scale and view are different, preventing reliable comparison of lesion extent.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown, so semantic comparison using only the two captions cannot be performed.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The source image is a non-contrast CT scan with no explicit measurements, and the target image is an angiogram with no stated measurements. The scale and view are different, preventing reliable comparison of lesion extent."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown, so semantic comparison using only the two captions cannot be performed."
+      }
+    }
+  ],
+  "partial_support_validations": [
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00004_reground",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00004",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_mri_image_000_axial_t2_f01",
+      "target_image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        450,
+        480,
+        550,
+        580
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target region lacks explicit measurements and the scale between the two images cannot be reliably compared.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown, so semantic comparison cannot be performed.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The target region lacks explicit measurements and the scale between the two images cannot be reliably compared."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown, so semantic comparison cannot be performed."
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00007_reground",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00007",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_mri_image_001_axial_flair_f01",
+      "target_image_id": "study_000_mri_image_002_axial_gradient_echo",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        260,
+        100,
+        480,
+        260
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"view, scale, or measurements do not permit a reliable comparison\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"the target Lingshu caption is unknown\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "view, scale, or measurements do not permit a reliable comparison"
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "the target Lingshu caption is unknown"
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00012_reground",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00012",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_mri_image_001_axial_flair_f02",
+      "target_image_id": "study_000_mri_image_002_axial_gradient_echo",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        360,
+        112,
+        540,
+        228
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"view, scale, or measurements do not permit a reliable comparison\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"Target Lingshu caption is unknown\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "view, scale, or measurements do not permit a reliable comparison"
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "Target Lingshu caption is unknown"
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00014_reground",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00014",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_mri_image_001_axial_flair_f02",
+      "target_image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        447,
+        474,
+        573,
+        592
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The source image is an MRI with unknown measurements and the target image is a CT with no stated measurements; scale and view differences prevent reliable comparison.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown, so semantic comparison cannot be performed.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The source image is an MRI with unknown measurements and the target image is a CT with no stated measurements; scale and view differences prevent reliable comparison."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown, so semantic comparison cannot be performed."
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00026_reground",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00026",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_mri_image_003_mra_f01",
+      "target_image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        420,
+        470,
+        560,
+        590
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The source image is a 3D MRA scan with no visible measurements, while the target is a 2D CT slice with no stated measurements; scale and view prevent reliable comparison.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown, so semantic comparison cannot be performed.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The source image is a 3D MRA scan with no visible measurements, while the target is a 2D CT slice with no stated measurements; scale and view prevent reliable comparison."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown, so semantic comparison cannot be performed."
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00029_reground",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "source_query_id": "location_00029",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_001_ct_image_000_axial_c_arterial_phase_f01",
+      "target_image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        260,
+        375,
+        420,
+        540
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The source image is a non-contrast CT scan with no explicit measurements, and the target image is an angiogram with no stated measurements. The scale and view are different, preventing reliable comparison of lesion extent.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown, so semantic comparison using only the two captions cannot be performed.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The source image is a non-contrast CT scan with no explicit measurements, and the target image is an angiogram with no stated measurements. The scale and view are different, preventing reliable comparison of lesion extent."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown, so semantic comparison using only the two captions cannot be performed."
+      }
+    }
+  ],
+  "not_support_queries": [
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 3,
+      "query_id": "location_00003",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_000_axial_t2_f01",
+        "image_id": "study_000_mri_image_000_axial_t2",
+        "bbox_2d": [
+          495,
+          365,
+          690,
+          545
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_000_axial_t2/study_000_mri_image_000_axial_t2_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_000_mri_image_003_mra",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0013.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_003_mra",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "MRA"
+        },
+        "existing_node_ids": [
+          "study_000_mri_image_003_mra_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 5,
+      "query_id": "location_00005",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_000_axial_t2_f01",
+        "image_id": "study_000_mri_image_000_axial_t2",
+        "bbox_2d": [
+          495,
+          365,
+          690,
+          545
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_000_axial_t2/study_000_mri_image_000_axial_t2_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Lateral Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 6,
+      "query_id": "location_00006",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_000_axial_t2_f01",
+        "image_id": "study_000_mri_image_000_axial_t2",
+        "bbox_2d": [
+          495,
+          365,
+          690,
+          545
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_000_axial_t2/study_000_mri_image_000_axial_t2_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0011.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Frontal Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 8,
+      "query_id": "location_00008",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f01",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          268,
+          58,
+          424,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_000_mri_image_003_mra",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0013.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_003_mra",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "MRA"
+        },
+        "existing_node_ids": [
+          "study_000_mri_image_003_mra_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 9,
+      "query_id": "location_00009",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f01",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          268,
+          58,
+          424,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0006.jpeg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial C+ arterial phase"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_000_axial_c_arterial_phase_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 10,
+      "query_id": "location_00010",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f01",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          268,
+          58,
+          424,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Lateral Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 11,
+      "query_id": "location_00011",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f01",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          268,
+          58,
+          424,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0011.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Frontal Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 13,
+      "query_id": "location_00013",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f02",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          598,
+          58,
+          754,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r02_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_000_mri_image_003_mra",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0013.jpeg",
+        "examination": {
+          "image_id": "study_000_mri_image_003_mra",
+          "study_index": 0,
+          "modality": "MRI",
+          "subcategory": "MRA"
+        },
+        "existing_node_ids": [
+          "study_000_mri_image_003_mra_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 15,
+      "query_id": "location_00015",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f02",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          598,
+          58,
+          754,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r02_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Lateral Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 16,
+      "query_id": "location_00016",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_001_axial_flair_f02",
+        "image_id": "study_000_mri_image_001_axial_flair",
+        "bbox_2d": [
+          598,
+          58,
+          754,
+          194
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_001_axial_flair/study_000_mri_image_001_axial_flair_r02_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0011.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Frontal Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 28,
+      "query_id": "location_00028",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_000_mri_image_003_mra_f01",
+        "image_id": "study_000_mri_image_003_mra",
+        "bbox_2d": [
+          527,
+          320,
+          700,
+          530
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_000_mri_image_003_mra/study_000_mri_image_003_mra_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0011.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Frontal Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 30,
+      "query_id": "location_00030",
+      "case_id": "giant-internal-carotid-artery-aneurysm-1",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "b12818a72d3c41dd9e8a18f55c338d74ea431b56c855f36906da394bb529844e"
+      },
+      "anchor": {
+        "node_id": "study_001_ct_image_000_axial_c_arterial_phase_f01",
+        "image_id": "study_001_ct_image_000_axial_c_arterial_phase",
+        "bbox_2d": [
+          492,
+          368,
+          614,
+          475
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/giant-internal-carotid-artery-aneurysm-1/step_2/bbox_images/study_001_ct_image_000_axial_c_arterial_phase/study_001_ct_image_000_axial_c_arterial_phase_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/giant-internal-carotid-artery-aneurysm-1/images/img_0011.jpeg",
+        "examination": {
+          "image_id": "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery",
+          "study_index": 2,
+          "modality": "DSA (angiography)",
+          "subcategory": "Frontal Internal carotid artery"
+        },
+        "existing_node_ids": [
+          "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    }
+  ],
+  "skipped_anchor_nodes": [
+    {
+      "anchor_node_id": "study_000_mri_image_001_axial_flair_f03",
+      "reason": "incoming strong bbox-to-bbox support from an earlier image",
+      "reused_strong_relation_ids": [
+        "strong_location_00001_01"
+      ],
+      "skipped_target_image_ids": [
+        "study_000_mri_image_002_axial_gradient_echo",
+        "study_000_mri_image_003_mra",
+        "study_001_ct_image_000_axial_c_arterial_phase",
+        "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery"
+      ],
+      "skipped_query_count": 5
+    },
+    {
+      "anchor_node_id": "study_000_mri_image_002_axial_gradient_echo_f01",
+      "reason": "incoming strong bbox-to-bbox support from an earlier image",
+      "reused_strong_relation_ids": [
+        "strong_location_00002_01"
+      ],
+      "skipped_target_image_ids": [
+        "study_000_mri_image_003_mra",
+        "study_001_ct_image_000_axial_c_arterial_phase",
+        "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery",
+        "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery"
+      ],
+      "skipped_query_count": 4
+    },
+    {
+      "anchor_node_id": "study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01",
+      "reason": "incoming strong bbox-to-bbox support from an earlier image",
+      "reused_strong_relation_ids": [
+        "strong_location_00027_01"
+      ],
+      "skipped_target_image_ids": [
+        "study_002_dsa_angiography_image_001_frontal_internal_carotid_artery"
+      ],
+      "skipped_query_count": 1
+    }
+  ],
+  "processing_summary": {
+    "image_count": 7,
+    "image_without_existing_bbox_count": 0,
+    "node_count": 9,
+    "upper_bound_query_count": 31,
+    "executed_or_reused_query_count": 21,
+    "dynamic_skipped_query_count": 10,
+    "strong_relation_count": 3,
+    "partial_support_count": 6,
+    "not_support_count": 12,
+    "parse_error_count": 0,
+    "stopped_by_query_limit": false
+  }
+}

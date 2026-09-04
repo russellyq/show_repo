@@ -1,0 +1,130 @@
+{
+  "step": 3,
+  "case_id": "sinus-pericranii-5",
+  "case_url": "https://radiopaedia.org/cases/sinus-pericranii-5?lang=us",
+  "case_title": "Sinus pericranii",
+  "status": "complete",
+  "configuration": {
+    "prompt_version": "step_3_directed_cross_image_grounding_v1",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "max_pixels": 1048576,
+    "iou_threshold": 0.5,
+    "source_step_2_fingerprint": "9d24d6c464078a51a3ca43127ffea03ee1164ab0baa79960dbd5124b699690f0",
+    "evidence_prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+    "query_order": "upper_triangle_by_image_then_anchor_bbox",
+    "strong_supported_anchor_skip": true
+  },
+  "source_step_2": {
+    "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sinus-pericranii-5/step_2/structured/case_evidence.json",
+    "fingerprint": "9d24d6c464078a51a3ca43127ffea03ee1164ab0baa79960dbd5124b699690f0"
+  },
+  "patient": {
+    "age": 6,
+    "age_unit": "years",
+    "gender": "unknown",
+    "raw_patient_data": "Age: 6 mo",
+    "clinical_context": "Swelling over mid parietal region, aggravated by crying or dependent positioning."
+  },
+  "images": [
+    {
+      "image_position": 0,
+      "image_id": "study_000_x_ray_image_000_posterior_anterior",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sinus-pericranii-5/images/img_0000.png",
+      "examination": {
+        "image_id": "study_000_x_ray_image_000_posterior_anterior",
+        "study_index": 0,
+        "modality": "X-ray",
+        "subcategory": "Posterior-anterior"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 1,
+      "image_id": "study_001_ultrasound_image_000_missing",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sinus-pericranii-5/images/img_0002.jpeg",
+      "examination": {
+        "image_id": "study_001_ultrasound_image_000_missing",
+        "study_index": 1,
+        "modality": "Ultrasound",
+        "subcategory": "missing"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 2,
+      "image_id": "study_001_ultrasound_image_001_missing",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sinus-pericranii-5/images/img_0003.jpeg",
+      "examination": {
+        "image_id": "study_001_ultrasound_image_001_missing",
+        "study_index": 1,
+        "modality": "Ultrasound",
+        "subcategory": "missing"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 3,
+      "image_id": "study_002_mri_image_000_sagittal_mrv",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sinus-pericranii-5/images/img_0006.jpeg",
+      "examination": {
+        "image_id": "study_002_mri_image_000_sagittal_mrv",
+        "study_index": 2,
+        "modality": "MRI",
+        "subcategory": "Sagittal MRV"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 4,
+      "image_id": "study_002_mri_image_001_posterior_anterior_3d_reconstruction_mrv",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sinus-pericranii-5/images/img_0008.jpeg",
+      "examination": {
+        "image_id": "study_002_mri_image_001_posterior_anterior_3d_reconstruction_mrv",
+        "study_index": 2,
+        "modality": "MRI",
+        "subcategory": "Posterior-anterior 3D reconstruction (MRV)"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 5,
+      "image_id": "study_002_mri_image_002_oblique_3d_reconstruction_mrv",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sinus-pericranii-5/images/img_0010.jpeg",
+      "examination": {
+        "image_id": "study_002_mri_image_002_oblique_3d_reconstruction_mrv",
+        "study_index": 2,
+        "modality": "MRI",
+        "subcategory": "Oblique 3D reconstruction (MRV)"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    }
+  ],
+  "nodes": [],
+  "node_support": [],
+  "cross_image_grounding": [],
+  "strong_support_relations": [],
+  "validations": [],
+  "partial_support_validations": [],
+  "not_support_queries": [],
+  "skipped_anchor_nodes": [],
+  "processing_summary": {
+    "image_count": 6,
+    "image_without_existing_bbox_count": 6,
+    "node_count": 0,
+    "upper_bound_query_count": 0,
+    "executed_or_reused_query_count": 0,
+    "dynamic_skipped_query_count": 0,
+    "strong_relation_count": 0,
+    "partial_support_count": 0,
+    "not_support_count": 0,
+    "parse_error_count": 0,
+    "stopped_by_query_limit": false
+  }
+}

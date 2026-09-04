@@ -1,0 +1,2515 @@
+{
+  "step": 3,
+  "case_id": "loculated-pneumothorax",
+  "case_url": "https://radiopaedia.org/cases/loculated-pneumothorax?lang=us",
+  "case_title": "Loculated pneumothorax",
+  "status": "complete",
+  "configuration": {
+    "prompt_version": "step_3_directed_cross_image_grounding_v1",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "max_pixels": 1048576,
+    "iou_threshold": 0.5,
+    "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2",
+    "evidence_prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+    "query_order": "upper_triangle_by_image_then_anchor_bbox",
+    "strong_supported_anchor_skip": true
+  },
+  "source_step_2": {
+    "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/structured/case_evidence.json",
+    "fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+  },
+  "patient": {
+    "age": "unknown",
+    "age_unit": "unknown",
+    "gender": "Male",
+    "raw_patient_data": "Age: Elderly Gender: Male",
+    "clinical_context": "Status post subdural evacuation with positive pressure ventilation became short of breath."
+  },
+  "images": [
+    {
+      "image_position": 0,
+      "image_id": "study_000_x_ray_image_000_frontal",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0001.jpg",
+      "examination": {
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "study_index": 0,
+        "modality": "X-ray",
+        "subcategory": "Frontal"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_000_x_ray_image_000_frontal_f01"
+      ]
+    },
+    {
+      "image_position": 1,
+      "image_id": "study_001_ct_image_000_coronal_lung_window",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0004.jpg",
+      "examination": {
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "study_index": 1,
+        "modality": "CT",
+        "subcategory": "Coronal lung window"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_001_ct_image_000_coronal_lung_window_f01",
+        "study_001_ct_image_000_coronal_lung_window_f02",
+        "study_001_ct_image_000_coronal_lung_window_f03"
+      ]
+    },
+    {
+      "image_position": 2,
+      "image_id": "study_001_ct_image_001_axial_lung_window",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0006.jpg",
+      "examination": {
+        "image_id": "study_001_ct_image_001_axial_lung_window",
+        "study_index": 1,
+        "modality": "CT",
+        "subcategory": "Axial lung window"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_001_ct_image_001_axial_lung_window_f01",
+        "study_001_ct_image_001_axial_lung_window_f02"
+      ]
+    },
+    {
+      "image_position": 3,
+      "image_id": "study_002_x_ray_image_000_frontal",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0003.jpg",
+      "examination": {
+        "image_id": "study_002_x_ray_image_000_frontal",
+        "study_index": 2,
+        "modality": "X-ray",
+        "subcategory": "Frontal"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_002_x_ray_image_000_frontal_f01"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "study_000_x_ray_image_000_frontal_f01",
+      "region_id": "study_000_x_ray_image_000_frontal_r01",
+      "image_id": "study_000_x_ray_image_000_frontal",
+      "image_position": 0,
+      "finding_position": 1,
+      "bbox_2d": [
+        601,
+        469,
+        886,
+        919
+      ],
+      "bbox_pixels": [
+        615,
+        480,
+        907,
+        941
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png",
+      "lingshu_caption": "The lungs are hyperinflated. There is increased opacity in the left lower lung zone. The heart size is normal. The mediastinal contour is normal. There is no pneumothorax. There is no pleural effusion.",
+      "observation": {
+        "location": "left lower lung zone",
+        "morphology": "increased opacity",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "increased opacity",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "hyperinflated lungs, normal heart size, normal mediastinal contour, no pneumothorax, no pleural effusion",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0001.jpg",
+        "examination": {
+          "image_id": "study_000_x_ray_image_000_frontal",
+          "study_index": 0,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        }
+      }
+    },
+    {
+      "node_id": "study_001_ct_image_000_coronal_lung_window_f01",
+      "region_id": "study_001_ct_image_000_coronal_lung_window_r01",
+      "image_id": "study_001_ct_image_000_coronal_lung_window",
+      "image_position": 1,
+      "finding_position": 1,
+      "bbox_2d": [
+        101,
+        284,
+        427,
+        825
+      ],
+      "bbox_pixels": [
+        63,
+        178,
+        269,
+        519
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r01_bbox.png",
+      "lingshu_caption": "The right lower lobe demonstrates a large area of consolidation with air bronchograms. There is also a moderate right pleural effusion. The left lung appears clear.",
+      "observation": {
+        "location": "right lower lobe",
+        "morphology": "consolidation",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "air bronchograms",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0004.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        }
+      }
+    },
+    {
+      "node_id": "study_001_ct_image_000_coronal_lung_window_f02",
+      "region_id": "study_001_ct_image_000_coronal_lung_window_r02",
+      "image_id": "study_001_ct_image_000_coronal_lung_window",
+      "image_position": 1,
+      "finding_position": 2,
+      "bbox_2d": [
+        180,
+        40,
+        498,
+        382
+      ],
+      "bbox_pixels": [
+        113,
+        25,
+        313,
+        240
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r02_bbox.png",
+      "lingshu_caption": "The right upper lobe demonstrates a large cavitary lesion with surrounding consolidation. There is also a smaller cavitary lesion in the right lower lobe. The left lung appears clear.",
+      "observation": {
+        "location": "right upper lobe",
+        "morphology": "cavitary lesion",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "consolidation",
+        "visible_signs": "smaller cavitary lesion in the right lower lobe",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0004.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        }
+      }
+    },
+    {
+      "node_id": "study_001_ct_image_000_coronal_lung_window_f03",
+      "region_id": "study_001_ct_image_000_coronal_lung_window_r03",
+      "image_id": "study_001_ct_image_000_coronal_lung_window",
+      "image_position": 1,
+      "finding_position": 3,
+      "bbox_2d": [
+        591,
+        95,
+        880,
+        875
+      ],
+      "bbox_pixels": [
+        372,
+        59,
+        554,
+        551
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r03_bbox.png",
+      "lingshu_caption": "The left lung is well inflated with no areas of focal consolidation, pleural effusion, or pneumothorax identified. The pulmonary vasculature is within normal limits. There is no evidence of hilar lymphadenopathy.",
+      "observation": {
+        "location": "unknown",
+        "morphology": "unknown",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0004.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        }
+      }
+    },
+    {
+      "node_id": "study_001_ct_image_001_axial_lung_window_f01",
+      "region_id": "study_001_ct_image_001_axial_lung_window_r01",
+      "image_id": "study_001_ct_image_001_axial_lung_window",
+      "image_position": 2,
+      "finding_position": 1,
+      "bbox_2d": [
+        175,
+        226,
+        675,
+        656
+      ],
+      "bbox_pixels": [
+        110,
+        142,
+        425,
+        413
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_001_axial_lung_window/study_001_ct_image_001_axial_lung_window_r01_bbox.png",
+      "lingshu_caption": "The right upper lobe demonstrates a large cavitary lesion with surrounding consolidation. There is also a smaller cavitary lesion in the left upper lobe. The remaining lung parenchyma appears relatively clear. No pleural effusions or pneumothorax are identified. The mediastinal structures appear unremarkable.",
+      "observation": {
+        "location": "unknown",
+        "morphology": "unknown",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_001_ct_image_001_axial_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0006.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_001_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        }
+      }
+    },
+    {
+      "node_id": "study_001_ct_image_001_axial_lung_window_f02",
+      "region_id": "study_001_ct_image_001_axial_lung_window_r02",
+      "image_id": "study_001_ct_image_001_axial_lung_window",
+      "image_position": 2,
+      "finding_position": 2,
+      "bbox_2d": [
+        588,
+        272,
+        937,
+        712
+      ],
+      "bbox_pixels": [
+        370,
+        171,
+        590,
+        448
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_001_axial_lung_window/study_001_ct_image_001_axial_lung_window_r02_bbox.png",
+      "lingshu_caption": "The lungs are hyperinflated. There is a large right pneumothorax with collapse of the right lung. The left lung appears normal.",
+      "observation": {
+        "location": "unknown",
+        "morphology": "unknown",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_001_ct_image_001_axial_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0006.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_001_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        }
+      }
+    },
+    {
+      "node_id": "study_002_x_ray_image_000_frontal_f01",
+      "region_id": "study_002_x_ray_image_000_frontal_r01",
+      "image_id": "study_002_x_ray_image_000_frontal",
+      "image_position": 3,
+      "finding_position": 1,
+      "bbox_2d": [
+        125,
+        476,
+        382,
+        894
+      ],
+      "bbox_pixels": [
+        128,
+        487,
+        391,
+        915
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_002_x_ray_image_000_frontal/study_002_x_ray_image_000_frontal_r01_bbox.png",
+      "lingshu_caption": "The lungs are hyperinflated. There is increased opacity in the right lower lung zone. The heart size is normal. The mediastinal contour is normal. There is no pneumothorax. There is no pleural effusion.",
+      "observation": {
+        "location": "right lower lung zone",
+        "morphology": "unknown",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "increased opacity",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_002_x_ray_image_000_frontal",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0003.jpg",
+        "examination": {
+          "image_id": "study_002_x_ray_image_000_frontal",
+          "study_index": 2,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        }
+      }
+    }
+  ],
+  "node_support": [
+    {
+      "node_id": "study_000_x_ray_image_000_frontal_f01",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [
+        "location_00001",
+        "location_00002",
+        "location_00003"
+      ],
+      "partial_support_target_image_ids": [
+        "study_001_ct_image_000_coronal_lung_window",
+        "study_002_x_ray_image_000_frontal"
+      ],
+      "not_support_target_image_ids": [
+        "study_001_ct_image_001_axial_lung_window"
+      ],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "partial_support"
+    },
+    {
+      "node_id": "study_001_ct_image_000_coronal_lung_window_f01",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [
+        "location_00004",
+        "location_00005"
+      ],
+      "partial_support_target_image_ids": [
+        "study_001_ct_image_001_axial_lung_window"
+      ],
+      "not_support_target_image_ids": [
+        "study_002_x_ray_image_000_frontal"
+      ],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "partial_support"
+    },
+    {
+      "node_id": "study_001_ct_image_000_coronal_lung_window_f02",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [
+        "location_00006",
+        "location_00007"
+      ],
+      "partial_support_target_image_ids": [
+        "study_001_ct_image_001_axial_lung_window"
+      ],
+      "not_support_target_image_ids": [
+        "study_002_x_ray_image_000_frontal"
+      ],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "partial_support"
+    },
+    {
+      "node_id": "study_001_ct_image_000_coronal_lung_window_f03",
+      "strong_relation_ids": [
+        "strong_location_00008_01"
+      ],
+      "strong_peer_node_ids": [
+        "study_001_ct_image_001_axial_lung_window_f02"
+      ],
+      "outgoing_query_ids": [
+        "location_00008",
+        "location_00009"
+      ],
+      "partial_support_target_image_ids": [
+        "study_002_x_ray_image_000_frontal"
+      ],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "strong_support"
+    },
+    {
+      "node_id": "study_001_ct_image_001_axial_lung_window_f01",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [
+        "location_00010"
+      ],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [
+        "study_002_x_ray_image_000_frontal"
+      ],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "not_support"
+    },
+    {
+      "node_id": "study_001_ct_image_001_axial_lung_window_f02",
+      "strong_relation_ids": [
+        "strong_location_00008_01"
+      ],
+      "strong_peer_node_ids": [
+        "study_001_ct_image_000_coronal_lung_window_f03"
+      ],
+      "outgoing_query_ids": [],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "strong_support"
+    },
+    {
+      "node_id": "study_002_x_ray_image_000_frontal_f01",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "unvalidated"
+    }
+  ],
+  "cross_image_grounding": [
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 1,
+      "query_id": "location_00001",
+      "case_id": "loculated-pneumothorax",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "anchor": {
+        "node_id": "study_000_x_ray_image_000_frontal_f01",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          601,
+          469,
+          886,
+          919
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0004.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_000_coronal_lung_window_f01",
+          "study_001_ct_image_000_coronal_lung_window_f02",
+          "study_001_ct_image_000_coronal_lung_window_f03"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [450, 475, 660, 850]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          450,
+          475,
+          660,
+          850
+        ],
+        "target_bbox_pixels": [
+          283,
+          299,
+          415,
+          535
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.091797,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_001_ct_image_000_coronal_lung_window_f01",
+            "region_id": "study_001_ct_image_000_coronal_lung_window_r01",
+            "bbox_2d": [
+              101,
+              284,
+              427,
+              825
+            ],
+            "bbox_pixels": [
+              63,
+              178,
+              269,
+              519
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          },
+          {
+            "target_node_id": "study_001_ct_image_000_coronal_lung_window_f02",
+            "region_id": "study_001_ct_image_000_coronal_lung_window_r02",
+            "bbox_2d": [
+              180,
+              40,
+              498,
+              382
+            ],
+            "bbox_pixels": [
+              113,
+              25,
+              313,
+              240
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          },
+          {
+            "target_node_id": "study_001_ct_image_000_coronal_lung_window_f03",
+            "region_id": "study_001_ct_image_000_coronal_lung_window_r03",
+            "bbox_2d": [
+              591,
+              95,
+              880,
+              875
+            ],
+            "bbox_pixels": [
+              372,
+              59,
+              554,
+              551
+            ],
+            "iou": 0.091797,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3/cross_image_grounding/location_00001.png",
+          "target_image_width": 630,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            283,
+            299,
+            415,
+            535
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_001_ct_image_000_coronal_lung_window_f01",
+              "region_id": "study_001_ct_image_000_coronal_lung_window_r01",
+              "bbox_2d": [
+                101,
+                284,
+                427,
+                825
+              ],
+              "bbox_pixels": [
+                63,
+                178,
+                269,
+                519
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            },
+            {
+              "target_node_id": "study_001_ct_image_000_coronal_lung_window_f02",
+              "region_id": "study_001_ct_image_000_coronal_lung_window_r02",
+              "bbox_2d": [
+                180,
+                40,
+                498,
+                382
+              ],
+              "bbox_pixels": [
+                113,
+                25,
+                313,
+                240
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            },
+            {
+              "target_node_id": "study_001_ct_image_000_coronal_lung_window_f03",
+              "region_id": "study_001_ct_image_000_coronal_lung_window_r03",
+              "bbox_2d": [
+                591,
+                95,
+                880,
+                875
+              ],
+              "bbox_pixels": [
+                372,
+                59,
+                554,
+                551
+              ],
+              "iou": 0.091797,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00001_reground"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 2,
+      "query_id": "location_00002",
+      "case_id": "loculated-pneumothorax",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "anchor": {
+        "node_id": "study_000_x_ray_image_000_frontal_f01",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          601,
+          469,
+          886,
+          919
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_001_axial_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0006.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_001_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_001_axial_lung_window_f01",
+          "study_001_ct_image_001_axial_lung_window_f02"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 3,
+      "query_id": "location_00003",
+      "case_id": "loculated-pneumothorax",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "anchor": {
+        "node_id": "study_000_x_ray_image_000_frontal_f01",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          601,
+          469,
+          886,
+          919
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_x_ray_image_000_frontal",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0003.jpg",
+        "examination": {
+          "image_id": "study_002_x_ray_image_000_frontal",
+          "study_index": 2,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        },
+        "existing_node_ids": [
+          "study_002_x_ray_image_000_frontal_f01"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [586, 469, 866, 924]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          586,
+          469,
+          866,
+          924
+        ],
+        "target_bbox_pixels": [
+          600,
+          480,
+          886,
+          946
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.0,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_002_x_ray_image_000_frontal_f01",
+            "region_id": "study_002_x_ray_image_000_frontal_r01",
+            "bbox_2d": [
+              125,
+              476,
+              382,
+              894
+            ],
+            "bbox_pixels": [
+              128,
+              487,
+              391,
+              915
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3/cross_image_grounding/location_00003.png",
+          "target_image_width": 1024,
+          "target_image_height": 1024,
+          "predicted_bbox_pixels": [
+            600,
+            480,
+            886,
+            946
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_002_x_ray_image_000_frontal_f01",
+              "region_id": "study_002_x_ray_image_000_frontal_r01",
+              "bbox_2d": [
+                125,
+                476,
+                382,
+                894
+              ],
+              "bbox_pixels": [
+                128,
+                487,
+                391,
+                915
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00003_reground"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 4,
+      "query_id": "location_00004",
+      "case_id": "loculated-pneumothorax",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "anchor": {
+        "node_id": "study_001_ct_image_000_coronal_lung_window_f01",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          101,
+          284,
+          427,
+          825
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_001_axial_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0006.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_001_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_001_axial_lung_window_f01",
+          "study_001_ct_image_001_axial_lung_window_f02"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [175, 187, 490, 558]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          175,
+          187,
+          490,
+          558
+        ],
+        "target_bbox_pixels": [
+          110,
+          117,
+          308,
+          351
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.458196,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_001_ct_image_001_axial_lung_window_f01",
+            "region_id": "study_001_ct_image_001_axial_lung_window_r01",
+            "bbox_2d": [
+              175,
+              226,
+              675,
+              656
+            ],
+            "bbox_pixels": [
+              110,
+              142,
+              425,
+              413
+            ],
+            "iou": 0.458196,
+            "strong_match": false
+          },
+          {
+            "target_node_id": "study_001_ct_image_001_axial_lung_window_f02",
+            "region_id": "study_001_ct_image_001_axial_lung_window_r02",
+            "bbox_2d": [
+              588,
+              272,
+              937,
+              712
+            ],
+            "bbox_pixels": [
+              370,
+              171,
+              590,
+              448
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3/cross_image_grounding/location_00004.png",
+          "target_image_width": 630,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            110,
+            117,
+            308,
+            351
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_001_ct_image_001_axial_lung_window_f01",
+              "region_id": "study_001_ct_image_001_axial_lung_window_r01",
+              "bbox_2d": [
+                175,
+                226,
+                675,
+                656
+              ],
+              "bbox_pixels": [
+                110,
+                142,
+                425,
+                413
+              ],
+              "iou": 0.458196,
+              "strong_match": false
+            },
+            {
+              "target_node_id": "study_001_ct_image_001_axial_lung_window_f02",
+              "region_id": "study_001_ct_image_001_axial_lung_window_r02",
+              "bbox_2d": [
+                588,
+                272,
+                937,
+                712
+              ],
+              "bbox_pixels": [
+                370,
+                171,
+                590,
+                448
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00004_reground"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 5,
+      "query_id": "location_00005",
+      "case_id": "loculated-pneumothorax",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "anchor": {
+        "node_id": "study_001_ct_image_000_coronal_lung_window_f01",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          101,
+          284,
+          427,
+          825
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_x_ray_image_000_frontal",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0003.jpg",
+        "examination": {
+          "image_id": "study_002_x_ray_image_000_frontal",
+          "study_index": 2,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        },
+        "existing_node_ids": [
+          "study_002_x_ray_image_000_frontal_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 6,
+      "query_id": "location_00006",
+      "case_id": "loculated-pneumothorax",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "anchor": {
+        "node_id": "study_001_ct_image_000_coronal_lung_window_f02",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          180,
+          40,
+          498,
+          382
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r02_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_001_axial_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0006.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_001_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_001_axial_lung_window_f01",
+          "study_001_ct_image_001_axial_lung_window_f02"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [180, 134, 500, 450]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          180,
+          134,
+          500,
+          450
+        ],
+        "target_bbox_pixels": [
+          113,
+          84,
+          315,
+          283
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.293384,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_001_ct_image_001_axial_lung_window_f01",
+            "region_id": "study_001_ct_image_001_axial_lung_window_r01",
+            "bbox_2d": [
+              175,
+              226,
+              675,
+              656
+            ],
+            "bbox_pixels": [
+              110,
+              142,
+              425,
+              413
+            ],
+            "iou": 0.293384,
+            "strong_match": false
+          },
+          {
+            "target_node_id": "study_001_ct_image_001_axial_lung_window_f02",
+            "region_id": "study_001_ct_image_001_axial_lung_window_r02",
+            "bbox_2d": [
+              588,
+              272,
+              937,
+              712
+            ],
+            "bbox_pixels": [
+              370,
+              171,
+              590,
+              448
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3/cross_image_grounding/location_00006.png",
+          "target_image_width": 630,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            113,
+            84,
+            315,
+            283
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_001_ct_image_001_axial_lung_window_f01",
+              "region_id": "study_001_ct_image_001_axial_lung_window_r01",
+              "bbox_2d": [
+                175,
+                226,
+                675,
+                656
+              ],
+              "bbox_pixels": [
+                110,
+                142,
+                425,
+                413
+              ],
+              "iou": 0.293384,
+              "strong_match": false
+            },
+            {
+              "target_node_id": "study_001_ct_image_001_axial_lung_window_f02",
+              "region_id": "study_001_ct_image_001_axial_lung_window_r02",
+              "bbox_2d": [
+                588,
+                272,
+                937,
+                712
+              ],
+              "bbox_pixels": [
+                370,
+                171,
+                590,
+                448
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00006_reground"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 7,
+      "query_id": "location_00007",
+      "case_id": "loculated-pneumothorax",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "anchor": {
+        "node_id": "study_001_ct_image_000_coronal_lung_window_f02",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          180,
+          40,
+          498,
+          382
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r02_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_x_ray_image_000_frontal",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0003.jpg",
+        "examination": {
+          "image_id": "study_002_x_ray_image_000_frontal",
+          "study_index": 2,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        },
+        "existing_node_ids": [
+          "study_002_x_ray_image_000_frontal_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 8,
+      "query_id": "location_00008",
+      "case_id": "loculated-pneumothorax",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "anchor": {
+        "node_id": "study_001_ct_image_000_coronal_lung_window_f03",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          591,
+          95,
+          880,
+          875
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r03_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_001_axial_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0006.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_001_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_001_axial_lung_window_f01",
+          "study_001_ct_image_001_axial_lung_window_f02"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [480, 300, 880, 700]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "strong_support",
+        "support_type": "bbox_to_bbox",
+        "target_found": true,
+        "target_bbox_2d": [
+          480,
+          300,
+          880,
+          700
+        ],
+        "target_bbox_pixels": [
+          302,
+          189,
+          554,
+          441
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.593883,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_001_ct_image_001_axial_lung_window_f01",
+            "region_id": "study_001_ct_image_001_axial_lung_window_r01",
+            "bbox_2d": [
+              175,
+              226,
+              675,
+              656
+            ],
+            "bbox_pixels": [
+              110,
+              142,
+              425,
+              413
+            ],
+            "iou": 0.227107,
+            "strong_match": false
+          },
+          {
+            "target_node_id": "study_001_ct_image_001_axial_lung_window_f02",
+            "region_id": "study_001_ct_image_001_axial_lung_window_r02",
+            "bbox_2d": [
+              588,
+              272,
+              937,
+              712
+            ],
+            "bbox_pixels": [
+              370,
+              171,
+              590,
+              448
+            ],
+            "iou": 0.593883,
+            "strong_match": true
+          }
+        ],
+        "matched_existing_nodes": [
+          {
+            "target_node_id": "study_001_ct_image_001_axial_lung_window_f02",
+            "region_id": "study_001_ct_image_001_axial_lung_window_r02",
+            "bbox_2d": [
+              588,
+              272,
+              937,
+              712
+            ],
+            "bbox_pixels": [
+              370,
+              171,
+              590,
+              448
+            ],
+            "iou": 0.593883,
+            "strong_match": true
+          }
+        ],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3/cross_image_grounding/location_00008.png",
+          "target_image_width": 630,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            302,
+            189,
+            554,
+            441
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_001_ct_image_001_axial_lung_window_f01",
+              "region_id": "study_001_ct_image_001_axial_lung_window_r01",
+              "bbox_2d": [
+                175,
+                226,
+                675,
+                656
+              ],
+              "bbox_pixels": [
+                110,
+                142,
+                425,
+                413
+              ],
+              "iou": 0.227107,
+              "strong_match": false
+            },
+            {
+              "target_node_id": "study_001_ct_image_001_axial_lung_window_f02",
+              "region_id": "study_001_ct_image_001_axial_lung_window_r02",
+              "bbox_2d": [
+                588,
+                272,
+                937,
+                712
+              ],
+              "bbox_pixels": [
+                370,
+                171,
+                590,
+                448
+              ],
+              "iou": 0.593883,
+              "strong_match": true
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [
+        "strong_location_00008_01"
+      ],
+      "validation_ids": [
+        "validation_location_00008_01"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 9,
+      "query_id": "location_00009",
+      "case_id": "loculated-pneumothorax",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "anchor": {
+        "node_id": "study_001_ct_image_000_coronal_lung_window_f03",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          591,
+          95,
+          880,
+          875
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r03_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_x_ray_image_000_frontal",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0003.jpg",
+        "examination": {
+          "image_id": "study_002_x_ray_image_000_frontal",
+          "study_index": 2,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        },
+        "existing_node_ids": [
+          "study_002_x_ray_image_000_frontal_f01"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [574, 114, 876, 874]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          574,
+          114,
+          876,
+          874
+        ],
+        "target_bbox_pixels": [
+          587,
+          116,
+          897,
+          894
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.0,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_002_x_ray_image_000_frontal_f01",
+            "region_id": "study_002_x_ray_image_000_frontal_r01",
+            "bbox_2d": [
+              125,
+              476,
+              382,
+              894
+            ],
+            "bbox_pixels": [
+              128,
+              487,
+              391,
+              915
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3/cross_image_grounding/location_00009.png",
+          "target_image_width": 1024,
+          "target_image_height": 1024,
+          "predicted_bbox_pixels": [
+            587,
+            116,
+            897,
+            894
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_002_x_ray_image_000_frontal_f01",
+              "region_id": "study_002_x_ray_image_000_frontal_r01",
+              "bbox_2d": [
+                125,
+                476,
+                382,
+                894
+              ],
+              "bbox_pixels": [
+                128,
+                487,
+                391,
+                915
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00009_reground"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 10,
+      "query_id": "location_00010",
+      "case_id": "loculated-pneumothorax",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "anchor": {
+        "node_id": "study_001_ct_image_001_axial_lung_window_f01",
+        "image_id": "study_001_ct_image_001_axial_lung_window",
+        "bbox_2d": [
+          175,
+          226,
+          675,
+          656
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_001_axial_lung_window/study_001_ct_image_001_axial_lung_window_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_x_ray_image_000_frontal",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0003.jpg",
+        "examination": {
+          "image_id": "study_002_x_ray_image_000_frontal",
+          "study_index": 2,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        },
+        "existing_node_ids": [
+          "study_002_x_ray_image_000_frontal_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    }
+  ],
+  "strong_support_relations": [
+    {
+      "step": 3,
+      "unit_type": "strong_bbox_to_bbox_relation",
+      "support_status": "strong_support",
+      "support_type": "bbox_to_bbox",
+      "relation_id": "strong_location_00008_01",
+      "case_id": "loculated-pneumothorax",
+      "source_query_id": "location_00008",
+      "iou": 0.593883,
+      "iou_threshold": 0.5,
+      "anchor": {
+        "node_id": "study_001_ct_image_000_coronal_lung_window_f03",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          591,
+          95,
+          880,
+          875
+        ]
+      },
+      "target": {
+        "node_id": "study_001_ct_image_001_axial_lung_window_f02",
+        "image_id": "study_001_ct_image_001_axial_lung_window",
+        "existing_bbox_2d": [
+          588,
+          272,
+          937,
+          712
+        ],
+        "cross_image_bbox_2d": [
+          480,
+          300,
+          880,
+          700
+        ]
+      },
+      "validation_id": "validation_location_00008_01"
+    }
+  ],
+  "validations": [
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00001_reground",
+      "case_id": "loculated-pneumothorax",
+      "source_query_id": "location_00001",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_x_ray_image_000_frontal_f01",
+      "target_image_id": "study_001_ct_image_000_coronal_lung_window",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        450,
+        475,
+        660,
+        850
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"view, scale, or measurements do not permit a reliable comparison\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"the target Lingshu caption is unknown\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "view, scale, or measurements do not permit a reliable comparison"
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "the target Lingshu caption is unknown"
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00003_reground",
+      "case_id": "loculated-pneumothorax",
+      "source_query_id": "location_00003",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_x_ray_image_000_frontal_f01",
+      "target_image_id": "study_002_x_ray_image_000_frontal",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        586,
+        469,
+        866,
+        924
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The source region's measurements are unknown, and the target region's measurements are also unknown, preventing reliable comparison.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown, so semantic comparison using only the two Lingshu captions cannot be performed.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The source region's measurements are unknown, and the target region's measurements are also unknown, preventing reliable comparison."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown, so semantic comparison using only the two Lingshu captions cannot be performed."
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00004_reground",
+      "case_id": "loculated-pneumothorax",
+      "source_query_id": "location_00004",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_001_ct_image_000_coronal_lung_window_f01",
+      "target_image_id": "study_001_ct_image_001_axial_lung_window",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        175,
+        187,
+        490,
+        558
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"view, scale, or measurements do not permit a reliable comparison\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"Target Lingshu caption is unknown\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "view, scale, or measurements do not permit a reliable comparison"
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "Target Lingshu caption is unknown"
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00006_reground",
+      "case_id": "loculated-pneumothorax",
+      "source_query_id": "location_00006",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_001_ct_image_000_coronal_lung_window_f02",
+      "target_image_id": "study_001_ct_image_001_axial_lung_window",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        180,
+        134,
+        500,
+        450
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"view, scale, or measurements do not permit a reliable comparison\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"Target Lingshu caption is unknown\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "view, scale, or measurements do not permit a reliable comparison"
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "Target Lingshu caption is unknown"
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00008_01",
+      "case_id": "loculated-pneumothorax",
+      "source_query_id": "location_00008",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "support_status": "strong_support",
+      "support_type": "bbox_to_bbox",
+      "anchor_node_id": "study_001_ct_image_000_coronal_lung_window_f03",
+      "target_image_id": "study_001_ct_image_001_axial_lung_window",
+      "target_node_id": "study_001_ct_image_001_axial_lung_window_f02",
+      "target_bbox_2d": [
+        480,
+        300,
+        880,
+        700
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"view, scale, or measurements do not permit a reliable comparison\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"inconsistent\",\n    \"reason\": \"Source caption describes left lung as well inflated with no abnormalities, while target caption describes a large right pneumothorax and collapse of the right lung, indicating a significant difference in the described lung conditions\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "view, scale, or measurements do not permit a reliable comparison"
+      },
+      "characterization_validation": {
+        "status": "inconsistent",
+        "reason": "Source caption describes left lung as well inflated with no abnormalities, while target caption describes a large right pneumothorax and collapse of the right lung, indicating a significant difference in the described lung conditions"
+      },
+      "strong_relation_id": "strong_location_00008_01"
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00009_reground",
+      "case_id": "loculated-pneumothorax",
+      "source_query_id": "location_00009",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_001_ct_image_000_coronal_lung_window_f03",
+      "target_image_id": "study_002_x_ray_image_000_frontal",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        574,
+        114,
+        876,
+        874
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"view, scale, or measurements do not permit a reliable comparison\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"the target Lingshu caption is unknown\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "view, scale, or measurements do not permit a reliable comparison"
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "the target Lingshu caption is unknown"
+      }
+    }
+  ],
+  "partial_support_validations": [
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00001_reground",
+      "case_id": "loculated-pneumothorax",
+      "source_query_id": "location_00001",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_x_ray_image_000_frontal_f01",
+      "target_image_id": "study_001_ct_image_000_coronal_lung_window",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        450,
+        475,
+        660,
+        850
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"view, scale, or measurements do not permit a reliable comparison\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"the target Lingshu caption is unknown\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "view, scale, or measurements do not permit a reliable comparison"
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "the target Lingshu caption is unknown"
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00003_reground",
+      "case_id": "loculated-pneumothorax",
+      "source_query_id": "location_00003",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_x_ray_image_000_frontal_f01",
+      "target_image_id": "study_002_x_ray_image_000_frontal",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        586,
+        469,
+        866,
+        924
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The source region's measurements are unknown, and the target region's measurements are also unknown, preventing reliable comparison.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown, so semantic comparison using only the two Lingshu captions cannot be performed.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The source region's measurements are unknown, and the target region's measurements are also unknown, preventing reliable comparison."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown, so semantic comparison using only the two Lingshu captions cannot be performed."
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00004_reground",
+      "case_id": "loculated-pneumothorax",
+      "source_query_id": "location_00004",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_001_ct_image_000_coronal_lung_window_f01",
+      "target_image_id": "study_001_ct_image_001_axial_lung_window",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        175,
+        187,
+        490,
+        558
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"view, scale, or measurements do not permit a reliable comparison\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"Target Lingshu caption is unknown\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "view, scale, or measurements do not permit a reliable comparison"
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "Target Lingshu caption is unknown"
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00006_reground",
+      "case_id": "loculated-pneumothorax",
+      "source_query_id": "location_00006",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_001_ct_image_000_coronal_lung_window_f02",
+      "target_image_id": "study_001_ct_image_001_axial_lung_window",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        180,
+        134,
+        500,
+        450
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"view, scale, or measurements do not permit a reliable comparison\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"Target Lingshu caption is unknown\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "view, scale, or measurements do not permit a reliable comparison"
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "Target Lingshu caption is unknown"
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00009_reground",
+      "case_id": "loculated-pneumothorax",
+      "source_query_id": "location_00009",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_001_ct_image_000_coronal_lung_window_f03",
+      "target_image_id": "study_002_x_ray_image_000_frontal",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        574,
+        114,
+        876,
+        874
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"view, scale, or measurements do not permit a reliable comparison\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"the target Lingshu caption is unknown\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "view, scale, or measurements do not permit a reliable comparison"
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "the target Lingshu caption is unknown"
+      }
+    }
+  ],
+  "not_support_queries": [
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 2,
+      "query_id": "location_00002",
+      "case_id": "loculated-pneumothorax",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "anchor": {
+        "node_id": "study_000_x_ray_image_000_frontal_f01",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          601,
+          469,
+          886,
+          919
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_001_axial_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0006.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_001_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_001_axial_lung_window_f01",
+          "study_001_ct_image_001_axial_lung_window_f02"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 5,
+      "query_id": "location_00005",
+      "case_id": "loculated-pneumothorax",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "anchor": {
+        "node_id": "study_001_ct_image_000_coronal_lung_window_f01",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          101,
+          284,
+          427,
+          825
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_x_ray_image_000_frontal",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0003.jpg",
+        "examination": {
+          "image_id": "study_002_x_ray_image_000_frontal",
+          "study_index": 2,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        },
+        "existing_node_ids": [
+          "study_002_x_ray_image_000_frontal_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 7,
+      "query_id": "location_00007",
+      "case_id": "loculated-pneumothorax",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "anchor": {
+        "node_id": "study_001_ct_image_000_coronal_lung_window_f02",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          180,
+          40,
+          498,
+          382
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r02_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_x_ray_image_000_frontal",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0003.jpg",
+        "examination": {
+          "image_id": "study_002_x_ray_image_000_frontal",
+          "study_index": 2,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        },
+        "existing_node_ids": [
+          "study_002_x_ray_image_000_frontal_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 10,
+      "query_id": "location_00010",
+      "case_id": "loculated-pneumothorax",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "035f2cdd1fbc1698c18bd68f24ebd07d4ec0ddc1d7a9109abcab9a38e7c986d2"
+      },
+      "anchor": {
+        "node_id": "study_001_ct_image_001_axial_lung_window_f01",
+        "image_id": "study_001_ct_image_001_axial_lung_window",
+        "bbox_2d": [
+          175,
+          226,
+          675,
+          656
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_001_axial_lung_window/study_001_ct_image_001_axial_lung_window_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_x_ray_image_000_frontal",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/loculated-pneumothorax/images/img_0003.jpg",
+        "examination": {
+          "image_id": "study_002_x_ray_image_000_frontal",
+          "study_index": 2,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        },
+        "existing_node_ids": [
+          "study_002_x_ray_image_000_frontal_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    }
+  ],
+  "skipped_anchor_nodes": [
+    {
+      "anchor_node_id": "study_001_ct_image_001_axial_lung_window_f02",
+      "reason": "incoming strong bbox-to-bbox support from an earlier image",
+      "reused_strong_relation_ids": [
+        "strong_location_00008_01"
+      ],
+      "skipped_target_image_ids": [
+        "study_002_x_ray_image_000_frontal"
+      ],
+      "skipped_query_count": 1
+    }
+  ],
+  "processing_summary": {
+    "image_count": 4,
+    "image_without_existing_bbox_count": 0,
+    "node_count": 7,
+    "upper_bound_query_count": 11,
+    "executed_or_reused_query_count": 10,
+    "dynamic_skipped_query_count": 1,
+    "strong_relation_count": 1,
+    "partial_support_count": 5,
+    "not_support_count": 4,
+    "parse_error_count": 0,
+    "stopped_by_query_limit": false
+  }
+}

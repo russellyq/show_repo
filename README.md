@@ -1,6 +1,8 @@
 
 # 23 个困难单图病例的 Segmentation 增强对比
 
+[查看 Step 3 跨图定位、IoU 与 Lingshu evidence validation 可视化](README_STEP3_VISUALIZATION.md)
+
 ## 实验设计说明
 
 ### 1. 为什么没有采用更多专病分割模型

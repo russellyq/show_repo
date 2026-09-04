@@ -1,0 +1,1399 @@
+{
+  "step": 3,
+  "case_id": "infected-emphysematous-bulla",
+  "case_url": "https://radiopaedia.org/cases/infected-emphysematous-bulla?lang=us",
+  "case_title": "Infected emphysematous bulla",
+  "status": "complete",
+  "configuration": {
+    "prompt_version": "step_3_directed_cross_image_grounding_v1",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "max_pixels": 1048576,
+    "iou_threshold": 0.5,
+    "source_step_2_fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358",
+    "evidence_prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+    "query_order": "upper_triangle_by_image_then_anchor_bbox",
+    "strong_supported_anchor_skip": true
+  },
+  "source_step_2": {
+    "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_2/structured/case_evidence.json",
+    "fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358"
+  },
+  "patient": {
+    "age": 75,
+    "age_unit": "years",
+    "gender": "Female",
+    "raw_patient_data": "Age: 75 years Gender: Female",
+    "clinical_context": "GP referral for haemoptosis"
+  },
+  "images": [
+    {
+      "image_position": 0,
+      "image_id": "study_000_x_ray_image_000_frontal",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0001.jpg",
+      "examination": {
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "study_index": 0,
+        "modality": "X-ray",
+        "subcategory": "Frontal"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_000_x_ray_image_000_frontal_f01"
+      ]
+    },
+    {
+      "image_position": 1,
+      "image_id": "study_000_x_ray_image_001_lateral",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0006.jpg",
+      "examination": {
+        "image_id": "study_000_x_ray_image_001_lateral",
+        "study_index": 0,
+        "modality": "X-ray",
+        "subcategory": "Lateral"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_000_x_ray_image_001_lateral_f01"
+      ]
+    },
+    {
+      "image_position": 2,
+      "image_id": "study_001_ct_image_000_axial_lung_window",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0003.jpg",
+      "examination": {
+        "image_id": "study_001_ct_image_000_axial_lung_window",
+        "study_index": 1,
+        "modality": "CT",
+        "subcategory": "Axial lung window"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_001_ct_image_000_axial_lung_window_f01"
+      ]
+    },
+    {
+      "image_position": 3,
+      "image_id": "study_001_ct_image_001_coronal_lung_window",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0008.jpg",
+      "examination": {
+        "image_id": "study_001_ct_image_001_coronal_lung_window",
+        "study_index": 1,
+        "modality": "CT",
+        "subcategory": "Coronal lung window"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_001_ct_image_001_coronal_lung_window_f01"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "study_000_x_ray_image_000_frontal_f01",
+      "region_id": "study_000_x_ray_image_000_frontal_r01",
+      "image_id": "study_000_x_ray_image_000_frontal",
+      "image_position": 0,
+      "finding_position": 1,
+      "bbox_2d": [
+        175,
+        408,
+        362,
+        530
+      ],
+      "bbox_pixels": [
+        146,
+        417,
+        303,
+        542
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png",
+      "lingshu_caption": "The lungs are hyperinflated. There is a 1.5 cm rounded opacity projecting over the right mid lung zone. No pleural effusion or pneumothorax is seen. The cardiac and mediastinal silhouettes are unremarkable.",
+      "observation": {
+        "location": "right mid lung zone",
+        "morphology": "rounded",
+        "size": {
+          "long_axis": "1.5 cm",
+          "short_axis": "1.5 cm",
+          "unit": "cm"
+        },
+        "density_or_signal": "opacity",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0001.jpg",
+        "examination": {
+          "image_id": "study_000_x_ray_image_000_frontal",
+          "study_index": 0,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        }
+      }
+    },
+    {
+      "node_id": "study_000_x_ray_image_001_lateral_f01",
+      "region_id": "study_000_x_ray_image_001_lateral_r01",
+      "image_id": "study_000_x_ray_image_001_lateral",
+      "image_position": 1,
+      "finding_position": 1,
+      "bbox_2d": [
+        436,
+        362,
+        639,
+        538
+      ],
+      "bbox_pixels": [
+        365,
+        370,
+        536,
+        550
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_2/bbox_images/study_000_x_ray_image_001_lateral/study_000_x_ray_image_001_lateral_r01_bbox.png",
+      "lingshu_caption": "The heart size is enlarged. The aorta is tortuous. There is a calcified lesion overlying the cardiac silhouette. This could represent a calcified lymph node or other calcification.",
+      "observation": {
+        "location": "unknown",
+        "morphology": "unknown",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_000_x_ray_image_001_lateral",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0006.jpg",
+        "examination": {
+          "image_id": "study_000_x_ray_image_001_lateral",
+          "study_index": 0,
+          "modality": "X-ray",
+          "subcategory": "Lateral"
+        }
+      }
+    },
+    {
+      "node_id": "study_001_ct_image_000_axial_lung_window_f01",
+      "region_id": "study_001_ct_image_000_axial_lung_window_r01",
+      "image_id": "study_001_ct_image_000_axial_lung_window",
+      "image_position": 2,
+      "finding_position": 1,
+      "bbox_2d": [
+        185,
+        552,
+        444,
+        721
+      ],
+      "bbox_pixels": [
+        116,
+        347,
+        279,
+        454
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_2/bbox_images/study_001_ct_image_000_axial_lung_window/study_001_ct_image_000_axial_lung_window_r01_bbox.png",
+      "lingshu_caption": "The right lower lobe contains a large cystic structure with thin walls. The remainder of the lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The cardiomediastinal silhouette is normal.",
+      "observation": {
+        "location": "right lower lobe",
+        "morphology": "cystic",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "thin walls",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_001_ct_image_000_axial_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0003.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        }
+      }
+    },
+    {
+      "node_id": "study_001_ct_image_001_coronal_lung_window_f01",
+      "region_id": "study_001_ct_image_001_coronal_lung_window_r01",
+      "image_id": "study_001_ct_image_001_coronal_lung_window",
+      "image_position": 3,
+      "finding_position": 1,
+      "bbox_2d": [
+        210,
+        256,
+        464,
+        444
+      ],
+      "bbox_pixels": [
+        132,
+        161,
+        292,
+        279
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_2/bbox_images/study_001_ct_image_001_coronal_lung_window/study_001_ct_image_001_coronal_lung_window_r01_bbox.png",
+      "lingshu_caption": "The lungs are hyperinflated. There is a large cavitary lesion in the right upper lobe with thick irregular walls. The remainder of the lungs demonstrate emphysematous changes. No pleural effusions are seen.",
+      "observation": {
+        "location": "right upper lobe",
+        "morphology": "cavitary",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "thick irregular",
+        "surrounding": "emphysematous changes",
+        "visible_signs": "hyperinflation",
+        "appearance": "large cavitary lesion",
+        "description": "large cavitary lesion in the right upper lobe with thick irregular walls",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_001_ct_image_001_coronal_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0008.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_001_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        }
+      }
+    }
+  ],
+  "node_support": [
+    {
+      "node_id": "study_000_x_ray_image_000_frontal_f01",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [
+        "location_00001",
+        "location_00002",
+        "location_00003"
+      ],
+      "partial_support_target_image_ids": [
+        "study_000_x_ray_image_001_lateral"
+      ],
+      "not_support_target_image_ids": [
+        "study_001_ct_image_000_axial_lung_window",
+        "study_001_ct_image_001_coronal_lung_window"
+      ],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "partial_support"
+    },
+    {
+      "node_id": "study_000_x_ray_image_001_lateral_f01",
+      "strong_relation_ids": [
+        "strong_location_00005_01"
+      ],
+      "strong_peer_node_ids": [
+        "study_001_ct_image_001_coronal_lung_window_f01"
+      ],
+      "outgoing_query_ids": [
+        "location_00004",
+        "location_00005"
+      ],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [
+        "study_001_ct_image_000_axial_lung_window"
+      ],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "strong_support"
+    },
+    {
+      "node_id": "study_001_ct_image_000_axial_lung_window_f01",
+      "strong_relation_ids": [
+        "strong_location_00006_01"
+      ],
+      "strong_peer_node_ids": [
+        "study_001_ct_image_001_coronal_lung_window_f01"
+      ],
+      "outgoing_query_ids": [
+        "location_00006"
+      ],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "strong_support"
+    },
+    {
+      "node_id": "study_001_ct_image_001_coronal_lung_window_f01",
+      "strong_relation_ids": [
+        "strong_location_00005_01",
+        "strong_location_00006_01"
+      ],
+      "strong_peer_node_ids": [
+        "study_000_x_ray_image_001_lateral_f01",
+        "study_001_ct_image_000_axial_lung_window_f01"
+      ],
+      "outgoing_query_ids": [],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "strong_support"
+    }
+  ],
+  "cross_image_grounding": [
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 1,
+      "query_id": "location_00001",
+      "case_id": "infected-emphysematous-bulla",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358"
+      },
+      "anchor": {
+        "node_id": "study_000_x_ray_image_000_frontal_f01",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          175,
+          408,
+          362,
+          530
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_000_x_ray_image_001_lateral",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0006.jpg",
+        "examination": {
+          "image_id": "study_000_x_ray_image_001_lateral",
+          "study_index": 0,
+          "modality": "X-ray",
+          "subcategory": "Lateral"
+        },
+        "existing_node_ids": [
+          "study_000_x_ray_image_001_lateral_f01"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [236, 328, 460, 555]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          236,
+          328,
+          460,
+          555
+        ],
+        "target_bbox_pixels": [
+          198,
+          335,
+          385,
+          568
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.050883,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_000_x_ray_image_001_lateral_f01",
+            "region_id": "study_000_x_ray_image_001_lateral_r01",
+            "bbox_2d": [
+              436,
+              362,
+              639,
+              538
+            ],
+            "bbox_pixels": [
+              365,
+              370,
+              536,
+              550
+            ],
+            "iou": 0.050883,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_3/cross_image_grounding/location_00001.png",
+          "target_image_width": 839,
+          "target_image_height": 1024,
+          "predicted_bbox_pixels": [
+            198,
+            335,
+            385,
+            568
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_000_x_ray_image_001_lateral_f01",
+              "region_id": "study_000_x_ray_image_001_lateral_r01",
+              "bbox_2d": [
+                436,
+                362,
+                639,
+                538
+              ],
+              "bbox_pixels": [
+                365,
+                370,
+                536,
+                550
+              ],
+              "iou": 0.050883,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00001_reground"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 2,
+      "query_id": "location_00002",
+      "case_id": "infected-emphysematous-bulla",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358"
+      },
+      "anchor": {
+        "node_id": "study_000_x_ray_image_000_frontal_f01",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          175,
+          408,
+          362,
+          530
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_000_axial_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0003.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_000_axial_lung_window_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 3,
+      "query_id": "location_00003",
+      "case_id": "infected-emphysematous-bulla",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358"
+      },
+      "anchor": {
+        "node_id": "study_000_x_ray_image_000_frontal_f01",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          175,
+          408,
+          362,
+          530
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_001_coronal_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0008.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_001_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_001_coronal_lung_window_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 4,
+      "query_id": "location_00004",
+      "case_id": "infected-emphysematous-bulla",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358"
+      },
+      "anchor": {
+        "node_id": "study_000_x_ray_image_001_lateral_f01",
+        "image_id": "study_000_x_ray_image_001_lateral",
+        "bbox_2d": [
+          436,
+          362,
+          639,
+          538
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_2/bbox_images/study_000_x_ray_image_001_lateral/study_000_x_ray_image_001_lateral_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_000_axial_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0003.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_000_axial_lung_window_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 5,
+      "query_id": "location_00005",
+      "case_id": "infected-emphysematous-bulla",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358"
+      },
+      "anchor": {
+        "node_id": "study_000_x_ray_image_001_lateral_f01",
+        "image_id": "study_000_x_ray_image_001_lateral",
+        "bbox_2d": [
+          436,
+          362,
+          639,
+          538
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_2/bbox_images/study_000_x_ray_image_001_lateral/study_000_x_ray_image_001_lateral_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_001_coronal_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0008.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_001_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_001_coronal_lung_window_f01"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [234, 192, 440, 462]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "strong_support",
+        "support_type": "bbox_to_bbox",
+        "target_found": true,
+        "target_bbox_2d": [
+          234,
+          192,
+          440,
+          462
+        ],
+        "target_bbox_pixels": [
+          147,
+          120,
+          277,
+          291
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.595266,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_001_ct_image_001_coronal_lung_window_f01",
+            "region_id": "study_001_ct_image_001_coronal_lung_window_r01",
+            "bbox_2d": [
+              210,
+              256,
+              464,
+              444
+            ],
+            "bbox_pixels": [
+              132,
+              161,
+              292,
+              279
+            ],
+            "iou": 0.595266,
+            "strong_match": true
+          }
+        ],
+        "matched_existing_nodes": [
+          {
+            "target_node_id": "study_001_ct_image_001_coronal_lung_window_f01",
+            "region_id": "study_001_ct_image_001_coronal_lung_window_r01",
+            "bbox_2d": [
+              210,
+              256,
+              464,
+              444
+            ],
+            "bbox_pixels": [
+              132,
+              161,
+              292,
+              279
+            ],
+            "iou": 0.595266,
+            "strong_match": true
+          }
+        ],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_3/cross_image_grounding/location_00005.png",
+          "target_image_width": 630,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            147,
+            120,
+            277,
+            291
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_001_ct_image_001_coronal_lung_window_f01",
+              "region_id": "study_001_ct_image_001_coronal_lung_window_r01",
+              "bbox_2d": [
+                210,
+                256,
+                464,
+                444
+              ],
+              "bbox_pixels": [
+                132,
+                161,
+                292,
+                279
+              ],
+              "iou": 0.595266,
+              "strong_match": true
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [
+        "strong_location_00005_01"
+      ],
+      "validation_ids": [
+        "validation_location_00005_01"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 6,
+      "query_id": "location_00006",
+      "case_id": "infected-emphysematous-bulla",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358"
+      },
+      "anchor": {
+        "node_id": "study_001_ct_image_000_axial_lung_window_f01",
+        "image_id": "study_001_ct_image_000_axial_lung_window",
+        "bbox_2d": [
+          185,
+          552,
+          444,
+          721
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_2/bbox_images/study_001_ct_image_000_axial_lung_window/study_001_ct_image_000_axial_lung_window_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_001_coronal_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0008.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_001_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_001_coronal_lung_window_f01"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [220, 136, 430, 468]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "strong_support",
+        "support_type": "bbox_to_bbox",
+        "target_found": true,
+        "target_bbox_2d": [
+          220,
+          136,
+          430,
+          468
+        ],
+        "target_bbox_pixels": [
+          138,
+          85,
+          270,
+          294
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.504208,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_001_ct_image_001_coronal_lung_window_f01",
+            "region_id": "study_001_ct_image_001_coronal_lung_window_r01",
+            "bbox_2d": [
+              210,
+              256,
+              464,
+              444
+            ],
+            "bbox_pixels": [
+              132,
+              161,
+              292,
+              279
+            ],
+            "iou": 0.504208,
+            "strong_match": true
+          }
+        ],
+        "matched_existing_nodes": [
+          {
+            "target_node_id": "study_001_ct_image_001_coronal_lung_window_f01",
+            "region_id": "study_001_ct_image_001_coronal_lung_window_r01",
+            "bbox_2d": [
+              210,
+              256,
+              464,
+              444
+            ],
+            "bbox_pixels": [
+              132,
+              161,
+              292,
+              279
+            ],
+            "iou": 0.504208,
+            "strong_match": true
+          }
+        ],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_3/cross_image_grounding/location_00006.png",
+          "target_image_width": 630,
+          "target_image_height": 630,
+          "predicted_bbox_pixels": [
+            138,
+            85,
+            270,
+            294
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_001_ct_image_001_coronal_lung_window_f01",
+              "region_id": "study_001_ct_image_001_coronal_lung_window_r01",
+              "bbox_2d": [
+                210,
+                256,
+                464,
+                444
+              ],
+              "bbox_pixels": [
+                132,
+                161,
+                292,
+                279
+              ],
+              "iou": 0.504208,
+              "strong_match": true
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [
+        "strong_location_00006_01"
+      ],
+      "validation_ids": [
+        "validation_location_00006_01"
+      ]
+    }
+  ],
+  "strong_support_relations": [
+    {
+      "step": 3,
+      "unit_type": "strong_bbox_to_bbox_relation",
+      "support_status": "strong_support",
+      "support_type": "bbox_to_bbox",
+      "relation_id": "strong_location_00005_01",
+      "case_id": "infected-emphysematous-bulla",
+      "source_query_id": "location_00005",
+      "iou": 0.595266,
+      "iou_threshold": 0.5,
+      "anchor": {
+        "node_id": "study_000_x_ray_image_001_lateral_f01",
+        "image_id": "study_000_x_ray_image_001_lateral",
+        "bbox_2d": [
+          436,
+          362,
+          639,
+          538
+        ]
+      },
+      "target": {
+        "node_id": "study_001_ct_image_001_coronal_lung_window_f01",
+        "image_id": "study_001_ct_image_001_coronal_lung_window",
+        "existing_bbox_2d": [
+          210,
+          256,
+          464,
+          444
+        ],
+        "cross_image_bbox_2d": [
+          234,
+          192,
+          440,
+          462
+        ]
+      },
+      "validation_id": "validation_location_00005_01"
+    },
+    {
+      "step": 3,
+      "unit_type": "strong_bbox_to_bbox_relation",
+      "support_status": "strong_support",
+      "support_type": "bbox_to_bbox",
+      "relation_id": "strong_location_00006_01",
+      "case_id": "infected-emphysematous-bulla",
+      "source_query_id": "location_00006",
+      "iou": 0.504208,
+      "iou_threshold": 0.5,
+      "anchor": {
+        "node_id": "study_001_ct_image_000_axial_lung_window_f01",
+        "image_id": "study_001_ct_image_000_axial_lung_window",
+        "bbox_2d": [
+          185,
+          552,
+          444,
+          721
+        ]
+      },
+      "target": {
+        "node_id": "study_001_ct_image_001_coronal_lung_window_f01",
+        "image_id": "study_001_ct_image_001_coronal_lung_window",
+        "existing_bbox_2d": [
+          210,
+          256,
+          464,
+          444
+        ],
+        "cross_image_bbox_2d": [
+          220,
+          136,
+          430,
+          468
+        ]
+      },
+      "validation_id": "validation_location_00006_01"
+    }
+  ],
+  "validations": [
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00001_reground",
+      "case_id": "infected-emphysematous-bulla",
+      "source_query_id": "location_00001",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_x_ray_image_000_frontal_f01",
+      "target_image_id": "study_000_x_ray_image_001_lateral",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        236,
+        328,
+        460,
+        555
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"Target region lacks explicit measurements, preventing reliable comparison with source measurements.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"Target Lingshu caption is unknown, preventing semantic comparison.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "Target region lacks explicit measurements, preventing reliable comparison with source measurements."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "Target Lingshu caption is unknown, preventing semantic comparison."
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00005_01",
+      "case_id": "infected-emphysematous-bulla",
+      "source_query_id": "location_00005",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358"
+      },
+      "support_status": "strong_support",
+      "support_type": "bbox_to_bbox",
+      "anchor_node_id": "study_000_x_ray_image_001_lateral_f01",
+      "target_image_id": "study_001_ct_image_001_coronal_lung_window",
+      "target_node_id": "study_001_ct_image_001_coronal_lung_window_f01",
+      "target_bbox_2d": [
+        234,
+        192,
+        440,
+        462
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The source image is a chest X-ray with unknown measurements, and the target is a CT scan with no stated measurements. The scale and view prevent reliable comparison of lesion extent.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"inconsistent\",\n    \"reason\": \"The source caption describes a calcified lesion overlying the cardiac silhouette, while the target caption describes a cavitary lesion in the right upper lobe of the lung. These are anatomically and morphologically distinct findings.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The source image is a chest X-ray with unknown measurements, and the target is a CT scan with no stated measurements. The scale and view prevent reliable comparison of lesion extent."
+      },
+      "characterization_validation": {
+        "status": "inconsistent",
+        "reason": "The source caption describes a calcified lesion overlying the cardiac silhouette, while the target caption describes a cavitary lesion in the right upper lobe of the lung. These are anatomically and morphologically distinct findings."
+      },
+      "strong_relation_id": "strong_location_00005_01"
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00006_01",
+      "case_id": "infected-emphysematous-bulla",
+      "source_query_id": "location_00006",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358"
+      },
+      "support_status": "strong_support",
+      "support_type": "bbox_to_bbox",
+      "anchor_node_id": "study_001_ct_image_000_axial_lung_window_f01",
+      "target_image_id": "study_001_ct_image_001_coronal_lung_window",
+      "target_node_id": "study_001_ct_image_001_coronal_lung_window_f01",
+      "target_bbox_2d": [
+        220,
+        136,
+        430,
+        468
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The source region is a single axial slice, while the target region is a coronal view with different orientation and scale; direct comparison of lesion extent or measurements is not possible.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"inconsistent\",\n    \"reason\": \"The source caption describes a cystic structure in the right lower lobe, while the target caption describes a cavitary lesion in the right upper lobe with thick irregular walls, which is a different location and wall description.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The source region is a single axial slice, while the target region is a coronal view with different orientation and scale; direct comparison of lesion extent or measurements is not possible."
+      },
+      "characterization_validation": {
+        "status": "inconsistent",
+        "reason": "The source caption describes a cystic structure in the right lower lobe, while the target caption describes a cavitary lesion in the right upper lobe with thick irregular walls, which is a different location and wall description."
+      },
+      "strong_relation_id": "strong_location_00006_01"
+    }
+  ],
+  "partial_support_validations": [
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00001_reground",
+      "case_id": "infected-emphysematous-bulla",
+      "source_query_id": "location_00001",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_x_ray_image_000_frontal_f01",
+      "target_image_id": "study_000_x_ray_image_001_lateral",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        236,
+        328,
+        460,
+        555
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"Target region lacks explicit measurements, preventing reliable comparison with source measurements.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"Target Lingshu caption is unknown, preventing semantic comparison.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "Target region lacks explicit measurements, preventing reliable comparison with source measurements."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "Target Lingshu caption is unknown, preventing semantic comparison."
+      }
+    }
+  ],
+  "not_support_queries": [
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 2,
+      "query_id": "location_00002",
+      "case_id": "infected-emphysematous-bulla",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358"
+      },
+      "anchor": {
+        "node_id": "study_000_x_ray_image_000_frontal_f01",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          175,
+          408,
+          362,
+          530
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_000_axial_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0003.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_000_axial_lung_window_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 3,
+      "query_id": "location_00003",
+      "case_id": "infected-emphysematous-bulla",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358"
+      },
+      "anchor": {
+        "node_id": "study_000_x_ray_image_000_frontal_f01",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          175,
+          408,
+          362,
+          530
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_001_coronal_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0008.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_001_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_001_coronal_lung_window_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 4,
+      "query_id": "location_00004",
+      "case_id": "infected-emphysematous-bulla",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "39a933ef6a4544fa47b1056bbe92dd52218a7932e718ae8f00f0143a0b0bb358"
+      },
+      "anchor": {
+        "node_id": "study_000_x_ray_image_001_lateral_f01",
+        "image_id": "study_000_x_ray_image_001_lateral",
+        "bbox_2d": [
+          436,
+          362,
+          639,
+          538
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/infected-emphysematous-bulla/step_2/bbox_images/study_000_x_ray_image_001_lateral/study_000_x_ray_image_001_lateral_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_000_axial_lung_window",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/infected-emphysematous-bulla/images/img_0003.jpg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_000_axial_lung_window_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    }
+  ],
+  "skipped_anchor_nodes": [],
+  "processing_summary": {
+    "image_count": 4,
+    "image_without_existing_bbox_count": 0,
+    "node_count": 4,
+    "upper_bound_query_count": 6,
+    "executed_or_reused_query_count": 6,
+    "dynamic_skipped_query_count": 0,
+    "strong_relation_count": 2,
+    "partial_support_count": 1,
+    "not_support_count": 3,
+    "parse_error_count": 0,
+    "stopped_by_query_limit": false
+  }
+}

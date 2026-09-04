@@ -1,0 +1,1966 @@
+{
+  "step": 3,
+  "case_id": "sister-mary-joseph-nodule-7",
+  "case_url": "https://radiopaedia.org/cases/sister-mary-joseph-nodule-7?lang=us",
+  "case_title": "Sister Mary Joseph nodule",
+  "status": "complete",
+  "configuration": {
+    "prompt_version": "step_3_directed_cross_image_grounding_v1",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "max_pixels": 1048576,
+    "iou_threshold": 0.5,
+    "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e",
+    "evidence_prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+    "query_order": "upper_triangle_by_image_then_anchor_bbox",
+    "strong_supported_anchor_skip": true
+  },
+  "source_step_2": {
+    "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/structured/case_evidence.json",
+    "fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+  },
+  "patient": {
+    "age": 40,
+    "age_unit": "years",
+    "gender": "Female",
+    "raw_patient_data": "Age: 40 years Gender: Female",
+    "clinical_context": "Enlarging umbilical nodule"
+  },
+  "images": [
+    {
+      "image_position": 0,
+      "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0004.jpg",
+      "examination": {
+        "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+        "study_index": 0,
+        "modality": "Photograph",
+        "subcategory": "enlarging umbilical nodule"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_000_photograph_image_000_enlarging_umbilical_nodule_f01"
+      ]
+    },
+    {
+      "image_position": 1,
+      "image_id": "study_001_ultrasound_image_000_missing",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0001.jpeg",
+      "examination": {
+        "image_id": "study_001_ultrasound_image_000_missing",
+        "study_index": 1,
+        "modality": "Ultrasound",
+        "subcategory": "missing"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 2,
+      "image_id": "study_001_ultrasound_image_001_missing",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0003.jpeg",
+      "examination": {
+        "image_id": "study_001_ultrasound_image_001_missing",
+        "study_index": 1,
+        "modality": "Ultrasound",
+        "subcategory": "missing"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 3,
+      "image_id": "study_002_ct_image_000_axial_non_contrast",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0006.jpeg",
+      "examination": {
+        "image_id": "study_002_ct_image_000_axial_non_contrast",
+        "study_index": 2,
+        "modality": "CT",
+        "subcategory": "Axial non-contrast"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_002_ct_image_000_axial_non_contrast_f01",
+        "study_002_ct_image_000_axial_non_contrast_f02",
+        "study_002_ct_image_000_axial_non_contrast_f03"
+      ]
+    },
+    {
+      "image_position": 4,
+      "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0008.jpeg",
+      "examination": {
+        "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+        "study_index": 2,
+        "modality": "CT",
+        "subcategory": "Axial C+ portal venous phase"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_002_ct_image_001_axial_c_portal_venous_phase_f01",
+        "study_002_ct_image_001_axial_c_portal_venous_phase_f02",
+        "study_002_ct_image_001_axial_c_portal_venous_phase_f03"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_f01",
+      "region_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_r01",
+      "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+      "image_position": 0,
+      "finding_position": 1,
+      "bbox_2d": [
+        389,
+        501,
+        572,
+        638
+      ],
+      "bbox_pixels": [
+        185,
+        317,
+        272,
+        404
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_000_photograph_image_000_enlarging_umbilical_nodule/study_000_photograph_image_000_enlarging_umbilical_nodule_r01_bbox.png",
+      "lingshu_caption": "The umbilicus contains a 2 cm diameter, smooth, rounded, red nodule. The surrounding skin appears normal.",
+      "observation": {
+        "location": "umbilicus",
+        "morphology": "rounded",
+        "size": {
+          "long_axis": "2 cm",
+          "short_axis": "2 cm",
+          "unit": "cm"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "normal skin",
+        "visible_signs": "unknown",
+        "appearance": "red",
+        "description": "smooth",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0004.jpg",
+        "examination": {
+          "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+          "study_index": 0,
+          "modality": "Photograph",
+          "subcategory": "enlarging umbilical nodule"
+        }
+      }
+    },
+    {
+      "node_id": "study_002_ct_image_000_axial_non_contrast_f01",
+      "region_id": "study_002_ct_image_000_axial_non_contrast_r01",
+      "image_id": "study_002_ct_image_000_axial_non_contrast",
+      "image_position": 3,
+      "finding_position": 1,
+      "bbox_2d": [
+        380,
+        280,
+        620,
+        440
+      ],
+      "bbox_pixels": [
+        66,
+        34,
+        109,
+        54
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_002_ct_image_000_axial_non_contrast/study_002_ct_image_000_axial_non_contrast_r01_bbox.png",
+      "lingshu_caption": "The image shows a cross-sectional view of the abdomen. Within the boxed region, there appears to be an area of increased density or opacity, which could potentially indicate the presence of an abnormality such as a mass, lesion, or other pathological process. The surrounding tissues appear relatively normal in appearance. Further evaluation and correlation with clinical information would be necessary to determine the significance of this finding.",
+      "observation": {
+        "location": "unknown",
+        "morphology": "unknown",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_002_ct_image_000_axial_non_contrast",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0006.jpeg",
+        "examination": {
+          "image_id": "study_002_ct_image_000_axial_non_contrast",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial non-contrast"
+        }
+      }
+    },
+    {
+      "node_id": "study_002_ct_image_000_axial_non_contrast_f02",
+      "region_id": "study_002_ct_image_000_axial_non_contrast_r02",
+      "image_id": "study_002_ct_image_000_axial_non_contrast",
+      "image_position": 3,
+      "finding_position": 2,
+      "bbox_2d": [
+        220,
+        360,
+        400,
+        500
+      ],
+      "bbox_pixels": [
+        38,
+        44,
+        70,
+        62
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_002_ct_image_000_axial_non_contrast/study_002_ct_image_000_axial_non_contrast_r02_bbox.png",
+      "lingshu_caption": "The image shows a large mass in the right upper quadrant of the abdomen. The mass appears to be heterogeneous in density, with areas of both high and low attenuation. There is also evidence of surrounding tissue invasion and possible lymphadenopathy. The mass appears to be displacing adjacent structures, including the liver and kidney.",
+      "observation": {
+        "location": "unknown",
+        "morphology": "unknown",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_002_ct_image_000_axial_non_contrast",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0006.jpeg",
+        "examination": {
+          "image_id": "study_002_ct_image_000_axial_non_contrast",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial non-contrast"
+        }
+      }
+    },
+    {
+      "node_id": "study_002_ct_image_000_axial_non_contrast_f03",
+      "region_id": "study_002_ct_image_000_axial_non_contrast_r03",
+      "image_id": "study_002_ct_image_000_axial_non_contrast",
+      "image_position": 3,
+      "finding_position": 3,
+      "bbox_2d": [
+        700,
+        340,
+        900,
+        500
+      ],
+      "bbox_pixels": [
+        123,
+        42,
+        158,
+        62
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_002_ct_image_000_axial_non_contrast/study_002_ct_image_000_axial_non_contrast_r03_bbox.png",
+      "lingshu_caption": "The image shows a large amount of free air in the peritoneal cavity, consistent with pneumoperitoneum. The air appears to be located primarily in the upper abdomen, surrounding the liver and stomach. There is no evidence of bowel perforation or other intra-abdominal pathology. The lungs appear clear, and there is no evidence of pleural effusion or pneumothorax.",
+      "observation": {
+        "location": "upper abdomen",
+        "morphology": "free air",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "liver and stomach",
+        "visible_signs": "pneumoperitoneum",
+        "appearance": "unknown",
+        "description": "large amount of free air in the peritoneal cavity",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_002_ct_image_000_axial_non_contrast",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0006.jpeg",
+        "examination": {
+          "image_id": "study_002_ct_image_000_axial_non_contrast",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial non-contrast"
+        }
+      }
+    },
+    {
+      "node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f01",
+      "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r01",
+      "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+      "image_position": 4,
+      "finding_position": 1,
+      "bbox_2d": [
+        175,
+        230,
+        350,
+        550
+      ],
+      "bbox_pixels": [
+        30,
+        30,
+        61,
+        72
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_002_ct_image_001_axial_c_portal_venous_phase/study_002_ct_image_001_axial_c_portal_venous_phase_r01_bbox.png",
+      "lingshu_caption": "The image shows a cross-sectional view of the abdomen, with a focus on the right kidney. Within the red box, there appears to be an area of increased density or attenuation compared to the surrounding renal parenchyma. This could potentially represent a mass, lesion, or other abnormality within the right kidney. The size, shape, and precise location of this finding would require further evaluation to determine its significance. Additionally, the surrounding structures, such as the liver, spleen, and bowel, appear unremarkable in this particular slice.",
+      "observation": {
+        "location": "unknown",
+        "morphology": "unknown",
+        "size": {
+          "long_axis": "estimated size",
+          "short_axis": "estimated size",
+          "unit": "estimated size unit"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        }
+      }
+    },
+    {
+      "node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f02",
+      "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r02",
+      "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+      "image_position": 4,
+      "finding_position": 2,
+      "bbox_2d": [
+        400,
+        260,
+        520,
+        440
+      ],
+      "bbox_pixels": [
+        70,
+        34,
+        91,
+        58
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_002_ct_image_001_axial_c_portal_venous_phase/study_002_ct_image_001_axial_c_portal_venous_phase_r02_bbox.png",
+      "lingshu_caption": "The image shows a cross-sectional view of the abdomen, with a focus on the right kidney. Within the red box, there appears to be an area of increased density or attenuation compared to the surrounding renal parenchyma. This could potentially represent a lesion or abnormality within the kidney. The overall appearance of the kidney and surrounding structures should be further evaluated to determine the nature and significance of this finding.",
+      "observation": {
+        "location": "unknown",
+        "morphology": "unknown",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        }
+      }
+    },
+    {
+      "node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f03",
+      "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r03",
+      "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+      "image_position": 4,
+      "finding_position": 3,
+      "bbox_2d": [
+        700,
+        200,
+        900,
+        480
+      ],
+      "bbox_pixels": [
+        123,
+        26,
+        158,
+        63
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_002_ct_image_001_axial_c_portal_venous_phase/study_002_ct_image_001_axial_c_portal_venous_phase_r03_bbox.png",
+      "lingshu_caption": "The image shows a cross-sectional view of the abdomen, with a focus on the liver. Within the boxed region, there appears to be a distinct area of increased density or attenuation compared to the surrounding liver parenchyma. This could potentially represent a focal lesion or abnormality within the liver. The size, shape, and precise location of this finding would require further evaluation to determine its significance. Additionally, the overall appearance of the liver and other abdominal structures should be carefully assessed for any other potential abnormalities or changes.",
+      "observation": {
+        "location": "unknown",
+        "morphology": "unknown",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        }
+      }
+    }
+  ],
+  "node_support": [
+    {
+      "node_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_f01",
+      "strong_relation_ids": [
+        "strong_location_00003_01"
+      ],
+      "strong_peer_node_ids": [
+        "study_002_ct_image_000_axial_non_contrast_f01"
+      ],
+      "outgoing_query_ids": [
+        "location_00001",
+        "location_00002",
+        "location_00003",
+        "location_00004"
+      ],
+      "partial_support_target_image_ids": [
+        "study_002_ct_image_001_axial_c_portal_venous_phase"
+      ],
+      "not_support_target_image_ids": [
+        "study_001_ultrasound_image_000_missing",
+        "study_001_ultrasound_image_001_missing"
+      ],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "strong_support"
+    },
+    {
+      "node_id": "study_002_ct_image_000_axial_non_contrast_f01",
+      "strong_relation_ids": [
+        "strong_location_00003_01"
+      ],
+      "strong_peer_node_ids": [
+        "study_000_photograph_image_000_enlarging_umbilical_nodule_f01"
+      ],
+      "outgoing_query_ids": [],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "strong_support"
+    },
+    {
+      "node_id": "study_002_ct_image_000_axial_non_contrast_f02",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [
+        "location_00006"
+      ],
+      "partial_support_target_image_ids": [
+        "study_002_ct_image_001_axial_c_portal_venous_phase"
+      ],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "partial_support"
+    },
+    {
+      "node_id": "study_002_ct_image_000_axial_non_contrast_f03",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [
+        "location_00007"
+      ],
+      "partial_support_target_image_ids": [
+        "study_002_ct_image_001_axial_c_portal_venous_phase"
+      ],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "partial_support"
+    },
+    {
+      "node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f01",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "unvalidated"
+    },
+    {
+      "node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f02",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "unvalidated"
+    },
+    {
+      "node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f03",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "unvalidated"
+    }
+  ],
+  "cross_image_grounding": [
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 1,
+      "query_id": "location_00001",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "anchor": {
+        "node_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_f01",
+        "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+        "bbox_2d": [
+          389,
+          501,
+          572,
+          638
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_000_photograph_image_000_enlarging_umbilical_nodule/study_000_photograph_image_000_enlarging_umbilical_nodule_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ultrasound_image_000_missing",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0001.jpeg",
+        "examination": {
+          "image_id": "study_001_ultrasound_image_000_missing",
+          "study_index": 1,
+          "modality": "Ultrasound",
+          "subcategory": "missing"
+        },
+        "existing_node_ids": []
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 2,
+      "query_id": "location_00002",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "anchor": {
+        "node_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_f01",
+        "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+        "bbox_2d": [
+          389,
+          501,
+          572,
+          638
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_000_photograph_image_000_enlarging_umbilical_nodule/study_000_photograph_image_000_enlarging_umbilical_nodule_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ultrasound_image_001_missing",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0003.jpeg",
+        "examination": {
+          "image_id": "study_001_ultrasound_image_001_missing",
+          "study_index": 1,
+          "modality": "Ultrasound",
+          "subcategory": "missing"
+        },
+        "existing_node_ids": []
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 3,
+      "query_id": "location_00003",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "anchor": {
+        "node_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_f01",
+        "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+        "bbox_2d": [
+          389,
+          501,
+          572,
+          638
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_000_photograph_image_000_enlarging_umbilical_nodule/study_000_photograph_image_000_enlarging_umbilical_nodule_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_ct_image_000_axial_non_contrast",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0006.jpeg",
+        "examination": {
+          "image_id": "study_002_ct_image_000_axial_non_contrast",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial non-contrast"
+        },
+        "existing_node_ids": [
+          "study_002_ct_image_000_axial_non_contrast_f01",
+          "study_002_ct_image_000_axial_non_contrast_f02",
+          "study_002_ct_image_000_axial_non_contrast_f03"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [350, 250, 650, 450]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "strong_support",
+        "support_type": "bbox_to_bbox",
+        "target_found": true,
+        "target_bbox_2d": [
+          350,
+          250,
+          650,
+          450
+        ],
+        "target_bbox_pixels": [
+          61,
+          31,
+          114,
+          55
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.676101,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_002_ct_image_000_axial_non_contrast_f01",
+            "region_id": "study_002_ct_image_000_axial_non_contrast_r01",
+            "bbox_2d": [
+              380,
+              280,
+              620,
+              440
+            ],
+            "bbox_pixels": [
+              66,
+              34,
+              109,
+              54
+            ],
+            "iou": 0.676101,
+            "strong_match": true
+          },
+          {
+            "target_node_id": "study_002_ct_image_000_axial_non_contrast_f02",
+            "region_id": "study_002_ct_image_000_axial_non_contrast_r02",
+            "bbox_2d": [
+              220,
+              360,
+              400,
+              500
+            ],
+            "bbox_pixels": [
+              38,
+              44,
+              70,
+              62
+            ],
+            "iou": 0.056604,
+            "strong_match": false
+          },
+          {
+            "target_node_id": "study_002_ct_image_000_axial_non_contrast_f03",
+            "region_id": "study_002_ct_image_000_axial_non_contrast_r03",
+            "bbox_2d": [
+              700,
+              340,
+              900,
+              500
+            ],
+            "bbox_pixels": [
+              123,
+              42,
+              158,
+              62
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [
+          {
+            "target_node_id": "study_002_ct_image_000_axial_non_contrast_f01",
+            "region_id": "study_002_ct_image_000_axial_non_contrast_r01",
+            "bbox_2d": [
+              380,
+              280,
+              620,
+              440
+            ],
+            "bbox_pixels": [
+              66,
+              34,
+              109,
+              54
+            ],
+            "iou": 0.676101,
+            "strong_match": true
+          }
+        ],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3/cross_image_grounding/location_00003.png",
+          "target_image_width": 176,
+          "target_image_height": 124,
+          "predicted_bbox_pixels": [
+            61,
+            31,
+            114,
+            55
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_002_ct_image_000_axial_non_contrast_f01",
+              "region_id": "study_002_ct_image_000_axial_non_contrast_r01",
+              "bbox_2d": [
+                380,
+                280,
+                620,
+                440
+              ],
+              "bbox_pixels": [
+                66,
+                34,
+                109,
+                54
+              ],
+              "iou": 0.676101,
+              "strong_match": true
+            },
+            {
+              "target_node_id": "study_002_ct_image_000_axial_non_contrast_f02",
+              "region_id": "study_002_ct_image_000_axial_non_contrast_r02",
+              "bbox_2d": [
+                220,
+                360,
+                400,
+                500
+              ],
+              "bbox_pixels": [
+                38,
+                44,
+                70,
+                62
+              ],
+              "iou": 0.056604,
+              "strong_match": false
+            },
+            {
+              "target_node_id": "study_002_ct_image_000_axial_non_contrast_f03",
+              "region_id": "study_002_ct_image_000_axial_non_contrast_r03",
+              "bbox_2d": [
+                700,
+                340,
+                900,
+                500
+              ],
+              "bbox_pixels": [
+                123,
+                42,
+                158,
+                62
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [
+        "strong_location_00003_01"
+      ],
+      "validation_ids": [
+        "validation_location_00003_01"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 4,
+      "query_id": "location_00004",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "anchor": {
+        "node_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_f01",
+        "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+        "bbox_2d": [
+          389,
+          501,
+          572,
+          638
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_000_photograph_image_000_enlarging_umbilical_nodule/study_000_photograph_image_000_enlarging_umbilical_nodule_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        },
+        "existing_node_ids": [
+          "study_002_ct_image_001_axial_c_portal_venous_phase_f01",
+          "study_002_ct_image_001_axial_c_portal_venous_phase_f02",
+          "study_002_ct_image_001_axial_c_portal_venous_phase_f03"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [347, 236, 486, 377]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          347,
+          236,
+          486,
+          377
+        ],
+        "target_bbox_pixels": [
+          61,
+          31,
+          85,
+          49
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.316456,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f01",
+            "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r01",
+            "bbox_2d": [
+              175,
+              230,
+              350,
+              550
+            ],
+            "bbox_pixels": [
+              30,
+              30,
+              61,
+              72
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          },
+          {
+            "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f02",
+            "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r02",
+            "bbox_2d": [
+              400,
+              260,
+              520,
+              440
+            ],
+            "bbox_pixels": [
+              70,
+              34,
+              91,
+              58
+            ],
+            "iou": 0.316456,
+            "strong_match": false
+          },
+          {
+            "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f03",
+            "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r03",
+            "bbox_2d": [
+              700,
+              200,
+              900,
+              480
+            ],
+            "bbox_pixels": [
+              123,
+              26,
+              158,
+              63
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3/cross_image_grounding/location_00004.png",
+          "target_image_width": 176,
+          "target_image_height": 132,
+          "predicted_bbox_pixels": [
+            61,
+            31,
+            85,
+            49
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f01",
+              "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r01",
+              "bbox_2d": [
+                175,
+                230,
+                350,
+                550
+              ],
+              "bbox_pixels": [
+                30,
+                30,
+                61,
+                72
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            },
+            {
+              "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f02",
+              "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r02",
+              "bbox_2d": [
+                400,
+                260,
+                520,
+                440
+              ],
+              "bbox_pixels": [
+                70,
+                34,
+                91,
+                58
+              ],
+              "iou": 0.316456,
+              "strong_match": false
+            },
+            {
+              "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f03",
+              "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r03",
+              "bbox_2d": [
+                700,
+                200,
+                900,
+                480
+              ],
+              "bbox_pixels": [
+                123,
+                26,
+                158,
+                63
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00004_reground"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 6,
+      "query_id": "location_00006",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "anchor": {
+        "node_id": "study_002_ct_image_000_axial_non_contrast_f02",
+        "image_id": "study_002_ct_image_000_axial_non_contrast",
+        "bbox_2d": [
+          220,
+          360,
+          400,
+          500
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_002_ct_image_000_axial_non_contrast/study_002_ct_image_000_axial_non_contrast_r02_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        },
+        "existing_node_ids": [
+          "study_002_ct_image_001_axial_c_portal_venous_phase_f01",
+          "study_002_ct_image_001_axial_c_portal_venous_phase_f02",
+          "study_002_ct_image_001_axial_c_portal_venous_phase_f03"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [280, 310, 440, 500]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          280,
+          310,
+          440,
+          500
+        ],
+        "target_bbox_pixels": [
+          49,
+          40,
+          77,
+          66
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.181607,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f01",
+            "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r01",
+            "bbox_2d": [
+              175,
+              230,
+              350,
+              550
+            ],
+            "bbox_pixels": [
+              30,
+              30,
+              61,
+              72
+            ],
+            "iou": 0.181607,
+            "strong_match": false
+          },
+          {
+            "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f02",
+            "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r02",
+            "bbox_2d": [
+              400,
+              260,
+              520,
+              440
+            ],
+            "bbox_pixels": [
+              70,
+              34,
+              91,
+              58
+            ],
+            "iou": 0.113924,
+            "strong_match": false
+          },
+          {
+            "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f03",
+            "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r03",
+            "bbox_2d": [
+              700,
+              200,
+              900,
+              480
+            ],
+            "bbox_pixels": [
+              123,
+              26,
+              158,
+              63
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3/cross_image_grounding/location_00006.png",
+          "target_image_width": 176,
+          "target_image_height": 132,
+          "predicted_bbox_pixels": [
+            49,
+            40,
+            77,
+            66
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f01",
+              "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r01",
+              "bbox_2d": [
+                175,
+                230,
+                350,
+                550
+              ],
+              "bbox_pixels": [
+                30,
+                30,
+                61,
+                72
+              ],
+              "iou": 0.181607,
+              "strong_match": false
+            },
+            {
+              "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f02",
+              "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r02",
+              "bbox_2d": [
+                400,
+                260,
+                520,
+                440
+              ],
+              "bbox_pixels": [
+                70,
+                34,
+                91,
+                58
+              ],
+              "iou": 0.113924,
+              "strong_match": false
+            },
+            {
+              "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f03",
+              "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r03",
+              "bbox_2d": [
+                700,
+                200,
+                900,
+                480
+              ],
+              "bbox_pixels": [
+                123,
+                26,
+                158,
+                63
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00006_reground"
+      ]
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 7,
+      "query_id": "location_00007",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "anchor": {
+        "node_id": "study_002_ct_image_000_axial_non_contrast_f03",
+        "image_id": "study_002_ct_image_000_axial_non_contrast",
+        "bbox_2d": [
+          700,
+          340,
+          900,
+          500
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_002_ct_image_000_axial_non_contrast/study_002_ct_image_000_axial_non_contrast_r03_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        },
+        "existing_node_ids": [
+          "study_002_ct_image_001_axial_c_portal_venous_phase_f01",
+          "study_002_ct_image_001_axial_c_portal_venous_phase_f02",
+          "study_002_ct_image_001_axial_c_portal_venous_phase_f03"
+        ]
+      },
+      "raw_model_output": "{\"bbox_2d\": [625, 262, 775, 400]}",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "partial_support",
+        "support_type": "bbox_to_image",
+        "target_found": true,
+        "target_bbox_2d": [
+          625,
+          262,
+          775,
+          400
+        ],
+        "target_bbox_pixels": [
+          110,
+          34,
+          136,
+          52
+        ],
+        "iou_threshold": 0.5,
+        "max_iou": 0.153041,
+        "existing_bbox_comparisons": [
+          {
+            "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f01",
+            "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r01",
+            "bbox_2d": [
+              175,
+              230,
+              350,
+              550
+            ],
+            "bbox_pixels": [
+              30,
+              30,
+              61,
+              72
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          },
+          {
+            "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f02",
+            "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r02",
+            "bbox_2d": [
+              400,
+              260,
+              520,
+              440
+            ],
+            "bbox_pixels": [
+              70,
+              34,
+              91,
+              58
+            ],
+            "iou": 0.0,
+            "strong_match": false
+          },
+          {
+            "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f03",
+            "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r03",
+            "bbox_2d": [
+              700,
+              200,
+              900,
+              480
+            ],
+            "bbox_pixels": [
+              123,
+              26,
+              158,
+              63
+            ],
+            "iou": 0.153041,
+            "strong_match": false
+          }
+        ],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": {
+          "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3/cross_image_grounding/location_00007.png",
+          "target_image_width": 176,
+          "target_image_height": 132,
+          "predicted_bbox_pixels": [
+            110,
+            34,
+            136,
+            52
+          ],
+          "existing_boxes": [
+            {
+              "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f01",
+              "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r01",
+              "bbox_2d": [
+                175,
+                230,
+                350,
+                550
+              ],
+              "bbox_pixels": [
+                30,
+                30,
+                61,
+                72
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            },
+            {
+              "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f02",
+              "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r02",
+              "bbox_2d": [
+                400,
+                260,
+                520,
+                440
+              ],
+              "bbox_pixels": [
+                70,
+                34,
+                91,
+                58
+              ],
+              "iou": 0.0,
+              "strong_match": false
+            },
+            {
+              "target_node_id": "study_002_ct_image_001_axial_c_portal_venous_phase_f03",
+              "region_id": "study_002_ct_image_001_axial_c_portal_venous_phase_r03",
+              "bbox_2d": [
+                700,
+                200,
+                900,
+                480
+              ],
+              "bbox_pixels": [
+                123,
+                26,
+                158,
+                63
+              ],
+              "iou": 0.153041,
+              "strong_match": false
+            }
+          ],
+          "legend": {
+            "cross_image_prediction": [
+              230,
+              57,
+              70
+            ],
+            "strong_existing_match": [
+              25,
+              170,
+              95
+            ],
+            "other_existing_bbox": [
+              255,
+              184,
+              0
+            ]
+          }
+        }
+      },
+      "strong_relation_ids": [],
+      "validation_ids": [
+        "validation_location_00007_reground"
+      ]
+    }
+  ],
+  "strong_support_relations": [
+    {
+      "step": 3,
+      "unit_type": "strong_bbox_to_bbox_relation",
+      "support_status": "strong_support",
+      "support_type": "bbox_to_bbox",
+      "relation_id": "strong_location_00003_01",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "source_query_id": "location_00003",
+      "iou": 0.676101,
+      "iou_threshold": 0.5,
+      "anchor": {
+        "node_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_f01",
+        "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+        "bbox_2d": [
+          389,
+          501,
+          572,
+          638
+        ]
+      },
+      "target": {
+        "node_id": "study_002_ct_image_000_axial_non_contrast_f01",
+        "image_id": "study_002_ct_image_000_axial_non_contrast",
+        "existing_bbox_2d": [
+          380,
+          280,
+          620,
+          440
+        ],
+        "cross_image_bbox_2d": [
+          350,
+          250,
+          650,
+          450
+        ]
+      },
+      "validation_id": "validation_location_00003_01"
+    }
+  ],
+  "validations": [
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00003_01",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "source_query_id": "location_00003",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "support_status": "strong_support",
+      "support_type": "bbox_to_bbox",
+      "anchor_node_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_f01",
+      "target_image_id": "study_002_ct_image_000_axial_non_contrast",
+      "target_node_id": "study_002_ct_image_000_axial_non_contrast_f01",
+      "target_bbox_2d": [
+        350,
+        250,
+        650,
+        450
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target region lacks explicit measurements, making reliable comparison with the source's 2 cm diameter impossible.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"consistent\",\n    \"reason\": \"Both captions describe a lesion or abnormality at the umbilicus with normal surrounding skin, aligning semantically.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The target region lacks explicit measurements, making reliable comparison with the source's 2 cm diameter impossible."
+      },
+      "characterization_validation": {
+        "status": "consistent",
+        "reason": "Both captions describe a lesion or abnormality at the umbilicus with normal surrounding skin, aligning semantically."
+      },
+      "strong_relation_id": "strong_location_00003_01"
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00004_reground",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "source_query_id": "location_00004",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_f01",
+      "target_image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        347,
+        236,
+        486,
+        377
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target region lacks explicit measurements, making reliable comparison impossible.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown and cannot be compared to the source caption.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The target region lacks explicit measurements, making reliable comparison impossible."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown and cannot be compared to the source caption."
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00006_reground",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "source_query_id": "location_00006",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_002_ct_image_000_axial_non_contrast_f02",
+      "target_image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        280,
+        310,
+        440,
+        500
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"Neither source nor target provides explicit measurements or view/scale for reliable comparison.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown, preventing semantic comparison.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "Neither source nor target provides explicit measurements or view/scale for reliable comparison."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown, preventing semantic comparison."
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00007_reground",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "source_query_id": "location_00007",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_002_ct_image_000_axial_non_contrast_f03",
+      "target_image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        625,
+        262,
+        775,
+        400
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The source region's size measurements are unknown, and the target region's size measurements are also unknown, making reliable comparison impossible.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown, so semantic comparison using only the two Lingshu captions cannot be performed.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The source region's size measurements are unknown, and the target region's size measurements are also unknown, making reliable comparison impossible."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown, so semantic comparison using only the two Lingshu captions cannot be performed."
+      }
+    }
+  ],
+  "partial_support_validations": [
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00004_reground",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "source_query_id": "location_00004",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_f01",
+      "target_image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        347,
+        236,
+        486,
+        377
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target region lacks explicit measurements, making reliable comparison impossible.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown and cannot be compared to the source caption.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The target region lacks explicit measurements, making reliable comparison impossible."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown and cannot be compared to the source caption."
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00006_reground",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "source_query_id": "location_00006",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_002_ct_image_000_axial_non_contrast_f02",
+      "target_image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        280,
+        310,
+        440,
+        500
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"Neither source nor target provides explicit measurements or view/scale for reliable comparison.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown, preventing semantic comparison.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "Neither source nor target provides explicit measurements or view/scale for reliable comparison."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown, preventing semantic comparison."
+      }
+    },
+    {
+      "step": 3,
+      "unit_type": "quantitative_and_lingshu_semantic_validation",
+      "validation_id": "validation_location_00007_reground",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "source_query_id": "location_00007",
+      "configuration": {
+        "prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "medical_semantic_source": "lingshu_caption_only",
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "support_status": "partial_support",
+      "support_type": "bbox_to_image",
+      "anchor_node_id": "study_002_ct_image_000_axial_non_contrast_f03",
+      "target_image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+      "target_node_id": null,
+      "target_bbox_2d": [
+        625,
+        262,
+        775,
+        400
+      ],
+      "raw_model_output": "{\n  \"quantification_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The source region's size measurements are unknown, and the target region's size measurements are also unknown, making reliable comparison impossible.\"\n  },\n  \"characterization_validation\": {\n    \"status\": \"insufficient\",\n    \"reason\": \"The target Lingshu caption is unknown, so semantic comparison using only the two Lingshu captions cannot be performed.\"\n  }\n}",
+      "parse_status": "ok",
+      "parse_error": null,
+      "parse_attempts": 1,
+      "normalization_warnings": [],
+      "quantification_validation": {
+        "status": "insufficient",
+        "reason": "The source region's size measurements are unknown, and the target region's size measurements are also unknown, making reliable comparison impossible."
+      },
+      "characterization_validation": {
+        "status": "insufficient",
+        "reason": "The target Lingshu caption is unknown, so semantic comparison using only the two Lingshu captions cannot be performed."
+      }
+    }
+  ],
+  "not_support_queries": [
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 1,
+      "query_id": "location_00001",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "anchor": {
+        "node_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_f01",
+        "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+        "bbox_2d": [
+          389,
+          501,
+          572,
+          638
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_000_photograph_image_000_enlarging_umbilical_nodule/study_000_photograph_image_000_enlarging_umbilical_nodule_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ultrasound_image_000_missing",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0001.jpeg",
+        "examination": {
+          "image_id": "study_001_ultrasound_image_000_missing",
+          "study_index": 1,
+          "modality": "Ultrasound",
+          "subcategory": "missing"
+        },
+        "existing_node_ids": []
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    },
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 2,
+      "query_id": "location_00002",
+      "case_id": "sister-mary-joseph-nodule-7",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "482aeca751a5d3cc81507037aae52138057849e0e48f6e611fa9329e2040cf9e"
+      },
+      "anchor": {
+        "node_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_f01",
+        "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+        "bbox_2d": [
+          389,
+          501,
+          572,
+          638
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_000_photograph_image_000_enlarging_umbilical_nodule/study_000_photograph_image_000_enlarging_umbilical_nodule_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ultrasound_image_001_missing",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sister-mary-joseph-nodule-7/images/img_0003.jpeg",
+        "examination": {
+          "image_id": "study_001_ultrasound_image_001_missing",
+          "study_index": 1,
+          "modality": "Ultrasound",
+          "subcategory": "missing"
+        },
+        "existing_node_ids": []
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    }
+  ],
+  "skipped_anchor_nodes": [
+    {
+      "anchor_node_id": "study_002_ct_image_000_axial_non_contrast_f01",
+      "reason": "incoming strong bbox-to-bbox support from an earlier image",
+      "reused_strong_relation_ids": [
+        "strong_location_00003_01"
+      ],
+      "skipped_target_image_ids": [
+        "study_002_ct_image_001_axial_c_portal_venous_phase"
+      ],
+      "skipped_query_count": 1
+    }
+  ],
+  "processing_summary": {
+    "image_count": 5,
+    "image_without_existing_bbox_count": 2,
+    "node_count": 7,
+    "upper_bound_query_count": 7,
+    "executed_or_reused_query_count": 6,
+    "dynamic_skipped_query_count": 1,
+    "strong_relation_count": 1,
+    "partial_support_count": 3,
+    "not_support_count": 2,
+    "parse_error_count": 0,
+    "stopped_by_query_limit": false
+  }
+}

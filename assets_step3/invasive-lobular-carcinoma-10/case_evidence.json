@@ -1,0 +1,143 @@
+{
+  "step": 3,
+  "case_id": "invasive-lobular-carcinoma-10",
+  "case_url": "https://radiopaedia.org/cases/invasive-lobular-carcinoma-10?lang=us",
+  "case_title": "Invasive lobular carcinoma",
+  "status": "complete",
+  "configuration": {
+    "prompt_version": "step_3_directed_cross_image_grounding_v1",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "max_pixels": 1048576,
+    "iou_threshold": 0.5,
+    "source_step_2_fingerprint": "ea1b7b4098d52ada270a12fc4fda31483f7a1b5640f719db34b3cd5e7c0c9bd9",
+    "evidence_prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+    "query_order": "upper_triangle_by_image_then_anchor_bbox",
+    "strong_supported_anchor_skip": true
+  },
+  "source_step_2": {
+    "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/invasive-lobular-carcinoma-10/step_2/structured/case_evidence.json",
+    "fingerprint": "ea1b7b4098d52ada270a12fc4fda31483f7a1b5640f719db34b3cd5e7c0c9bd9"
+  },
+  "patient": {
+    "age": 45,
+    "age_unit": "years",
+    "gender": "Female",
+    "raw_patient_data": "Age: 45 years Gender: Female",
+    "clinical_context": "Palpable breast lump"
+  },
+  "images": [
+    {
+      "image_position": 0,
+      "image_id": "study_000_mammography_image_000_right_cc",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/invasive-lobular-carcinoma-10/images/img_0001.jpeg",
+      "examination": {
+        "image_id": "study_000_mammography_image_000_right_cc",
+        "study_index": 0,
+        "modality": "Mammography",
+        "subcategory": "Right CC"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 1,
+      "image_id": "study_000_mammography_image_001_left_cc",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/invasive-lobular-carcinoma-10/images/img_0004.png",
+      "examination": {
+        "image_id": "study_000_mammography_image_001_left_cc",
+        "study_index": 0,
+        "modality": "Mammography",
+        "subcategory": "Left CC"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 2,
+      "image_id": "study_000_mammography_image_002_right_mlo",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/invasive-lobular-carcinoma-10/images/img_0003.png",
+      "examination": {
+        "image_id": "study_000_mammography_image_002_right_mlo",
+        "study_index": 0,
+        "modality": "Mammography",
+        "subcategory": "Right MLO"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 3,
+      "image_id": "study_000_mammography_image_003_left_mlo",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/invasive-lobular-carcinoma-10/images/img_0005.png",
+      "examination": {
+        "image_id": "study_000_mammography_image_003_left_mlo",
+        "study_index": 0,
+        "modality": "Mammography",
+        "subcategory": "Left MLO"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 4,
+      "image_id": "study_001_ultrasound_image_000_missing",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/invasive-lobular-carcinoma-10/images/img_0006.png",
+      "examination": {
+        "image_id": "study_001_ultrasound_image_000_missing",
+        "study_index": 1,
+        "modality": "Ultrasound",
+        "subcategory": "missing"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 5,
+      "image_id": "study_001_ultrasound_image_001_missing",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/invasive-lobular-carcinoma-10/images/img_0008.jpeg",
+      "examination": {
+        "image_id": "study_001_ultrasound_image_001_missing",
+        "study_index": 1,
+        "modality": "Ultrasound",
+        "subcategory": "missing"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 6,
+      "image_id": "study_002_photograph_image_000_missing",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/invasive-lobular-carcinoma-10/images/img_0010.jpeg",
+      "examination": {
+        "image_id": "study_002_photograph_image_000_missing",
+        "study_index": 2,
+        "modality": "Photograph",
+        "subcategory": "missing"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    }
+  ],
+  "nodes": [],
+  "node_support": [],
+  "cross_image_grounding": [],
+  "strong_support_relations": [],
+  "validations": [],
+  "partial_support_validations": [],
+  "not_support_queries": [],
+  "skipped_anchor_nodes": [],
+  "processing_summary": {
+    "image_count": 7,
+    "image_without_existing_bbox_count": 7,
+    "node_count": 0,
+    "upper_bound_query_count": 0,
+    "executed_or_reused_query_count": 0,
+    "dynamic_skipped_query_count": 0,
+    "strong_relation_count": 0,
+    "partial_support_count": 0,
+    "not_support_count": 0,
+    "parse_error_count": 0,
+    "stopped_by_query_limit": false
+  }
+}

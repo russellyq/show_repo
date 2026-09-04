@@ -1,0 +1,359 @@
+{
+  "step": 3,
+  "case_id": "sheared-port-a-cath-remnant",
+  "case_url": "https://radiopaedia.org/cases/sheared-port-a-cath-remnant?lang=us",
+  "case_title": "Sheared Port-a-Cath remnant",
+  "status": "complete",
+  "configuration": {
+    "prompt_version": "step_3_directed_cross_image_grounding_v1",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "max_pixels": 1048576,
+    "iou_threshold": 0.5,
+    "source_step_2_fingerprint": "2a25708aaf2f6ad5b7931615fde4548e0e246ce0debfd233e263a7e8061955e4",
+    "evidence_prompt_version": "step_3_quantitative_lingshu_semantic_validation_v1",
+    "query_order": "upper_triangle_by_image_then_anchor_bbox",
+    "strong_supported_anchor_skip": true
+  },
+  "source_step_2": {
+    "path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sheared-port-a-cath-remnant/step_2/structured/case_evidence.json",
+    "fingerprint": "2a25708aaf2f6ad5b7931615fde4548e0e246ce0debfd233e263a7e8061955e4"
+  },
+  "patient": {
+    "age": 40,
+    "age_unit": "years",
+    "gender": "Female",
+    "raw_patient_data": "Age: 40 years Gender: Female",
+    "clinical_context": "For workup prior to stem cell transplant."
+  },
+  "images": [
+    {
+      "image_position": 0,
+      "image_id": "study_000_x_ray_image_000_frontal",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sheared-port-a-cath-remnant/images/img_0000.jpeg",
+      "examination": {
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "study_index": 0,
+        "modality": "X-ray",
+        "subcategory": "Frontal"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 1,
+      "image_id": "study_000_x_ray_image_001_lateral",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sheared-port-a-cath-remnant/images/img_0003.jpeg",
+      "examination": {
+        "image_id": "study_000_x_ray_image_001_lateral",
+        "study_index": 0,
+        "modality": "X-ray",
+        "subcategory": "Lateral"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 2,
+      "image_id": "study_000_x_ray_image_002_frontal",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sheared-port-a-cath-remnant/images/img_0006.jpeg",
+      "examination": {
+        "image_id": "study_000_x_ray_image_002_frontal",
+        "study_index": 0,
+        "modality": "X-ray",
+        "subcategory": "Frontal"
+      },
+      "source_status": "no_step_1_region",
+      "node_ids": []
+    },
+    {
+      "image_position": 3,
+      "image_id": "study_000_x_ray_image_003_frontal",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sheared-port-a-cath-remnant/images/img_0008.jpeg",
+      "examination": {
+        "image_id": "study_000_x_ray_image_003_frontal",
+        "study_index": 0,
+        "modality": "X-ray",
+        "subcategory": "Frontal"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_000_x_ray_image_003_frontal_f01"
+      ]
+    },
+    {
+      "image_position": 4,
+      "image_id": "study_001_ct_image_000_axial_non_contrast",
+      "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sheared-port-a-cath-remnant/images/img_0010.jpeg",
+      "examination": {
+        "image_id": "study_001_ct_image_000_axial_non_contrast",
+        "study_index": 1,
+        "modality": "CT",
+        "subcategory": "Axial non-contrast"
+      },
+      "source_status": "complete",
+      "node_ids": [
+        "study_001_ct_image_000_axial_non_contrast_f01"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "study_000_x_ray_image_003_frontal_f01",
+      "region_id": "study_000_x_ray_image_003_frontal_r01",
+      "image_id": "study_000_x_ray_image_003_frontal",
+      "image_position": 3,
+      "finding_position": 1,
+      "bbox_2d": [
+        592,
+        324,
+        765,
+        721
+      ],
+      "bbox_pixels": [
+        372,
+        204,
+        481,
+        454
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sheared-port-a-cath-remnant/step_2/bbox_images/study_000_x_ray_image_003_frontal/study_000_x_ray_image_003_frontal_r01_bbox.png",
+      "lingshu_caption": "The lungs are clear bilaterally. Specifically, no evidence of focal consolidation, pneumothorax, or pleural effusion. Cardiomediastinal silhouette is unremarkable. Visualized osseous structures of the thorax are without acute abnormality.",
+      "observation": {
+        "location": "unknown",
+        "morphology": "unknown",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "unknown",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "unknown",
+        "description": "unknown",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_000_x_ray_image_003_frontal",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sheared-port-a-cath-remnant/images/img_0008.jpeg",
+        "examination": {
+          "image_id": "study_000_x_ray_image_003_frontal",
+          "study_index": 0,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        }
+      }
+    },
+    {
+      "node_id": "study_001_ct_image_000_axial_non_contrast_f01",
+      "region_id": "study_001_ct_image_000_axial_non_contrast_r01",
+      "image_id": "study_001_ct_image_000_axial_non_contrast",
+      "image_position": 4,
+      "finding_position": 1,
+      "bbox_2d": [
+        630,
+        598,
+        684,
+        802
+      ],
+      "bbox_pixels": [
+        396,
+        286,
+        430,
+        384
+      ],
+      "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sheared-port-a-cath-remnant/step_2/bbox_images/study_001_ct_image_000_axial_non_contrast/study_001_ct_image_000_axial_non_contrast_r01_bbox.png",
+      "lingshu_caption": "The image shows a well-defined, round, hyperdense lesion located in the left lower lobe of the lung. The lesion appears to be a solitary pulmonary nodule, which could represent a variety of pathologies such as a benign tumor, malignant neoplasm, or granulomatous disease. Further evaluation with additional imaging modalities or biopsy may be necessary to determine the underlying cause.",
+      "observation": {
+        "location": "left lower lobe of the lung",
+        "morphology": "round",
+        "size": {
+          "long_axis": "unknown",
+          "short_axis": "unknown",
+          "unit": "unknown"
+        },
+        "density_or_signal": "hyperdense",
+        "margin": "unknown",
+        "surrounding": "unknown",
+        "visible_signs": "unknown",
+        "appearance": "solitary pulmonary nodule",
+        "description": "could represent a variety of pathologies such as a benign tumor, malignant neoplasm, or granulomatous disease",
+        "evidence_quality": "unknown",
+        "suspicion_level": "unknown",
+        "confidence": "unknown"
+      },
+      "image": {
+        "image_id": "study_001_ct_image_000_axial_non_contrast",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sheared-port-a-cath-remnant/images/img_0010.jpeg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_non_contrast",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial non-contrast"
+        }
+      }
+    }
+  ],
+  "node_support": [
+    {
+      "node_id": "study_000_x_ray_image_003_frontal_f01",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [
+        "location_00001"
+      ],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [
+        "study_001_ct_image_000_axial_non_contrast"
+      ],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "not_support"
+    },
+    {
+      "node_id": "study_001_ct_image_000_axial_non_contrast_f01",
+      "strong_relation_ids": [],
+      "strong_peer_node_ids": [],
+      "outgoing_query_ids": [],
+      "partial_support_target_image_ids": [],
+      "not_support_target_image_ids": [],
+      "parse_error_target_image_ids": [],
+      "overall_location_support": "unvalidated"
+    }
+  ],
+  "cross_image_grounding": [
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 1,
+      "query_id": "location_00001",
+      "case_id": "sheared-port-a-cath-remnant",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "2a25708aaf2f6ad5b7931615fde4548e0e246ce0debfd233e263a7e8061955e4"
+      },
+      "anchor": {
+        "node_id": "study_000_x_ray_image_003_frontal_f01",
+        "image_id": "study_000_x_ray_image_003_frontal",
+        "bbox_2d": [
+          592,
+          324,
+          765,
+          721
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sheared-port-a-cath-remnant/step_2/bbox_images/study_000_x_ray_image_003_frontal/study_000_x_ray_image_003_frontal_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_000_axial_non_contrast",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sheared-port-a-cath-remnant/images/img_0010.jpeg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_non_contrast",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial non-contrast"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_000_axial_non_contrast_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    }
+  ],
+  "strong_support_relations": [],
+  "validations": [],
+  "partial_support_validations": [],
+  "not_support_queries": [
+    {
+      "step": 3,
+      "unit_type": "directed_cross_image_grounding",
+      "query_index": 1,
+      "query_id": "location_00001",
+      "case_id": "sheared-port-a-cath-remnant",
+      "configuration": {
+        "prompt_version": "step_3_directed_cross_image_grounding_v1",
+        "model": "qwen3vl_8b",
+        "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+        "max_pixels": 1048576,
+        "iou_threshold": 0.5,
+        "source_step_2_fingerprint": "2a25708aaf2f6ad5b7931615fde4548e0e246ce0debfd233e263a7e8061955e4"
+      },
+      "anchor": {
+        "node_id": "study_000_x_ray_image_003_frontal_f01",
+        "image_id": "study_000_x_ray_image_003_frontal",
+        "bbox_2d": [
+          592,
+          324,
+          765,
+          721
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sheared-port-a-cath-remnant/step_2/bbox_images/study_000_x_ray_image_003_frontal/study_000_x_ray_image_003_frontal_r01_bbox.png"
+      },
+      "target_image": {
+        "image_id": "study_001_ct_image_000_axial_non_contrast",
+        "original_image_path": "/data/hdd_data/data_yq/medical_data/Radiopaedia/cache/Radiopaedia/cases/sheared-port-a-cath-remnant/images/img_0010.jpeg",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_non_contrast",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial non-contrast"
+        },
+        "existing_node_ids": [
+          "study_001_ct_image_000_axial_non_contrast_f01"
+        ]
+      },
+      "raw_model_output": "null",
+      "parse_status": "ok",
+      "parse_attempts": 1,
+      "location_validation": {
+        "status": "not_support",
+        "support_type": "bbox_to_image",
+        "target_found": false,
+        "target_bbox_2d": null,
+        "target_bbox_pixels": null,
+        "iou_threshold": 0.5,
+        "max_iou": null,
+        "existing_bbox_comparisons": [],
+        "matched_existing_nodes": [],
+        "cross_image_overlay": null
+      },
+      "strong_relation_ids": [],
+      "validation_ids": []
+    }
+  ],
+  "skipped_anchor_nodes": [],
+  "processing_summary": {
+    "image_count": 5,
+    "image_without_existing_bbox_count": 3,
+    "node_count": 2,
+    "upper_bound_query_count": 1,
+    "executed_or_reused_query_count": 1,
+    "dynamic_skipped_query_count": 0,
+    "strong_relation_count": 0,
+    "partial_support_count": 0,
+    "not_support_count": 1,
+    "parse_error_count": 0,
+    "stopped_by_query_limit": false
+  }
+}
