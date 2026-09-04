@@ -81,13 +81,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Neither source nor target provides explicit measurements or scale for reliable comparison. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown and cannot be compared to the source caption. |
-
 #### location_00002: NOT SUPPORT
 
 <table>
@@ -106,12 +99,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_001_ct_image_000_axial_non_contrast_f01`; `[439, 412, 556, 520]` | n/a | n/a | The red box is located in the midline at the level of the trachea. Within this area there is a large amount of air present in the soft tissues of the neck. There is also extensive subcutaneous emphysema throughout the chest wall bilaterally. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00003: NOT SUPPORT
 
@@ -132,12 +119,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_001_ct_image_001_coronal_non_contrast_f01`; `[396, 298, 511, 524]` | n/a | n/a | The right upper lobe demonstrates a large area of consolidation with air bronchograms. There is also a small amount of peribronchial cuffing. The left lung is clear. The cardiomediastinal silhouette is unremarkable. No pleural effusions or pneumothorax. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00004: NOT SUPPORT
 
 <table>
@@ -157,12 +138,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_001_ct_image_002_oblique_non_contrast_f01`; `[359, 175, 521, 488]` | n/a | n/a | The oblique non-contrast CT image shows a marked region in the upper thoracic area, specifically involving the trachea and surrounding structures. Within this region, there appears to be a significant narrowing of the tracheal lumen, which could indicate stenosis. The tracheal walls seem thickened, and there is evidence of irregularity in the tracheal contour. Adjacent to the trachea, there is a noticeable mass-like structure that may be causing compression or displacement of the trachea. This mass appears to have heterogeneous density, suggesting possible involvement of soft tissue or other pathological processes. The surrounding mediastinal structures, including the esophagus and major blood vessels, do not show obvious abnormalities in this view. The lung fields appear clear without any evident consolidation, effusion, or masses. The bony structures, including the vertebrae and ribs, are intact without signs of fractures or lesions. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00005: NOT SUPPORT
 
 <table>
@@ -181,12 +156,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_fluoroscopy_image_000_missing_f01`; `[286, 1, 571, 500]` | n/a | n/a | The esophagus is mildly dilated with a tapered narrowing at the gastroesophageal junction. There is no evidence of retained contrast in the esophagus 15 minutes after ingestion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 2: `study_001_ct_image_000_axial_non_contrast_f01`
 
@@ -213,12 +182,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_001_ct_image_001_coronal_non_contrast_f01`; `[396, 298, 511, 524]` | n/a | n/a | The right upper lobe demonstrates a large area of consolidation with air bronchograms. There is also a small amount of peribronchial cuffing. The left lung is clear. The cardiomediastinal silhouette is unremarkable. No pleural effusions or pneumothorax. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00007: PARTIAL SUPPORT
 
 <table>
@@ -240,13 +203,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | Target Lingshu caption is unknown |
-
 #### location_00008: NOT SUPPORT
 
 <table>
@@ -265,12 +221,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_fluoroscopy_image_000_missing_f01`; `[286, 1, 571, 500]` | n/a | n/a | The esophagus is mildly dilated with a tapered narrowing at the gastroesophageal junction. There is no evidence of retained contrast in the esophagus 15 minutes after ingestion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 3: `study_001_ct_image_001_coronal_non_contrast_f01`
 
@@ -299,13 +249,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | Target Lingshu caption is unknown |
-
 #### location_00010: NOT SUPPORT
 
 <table>
@@ -324,12 +267,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_fluoroscopy_image_000_missing_f01`; `[286, 1, 571, 500]` | n/a | n/a | The esophagus is mildly dilated with a tapered narrowing at the gastroesophageal junction. There is no evidence of retained contrast in the esophagus 15 minutes after ingestion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 4: `study_001_ct_image_002_oblique_non_contrast_f01`
 
@@ -355,12 +292,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_fluoroscopy_image_000_missing_f01`; `[286, 1, 571, 500]` | n/a | n/a | The esophagus is mildly dilated with a tapered narrowing at the gastroesophageal junction. There is no evidence of retained contrast in the esophagus 15 minutes after ingestion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ## Dynamically Skipped Anchors
 

@@ -83,13 +83,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown |
-
 #### location_00002: NOT SUPPORT
 
 <table>
@@ -109,12 +102,6 @@
 |---|---:|---|---|
 | `study_001_mri_image_001_coronal_t1_c_f01`; `[645, 250, 815, 410]` | n/a | n/a | The left carotid artery is enlarged and tortuous. There is a large mass centered at the bifurcation of the left carotid artery. The mass is heterogeneous and contains areas of high signal intensity. The mass extends into the left internal carotid artery and external carotid artery. The mass also extends posteriorly to the left vertebral artery. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00003: NOT SUPPORT
 
 <table>
@@ -133,12 +120,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_000_lateral_external_carotid_artery_f01`; `[530, 120, 784, 520]` | n/a | n/a | The lateral view of the left external carotid artery shows a complex network of vessels with a prominent area of irregularity and possible vascular malformation or abnormal branching within the boxed region. The vessels appear tortuous and there is a notable concentration of contrast material suggesting increased vascularity or potential arteriovenous shunting. The surrounding vasculature appears less dense, providing a stark contrast to the highlighted area. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 2: `study_000_ct_image_000_axial_bone_window_f02`
 
@@ -165,12 +146,6 @@
 |---|---:|---|---|
 | `study_001_mri_image_000_axial_t1_c_fat_sat_f01`; `[612, 452, 767, 575]` | n/a | n/a | The left internal auditory canal demonstrates a small enhancing mass. The right internal auditory canal appears normal. The cerebellum, medulla, and pons appear normal. There is no evidence of hydrocephalus. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00005: NOT SUPPORT
 
 <table>
@@ -190,12 +165,6 @@
 |---|---:|---|---|
 | `study_001_mri_image_001_coronal_t1_c_f01`; `[645, 250, 815, 410]` | n/a | n/a | The left carotid artery is enlarged and tortuous. There is a large mass centered at the bifurcation of the left carotid artery. The mass is heterogeneous and contains areas of high signal intensity. The mass extends into the left internal carotid artery and external carotid artery. The mass also extends posteriorly to the left vertebral artery. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00006: NOT SUPPORT
 
 <table>
@@ -214,12 +183,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_000_lateral_external_carotid_artery_f01`; `[530, 120, 784, 520]` | n/a | n/a | The lateral view of the left external carotid artery shows a complex network of vessels with a prominent area of irregularity and possible vascular malformation or abnormal branching within the boxed region. The vessels appear tortuous and there is a notable concentration of contrast material suggesting increased vascularity or potential arteriovenous shunting. The surrounding vasculature appears less dense, providing a stark contrast to the highlighted area. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 3: `study_001_mri_image_000_axial_t1_c_fat_sat_f01`
 
@@ -246,12 +209,6 @@
 |---|---:|---|---|
 | `study_001_mri_image_001_coronal_t1_c_f01`; `[645, 250, 815, 410]` | n/a | n/a | The left carotid artery is enlarged and tortuous. There is a large mass centered at the bifurcation of the left carotid artery. The mass is heterogeneous and contains areas of high signal intensity. The mass extends into the left internal carotid artery and external carotid artery. The mass also extends posteriorly to the left vertebral artery. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00008: NOT SUPPORT
 
 <table>
@@ -270,12 +227,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_000_lateral_external_carotid_artery_f01`; `[530, 120, 784, 520]` | n/a | n/a | The lateral view of the left external carotid artery shows a complex network of vessels with a prominent area of irregularity and possible vascular malformation or abnormal branching within the boxed region. The vessels appear tortuous and there is a notable concentration of contrast material suggesting increased vascularity or potential arteriovenous shunting. The surrounding vasculature appears less dense, providing a stark contrast to the highlighted area. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 4: `study_001_mri_image_001_coronal_t1_c_f01`
 
@@ -301,12 +252,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_000_lateral_external_carotid_artery_f01`; `[530, 120, 784, 520]` | n/a | n/a | The lateral view of the left external carotid artery shows a complex network of vessels with a prominent area of irregularity and possible vascular malformation or abnormal branching within the boxed region. The vessels appear tortuous and there is a notable concentration of contrast material suggesting increased vascularity or potential arteriovenous shunting. The surrounding vasculature appears less dense, providing a stark contrast to the highlighted area. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ## Dynamically Skipped Anchors
 

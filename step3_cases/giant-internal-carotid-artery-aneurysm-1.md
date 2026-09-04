@@ -115,13 +115,6 @@
 | `study_000_mri_image_001_axial_flair_f02`; `[598, 58, 754, 194]` | 0.000 | no | The left frontal lobe demonstrates a small focus of increased signal intensity on this FLAIR sequence. There is no associated mass effect or contrast enhancement. |
 | `study_000_mri_image_001_axial_flair_f03`; `[464, 346, 688, 554]` | 0.597 | yes | The axial FLAIR MRI image shows a hyperintense lesion located in the right basal ganglia region. The lesion appears to have a ring-like structure with a central hypointense area, suggesting a possible cystic or necrotic component. Surrounding the lesion, there is evidence of perilesional edema, indicated by the hyperintense signal extending into the adjacent white matter. The lesion&#x27;s borders are well-defined, and there is no significant mass effect observed on the surrounding brain structures. The ventricles appear symmetrical, and there is no midline shift noted. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The target region lacks explicit measurements, and the source image&#x27;s scale and resolution do not permit reliable comparison of lesion extent. |
-| Characterization | `inconsistent` | The source caption describes a lesion in the left temporal lobe, while the target caption describes a lesion in the right basal ganglia region, indicating different anatomical locations. |
-
 #### location_00002: STRONG SUPPORT
 
 <table>
@@ -141,13 +134,6 @@
 |---|---:|---|---|
 | `study_000_mri_image_002_axial_gradient_echo_f01`; `[420, 308, 680, 550]` | 0.530 | yes | The red box is located over the left temporal lobe. Within this area there is a large heterogeneous mass with areas of T2 hypointensity likely representing hemorrhage. There is surrounding vasogenic edema. The mass effect from this lesion is causing a midline shift to the right. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The target region lacks explicit measurements, and the source image&#x27;s scale and orientation prevent reliable comparison of lesion extent. |
-| Characterization | `inconsistent` | The source caption describes a ring enhancing lesion without mass effect, while the target caption describes a heterogeneous mass with hemorrhage and mass effect causing midline shift. |
-
 #### location_00003: NOT SUPPORT
 
 <table>
@@ -166,12 +152,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_000_mri_image_003_mra_f01`; `[527, 320, 700, 530]` | n/a | n/a | The image shows a magnetic resonance angiography (MRA) scan of the brain. Within the red box, there appears to be an area of increased signal intensity, which could potentially indicate an abnormality such as a vascular lesion or malformation. The surrounding vasculature appears relatively normal, with no obvious signs of stenosis or occlusion. However, without additional clinical information, it is difficult to determine the exact nature or significance of the observed finding. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00004: PARTIAL SUPPORT
 
@@ -194,13 +174,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The target region lacks explicit measurements and the scale between the two images cannot be reliably compared. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so semantic comparison cannot be performed. |
-
 #### location_00005: NOT SUPPORT
 
 <table>
@@ -220,12 +193,6 @@
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01`; `[231, 485, 376, 625]` | n/a | n/a | The image shows a lateral view of the internal carotid artery. Within the boxed region, there is a saccular outpouching consistent with an aneurysm. The aneurysm appears to be located on the anterior communicating artery. The surrounding vasculature is well-visualized, with no apparent signs of occlusion or significant stenosis. The contrast flow through the arteries is smooth, indicating good perfusion. There are no other obvious abnormalities noted in the immediate vicinity of the aneurysm. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00006: NOT SUPPORT
 
 <table>
@@ -244,12 +211,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01`; `[528, 590, 668, 720]` | n/a | n/a | The image shows a frontal view of the internal carotid artery. Within the boxed region, there is a saccular outpouching consistent with an aneurysm. The aneurysm appears to be located on the anterior cerebral artery (ACA) segment. The surrounding vasculature is well-visualized, with no apparent signs of occlusion or significant stenosis. The aneurysm&#x27;s neck appears narrow, and its sac is rounded. There are no signs of rupture or hemorrhage in the immediate vicinity. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 2: `study_000_mri_image_001_axial_flair_f01`
 
@@ -278,13 +239,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown |
-
 #### location_00008: NOT SUPPORT
 
 <table>
@@ -303,12 +257,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_000_mri_image_003_mra_f01`; `[527, 320, 700, 530]` | n/a | n/a | The image shows a magnetic resonance angiography (MRA) scan of the brain. Within the red box, there appears to be an area of increased signal intensity, which could potentially indicate an abnormality such as a vascular lesion or malformation. The surrounding vasculature appears relatively normal, with no obvious signs of stenosis or occlusion. However, without additional clinical information, it is difficult to determine the exact nature or significance of the observed finding. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00009: NOT SUPPORT
 
@@ -329,12 +277,6 @@
 |---|---:|---|---|
 | `study_001_ct_image_000_axial_c_arterial_phase_f01`; `[492, 368, 614, 475]` | n/a | n/a | The image shows a hyperdense lesion in the left middle cerebral artery territory, suggestive of an acute ischemic stroke. The lesion appears to be located in the left temporal lobe, with surrounding edema and mass effect. There is also evidence of contrast enhancement, indicating disruption of the blood-brain barrier. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00010: NOT SUPPORT
 
 <table>
@@ -354,12 +296,6 @@
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01`; `[231, 485, 376, 625]` | n/a | n/a | The image shows a lateral view of the internal carotid artery. Within the boxed region, there is a saccular outpouching consistent with an aneurysm. The aneurysm appears to be located on the anterior communicating artery. The surrounding vasculature is well-visualized, with no apparent signs of occlusion or significant stenosis. The contrast flow through the arteries is smooth, indicating good perfusion. There are no other obvious abnormalities noted in the immediate vicinity of the aneurysm. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00011: NOT SUPPORT
 
 <table>
@@ -378,12 +314,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01`; `[528, 590, 668, 720]` | n/a | n/a | The image shows a frontal view of the internal carotid artery. Within the boxed region, there is a saccular outpouching consistent with an aneurysm. The aneurysm appears to be located on the anterior cerebral artery (ACA) segment. The surrounding vasculature is well-visualized, with no apparent signs of occlusion or significant stenosis. The aneurysm&#x27;s neck appears narrow, and its sac is rounded. There are no signs of rupture or hemorrhage in the immediate vicinity. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 3: `study_000_mri_image_001_axial_flair_f02`
 
@@ -412,13 +342,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | Target Lingshu caption is unknown |
-
 #### location_00013: NOT SUPPORT
 
 <table>
@@ -437,12 +360,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_000_mri_image_003_mra_f01`; `[527, 320, 700, 530]` | n/a | n/a | The image shows a magnetic resonance angiography (MRA) scan of the brain. Within the red box, there appears to be an area of increased signal intensity, which could potentially indicate an abnormality such as a vascular lesion or malformation. The surrounding vasculature appears relatively normal, with no obvious signs of stenosis or occlusion. However, without additional clinical information, it is difficult to determine the exact nature or significance of the observed finding. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00014: PARTIAL SUPPORT
 
@@ -465,13 +382,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source image is an MRI with unknown measurements and the target image is a CT with no stated measurements; scale and view differences prevent reliable comparison. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so semantic comparison cannot be performed. |
-
 #### location_00015: NOT SUPPORT
 
 <table>
@@ -491,12 +401,6 @@
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01`; `[231, 485, 376, 625]` | n/a | n/a | The image shows a lateral view of the internal carotid artery. Within the boxed region, there is a saccular outpouching consistent with an aneurysm. The aneurysm appears to be located on the anterior communicating artery. The surrounding vasculature is well-visualized, with no apparent signs of occlusion or significant stenosis. The contrast flow through the arteries is smooth, indicating good perfusion. There are no other obvious abnormalities noted in the immediate vicinity of the aneurysm. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00016: NOT SUPPORT
 
 <table>
@@ -515,12 +419,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01`; `[528, 590, 668, 720]` | n/a | n/a | The image shows a frontal view of the internal carotid artery. Within the boxed region, there is a saccular outpouching consistent with an aneurysm. The aneurysm appears to be located on the anterior cerebral artery (ACA) segment. The surrounding vasculature is well-visualized, with no apparent signs of occlusion or significant stenosis. The aneurysm&#x27;s neck appears narrow, and its sac is rounded. There are no signs of rupture or hemorrhage in the immediate vicinity. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 4: `study_000_mri_image_003_mra_f01`
 
@@ -549,13 +447,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source image is a 3D MRA scan with no visible measurements, while the target is a 2D CT slice with no stated measurements; scale and view prevent reliable comparison. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so semantic comparison cannot be performed. |
-
 #### location_00027: STRONG SUPPORT
 
 <table>
@@ -575,13 +466,6 @@
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01`; `[231, 485, 376, 625]` | 0.635 | yes | The image shows a lateral view of the internal carotid artery. Within the boxed region, there is a saccular outpouching consistent with an aneurysm. The aneurysm appears to be located on the anterior communicating artery. The surrounding vasculature is well-visualized, with no apparent signs of occlusion or significant stenosis. The contrast flow through the arteries is smooth, indicating good perfusion. There are no other obvious abnormalities noted in the immediate vicinity of the aneurysm. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source image lacks explicit measurements or scale indicators for the lesion, and the target image&#x27;s bounding box does not provide measurable dimensions. The visual extent cannot be reliably compared without scale reference or stated measurements. |
-| Characterization | `consistent` | Both captions describe a vascular abnormality within a boxed region. The source caption suggests an area of increased signal intensity that could indicate a vascular lesion, while the target caption explicitly identifies a saccular outpouching (aneurysm). Both describe the lesion as being within a defined area and note surrounding vasculature as relatively normal or well-visualized without significant obstruction. |
-
 #### location_00028: NOT SUPPORT
 
 <table>
@@ -600,12 +484,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01`; `[528, 590, 668, 720]` | n/a | n/a | The image shows a frontal view of the internal carotid artery. Within the boxed region, there is a saccular outpouching consistent with an aneurysm. The aneurysm appears to be located on the anterior cerebral artery (ACA) segment. The surrounding vasculature is well-visualized, with no apparent signs of occlusion or significant stenosis. The aneurysm&#x27;s neck appears narrow, and its sac is rounded. There are no signs of rupture or hemorrhage in the immediate vicinity. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 5: `study_001_ct_image_000_axial_c_arterial_phase_f01`
 
@@ -634,13 +512,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source image is a non-contrast CT scan with no explicit measurements, and the target image is an angiogram with no stated measurements. The scale and view are different, preventing reliable comparison of lesion extent. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so semantic comparison using only the two captions cannot be performed. |
-
 #### location_00030: NOT SUPPORT
 
 <table>
@@ -659,12 +530,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_001_frontal_internal_carotid_artery_f01`; `[528, 590, 668, 720]` | n/a | n/a | The image shows a frontal view of the internal carotid artery. Within the boxed region, there is a saccular outpouching consistent with an aneurysm. The aneurysm appears to be located on the anterior cerebral artery (ACA) segment. The surrounding vasculature is well-visualized, with no apparent signs of occlusion or significant stenosis. The aneurysm&#x27;s neck appears narrow, and its sac is rounded. There are no signs of rupture or hemorrhage in the immediate vicinity. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ## Dynamically Skipped Anchors
 

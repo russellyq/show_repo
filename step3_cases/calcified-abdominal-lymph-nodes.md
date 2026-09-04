@@ -79,12 +79,6 @@
 
 The target image has no existing Step 2 bbox.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00002: NOT SUPPORT
 
 <table>
@@ -103,12 +97,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_001_ct_image_000_axial_bone_window_f01`; `[350, 300, 450, 400]` | n/a | n/a | The image shows a lesion in the right lobe of the liver. The lesion appears to be hypodense compared to the surrounding liver parenchyma. There is no evidence of calcification or hemorrhage within the lesion. The lesion is well-circumscribed and does not appear to invade the surrounding structures. The adjacent liver parenchyma appears normal without any signs of cirrhosis or other abnormalities. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00003: NOT SUPPORT
 
@@ -130,12 +118,6 @@ The target image has no existing Step 2 bbox.
 | `study_001_ct_image_001_axial_bone_window_f01`; `[430, 300, 570, 420]` | n/a | n/a | The red box is located over the right upper quadrant of the abdomen. There is no definite focal lesion identified within the liver. The liver is of normal size and attenuation. No intrahepatic biliary ductal dilatation is seen. |
 | `study_001_ct_image_001_axial_bone_window_f02`; `[620, 260, 780, 380]` | n/a | n/a | The red box is located over the left upper quadrant. There is a large amount of free intraperitoneal air. The liver is unremarkable. The spleen is not well seen. The stomach is distended with air. The pancreas is partially obscured by the stomach. The kidneys are unremarkable. There is no evidence of lymphadenopathy. There is no pleural effusion or pneumothorax. The visualized osseous structures are unremarkable. |
 | `study_001_ct_image_001_axial_bone_window_f03`; `[300, 240, 420, 360]` | n/a | n/a | The image shows a cross-sectional view of the abdomen, with a focus on the liver region. Within the boxed area, there appears to be a distinct lesion or abnormality present. The lesion exhibits a heterogeneous appearance, with areas of varying density and attenuation. It is difficult to determine the exact nature of this finding without additional clinical information or further imaging studies. However, the presence of this lesion warrants further investigation to determine its underlying cause and potential clinical significance. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 2: `study_001_ct_image_000_axial_bone_window_f01`
 
@@ -165,13 +147,6 @@ The target image has no existing Step 2 bbox.
 | `study_001_ct_image_001_axial_bone_window_f03`; `[300, 240, 420, 360]` | 0.484 | no | The image shows a cross-sectional view of the abdomen, with a focus on the liver region. Within the boxed area, there appears to be a distinct lesion or abnormality present. The lesion exhibits a heterogeneous appearance, with areas of varying density and attenuation. It is difficult to determine the exact nature of this finding without additional clinical information or further imaging studies. However, the presence of this lesion warrants further investigation to determine its underlying cause and potential clinical significance. |
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region lacks explicit measurements, and the target region&#x27;s measurements are not provided for comparison. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so semantic comparison cannot be performed. |
 
 ## Dynamically Skipped Anchors
 

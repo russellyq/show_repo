@@ -147,12 +147,6 @@
 | `study_001_ultrasound_image_000_missing_f02`; `[481, 387, 595, 537]` | n/a | n/a | The liver parenchyma is diffusely hyperechoic. The portal vein is dilated measuring 15 mm. There is a small amount of ascites. |
 | `study_001_ultrasound_image_000_missing_f03`; `[341, 515, 395, 576]` | n/a | n/a | The liver parenchyma is diffusely hyperechoic and there is increased echogenicity anterior to the diaphragm consistent with chronic liver disease. There is a small hypoechoic lesion in segment 4A measuring approximately 1.0 cm. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00002: NOT SUPPORT
 
 <table>
@@ -173,12 +167,6 @@
 | `study_002_mri_image_000_axial_t1_in_phase_f01`; `[548, 452, 673, 564]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a 1.5 cm focal area of low signal intensity in the left lobe of the liver, which may represent a simple cyst. |
 | `study_002_mri_image_000_axial_t1_in_phase_f02`; `[637, 623, 762, 731]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a small amount of fluid in the right subphrenic space. No focal hepatic lesions are identified. |
 | `study_002_mri_image_000_axial_t1_in_phase_f03`; `[810, 642, 966, 812]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a 2.5 cm lesion in the left lobe of the liver, which is hypointense on this T1 weighted image. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00003: PARTIAL SUPPORT
 
@@ -201,13 +189,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The target region lacks explicit measurements, and the source image&#x27;s scale and view do not permit reliable comparison of lesion extent. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so semantic comparison cannot be performed. |
-
 #### location_00004: PARTIAL SUPPORT
 
 <table>
@@ -228,13 +209,6 @@
 | `study_002_mri_image_002_axial_t1_c_f01`; `[310, 280, 570, 580]` | 0.286 | no | The liver is enlarged. The hepatic parenchyma demonstrates diffuse nodularity. There is no focal lesion identified. The portal vein is prominent. |
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Target region lacks explicit measurements, preventing reliable comparison with source measurement of 2.5 cm |
-| Characterization | `insufficient` | The re-grounded target region has no Lingshu caption yet. |
 
 #### location_00005: PARTIAL SUPPORT
 
@@ -257,13 +231,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Target measurements are unknown and source scale is not directly comparable due to different imaging modalities and lack of explicit size in target |
-| Characterization | `insufficient` | Target Lingshu caption is unknown |
-
 #### location_00006: NOT SUPPORT
 
 <table>
@@ -282,12 +249,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_004_axial_t2_fat_sat_f01`; `[333, 381, 607, 550]` | n/a | n/a | The image shows a dilated common bile duct with a filling defect. The common bile duct appears to be enlarged and contains a distinct, well-defined structure within it, which could represent a stone or other obstructive lesion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 2: `study_000_ct_image_000_axial_c_portal_venous_phase_f02`
 
@@ -316,12 +277,6 @@
 | `study_001_ultrasound_image_000_missing_f02`; `[481, 387, 595, 537]` | n/a | n/a | The liver parenchyma is diffusely hyperechoic. The portal vein is dilated measuring 15 mm. There is a small amount of ascites. |
 | `study_001_ultrasound_image_000_missing_f03`; `[341, 515, 395, 576]` | n/a | n/a | The liver parenchyma is diffusely hyperechoic and there is increased echogenicity anterior to the diaphragm consistent with chronic liver disease. There is a small hypoechoic lesion in segment 4A measuring approximately 1.0 cm. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00008: NOT SUPPORT
 
 <table>
@@ -343,12 +298,6 @@
 | `study_002_mri_image_000_axial_t1_in_phase_f02`; `[637, 623, 762, 731]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a small amount of fluid in the right subphrenic space. No focal hepatic lesions are identified. |
 | `study_002_mri_image_000_axial_t1_in_phase_f03`; `[810, 642, 966, 812]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a 2.5 cm lesion in the left lobe of the liver, which is hypointense on this T1 weighted image. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00009: NOT SUPPORT
 
 <table>
@@ -367,12 +316,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_001_axial_t1_out_of_phase_f01`; `[370, 286, 740, 686]` | n/a | n/a | The liver is enlarged and demonstrates diffuse decrease in signal intensity on this out of phase sequence consistent with hepatic steatosis. The boxed area demonstrates a focal area of decreased signal intensity which could represent a focal fatty change or a focal lesion such as a hemangioma. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00010: PARTIAL SUPPORT
 
@@ -395,13 +338,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Target measurements are unknown and cannot be compared to source measurements. |
-| Characterization | `insufficient` | Target Lingshu caption is unknown. |
-
 #### location_00011: NOT SUPPORT
 
 <table>
@@ -421,12 +357,6 @@
 |---|---:|---|---|
 | `study_002_mri_image_003_axial_t2_f01`; `[474, 348, 624, 488]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is T2 hyperintense and T1 hypointense. The intrahepatic biliary ducts are dilated. There is also a small amount of fluid in the subcapsular region of the right lobe of the liver. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00012: NOT SUPPORT
 
 <table>
@@ -445,12 +375,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_004_axial_t2_fat_sat_f01`; `[333, 381, 607, 550]` | n/a | n/a | The image shows a dilated common bile duct with a filling defect. The common bile duct appears to be enlarged and contains a distinct, well-defined structure within it, which could represent a stone or other obstructive lesion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 3: `study_000_ct_image_000_axial_c_portal_venous_phase_f03`
 
@@ -479,12 +403,6 @@
 | `study_001_ultrasound_image_000_missing_f02`; `[481, 387, 595, 537]` | n/a | n/a | The liver parenchyma is diffusely hyperechoic. The portal vein is dilated measuring 15 mm. There is a small amount of ascites. |
 | `study_001_ultrasound_image_000_missing_f03`; `[341, 515, 395, 576]` | n/a | n/a | The liver parenchyma is diffusely hyperechoic and there is increased echogenicity anterior to the diaphragm consistent with chronic liver disease. There is a small hypoechoic lesion in segment 4A measuring approximately 1.0 cm. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00014: NOT SUPPORT
 
 <table>
@@ -505,12 +423,6 @@
 | `study_002_mri_image_000_axial_t1_in_phase_f01`; `[548, 452, 673, 564]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a 1.5 cm focal area of low signal intensity in the left lobe of the liver, which may represent a simple cyst. |
 | `study_002_mri_image_000_axial_t1_in_phase_f02`; `[637, 623, 762, 731]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a small amount of fluid in the right subphrenic space. No focal hepatic lesions are identified. |
 | `study_002_mri_image_000_axial_t1_in_phase_f03`; `[810, 642, 966, 812]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a 2.5 cm lesion in the left lobe of the liver, which is hypointense on this T1 weighted image. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00015: PARTIAL SUPPORT
 
@@ -533,13 +445,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The target region lacks explicit measurements, and the source region&#x27;s scale and view prevent reliable comparison. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so semantic comparison cannot be performed. |
-
 #### location_00016: PARTIAL SUPPORT
 
 <table>
@@ -561,13 +466,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The target region lacks explicit measurements, and the source region&#x27;s short axis is unknown, preventing reliable comparison of visible lesion extent. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so semantic comparison using only the two captions cannot be performed. |
-
 #### location_00017: NOT SUPPORT
 
 <table>
@@ -587,12 +485,6 @@
 |---|---:|---|---|
 | `study_002_mri_image_003_axial_t2_f01`; `[474, 348, 624, 488]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is T2 hyperintense and T1 hypointense. The intrahepatic biliary ducts are dilated. There is also a small amount of fluid in the subcapsular region of the right lobe of the liver. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00018: NOT SUPPORT
 
 <table>
@@ -611,12 +503,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_004_axial_t2_fat_sat_f01`; `[333, 381, 607, 550]` | n/a | n/a | The image shows a dilated common bile duct with a filling defect. The common bile duct appears to be enlarged and contains a distinct, well-defined structure within it, which could represent a stone or other obstructive lesion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 4: `study_001_ultrasound_image_000_missing_f01`
 
@@ -645,12 +531,6 @@
 | `study_002_mri_image_000_axial_t1_in_phase_f02`; `[637, 623, 762, 731]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a small amount of fluid in the right subphrenic space. No focal hepatic lesions are identified. |
 | `study_002_mri_image_000_axial_t1_in_phase_f03`; `[810, 642, 966, 812]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a 2.5 cm lesion in the left lobe of the liver, which is hypointense on this T1 weighted image. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00020: NOT SUPPORT
 
 <table>
@@ -669,12 +549,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_001_axial_t1_out_of_phase_f01`; `[370, 286, 740, 686]` | n/a | n/a | The liver is enlarged and demonstrates diffuse decrease in signal intensity on this out of phase sequence consistent with hepatic steatosis. The boxed area demonstrates a focal area of decreased signal intensity which could represent a focal fatty change or a focal lesion such as a hemangioma. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00021: NOT SUPPORT
 
@@ -695,12 +569,6 @@
 |---|---:|---|---|
 | `study_002_mri_image_002_axial_t1_c_f01`; `[310, 280, 570, 580]` | n/a | n/a | The liver is enlarged. The hepatic parenchyma demonstrates diffuse nodularity. There is no focal lesion identified. The portal vein is prominent. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00022: NOT SUPPORT
 
 <table>
@@ -720,12 +588,6 @@
 |---|---:|---|---|
 | `study_002_mri_image_003_axial_t2_f01`; `[474, 348, 624, 488]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is T2 hyperintense and T1 hypointense. The intrahepatic biliary ducts are dilated. There is also a small amount of fluid in the subcapsular region of the right lobe of the liver. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00023: NOT SUPPORT
 
 <table>
@@ -744,12 +606,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_004_axial_t2_fat_sat_f01`; `[333, 381, 607, 550]` | n/a | n/a | The image shows a dilated common bile duct with a filling defect. The common bile duct appears to be enlarged and contains a distinct, well-defined structure within it, which could represent a stone or other obstructive lesion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 5: `study_001_ultrasound_image_000_missing_f02`
 
@@ -778,12 +634,6 @@
 | `study_002_mri_image_000_axial_t1_in_phase_f02`; `[637, 623, 762, 731]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a small amount of fluid in the right subphrenic space. No focal hepatic lesions are identified. |
 | `study_002_mri_image_000_axial_t1_in_phase_f03`; `[810, 642, 966, 812]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a 2.5 cm lesion in the left lobe of the liver, which is hypointense on this T1 weighted image. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00025: NOT SUPPORT
 
 <table>
@@ -802,12 +652,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_001_axial_t1_out_of_phase_f01`; `[370, 286, 740, 686]` | n/a | n/a | The liver is enlarged and demonstrates diffuse decrease in signal intensity on this out of phase sequence consistent with hepatic steatosis. The boxed area demonstrates a focal area of decreased signal intensity which could represent a focal fatty change or a focal lesion such as a hemangioma. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00026: NOT SUPPORT
 
@@ -828,12 +672,6 @@
 |---|---:|---|---|
 | `study_002_mri_image_002_axial_t1_c_f01`; `[310, 280, 570, 580]` | n/a | n/a | The liver is enlarged. The hepatic parenchyma demonstrates diffuse nodularity. There is no focal lesion identified. The portal vein is prominent. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00027: NOT SUPPORT
 
 <table>
@@ -853,12 +691,6 @@
 |---|---:|---|---|
 | `study_002_mri_image_003_axial_t2_f01`; `[474, 348, 624, 488]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is T2 hyperintense and T1 hypointense. The intrahepatic biliary ducts are dilated. There is also a small amount of fluid in the subcapsular region of the right lobe of the liver. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00028: NOT SUPPORT
 
 <table>
@@ -877,12 +709,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_004_axial_t2_fat_sat_f01`; `[333, 381, 607, 550]` | n/a | n/a | The image shows a dilated common bile duct with a filling defect. The common bile duct appears to be enlarged and contains a distinct, well-defined structure within it, which could represent a stone or other obstructive lesion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 6: `study_001_ultrasound_image_000_missing_f03`
 
@@ -911,12 +737,6 @@
 | `study_002_mri_image_000_axial_t1_in_phase_f02`; `[637, 623, 762, 731]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a small amount of fluid in the right subphrenic space. No focal hepatic lesions are identified. |
 | `study_002_mri_image_000_axial_t1_in_phase_f03`; `[810, 642, 966, 812]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a 2.5 cm lesion in the left lobe of the liver, which is hypointense on this T1 weighted image. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00030: NOT SUPPORT
 
 <table>
@@ -935,12 +755,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_001_axial_t1_out_of_phase_f01`; `[370, 286, 740, 686]` | n/a | n/a | The liver is enlarged and demonstrates diffuse decrease in signal intensity on this out of phase sequence consistent with hepatic steatosis. The boxed area demonstrates a focal area of decreased signal intensity which could represent a focal fatty change or a focal lesion such as a hemangioma. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00031: NOT SUPPORT
 
@@ -961,12 +775,6 @@
 |---|---:|---|---|
 | `study_002_mri_image_002_axial_t1_c_f01`; `[310, 280, 570, 580]` | n/a | n/a | The liver is enlarged. The hepatic parenchyma demonstrates diffuse nodularity. There is no focal lesion identified. The portal vein is prominent. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00032: NOT SUPPORT
 
 <table>
@@ -986,12 +794,6 @@
 |---|---:|---|---|
 | `study_002_mri_image_003_axial_t2_f01`; `[474, 348, 624, 488]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is T2 hyperintense and T1 hypointense. The intrahepatic biliary ducts are dilated. There is also a small amount of fluid in the subcapsular region of the right lobe of the liver. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00033: NOT SUPPORT
 
 <table>
@@ -1010,12 +812,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_004_axial_t2_fat_sat_f01`; `[333, 381, 607, 550]` | n/a | n/a | The image shows a dilated common bile duct with a filling defect. The common bile duct appears to be enlarged and contains a distinct, well-defined structure within it, which could represent a stone or other obstructive lesion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 7: `study_002_mri_image_000_axial_t1_in_phase_f01`
 
@@ -1044,13 +840,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Target measurements are unknown, preventing reliable comparison with source measurements |
-| Characterization | `insufficient` | Target caption is unknown, preventing semantic comparison with source caption |
-
 #### location_00035: PARTIAL SUPPORT
 
 <table>
@@ -1072,13 +861,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Target measurements are unknown and cannot be compared to source measurements |
-| Characterization | `insufficient` | Target caption is unknown and cannot be compared to source caption |
-
 #### location_00036: STRONG SUPPORT
 
 <table>
@@ -1098,13 +880,6 @@
 |---|---:|---|---|
 | `study_002_mri_image_003_axial_t2_f01`; `[474, 348, 624, 488]` | 0.574 | yes | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is T2 hyperintense and T1 hypointense. The intrahepatic biliary ducts are dilated. There is also a small amount of fluid in the subcapsular region of the right lobe of the liver. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Target measurements are unknown; source measurements are not directly comparable due to different imaging sequences and lack of scale reference in target image. |
-| Characterization | `inconsistent` | Source caption describes a focal low signal intensity area possibly a simple cyst, while target caption describes a T2 hyperintense and T1 hypointense lesion without specifying it as a cyst, indicating different signal characteristics. |
-
 #### location_00037: NOT SUPPORT
 
 <table>
@@ -1123,12 +898,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_004_axial_t2_fat_sat_f01`; `[333, 381, 607, 550]` | n/a | n/a | The image shows a dilated common bile duct with a filling defect. The common bile duct appears to be enlarged and contains a distinct, well-defined structure within it, which could represent a stone or other obstructive lesion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 8: `study_002_mri_image_000_axial_t1_in_phase_f02`
 
@@ -1157,13 +926,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region&#x27;s size measurements are unknown, and the target region lacks explicit measurements for comparison. |
-| Characterization | `insufficient` | The re-grounded target region has no Lingshu caption yet. |
-
 #### location_00039: PARTIAL SUPPORT
 
 <table>
@@ -1184,13 +946,6 @@
 | `study_002_mri_image_002_axial_t1_c_f01`; `[310, 280, 570, 580]` | 0.000 | no | The liver is enlarged. The hepatic parenchyma demonstrates diffuse nodularity. There is no focal lesion identified. The portal vein is prominent. |
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | The re-grounded target region has no Lingshu caption yet. |
 
 #### location_00040: PARTIAL SUPPORT
 
@@ -1213,13 +968,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | The re-grounded target region has no Lingshu caption yet. |
-
 #### location_00041: NOT SUPPORT
 
 <table>
@@ -1238,12 +986,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_004_axial_t2_fat_sat_f01`; `[333, 381, 607, 550]` | n/a | n/a | The image shows a dilated common bile duct with a filling defect. The common bile duct appears to be enlarged and contains a distinct, well-defined structure within it, which could represent a stone or other obstructive lesion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 9: `study_002_mri_image_000_axial_t1_in_phase_f03`
 
@@ -1272,13 +1014,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `inconsistent` | The source specifies a 2.5 cm lesion, while the target has no stated measurements, making direct comparison impossible. |
-| Characterization | `insufficient` | The re-grounded target region has no Lingshu caption yet. |
-
 #### location_00043: NOT SUPPORT
 
 <table>
@@ -1297,12 +1032,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_002_axial_t1_c_f01`; `[310, 280, 570, 580]` | n/a | n/a | The liver is enlarged. The hepatic parenchyma demonstrates diffuse nodularity. There is no focal lesion identified. The portal vein is prominent. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00044: NOT SUPPORT
 
@@ -1323,12 +1052,6 @@
 |---|---:|---|---|
 | `study_002_mri_image_003_axial_t2_f01`; `[474, 348, 624, 488]` | n/a | n/a | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is T2 hyperintense and T1 hypointense. The intrahepatic biliary ducts are dilated. There is also a small amount of fluid in the subcapsular region of the right lobe of the liver. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00045: NOT SUPPORT
 
 <table>
@@ -1347,12 +1070,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_004_axial_t2_fat_sat_f01`; `[333, 381, 607, 550]` | n/a | n/a | The image shows a dilated common bile duct with a filling defect. The common bile duct appears to be enlarged and contains a distinct, well-defined structure within it, which could represent a stone or other obstructive lesion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 10: `study_002_mri_image_001_axial_t1_out_of_phase_f01`
 
@@ -1379,13 +1096,6 @@
 |---|---:|---|---|
 | `study_002_mri_image_002_axial_t1_c_f01`; `[310, 280, 570, 580]` | 0.512 | yes | The liver is enlarged. The hepatic parenchyma demonstrates diffuse nodularity. There is no focal lesion identified. The portal vein is prominent. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `inconsistent` | Source caption describes a focal area of decreased signal intensity which could represent a focal lesion, while target caption states no focal lesion is identified. |
-
 #### location_00047: PARTIAL SUPPORT
 
 <table>
@@ -1407,13 +1117,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | Target Lingshu caption is unknown |
-
 #### location_00048: NOT SUPPORT
 
 <table>
@@ -1432,12 +1135,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_004_axial_t2_fat_sat_f01`; `[333, 381, 607, 550]` | n/a | n/a | The image shows a dilated common bile duct with a filling defect. The common bile duct appears to be enlarged and contains a distinct, well-defined structure within it, which could represent a stone or other obstructive lesion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ## Dynamically Skipped Anchors
 

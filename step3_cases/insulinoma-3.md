@@ -83,13 +83,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The target region lacks explicit measurements, and the source region&#x27;s measurements cannot be reliably compared due to the target&#x27;s lack of quantification. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, preventing semantic comparison using only the two Lingshu captions. |
-
 #### location_00002: PARTIAL SUPPORT
 
 <table>
@@ -111,13 +104,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Target region lacks explicit measurements or scale for reliable comparison with source measurement of 3.5 cm. |
-| Characterization | `insufficient` | Target Lingshu caption is unknown, preventing semantic comparison. |
-
 #### location_00003: NOT SUPPORT
 
 <table>
@@ -134,12 +120,6 @@
 **IoU matching：**
 
 The target image has no existing Step 2 bbox.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00004: NOT SUPPORT
 
@@ -160,12 +140,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_000_splenic_artery_f01`; `[320, 380, 680, 580]` | n/a | n/a | The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00005: NOT SUPPORT
 
 <table>
@@ -185,12 +159,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_001_hepatic_artery_f01`; `[220, 250, 650, 580]` | n/a | n/a | The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00006: NOT SUPPORT
 
 <table>
@@ -208,12 +176,6 @@ The target image has no existing Step 2 bbox.
 
 The target image has no existing Step 2 bbox.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00007: NOT SUPPORT
 
 <table>
@@ -230,12 +192,6 @@ The target image has no existing Step 2 bbox.
 **IoU matching：**
 
 The target image has no existing Step 2 bbox.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 2: `study_000_ct_image_001_axial_c_arterial_phase_f01`
 
@@ -264,13 +220,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Target region lacks explicit measurements, preventing reliable comparison with source&#x27;s 2.5 cm long axis |
-| Characterization | `insufficient` | Target Lingshu caption is unknown, preventing semantic comparison |
-
 #### location_00009: NOT SUPPORT
 
 <table>
@@ -287,12 +236,6 @@ The target image has no existing Step 2 bbox.
 **IoU matching：**
 
 The target image has no existing Step 2 bbox.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00010: NOT SUPPORT
 
@@ -313,12 +256,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_000_splenic_artery_f01`; `[320, 380, 680, 580]` | n/a | n/a | The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00011: NOT SUPPORT
 
 <table>
@@ -338,12 +275,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_001_hepatic_artery_f01`; `[220, 250, 650, 580]` | n/a | n/a | The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00012: NOT SUPPORT
 
 <table>
@@ -361,12 +292,6 @@ The target image has no existing Step 2 bbox.
 
 The target image has no existing Step 2 bbox.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00013: NOT SUPPORT
 
 <table>
@@ -383,12 +308,6 @@ The target image has no existing Step 2 bbox.
 **IoU matching：**
 
 The target image has no existing Step 2 bbox.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 3: `study_001_mri_image_000_axial_t2_fat_sat_f01`
 
@@ -413,12 +332,6 @@ The target image has no existing Step 2 bbox.
 
 The target image has no existing Step 2 bbox.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00015: NOT SUPPORT
 
 <table>
@@ -437,12 +350,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_000_splenic_artery_f01`; `[320, 380, 680, 580]` | n/a | n/a | The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00016: NOT SUPPORT
 
@@ -463,12 +370,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_001_hepatic_artery_f01`; `[220, 250, 650, 580]` | n/a | n/a | The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00017: NOT SUPPORT
 
 <table>
@@ -486,12 +387,6 @@ The target image has no existing Step 2 bbox.
 
 The target image has no existing Step 2 bbox.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00018: NOT SUPPORT
 
 <table>
@@ -508,12 +403,6 @@ The target image has no existing Step 2 bbox.
 **IoU matching：**
 
 The target image has no existing Step 2 bbox.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 4: `study_002_dsa_angiography_image_000_splenic_artery_f01`
 
@@ -540,12 +429,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_002_dsa_angiography_image_001_hepatic_artery_f01`; `[220, 250, 650, 580]` | n/a | n/a | The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00020: NOT SUPPORT
 
 <table>
@@ -563,12 +446,6 @@ The target image has no existing Step 2 bbox.
 
 The target image has no existing Step 2 bbox.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00021: NOT SUPPORT
 
 <table>
@@ -585,12 +462,6 @@ The target image has no existing Step 2 bbox.
 **IoU matching：**
 
 The target image has no existing Step 2 bbox.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 5: `study_002_dsa_angiography_image_001_hepatic_artery_f01`
 
@@ -615,12 +486,6 @@ The target image has no existing Step 2 bbox.
 
 The target image has no existing Step 2 bbox.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00023: NOT SUPPORT
 
 <table>
@@ -637,12 +502,6 @@ The target image has no existing Step 2 bbox.
 **IoU matching：**
 
 The target image has no existing Step 2 bbox.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ## Dynamically Skipped Anchors
 

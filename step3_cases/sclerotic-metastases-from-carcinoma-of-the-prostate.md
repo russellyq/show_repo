@@ -97,13 +97,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown |
-
 #### location_00002: PARTIAL SUPPORT
 
 <table>
@@ -124,13 +117,6 @@ The target image has no existing Step 2 bbox.
 | `study_000_mri_image_002_sagittal_stir_f01`; `[384, 224, 566, 485]` | 0.000 | no | The sagittal STIR MRI image shows a hyperintense signal in the region of the cervical spine, specifically at the C2-C3 level. The hyperintensity suggests the presence of edema or inflammation. The vertebral bodies appear intact without any obvious fractures or dislocations. The intervertebral discs show normal height and signal intensity. There is no evidence of spinal cord compression or significant stenosis. Surrounding soft tissues do not exhibit any abnormal signal changes. |
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown |
 
 #### location_00003: PARTIAL SUPPORT
 
@@ -153,13 +139,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown |
-
 #### location_00004: NOT SUPPORT
 
 <table>
@@ -179,12 +158,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_001_nuclear_medicine_image_001_posterior_view_f01`; `[488, 400, 534, 452]` | n/a | n/a | The image shows a nuclear medicine scan with a focus on the skeletal system. The boxed region highlights an area in the lower abdomen/pelvic region. Within this region, there is a notable concentration of radiotracer uptake, which appears as a bright spot. This increased uptake suggests a potential abnormality in the bone structure or metabolic activity in that specific area. The rest of the skeletal system, including the spine, ribs, and limbs, appears to have normal distribution of the radiotracer without any other significant areas of increased uptake. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00005: NOT SUPPORT
 
 <table>
@@ -201,12 +174,6 @@ The target image has no existing Step 2 bbox.
 **IoU matching：**
 
 The target image has no existing Step 2 bbox.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00006: NOT SUPPORT
 
@@ -226,12 +193,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_ct_image_001_axial_bone_window_f01`; `[139, 282, 837, 562]` | n/a | n/a | The axial bone window CT image shows a cross-sectional view of the vertebral body. The boxed region highlights an area of interest on the vertebral body. Within this region, there appears to be a subtle irregularity in the cortical bone, which could suggest a potential lesion or abnormality. The surrounding bone structure seems intact without obvious signs of fracture or significant deformity. The density variations within the boxed area might indicate changes in bone composition or integrity. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 2: `study_000_mri_image_000_sagittal_t2_f02`
 
@@ -258,13 +219,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Neither source nor target provides explicit measurements or view scale for reliable comparison. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown and cannot be compared to the source caption. |
-
 #### location_00008: PARTIAL SUPPORT
 
 <table>
@@ -286,13 +240,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown |
-
 #### location_00009: STRONG SUPPORT
 
 <table>
@@ -311,13 +258,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_001_nuclear_medicine_image_000_oblique_f01`; `[394, 500, 562, 612]` | 0.597 | yes | The image shows a focal area of increased radiotracer uptake in the right parotid gland region. The uptake appears to be localized and distinct from the surrounding tissue. The rest of the image does not show any other significant areas of abnormal radiotracer distribution. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source image lacks explicit measurements, and the target image&#x27;s bounding box coordinates do not provide a direct scale or size comparison with the source region. |
-| Characterization | `inconsistent` | The source caption describes a hyperintense signal at the C1-C2 level in the spinal cord, while the target caption describes increased radiotracer uptake in the right parotid gland region, which are anatomically distinct areas. |
 
 #### location_00010: NOT SUPPORT
 
@@ -338,12 +278,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_001_nuclear_medicine_image_001_posterior_view_f01`; `[488, 400, 534, 452]` | n/a | n/a | The image shows a nuclear medicine scan with a focus on the skeletal system. The boxed region highlights an area in the lower abdomen/pelvic region. Within this region, there is a notable concentration of radiotracer uptake, which appears as a bright spot. This increased uptake suggests a potential abnormality in the bone structure or metabolic activity in that specific area. The rest of the skeletal system, including the spine, ribs, and limbs, appears to have normal distribution of the radiotracer without any other significant areas of increased uptake. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00011: NOT SUPPORT
 
 <table>
@@ -360,12 +294,6 @@ The target image has no existing Step 2 bbox.
 **IoU matching：**
 
 The target image has no existing Step 2 bbox.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00012: NOT SUPPORT
 
@@ -385,12 +313,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_ct_image_001_axial_bone_window_f01`; `[139, 282, 837, 562]` | n/a | n/a | The axial bone window CT image shows a cross-sectional view of the vertebral body. The boxed region highlights an area of interest on the vertebral body. Within this region, there appears to be a subtle irregularity in the cortical bone, which could suggest a potential lesion or abnormality. The surrounding bone structure seems intact without obvious signs of fracture or significant deformity. The density variations within the boxed area might indicate changes in bone composition or integrity. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 3: `study_000_mri_image_000_sagittal_t2_f03`
 
@@ -417,13 +339,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown |
-
 #### location_00014: PARTIAL SUPPORT
 
 <table>
@@ -445,13 +360,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown |
-
 #### location_00015: STRONG SUPPORT
 
 <table>
@@ -470,13 +378,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_001_nuclear_medicine_image_000_oblique_f01`; `[394, 500, 562, 612]` | 0.582 | yes | The image shows a focal area of increased radiotracer uptake in the right parotid gland region. The uptake appears to be localized and distinct from the surrounding tissue. The rest of the image does not show any other significant areas of abnormal radiotracer distribution. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `inconsistent` | Source describes spinal cord compression at C3-C4, while target describes radiotracer uptake in the parotid gland region, which are anatomically and clinically distinct entities. |
 
 #### location_00016: NOT SUPPORT
 
@@ -497,12 +398,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_001_nuclear_medicine_image_001_posterior_view_f01`; `[488, 400, 534, 452]` | n/a | n/a | The image shows a nuclear medicine scan with a focus on the skeletal system. The boxed region highlights an area in the lower abdomen/pelvic region. Within this region, there is a notable concentration of radiotracer uptake, which appears as a bright spot. This increased uptake suggests a potential abnormality in the bone structure or metabolic activity in that specific area. The rest of the skeletal system, including the spine, ribs, and limbs, appears to have normal distribution of the radiotracer without any other significant areas of increased uptake. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00017: NOT SUPPORT
 
 <table>
@@ -519,12 +414,6 @@ The target image has no existing Step 2 bbox.
 **IoU matching：**
 
 The target image has no existing Step 2 bbox.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00018: NOT SUPPORT
 
@@ -544,12 +433,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_ct_image_001_axial_bone_window_f01`; `[139, 282, 837, 562]` | n/a | n/a | The axial bone window CT image shows a cross-sectional view of the vertebral body. The boxed region highlights an area of interest on the vertebral body. Within this region, there appears to be a subtle irregularity in the cortical bone, which could suggest a potential lesion or abnormality. The surrounding bone structure seems intact without obvious signs of fracture or significant deformity. The density variations within the boxed area might indicate changes in bone composition or integrity. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 4: `study_000_mri_image_002_sagittal_stir_f01`
 
@@ -578,13 +461,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown |
-
 #### location_00020: NOT SUPPORT
 
 <table>
@@ -604,12 +480,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_001_nuclear_medicine_image_001_posterior_view_f01`; `[488, 400, 534, 452]` | n/a | n/a | The image shows a nuclear medicine scan with a focus on the skeletal system. The boxed region highlights an area in the lower abdomen/pelvic region. Within this region, there is a notable concentration of radiotracer uptake, which appears as a bright spot. This increased uptake suggests a potential abnormality in the bone structure or metabolic activity in that specific area. The rest of the skeletal system, including the spine, ribs, and limbs, appears to have normal distribution of the radiotracer without any other significant areas of increased uptake. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00021: NOT SUPPORT
 
 <table>
@@ -626,12 +496,6 @@ The target image has no existing Step 2 bbox.
 **IoU matching：**
 
 The target image has no existing Step 2 bbox.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00022: NOT SUPPORT
 
@@ -651,12 +515,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_ct_image_001_axial_bone_window_f01`; `[139, 282, 837, 562]` | n/a | n/a | The axial bone window CT image shows a cross-sectional view of the vertebral body. The boxed region highlights an area of interest on the vertebral body. Within this region, there appears to be a subtle irregularity in the cortical bone, which could suggest a potential lesion or abnormality. The surrounding bone structure seems intact without obvious signs of fracture or significant deformity. The density variations within the boxed area might indicate changes in bone composition or integrity. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 5: `study_001_nuclear_medicine_image_001_posterior_view_f01`
 
@@ -681,12 +539,6 @@ The target image has no existing Step 2 bbox.
 
 The target image has no existing Step 2 bbox.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00027: STRONG SUPPORT
 
 <table>
@@ -705,13 +557,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_ct_image_001_axial_bone_window_f01`; `[139, 282, 837, 562]` | 0.637 | yes | The axial bone window CT image shows a cross-sectional view of the vertebral body. The boxed region highlights an area of interest on the vertebral body. Within this region, there appears to be a subtle irregularity in the cortical bone, which could suggest a potential lesion or abnormality. The surrounding bone structure seems intact without obvious signs of fracture or significant deformity. The density variations within the boxed area might indicate changes in bone composition or integrity. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source image is a whole-body nuclear medicine scan with an estimated size for the lesion, while the target image is a cross-sectional CT scan with unknown measurements. The scales and imaging modalities are incompatible for reliable comparison. |
-| Characterization | `inconsistent` | The source caption describes a bright spot of radiotracer uptake in the lower abdomen/pelvic region, indicating increased metabolic activity. The target caption describes a subtle irregularity in cortical bone on a vertebral body, suggesting a structural lesion. The nature of the abnormality and anatomical location differ. |
 
 ## Dynamically Skipped Anchors
 

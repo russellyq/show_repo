@@ -57,12 +57,6 @@
 |---|---:|---|---|
 | `study_001_ct_image_000_axial_non_contrast_f01`; `[630, 598, 684, 802]` | n/a | n/a | The image shows a well-defined, round, hyperdense lesion located in the left lower lobe of the lung. The lesion appears to be a solitary pulmonary nodule, which could represent a variety of pathologies such as a benign tumor, malignant neoplasm, or granulomatous disease. Further evaluation with additional imaging modalities or biopsy may be necessary to determine the underlying cause. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 ## Dynamically Skipped Anchors
 
 None.

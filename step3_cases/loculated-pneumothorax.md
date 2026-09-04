@@ -101,13 +101,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown |
-
 #### location_00002: NOT SUPPORT
 
 <table>
@@ -127,12 +120,6 @@
 |---|---:|---|---|
 | `study_001_ct_image_001_axial_lung_window_f01`; `[175, 226, 675, 656]` | n/a | n/a | The right upper lobe demonstrates a large cavitary lesion with surrounding consolidation. There is also a smaller cavitary lesion in the left upper lobe. The remaining lung parenchyma appears relatively clear. No pleural effusions or pneumothorax are identified. The mediastinal structures appear unremarkable. |
 | `study_001_ct_image_001_axial_lung_window_f02`; `[588, 272, 937, 712]` | n/a | n/a | The lungs are hyperinflated. There is a large right pneumothorax with collapse of the right lung. The left lung appears normal. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00003: PARTIAL SUPPORT
 
@@ -154,13 +141,6 @@
 | `study_002_x_ray_image_000_frontal_f01`; `[125, 476, 382, 894]` | 0.000 | no | The lungs are hyperinflated. There is increased opacity in the right lower lung zone. The heart size is normal. The mediastinal contour is normal. There is no pneumothorax. There is no pleural effusion. |
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region&#x27;s measurements are unknown, and the target region&#x27;s measurements are also unknown, preventing reliable comparison. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so semantic comparison using only the two Lingshu captions cannot be performed. |
 
 ### Anchor 2: `study_001_ct_image_000_coronal_lung_window_f01`
 
@@ -190,13 +170,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | Target Lingshu caption is unknown |
-
 #### location_00005: NOT SUPPORT
 
 <table>
@@ -215,12 +188,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_x_ray_image_000_frontal_f01`; `[125, 476, 382, 894]` | n/a | n/a | The lungs are hyperinflated. There is increased opacity in the right lower lung zone. The heart size is normal. The mediastinal contour is normal. There is no pneumothorax. There is no pleural effusion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 3: `study_001_ct_image_000_coronal_lung_window_f02`
 
@@ -250,13 +217,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | Target Lingshu caption is unknown |
-
 #### location_00007: NOT SUPPORT
 
 <table>
@@ -275,12 +235,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_x_ray_image_000_frontal_f01`; `[125, 476, 382, 894]` | n/a | n/a | The lungs are hyperinflated. There is increased opacity in the right lower lung zone. The heart size is normal. The mediastinal contour is normal. There is no pneumothorax. There is no pleural effusion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 4: `study_001_ct_image_000_coronal_lung_window_f03`
 
@@ -308,13 +262,6 @@
 | `study_001_ct_image_001_axial_lung_window_f01`; `[175, 226, 675, 656]` | 0.227 | no | The right upper lobe demonstrates a large cavitary lesion with surrounding consolidation. There is also a smaller cavitary lesion in the left upper lobe. The remaining lung parenchyma appears relatively clear. No pleural effusions or pneumothorax are identified. The mediastinal structures appear unremarkable. |
 | `study_001_ct_image_001_axial_lung_window_f02`; `[588, 272, 937, 712]` | 0.594 | yes | The lungs are hyperinflated. There is a large right pneumothorax with collapse of the right lung. The left lung appears normal. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `inconsistent` | Source caption describes left lung as well inflated with no abnormalities, while target caption describes a large right pneumothorax and collapse of the right lung, indicating a significant difference in the described lung conditions |
-
 #### location_00009: PARTIAL SUPPORT
 
 <table>
@@ -335,13 +282,6 @@
 | `study_002_x_ray_image_000_frontal_f01`; `[125, 476, 382, 894]` | 0.000 | no | The lungs are hyperinflated. There is increased opacity in the right lower lung zone. The heart size is normal. The mediastinal contour is normal. There is no pneumothorax. There is no pleural effusion. |
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown |
 
 ### Anchor 5: `study_001_ct_image_001_axial_lung_window_f01`
 
@@ -367,12 +307,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_x_ray_image_000_frontal_f01`; `[125, 476, 382, 894]` | n/a | n/a | The lungs are hyperinflated. There is increased opacity in the right lower lung zone. The heart size is normal. The mediastinal contour is normal. There is no pneumothorax. There is no pleural effusion. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ## Dynamically Skipped Anchors
 

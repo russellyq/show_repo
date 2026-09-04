@@ -47,12 +47,6 @@
 
 The target image has no existing Step 2 bbox.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00002: PARTIAL SUPPORT
 
 <table>
@@ -72,13 +66,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | Target Lingshu caption is unknown |
-
 #### location_00003: NOT SUPPORT
 
 <table>
@@ -95,12 +82,6 @@ The target image has no existing Step 2 bbox.
 **IoU matching：**
 
 The target image has no existing Step 2 bbox.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ## Dynamically Skipped Anchors
 

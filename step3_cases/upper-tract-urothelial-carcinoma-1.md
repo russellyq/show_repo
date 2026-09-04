@@ -113,13 +113,6 @@
 |---|---:|---|---|
 | `study_000_ultrasound_image_001_missing_f01`; `[216, 168, 642, 700]` | 0.806 | yes | The left kidney demonstrates increased cortical echogenicity compared to the renal sinus. There is no evidence of hydronephrosis. The right kidney appears unremarkable. Color Doppler demonstrates normal flow within the left renal artery and vein. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Neither source nor target provides explicit measurements or scale to reliably compare lesion extent. |
-| Characterization | `consistent` | Both captions state there is no evidence of hydronephrosis and describe the left kidney without mentioning hydronephrosis or other abnormalities. |
-
 #### location_00002: NOT SUPPORT
 
 <table>
@@ -140,12 +133,6 @@
 | `study_001_ct_image_000_axial_non_contrast_f01`; `[340, 360, 480, 520]` | n/a | n/a | The boxed region contains the right kidney. The kidney appears to have a normal size and shape. There is no evidence of hydronephrosis or focal mass lesions. The renal parenchyma appears homogeneous without any areas of abnormal attenuation. Surrounding structures including the liver, spleen, pancreas, and bowel loops appear unremarkable. No significant lymphadenopathy or free fluid is noted in the abdominal cavity. |
 | `study_001_ct_image_000_axial_non_contrast_f02`; `[620, 360, 760, 520]` | n/a | n/a | The red box is located in the left upper quadrant of the abdomen. Within this region, there appears to be a mass-like lesion that is hypodense compared to the surrounding tissues. The lesion is well-circumscribed and measures approximately 3 cm in diameter. There is no evidence of invasion into adjacent structures. Surrounding the lesion, the fat planes appear preserved, and there is no significant lymphadenopathy noted in the vicinity. The adjacent bowel loops do not show any signs of obstruction or thickening. The liver, spleen, and kidneys appear unremarkable in this slice. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00003: NOT SUPPORT
 
 <table>
@@ -163,12 +150,6 @@
 
 The target image has no existing Step 2 bbox.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00004: NOT SUPPORT
 
 <table>
@@ -185,12 +166,6 @@ The target image has no existing Step 2 bbox.
 **IoU matching：**
 
 The target image has no existing Step 2 bbox.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00005: NOT SUPPORT
 
@@ -211,12 +186,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_001_ct_image_003_sagittal_renal_parenchymal_phase_f01`; `[320, 200, 580, 500]` | n/a | n/a | The image shows a sagittal view of the abdomen with a focus on the kidneys. The boxed region highlights an area of interest within the left kidney. Within this region, there appears to be a hypodense lesion, which could indicate a potential abnormality such as a cyst or mass. The surrounding renal parenchyma appears relatively normal, with no obvious signs of hydronephrosis or other structural abnormalities. The adjacent structures, including the spine and bowel loops, appear unremarkable. There is no evidence of significant contrast enhancement within the boxed region, suggesting that the lesion may be non-enhancing. Further evaluation with additional imaging modalities or clinical correlation may be necessary for a more definitive assessment. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00006: STRONG SUPPORT
 
 <table>
@@ -235,13 +204,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_pathology_image_000_gross_pathology_f01`; `[430, 335, 835, 592]` | 0.943 | yes | The heart is opened to show the left ventricle and mitral valve. The mitral valve is thickened and has multiple vegetations on the anterior leaflet. The largest vegetation measures 2.5 x 1.5 cm. There is no evidence of perforation. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Source measurements are unknown; target has explicit measurements but organs differ (kidney vs heart), preventing reliable comparison. |
-| Characterization | `inconsistent` | Source describes a kidney lesion (cystic structures); target describes a heart valve vegetation. The anatomical structures and lesion types are different. |
 
 #### location_00007: NOT SUPPORT
 
@@ -262,12 +224,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_003_pathology_image_000_10_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a section of tissue stained with hematoxylin and eosin (H&amp;E). The boxed region appears to contain an area of abnormal cellular architecture. There is a noticeable difference in cell density and organization compared to the surrounding tissue. The cells within the boxed region seem to have irregular shapes and sizes, suggesting possible dysplasia or neoplastic changes. The stroma surrounding this area appears more fibrous and less cellular, indicating a possible reactive process. Additionally, there are areas of increased vascularity and potential necrosis within the boxed region, which could be indicative of aggressive growth patterns. The overall morphology suggests a significant deviation from normal histological structure, warranting further investigation. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00008: NOT SUPPORT
 
 <table>
@@ -287,12 +243,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_003_pathology_image_001_100x_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a histological section stained with hematoxylin and eosin (H&amp;E) at 100x magnification. The tissue appears to be from a glandular organ, likely the pancreas or salivary gland. The boxed region highlights an area with notable features. Within this region, there are clusters of cells with prominent nuclei and a high nuclear-to-cytoplasmic ratio, suggesting cellular proliferation. The surrounding stroma appears fibrotic with some inflammatory infiltrate. There are also areas of necrosis and possible ductal structures. The overall architecture suggests a neoplastic process, with potential invasion into adjacent tissues. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00009: NOT SUPPORT
 
 <table>
@@ -311,12 +261,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_003_pathology_image_002_200_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a histological section stained with Hematoxylin and Eosin (H&amp;E). The tissue appears to be composed of densely packed cells with varying degrees of pleomorphism. There are numerous mitotic figures indicating high cellular proliferation. The cells exhibit hyperchromatic nuclei and prominent nucleoli, suggesting aggressive behavior. The stroma appears fibrous with areas of necrosis. The boxed region highlights an area with particularly high cellularity and atypical features, including irregular nuclear contours and increased mitotic activity. This region stands out due to its dense clustering of abnormal cells compared to the surrounding tissue. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 2: `study_001_ct_image_000_axial_non_contrast_f01`
 
@@ -343,13 +287,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region&#x27;s size measurements are unknown, and the target region&#x27;s size measurements are also unknown, making reliable comparison impossible. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so semantic comparison using only the two captions cannot be performed. |
-
 #### location_00019: PARTIAL SUPPORT
 
 <table>
@@ -368,13 +305,6 @@ The target image has no existing Step 2 bbox.
 The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Neither source nor target provides explicit measurements or view scale for reliable comparison of lesion extent. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, preventing semantic comparison using only the two captions. |
 
 #### location_00020: PARTIAL SUPPORT
 
@@ -397,13 +327,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region&#x27;s size measurements are unknown, and the target region&#x27;s size measurements are also unknown, making a reliable comparison impossible. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so semantic comparison using only the two Lingshu captions cannot be performed. |
-
 #### location_00021: STRONG SUPPORT
 
 <table>
@@ -422,13 +345,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_pathology_image_000_gross_pathology_f01`; `[430, 335, 835, 592]` | 0.910 | yes | The heart is opened to show the left ventricle and mitral valve. The mitral valve is thickened and has multiple vegetations on the anterior leaflet. The largest vegetation measures 2.5 x 1.5 cm. There is no evidence of perforation. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region lacks explicit measurements, and the target region&#x27;s measurements are for a heart vegetation, not compatible with the kidney in the source image. |
-| Characterization | `inconsistent` | The source caption describes a normal kidney without lesions, while the target caption describes a vegetative lesion on a heart valve, which are anatomically and clinically distinct. |
 
 #### location_00022: NOT SUPPORT
 
@@ -449,12 +365,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_003_pathology_image_000_10_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a section of tissue stained with hematoxylin and eosin (H&amp;E). The boxed region appears to contain an area of abnormal cellular architecture. There is a noticeable difference in cell density and organization compared to the surrounding tissue. The cells within the boxed region seem to have irregular shapes and sizes, suggesting possible dysplasia or neoplastic changes. The stroma surrounding this area appears more fibrous and less cellular, indicating a possible reactive process. Additionally, there are areas of increased vascularity and potential necrosis within the boxed region, which could be indicative of aggressive growth patterns. The overall morphology suggests a significant deviation from normal histological structure, warranting further investigation. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00023: NOT SUPPORT
 
 <table>
@@ -474,12 +384,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_003_pathology_image_001_100x_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a histological section stained with hematoxylin and eosin (H&amp;E) at 100x magnification. The tissue appears to be from a glandular organ, likely the pancreas or salivary gland. The boxed region highlights an area with notable features. Within this region, there are clusters of cells with prominent nuclei and a high nuclear-to-cytoplasmic ratio, suggesting cellular proliferation. The surrounding stroma appears fibrotic with some inflammatory infiltrate. There are also areas of necrosis and possible ductal structures. The overall architecture suggests a neoplastic process, with potential invasion into adjacent tissues. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00024: NOT SUPPORT
 
 <table>
@@ -498,12 +402,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_003_pathology_image_002_200_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a histological section stained with Hematoxylin and Eosin (H&amp;E). The tissue appears to be composed of densely packed cells with varying degrees of pleomorphism. There are numerous mitotic figures indicating high cellular proliferation. The cells exhibit hyperchromatic nuclei and prominent nucleoli, suggesting aggressive behavior. The stroma appears fibrous with areas of necrosis. The boxed region highlights an area with particularly high cellularity and atypical features, including irregular nuclear contours and increased mitotic activity. This region stands out due to its dense clustering of abnormal cells compared to the surrounding tissue. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 3: `study_001_ct_image_000_axial_non_contrast_f02`
 
@@ -530,13 +428,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The target region lacks explicit measurements, preventing reliable comparison with the source&#x27;s stated 3 cm diameter. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so no semantic comparison can be made. |
-
 #### location_00026: PARTIAL SUPPORT
 
 <table>
@@ -555,13 +446,6 @@ The target image has no existing Step 2 bbox.
 The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The target region&#x27;s measurements are unknown, preventing a reliable comparison with the source region&#x27;s stated 3 cm diameter. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so no semantic comparison can be made using only the two Lingshu captions. |
 
 #### location_00027: PARTIAL SUPPORT
 
@@ -584,13 +468,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The target region lacks explicit measurements, preventing a reliable comparison with the source&#x27;s stated 3 cm diameter. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so no semantic comparison can be made using only the two Lingshu captions. |
-
 #### location_00028: NOT SUPPORT
 
 <table>
@@ -609,12 +486,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_pathology_image_000_gross_pathology_f01`; `[430, 335, 835, 592]` | n/a | n/a | The heart is opened to show the left ventricle and mitral valve. The mitral valve is thickened and has multiple vegetations on the anterior leaflet. The largest vegetation measures 2.5 x 1.5 cm. There is no evidence of perforation. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00029: NOT SUPPORT
 
@@ -635,12 +506,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_003_pathology_image_000_10_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a section of tissue stained with hematoxylin and eosin (H&amp;E). The boxed region appears to contain an area of abnormal cellular architecture. There is a noticeable difference in cell density and organization compared to the surrounding tissue. The cells within the boxed region seem to have irregular shapes and sizes, suggesting possible dysplasia or neoplastic changes. The stroma surrounding this area appears more fibrous and less cellular, indicating a possible reactive process. Additionally, there are areas of increased vascularity and potential necrosis within the boxed region, which could be indicative of aggressive growth patterns. The overall morphology suggests a significant deviation from normal histological structure, warranting further investigation. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00030: NOT SUPPORT
 
 <table>
@@ -660,12 +525,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_003_pathology_image_001_100x_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a histological section stained with hematoxylin and eosin (H&amp;E) at 100x magnification. The tissue appears to be from a glandular organ, likely the pancreas or salivary gland. The boxed region highlights an area with notable features. Within this region, there are clusters of cells with prominent nuclei and a high nuclear-to-cytoplasmic ratio, suggesting cellular proliferation. The surrounding stroma appears fibrotic with some inflammatory infiltrate. There are also areas of necrosis and possible ductal structures. The overall architecture suggests a neoplastic process, with potential invasion into adjacent tissues. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00031: NOT SUPPORT
 
 <table>
@@ -684,12 +543,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_003_pathology_image_002_200_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a histological section stained with Hematoxylin and Eosin (H&amp;E). The tissue appears to be composed of densely packed cells with varying degrees of pleomorphism. There are numerous mitotic figures indicating high cellular proliferation. The cells exhibit hyperchromatic nuclei and prominent nucleoli, suggesting aggressive behavior. The stroma appears fibrous with areas of necrosis. The boxed region highlights an area with particularly high cellularity and atypical features, including irregular nuclear contours and increased mitotic activity. This region stands out due to its dense clustering of abnormal cells compared to the surrounding tissue. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 4: `study_001_ct_image_003_sagittal_renal_parenchymal_phase_f01`
 
@@ -716,12 +569,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_002_pathology_image_000_gross_pathology_f01`; `[430, 335, 835, 592]` | n/a | n/a | The heart is opened to show the left ventricle and mitral valve. The mitral valve is thickened and has multiple vegetations on the anterior leaflet. The largest vegetation measures 2.5 x 1.5 cm. There is no evidence of perforation. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00033: NOT SUPPORT
 
 <table>
@@ -740,12 +587,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_003_pathology_image_000_10_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a section of tissue stained with hematoxylin and eosin (H&amp;E). The boxed region appears to contain an area of abnormal cellular architecture. There is a noticeable difference in cell density and organization compared to the surrounding tissue. The cells within the boxed region seem to have irregular shapes and sizes, suggesting possible dysplasia or neoplastic changes. The stroma surrounding this area appears more fibrous and less cellular, indicating a possible reactive process. Additionally, there are areas of increased vascularity and potential necrosis within the boxed region, which could be indicative of aggressive growth patterns. The overall morphology suggests a significant deviation from normal histological structure, warranting further investigation. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00034: NOT SUPPORT
 
@@ -766,12 +607,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_003_pathology_image_001_100x_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a histological section stained with hematoxylin and eosin (H&amp;E) at 100x magnification. The tissue appears to be from a glandular organ, likely the pancreas or salivary gland. The boxed region highlights an area with notable features. Within this region, there are clusters of cells with prominent nuclei and a high nuclear-to-cytoplasmic ratio, suggesting cellular proliferation. The surrounding stroma appears fibrotic with some inflammatory infiltrate. There are also areas of necrosis and possible ductal structures. The overall architecture suggests a neoplastic process, with potential invasion into adjacent tissues. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00035: NOT SUPPORT
 
 <table>
@@ -790,12 +625,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_003_pathology_image_002_200_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a histological section stained with Hematoxylin and Eosin (H&amp;E). The tissue appears to be composed of densely packed cells with varying degrees of pleomorphism. There are numerous mitotic figures indicating high cellular proliferation. The cells exhibit hyperchromatic nuclei and prominent nucleoli, suggesting aggressive behavior. The stroma appears fibrous with areas of necrosis. The boxed region highlights an area with particularly high cellularity and atypical features, including irregular nuclear contours and increased mitotic activity. This region stands out due to its dense clustering of abnormal cells compared to the surrounding tissue. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 5: `study_003_pathology_image_000_10_h_e_f01`
 
@@ -822,12 +651,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_003_pathology_image_001_100x_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a histological section stained with hematoxylin and eosin (H&amp;E) at 100x magnification. The tissue appears to be from a glandular organ, likely the pancreas or salivary gland. The boxed region highlights an area with notable features. Within this region, there are clusters of cells with prominent nuclei and a high nuclear-to-cytoplasmic ratio, suggesting cellular proliferation. The surrounding stroma appears fibrotic with some inflammatory infiltrate. There are also areas of necrosis and possible ductal structures. The overall architecture suggests a neoplastic process, with potential invasion into adjacent tissues. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00040: NOT SUPPORT
 
 <table>
@@ -846,12 +669,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_003_pathology_image_002_200_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a histological section stained with Hematoxylin and Eosin (H&amp;E). The tissue appears to be composed of densely packed cells with varying degrees of pleomorphism. There are numerous mitotic figures indicating high cellular proliferation. The cells exhibit hyperchromatic nuclei and prominent nucleoli, suggesting aggressive behavior. The stroma appears fibrous with areas of necrosis. The boxed region highlights an area with particularly high cellularity and atypical features, including irregular nuclear contours and increased mitotic activity. This region stands out due to its dense clustering of abnormal cells compared to the surrounding tissue. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 6: `study_003_pathology_image_001_100x_h_e_f01`
 
@@ -877,12 +694,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_003_pathology_image_002_200_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a histological section stained with Hematoxylin and Eosin (H&amp;E). The tissue appears to be composed of densely packed cells with varying degrees of pleomorphism. There are numerous mitotic figures indicating high cellular proliferation. The cells exhibit hyperchromatic nuclei and prominent nucleoli, suggesting aggressive behavior. The stroma appears fibrous with areas of necrosis. The boxed region highlights an area with particularly high cellularity and atypical features, including irregular nuclear contours and increased mitotic activity. This region stands out due to its dense clustering of abnormal cells compared to the surrounding tissue. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ## Dynamically Skipped Anchors
 

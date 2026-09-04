@@ -2,7 +2,7 @@
 
 [返回主 README](README.md)
 
-本页展示 **Qwen3-VL-8B** 的 Step 3 输出。每个病例子页包含 Step 2 bbox、Lingshu caption、跨图目标定位、IoU 匹配，以及定量和定性 validation。
+本页展示 **Qwen3-VL-8B** 当前已完成的 Step 3 结果：Step 2 bbox、Lingshu caption、跨图目标定位、IoU 匹配，以及 strong/partial/not support 定位支持关系。
 
 **关系定义：**
 

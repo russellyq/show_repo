@@ -95,12 +95,6 @@
 
 The target image has no existing Step 2 bbox.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00002: NOT SUPPORT
 
 <table>
@@ -117,12 +111,6 @@ The target image has no existing Step 2 bbox.
 **IoU matching：**
 
 The target image has no existing Step 2 bbox.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00003: STRONG SUPPORT
 
@@ -144,13 +132,6 @@ The target image has no existing Step 2 bbox.
 | `study_002_ct_image_000_axial_non_contrast_f01`; `[380, 280, 620, 440]` | 0.676 | yes | The image shows a cross-sectional view of the abdomen. Within the boxed region, there appears to be an area of increased density or opacity, which could potentially indicate the presence of an abnormality such as a mass, lesion, or other pathological process. The surrounding tissues appear relatively normal in appearance. Further evaluation and correlation with clinical information would be necessary to determine the significance of this finding. |
 | `study_002_ct_image_000_axial_non_contrast_f02`; `[220, 360, 400, 500]` | 0.057 | no | The image shows a large mass in the right upper quadrant of the abdomen. The mass appears to be heterogeneous in density, with areas of both high and low attenuation. There is also evidence of surrounding tissue invasion and possible lymphadenopathy. The mass appears to be displacing adjacent structures, including the liver and kidney. |
 | `study_002_ct_image_000_axial_non_contrast_f03`; `[700, 340, 900, 500]` | 0.000 | no | The image shows a large amount of free air in the peritoneal cavity, consistent with pneumoperitoneum. The air appears to be located primarily in the upper abdomen, surrounding the liver and stomach. There is no evidence of bowel perforation or other intra-abdominal pathology. The lungs appear clear, and there is no evidence of pleural effusion or pneumothorax. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The target region lacks explicit measurements, making reliable comparison with the source&#x27;s 2 cm diameter impossible. |
-| Characterization | `consistent` | Both captions describe a lesion or abnormality at the umbilicus with normal surrounding skin, aligning semantically. |
 
 #### location_00004: PARTIAL SUPPORT
 
@@ -174,13 +155,6 @@ The target image has no existing Step 2 bbox.
 | `study_002_ct_image_001_axial_c_portal_venous_phase_f03`; `[700, 200, 900, 480]` | 0.000 | no | The image shows a cross-sectional view of the abdomen, with a focus on the liver. Within the boxed region, there appears to be a distinct area of increased density or attenuation compared to the surrounding liver parenchyma. This could potentially represent a focal lesion or abnormality within the liver. The size, shape, and precise location of this finding would require further evaluation to determine its significance. Additionally, the overall appearance of the liver and other abdominal structures should be carefully assessed for any other potential abnormalities or changes. |
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The target region lacks explicit measurements, making reliable comparison impossible. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown and cannot be compared to the source caption. |
 
 ### Anchor 2: `study_002_ct_image_000_axial_non_contrast_f02`
 
@@ -211,13 +185,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Neither source nor target provides explicit measurements or view/scale for reliable comparison. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, preventing semantic comparison. |
-
 ### Anchor 3: `study_002_ct_image_000_axial_non_contrast_f03`
 
 <img src="../assets_step3/sister-mary-joseph-nodule-7/nodes/study_002_ct_image_000_axial_non_contrast_f03.png" width="420">
@@ -246,13 +213,6 @@ The target image has no existing Step 2 bbox.
 | `study_002_ct_image_001_axial_c_portal_venous_phase_f03`; `[700, 200, 900, 480]` | 0.153 | no | The image shows a cross-sectional view of the abdomen, with a focus on the liver. Within the boxed region, there appears to be a distinct area of increased density or attenuation compared to the surrounding liver parenchyma. This could potentially represent a focal lesion or abnormality within the liver. The size, shape, and precise location of this finding would require further evaluation to determine its significance. Additionally, the overall appearance of the liver and other abdominal structures should be carefully assessed for any other potential abnormalities or changes. |
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region&#x27;s size measurements are unknown, and the target region&#x27;s size measurements are also unknown, making reliable comparison impossible. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so semantic comparison using only the two Lingshu captions cannot be performed. |
 
 ## Dynamically Skipped Anchors
 

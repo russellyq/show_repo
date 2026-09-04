@@ -99,13 +99,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | the source region is a larger area encompassing the left lung, while the target region is a smaller, lower portion of the image; scale and measurements are not provided for reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown, so semantic comparison cannot be performed |
-
 #### location_00002: STRONG SUPPORT
 
 <table>
@@ -125,13 +118,6 @@
 |---|---:|---|---|
 | `study_002_ct_image_000_axial_lung_window_f01`; `[200, 390, 500, 660]` | 0.703 | yes | The lungs are hyperinflated. There is a large area of consolidation in the right upper lobe. There is also a smaller area of consolidation in the left upper lobe. The mediastinal contours are normal. |
 | `study_002_ct_image_000_axial_lung_window_f02`; `[641, 410, 826, 628]` | 0.000 | no | The lungs are hyperinflated. There is a large area of consolidation in the left upper lobe. The right upper lobe also shows some areas of consolidation. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region is a chest X-ray with no explicit measurements, and the target is a CT slice with no explicit measurements. The scales and views are incompatible for reliable comparison. |
-| Characterization | `inconsistent` | The source caption describes diffuse interstitial thickening bilaterally, while the target caption describes specific areas of consolidation in the upper lobes. These are different patterns of lung involvement. |
 
 #### location_00003: PARTIAL SUPPORT
 
@@ -153,13 +139,6 @@
 | `study_002_ct_image_001_oblique_lung_window_f01`; `[250, 100, 750, 800]` | 0.224 | no | The lungs are hyperinflated. There is diffuse bronchiectasis and bronchial wall thickening. There is also diffuse ground glass opacity. |
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Neither image provides explicit measurements or scale for reliable comparison of lesion extent. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, preventing semantic comparison. |
 
 ### Anchor 2: `study_000_x_ray_image_000_frontal_f02`
 
@@ -186,12 +165,6 @@
 |---|---:|---|---|
 | `study_001_x_ray_image_000_missing_f01`; `[0, 845, 274, 1000]` | n/a | n/a | The image shows a chest x-ray with a red box highlighting a specific area. Within this region, there appears to be a foreign object, possibly a medical device or implant, which is not typically present in a normal chest x-ray. The surrounding lung fields appear relatively clear, without any obvious signs of consolidation, effusion, or pneumothorax. The heart size and mediastinal contours seem within normal limits. However, due to the presence of the foreign object, further evaluation may be necessary to determine its nature and potential implications. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00005: STRONG SUPPORT
 
 <table>
@@ -211,13 +184,6 @@
 |---|---:|---|---|
 | `study_002_ct_image_000_axial_lung_window_f01`; `[200, 390, 500, 660]` | 0.714 | yes | The lungs are hyperinflated. There is a large area of consolidation in the right upper lobe. There is also a smaller area of consolidation in the left upper lobe. The mediastinal contours are normal. |
 | `study_002_ct_image_000_axial_lung_window_f02`; `[641, 410, 826, 628]` | 0.000 | no | The lungs are hyperinflated. There is a large area of consolidation in the left upper lobe. The right upper lobe also shows some areas of consolidation. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region is a chest X-ray with no explicit measurements, and the target is a CT slice with no stated measurements; scale and view prevent reliable comparison. |
-| Characterization | `inconsistent` | The source describes diffuse interstitial thickening bilaterally, while the target describes focal consolidation in upper lobes; these are different patterns. |
 
 #### location_00006: PARTIAL SUPPORT
 
@@ -239,13 +205,6 @@
 | `study_002_ct_image_001_oblique_lung_window_f01`; `[250, 100, 750, 800]` | 0.400 | no | The lungs are hyperinflated. There is diffuse bronchiectasis and bronchial wall thickening. There is also diffuse ground glass opacity. |
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown |
 
 ### Anchor 3: `study_000_x_ray_image_000_frontal_f03`
 
@@ -272,12 +231,6 @@
 |---|---:|---|---|
 | `study_001_x_ray_image_000_missing_f01`; `[0, 845, 274, 1000]` | n/a | n/a | The image shows a chest x-ray with a red box highlighting a specific area. Within this region, there appears to be a foreign object, possibly a medical device or implant, which is not typically present in a normal chest x-ray. The surrounding lung fields appear relatively clear, without any obvious signs of consolidation, effusion, or pneumothorax. The heart size and mediastinal contours seem within normal limits. However, due to the presence of the foreign object, further evaluation may be necessary to determine its nature and potential implications. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00008: NOT SUPPORT
 
 <table>
@@ -297,12 +250,6 @@
 |---|---:|---|---|
 | `study_002_ct_image_000_axial_lung_window_f01`; `[200, 390, 500, 660]` | n/a | n/a | The lungs are hyperinflated. There is a large area of consolidation in the right upper lobe. There is also a smaller area of consolidation in the left upper lobe. The mediastinal contours are normal. |
 | `study_002_ct_image_000_axial_lung_window_f02`; `[641, 410, 826, 628]` | n/a | n/a | The lungs are hyperinflated. There is a large area of consolidation in the left upper lobe. The right upper lobe also shows some areas of consolidation. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 #### location_00009: PARTIAL SUPPORT
 
@@ -324,13 +271,6 @@
 | `study_002_ct_image_001_oblique_lung_window_f01`; `[250, 100, 750, 800]` | 0.417 | no | The lungs are hyperinflated. There is diffuse bronchiectasis and bronchial wall thickening. There is also diffuse ground glass opacity. |
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region lacks explicit measurements, and the target region&#x27;s bounding box does not provide scale or measurements for reliable comparison. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, preventing semantic comparison using only the two Lingshu captions. |
 
 ### Anchor 4: `study_001_x_ray_image_000_missing_f01`
 
@@ -358,12 +298,6 @@
 | `study_002_ct_image_000_axial_lung_window_f01`; `[200, 390, 500, 660]` | n/a | n/a | The lungs are hyperinflated. There is a large area of consolidation in the right upper lobe. There is also a smaller area of consolidation in the left upper lobe. The mediastinal contours are normal. |
 | `study_002_ct_image_000_axial_lung_window_f02`; `[641, 410, 826, 628]` | n/a | n/a | The lungs are hyperinflated. There is a large area of consolidation in the left upper lobe. The right upper lobe also shows some areas of consolidation. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00011: NOT SUPPORT
 
 <table>
@@ -382,12 +316,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_ct_image_001_oblique_lung_window_f01`; `[250, 100, 750, 800]` | n/a | n/a | The lungs are hyperinflated. There is diffuse bronchiectasis and bronchial wall thickening. There is also diffuse ground glass opacity. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 5: `study_002_ct_image_000_axial_lung_window_f02`
 
@@ -415,13 +343,6 @@
 | `study_002_ct_image_001_oblique_lung_window_f01`; `[250, 100, 750, 800]` | 0.282 | no | The lungs are hyperinflated. There is diffuse bronchiectasis and bronchial wall thickening. There is also diffuse ground glass opacity. |
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | Target Lingshu caption is unknown |
 
 ## Dynamically Skipped Anchors
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export Step 3 bbox, captions and validation records as GitHub Markdown."""
+"""Export Step 3 bbox, captions, and location validation as GitHub Markdown."""
 
 from __future__ import annotations
 
@@ -75,10 +75,6 @@ def status_label(status):
     return STATUS_LABELS.get(status, str(status).upper().replace("_", " "))
 
 
-def validation_map(record):
-    return {item["validation_id"]: item for item in record.get("validations") or []}
-
-
 def node_map(record):
     return {item["node_id"]: item for item in record.get("nodes") or []}
 
@@ -92,37 +88,6 @@ def support_counts(record):
         item.get("location_validation", {}).get("status", "unknown")
         for item in record.get("cross_image_grounding") or []
     )
-
-
-def render_validation_table(query, validations):
-    rows = []
-    for validation_id in query.get("validation_ids") or []:
-        item = validations.get(validation_id)
-        if not item:
-            rows.append(
-                f"| `{escaped(validation_id)}` | missing | missing validation record |"
-            )
-            continue
-        quantity = item.get("quantification_validation") or {}
-        quality = item.get("characterization_validation") or {}
-        rows.append(
-            "| Quantification | "
-            f"`{escaped(quantity.get('status'))}` | {compact(quantity.get('reason'))} |"
-        )
-        rows.append(
-            "| Characterization | "
-            f"`{escaped(quality.get('status'))}` | {compact(quality.get('reason'))} |"
-        )
-    if not rows:
-        rows.append(
-            "| Quantification / characterization | not applicable | "
-            "Target region was not found, so no downstream validation was run. |"
-        )
-    return [
-        "| Validation | Status | Reason |",
-        "|---|---|---|",
-        *rows,
-    ]
 
 
 def render_iou_table(location, target_node_ids, nodes):
@@ -159,7 +124,6 @@ def render_case(record, output_root, assets_root, pages_root, model_label):
     page_path = pages_root / f"{safe_name(case_id)}.md"
     nodes = node_map(record)
     images = image_map(record)
-    validations = validation_map(record)
 
     original_assets = {}
     for image_id, image in images.items():
@@ -305,15 +269,6 @@ def render_case(record, output_root, assets_root, pages_root, model_label):
                         "",
                     ]
                 )
-            lines.extend(
-                [
-                    "**Quantification / characterization：**",
-                    "",
-                    *render_validation_table(query, validations),
-                    "",
-                ]
-            )
-
     skipped = record.get("skipped_anchor_nodes") or []
     lines.extend(["## Dynamically Skipped Anchors", ""])
     if not skipped:
@@ -360,7 +315,7 @@ def render_index(case_rows, output_root, model_label):
         "",
         "[返回主 README](README.md)",
         "",
-        f"本页展示 **{escaped(model_label)}** 的 Step 3 输出。每个病例子页包含 Step 2 bbox、Lingshu caption、跨图目标定位、IoU 匹配，以及定量和定性 validation。",
+        f"本页展示 **{escaped(model_label)}** 当前已完成的 Step 3 结果：Step 2 bbox、Lingshu caption、跨图目标定位、IoU 匹配，以及 strong/partial/not support 定位支持关系。",
         "",
         "**关系定义：**",
         "",

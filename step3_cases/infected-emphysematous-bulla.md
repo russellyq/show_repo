@@ -75,13 +75,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | Target region lacks explicit measurements, preventing reliable comparison with source measurements. |
-| Characterization | `insufficient` | Target Lingshu caption is unknown, preventing semantic comparison. |
-
 #### location_00002: NOT SUPPORT
 
 <table>
@@ -101,12 +94,6 @@
 |---|---:|---|---|
 | `study_001_ct_image_000_axial_lung_window_f01`; `[185, 552, 444, 721]` | n/a | n/a | The right lower lobe contains a large cystic structure with thin walls. The remainder of the lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The cardiomediastinal silhouette is normal. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00003: NOT SUPPORT
 
 <table>
@@ -125,12 +112,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_001_ct_image_001_coronal_lung_window_f01`; `[210, 256, 464, 444]` | n/a | n/a | The lungs are hyperinflated. There is a large cavitary lesion in the right upper lobe with thick irregular walls. The remainder of the lungs demonstrate emphysematous changes. No pleural effusions are seen. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 2: `study_000_x_ray_image_001_lateral_f01`
 
@@ -157,12 +138,6 @@
 |---|---:|---|---|
 | `study_001_ct_image_000_axial_lung_window_f01`; `[185, 552, 444, 721]` | n/a | n/a | The right lower lobe contains a large cystic structure with thin walls. The remainder of the lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The cardiomediastinal silhouette is normal. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00005: STRONG SUPPORT
 
 <table>
@@ -181,13 +156,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_001_ct_image_001_coronal_lung_window_f01`; `[210, 256, 464, 444]` | 0.595 | yes | The lungs are hyperinflated. There is a large cavitary lesion in the right upper lobe with thick irregular walls. The remainder of the lungs demonstrate emphysematous changes. No pleural effusions are seen. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source image is a chest X-ray with unknown measurements, and the target is a CT scan with no stated measurements. The scale and view prevent reliable comparison of lesion extent. |
-| Characterization | `inconsistent` | The source caption describes a calcified lesion overlying the cardiac silhouette, while the target caption describes a cavitary lesion in the right upper lobe of the lung. These are anatomically and morphologically distinct findings. |
 
 ### Anchor 3: `study_001_ct_image_000_axial_lung_window_f01`
 
@@ -213,13 +181,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_001_ct_image_001_coronal_lung_window_f01`; `[210, 256, 464, 444]` | 0.504 | yes | The lungs are hyperinflated. There is a large cavitary lesion in the right upper lobe with thick irregular walls. The remainder of the lungs demonstrate emphysematous changes. No pleural effusions are seen. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region is a single axial slice, while the target region is a coronal view with different orientation and scale; direct comparison of lesion extent or measurements is not possible. |
-| Characterization | `inconsistent` | The source caption describes a cystic structure in the right lower lobe, while the target caption describes a cavitary lesion in the right upper lobe with thick irregular walls, which is a different location and wall description. |
 
 ## Dynamically Skipped Anchors
 

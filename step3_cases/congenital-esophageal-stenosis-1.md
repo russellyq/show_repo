@@ -101,13 +101,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region has estimated size measurements, while the target region has unknown measurements, making reliable comparison impossible. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, preventing semantic comparison using only the two Lingshu captions. |
-
 #### location_00002: PARTIAL SUPPORT
 
 <table>
@@ -126,13 +119,6 @@
 The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | Target Lingshu caption is unknown |
 
 #### location_00003: PARTIAL SUPPORT
 
@@ -156,13 +142,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region lacks explicit measurements, and the target region has unknown measurements, making reliable comparison impossible. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, so semantic comparison cannot be performed. |
-
 #### location_00004: NOT SUPPORT
 
 <table>
@@ -181,12 +160,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_photograph_image_000_upper_digestive_tract_endoscopy_f01`; `[427, 172, 731, 630]` | n/a | n/a | The esophagus appears normal. The gastroesophageal junction is visible. The stomach is visible. There is a small amount of food debris present. The pylorus is visible. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 2: `study_000_fluoroscopy_image_001_frontal_f01`
 
@@ -211,12 +184,6 @@ The target image has no existing Step 2 bbox.
 
 The target image has no existing Step 2 bbox.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00006: PARTIAL SUPPORT
 
 <table>
@@ -239,13 +206,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | Target Lingshu caption is unknown |
-
 #### location_00007: NOT SUPPORT
 
 <table>
@@ -264,12 +224,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_photograph_image_000_upper_digestive_tract_endoscopy_f01`; `[427, 172, 731, 630]` | n/a | n/a | The esophagus appears normal. The gastroesophageal junction is visible. The stomach is visible. There is a small amount of food debris present. The pylorus is visible. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 3: `study_000_fluoroscopy_image_001_frontal_f02`
 
@@ -294,12 +248,6 @@ The target image has no existing Step 2 bbox.
 
 The target image has no existing Step 2 bbox.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00009: PARTIAL SUPPORT
 
 <table>
@@ -322,13 +270,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | target Lingshu caption is unknown |
-
 #### location_00010: NOT SUPPORT
 
 <table>
@@ -347,12 +288,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_photograph_image_000_upper_digestive_tract_endoscopy_f01`; `[427, 172, 731, 630]` | n/a | n/a | The esophagus appears normal. The gastroesophageal junction is visible. The stomach is visible. There is a small amount of food debris present. The pylorus is visible. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 4: `study_000_fluoroscopy_image_001_frontal_f03`
 
@@ -377,12 +312,6 @@ The target image has no existing Step 2 bbox.
 
 The target image has no existing Step 2 bbox.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 #### location_00012: PARTIAL SUPPORT
 
 <table>
@@ -405,13 +334,6 @@ The target image has no existing Step 2 bbox.
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | Target Lingshu caption is unknown |
-
 #### location_00013: NOT SUPPORT
 
 <table>
@@ -430,12 +352,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_photograph_image_000_upper_digestive_tract_endoscopy_f01`; `[427, 172, 731, 630]` | n/a | n/a | The esophagus appears normal. The gastroesophageal junction is visible. The stomach is visible. There is a small amount of food debris present. The pylorus is visible. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ### Anchor 5: `study_001_ct_image_001_sagittal_mediastinal_window_with_contrast_f01`
 
@@ -462,12 +378,6 @@ The target image has no existing Step 2 bbox.
 |---|---:|---|---|
 | `study_002_photograph_image_000_upper_digestive_tract_endoscopy_f01`; `[427, 172, 731, 630]` | n/a | n/a | The esophagus appears normal. The gastroesophageal junction is visible. The stomach is visible. There is a small amount of food debris present. The pylorus is visible. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
-
 ### Anchor 6: `study_001_ct_image_001_sagittal_mediastinal_window_with_contrast_f02`
 
 <img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_001_ct_image_001_sagittal_mediastinal_window_with_contrast_f02.png" width="420">
@@ -492,12 +402,6 @@ The target image has no existing Step 2 bbox.
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_photograph_image_000_upper_digestive_tract_endoscopy_f01`; `[427, 172, 731, 630]` | n/a | n/a | The esophagus appears normal. The gastroesophageal junction is visible. The stomach is visible. There is a small amount of food debris present. The pylorus is visible. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ## Dynamically Skipped Anchors
 

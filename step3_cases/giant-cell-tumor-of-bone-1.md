@@ -75,13 +75,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region lacks explicit measurements or scale, and the target region&#x27;s bounding box does not provide measurable dimensions for comparison. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, preventing semantic comparison using only the two Lingshu captions. |
-
 #### location_00002: PARTIAL SUPPORT
 
 <table>
@@ -102,13 +95,6 @@
 | `study_002_mri_image_000_coronal_t2_fat_sat_f01`; `[224, 138, 878, 658]` | 0.103 | no | The coronal T2 fat sat MRI shows a hyperintense signal in the region of the knee joint, particularly involving the medial meniscus. There is evidence of increased fluid signal within the joint space, suggestive of effusion. The surrounding soft tissues appear to have normal signal intensity without any obvious masses or lesions. The bony structures, including the femur and tibia, show no signs of fracture or significant degenerative changes. The articular cartilage appears intact, although there may be subtle irregularities that warrant further evaluation. |
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown |
 
 ### Anchor 2: `study_000_nuclear_medicine_image_001_posterior_f02`
 
@@ -137,13 +123,6 @@
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source region&#x27;s size is estimated and not quantified, while the target region&#x27;s size is unknown, making reliable comparison impossible. |
-| Characterization | `insufficient` | The target Lingshu caption is unknown, preventing semantic comparison with the source caption. |
-
 #### location_00004: STRONG SUPPORT
 
 <table>
@@ -162,13 +141,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_mri_image_000_coronal_t2_fat_sat_f01`; `[224, 138, 878, 658]` | 0.676 | yes | The coronal T2 fat sat MRI shows a hyperintense signal in the region of the knee joint, particularly involving the medial meniscus. There is evidence of increased fluid signal within the joint space, suggestive of effusion. The surrounding soft tissues appear to have normal signal intensity without any obvious masses or lesions. The bony structures, including the femur and tibia, show no signs of fracture or significant degenerative changes. The articular cartilage appears intact, although there may be subtle irregularities that warrant further evaluation. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source image is a bone scan with an estimated size for the lesion, while the target image is an MRI with unknown measurements. The scales and imaging modalities differ, making reliable comparison impossible. |
-| Characterization | `inconsistent` | The source caption describes increased radiotracer uptake in the femur, indicating a bone abnormality. The target caption describes a knee joint effusion and meniscal signal change, which are soft tissue findings, not bone abnormalities. |
 
 ### Anchor 3: `study_001_x_ray_image_000_frontal_f01`
 
@@ -196,13 +168,6 @@
 | `study_002_mri_image_000_coronal_t2_fat_sat_f01`; `[224, 138, 878, 658]` | 0.413 | no | The coronal T2 fat sat MRI shows a hyperintense signal in the region of the knee joint, particularly involving the medial meniscus. There is evidence of increased fluid signal within the joint space, suggestive of effusion. The surrounding soft tissues appear to have normal signal intensity without any obvious masses or lesions. The bony structures, including the femur and tibia, show no signs of fracture or significant degenerative changes. The articular cartilage appears intact, although there may be subtle irregularities that warrant further evaluation. |
 
 **Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | view, scale, or measurements do not permit a reliable comparison |
-| Characterization | `insufficient` | the target Lingshu caption is unknown |
 
 ## Dynamically Skipped Anchors
 

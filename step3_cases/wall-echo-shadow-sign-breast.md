@@ -65,13 +65,6 @@
 |---|---:|---|---|
 | `study_002_pathology_image_000_gross_pathology_f01`; `[144, 144, 837, 656]` | 0.843 | yes | The image shows a gross pathology specimen, likely a resected tumor or mass. The specimen appears to be a well-circumscribed, reddish-orange mass with a smooth, glistening surface. The mass is approximately 5-6 cm in diameter, as indicated by the scale bar. Within the boxed region, there appears to be a distinct area of discoloration or irregularity on the surface of the mass, which may represent an area of necrosis, hemorrhage, or other pathological change. However, without additional clinical information or microscopic examination, the specific nature of this finding cannot be determined. |
 
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification | `insufficient` | The source image lacks explicit measurements, and the target image&#x27;s scale bar is not directly comparable due to different imaging modalities and lack of shared reference scale. |
-| Characterization | `consistent` | Both captions describe a well-defined, round mass with smooth margins/surface. The source describes a homogeneous density, while the target describes a glistening surface, which is consistent with a well-circumscribed lesion. |
-
 #### location_00002: NOT SUPPORT
 
 <table>
@@ -90,12 +83,6 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption |
 |---|---:|---|---|
 | `study_002_pathology_image_001_h_e_f01`; `[0, 0, 1000, 1000]` | n/a | n/a | The image shows a histological section stained with hematoxylin and eosin (H&amp;E). The tissue appears to be composed of densely packed cells with varying degrees of staining intensity. The boxed region highlights an area with a distinct pattern of cellular arrangement and staining characteristics compared to the surrounding tissue. This region exhibits a more pronounced presence of inflammatory cells, possibly lymphocytes, which are densely clustered together. The surrounding tissue shows a more uniform distribution of cells with less prominent inflammatory infiltrate. The overall architecture suggests a possible pathological process involving inflammation or immune response. |
-
-**Quantification / characterization：**
-
-| Validation | Status | Reason |
-|---|---|---|
-| Quantification / characterization | not applicable | Target region was not found, so no downstream validation was run. |
 
 ## Dynamically Skipped Anchors
 
