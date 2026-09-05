@@ -119,7 +119,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00001` | `consistent` | `inconsistent` |
+| `partial__location_00001` | `consistent` | `consistent` |
 
 #### location_00002: PARTIAL SUPPORT
 
@@ -149,7 +149,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00002` | `inconsistent` | `inconsistent` |
+| `partial__location_00002` | `inconsistent` | `consistent` |
 
 #### location_00003: PARTIAL SUPPORT
 
@@ -515,7 +515,7 @@ None.
 - **B 端 re-ground Lingshu caption：** The image shows a frontal view of the chest with a focus on the upper mediastinum. Within the boxed region, there appears to be a radiopaque structure suggestive of a foreign body or calcification. The surrounding soft tissues and bony structures do not show any obvious signs of acute pathology. The lungs appear clear without evidence of consolidation, effusion, or pneumothorax. The heart size is within normal limits, and no significant abnormalities are noted in the visible portions of the great vessels.
 - **B 端 re-ground caption 中文翻译：** 图像为胸部正位像，重点显示上纵隔。框内似有不透 X 线结构，提示可能为异物或钙化。周围软组织及骨性结构未见明显急性病变。双肺清晰，未见实变、积液或气胸。心影大小正常，所见大血管未见显著异常。
 - **Quantitative size validation / 定量大小一致性：** `consistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 2: `study_000_fluoroscopy_image_000_frontal_f01` → `study_001_ct_image_000_coronal_lung_window`
 
@@ -533,7 +533,7 @@ None.
 - **B 端 re-ground Lingshu caption：** The image shows a coronal lung window CT scan. There is a red bounding box located in the right upper lobe of the lungs. Within this region, there appears to be a small, well-defined nodule. The surrounding lung parenchyma appears relatively normal without significant consolidation, ground-glass opacities, or other obvious abnormalities. The mediastinum and heart appear unremarkable. No pleural effusions or pneumothorax are noted.
 - **B 端 re-ground caption 中文翻译：** 图像为冠状位肺窗 CT。红框位于右上叶，框内似有小而边界清楚的结节。周围肺实质相对正常，未见明显实变、磨玻璃影或其他异常。纵隔和心脏未见异常。未见胸腔积液或气胸。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 3: `study_000_fluoroscopy_image_000_frontal_f01` → `study_001_ct_image_001_sagittal_mediastinal_window_with_contrast`
 

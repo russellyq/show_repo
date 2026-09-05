@@ -283,7 +283,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00007` | `consistent` | `inconsistent` |
+| `partial__location_00007` | `consistent` | `consistent` |
 
 #### location_00008: NOT SUPPORT
 
@@ -398,7 +398,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00012` | `consistent` | `inconsistent` |
+| `partial__location_00012` | `consistent` | `consistent` |
 
 #### location_00013: NOT SUPPORT
 
@@ -733,7 +733,7 @@
 - **B 端 re-ground Lingshu caption：** The red box is located in the right frontal lobe. Within this region there is a large area of signal loss which is consistent with blood products. There is also a smaller area of signal loss in the left frontal lobe.
 - **B 端 re-ground caption 中文翻译：** 红框位于右额叶。该区域内可见大片信号缺失，符合血液产物表现。左额叶另见较小信号缺失区。
 - **Quantitative size validation / 定量大小一致性：** `consistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 3: `study_000_mri_image_001_axial_flair_f02` → `study_000_mri_image_002_axial_gradient_echo`
 
@@ -751,7 +751,7 @@
 - **B 端 re-ground Lingshu caption：** The red box is located in the right frontal lobe. Within this area there is a small focus of blooming artifact which could represent a calcification or hemorrhage. There is no associated mass effect or edema. The remainder of the brain parenchyma is unremarkable.
 - **B 端 re-ground caption 中文翻译：** 红框位于右额叶，其中可见小灶性磁敏感伪影，可能代表钙化或出血。未伴占位效应或水肿。其余脑实质未见异常。
 - **Quantitative size validation / 定量大小一致性：** `consistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 4: `study_000_mri_image_001_axial_flair_f02` → `study_001_ct_image_000_axial_c_arterial_phase`
 

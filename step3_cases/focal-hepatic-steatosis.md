@@ -396,7 +396,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00010` | `inconsistent` | `inconsistent` |
+| `partial__location_00010` | `consistent` | `inconsistent` |
 
 #### location_00011: NOT SUPPORT
 
@@ -515,7 +515,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00015` | `inconsistent` | `inconsistent` |
+| `partial__location_00015` | `inconsistent` | `consistent` |
 
 #### location_00016: PARTIAL SUPPORT
 
@@ -547,7 +547,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00016` | `inconsistent` | `consistent` |
+| `partial__location_00016` | `consistent` | `consistent` |
 
 #### location_00017: NOT SUPPORT
 
@@ -1294,7 +1294,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00047` | `consistent` | `inconsistent` |
+| `partial__location_00047` | `consistent` | `consistent` |
 
 #### location_00048: NOT SUPPORT
 
@@ -1435,7 +1435,7 @@
 - **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 1.5 cm。未见血管侵犯，也未发现其他局灶性病灶。脾脏未见异常。
 - **B 端 re-ground Lingshu caption：** The liver is enlarged. There are multiple lesions throughout the liver which demonstrate peripheral enhancement. The largest lesion is located in segment 6 and measures approximately 2.5 cm.
 - **B 端 re-ground caption 中文翻译：** 肝脏增大，内见多发周边强化病灶。最大病灶位于第 6 段，大小约 2.5 cm。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Partial 5: `study_000_ct_image_000_axial_c_portal_venous_phase_f03` → `study_002_mri_image_001_axial_t1_out_of_phase`
@@ -1454,7 +1454,7 @@
 - **B 端 re-ground Lingshu caption：** The liver is enlarged and demonstrates diffuse decrease in signal intensity on this out of phase sequence compared to the spleen. This is consistent with diffuse hepatic steatosis. The boxed area appears to correspond to the right lobe of the liver. No focal lesions are identified.
 - **B 端 re-ground caption 中文翻译：** 肝脏增大，反相位序列上信号较脾脏弥漫性降低，符合弥漫性肝脂肪变。框内似对应肝右叶。未发现局灶性病灶。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 6: `study_000_ct_image_000_axial_c_portal_venous_phase_f03` → `study_002_mri_image_002_axial_t1_c`
 
@@ -1471,7 +1471,7 @@
 - **A 端 caption 中文翻译：** 肝脏增大，各肝段可见多发低密度病灶。最大病灶位于第 7 段，大小约 1.6 cm。未见血管侵犯，也未发现其他肿块。
 - **B 端 re-ground Lingshu caption：** The liver is enlarged and demonstrates multiple focal lesions which demonstrate peripheral enhancement and central non-enhancement. The largest lesion is located in segment 6 and measures approximately 2.5 cm. There is no evidence of biliary ductal dilatation. No intrahepatic biliary duct stones are identified. The portal vein is patent. The spleen is unremarkable.
 - **B 端 re-ground caption 中文翻译：** 肝脏增大并有多发局灶性病灶，呈周边强化及中央不强化。最大病灶位于第 6 段，约 2.5 cm。未见胆管扩张或肝内胆管结石。门静脉通畅，脾脏未见异常。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 7: `study_002_mri_image_000_axial_t1_in_phase_f01` → `study_002_mri_image_001_axial_t1_out_of_phase`
@@ -1598,7 +1598,7 @@
 - **B 端 re-ground Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity which is low on T1 weighted images and high on T2 weighted images. The intrahepatic bile ducts are dilated. There is no evidence of biliary obstruction.
 - **B 端 re-ground caption 中文翻译：** 肝脏增大并呈弥漫性异常信号，T1 加权图像上为低信号，T2 加权图像上为高信号。肝内胆管扩张，未见胆道梗阻证据。
 - **Quantitative size validation / 定量大小一致性：** `consistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 ### Not Support
 

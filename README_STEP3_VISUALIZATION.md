@@ -42,9 +42,9 @@
 
 | Location relation | Pairs | Quantitative consistent | Quantitative inconsistent | Qualitative consistent | Qualitative inconsistent |
 |---|---:|---:|---:|---:|---:|
-| Strong support | 20 | 5 | 15 | 7 | 13 |
-| Partial support | 69 | 22 | 47 | 22 | 47 |
-| **Total** | **89** | **27** | **62** | **29** | **60** |
+| Strong support | 20 | 6 | 14 | 10 | 10 |
+| Partial support | 69 | 31 | 38 | 34 | 35 |
+| **Total** | **89** | **37** | **52** | **44** | **45** |
 
 ## Cases
 

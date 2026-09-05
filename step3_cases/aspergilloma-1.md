@@ -422,7 +422,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00013` | `inconsistent` | `consistent` |
+| `partial__location_00013` | `consistent` | `consistent` |
 
 ## Dynamically Skipped Anchors
 
@@ -561,7 +561,7 @@
 - **A 端 caption 中文翻译：** 双肺过度充气。左上叶可见大片实变，右上叶也可见部分实变区域。
 - **B 端 re-ground Lingshu caption：** The oblique lung window shows a large area of consolidation in the right upper lobe. The consolidation appears to have a heterogeneous density with some areas appearing more opaque than others. There is also evidence of air bronchograms within the consolidated area. The surrounding lung parenchyma appears relatively normal without any significant abnormalities.
 - **B 端 re-ground caption 中文翻译：** 斜位肺窗显示右上叶大片实变，密度不均，部分区域更为致密。实变区内可见空气支气管征。周围肺实质相对正常，未见其他明显异常。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 ### Not Support

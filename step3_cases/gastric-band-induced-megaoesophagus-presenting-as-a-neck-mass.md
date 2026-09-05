@@ -231,7 +231,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00007` | `inconsistent` | `inconsistent` |
+| `partial__location_00007` | `consistent` | `inconsistent` |
 
 #### location_00008: NOT SUPPORT
 
@@ -289,7 +289,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00009` | `inconsistent` | `inconsistent` |
+| `partial__location_00009` | `consistent` | `inconsistent` |
 
 #### location_00010: NOT SUPPORT
 
@@ -385,7 +385,7 @@ None.
 - **A 端 caption 中文翻译：** 红框位于气管水平的中线区域。该处颈部软组织内可见大量气体，双侧胸壁还可见广泛皮下气肿。
 - **B 端 re-ground Lingshu caption：** The oblique non-contrast CT image shows a region of interest marked by a red bounding box located in the upper thoracic area. Within this region, there appears to be a mass-like structure that is distinct from the surrounding tissues. The mass is situated near the mediastinum and seems to have irregular borders. It is adjacent to the trachea and possibly involves the esophagus. The density of the mass suggests it could be solid, and there is no clear evidence of calcification within this area. Surrounding structures, including the lungs and major blood vessels, appear unremarkable outside the boxed region.
 - **B 端 re-ground caption 中文翻译：** 斜位平扫 CT 显示上胸部红框关注区域，其中可见与周围组织不同的肿块样结构。肿块位于纵隔附近，边缘似不规则，邻近气管并可能累及食管。其密度提示可能为实性，内部未见明确钙化。框外肺和大血管等周围结构未见明显异常。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Partial 3: `study_001_ct_image_001_coronal_non_contrast_f01` → `study_001_ct_image_002_oblique_non_contrast`
@@ -403,7 +403,7 @@ None.
 - **A 端 caption 中文翻译：** 右上叶可见大片实变并有空气支气管征，另见少量支气管周围袖套征。左肺清晰。心纵隔轮廓未见异常。未见胸腔积液或气胸。
 - **B 端 re-ground Lingshu caption：** The oblique non-contrast CT image shows a region of interest marked by a red bounding box located in the upper thoracic area. Within this region, there appears to be a heterogeneous mass with irregular borders. The mass is situated near the mediastinum and seems to involve adjacent structures. The density of the mass varies, suggesting possible necrosis or cystic components. Surrounding tissues show signs of displacement or compression due to the presence of the mass. No clear signs of calcification are observed within the mass. The overall appearance suggests a significant abnormality that warrants further investigation.
 - **B 端 re-ground caption 中文翻译：** 斜位平扫 CT 显示上胸部红框关注区域，其中可见边缘不规则的不均质肿块，位于纵隔附近并似累及邻近结构。肿块密度不一，提示可能含坏死或囊性成分。周围组织因肿块而发生推移或受压。肿块内未见明确钙化。整体表现提示显著异常，值得进一步检查。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 ### Not Support

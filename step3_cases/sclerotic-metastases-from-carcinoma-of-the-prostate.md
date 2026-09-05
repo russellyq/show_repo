@@ -147,7 +147,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00002` | `inconsistent` | `inconsistent` |
+| `partial__location_00002` | `consistent` | `inconsistent` |
 
 #### location_00003: PARTIAL SUPPORT
 
@@ -179,7 +179,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00003` | `inconsistent` | `consistent` |
+| `partial__location_00003` | `consistent` | `consistent` |
 
 #### location_00004: NOT SUPPORT
 
@@ -328,7 +328,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `strong__strong_location_00009_01` | `inconsistent` | `inconsistent` |
+| `strong__strong_location_00009_01` | `inconsistent` | `consistent` |
 
 #### location_00010: NOT SUPPORT
 
@@ -420,7 +420,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00013` | `inconsistent` | `inconsistent` |
+| `partial__location_00013` | `inconsistent` | `consistent` |
 
 #### location_00014: PARTIAL SUPPORT
 
@@ -571,7 +571,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00019` | `inconsistent` | `consistent` |
+| `partial__location_00019` | `consistent` | `consistent` |
 
 #### location_00020: NOT SUPPORT
 
@@ -706,7 +706,7 @@ The target image has no existing Step 2 bbox.
 - **Target Lingshu caption：** The image shows a focal area of increased radiotracer uptake in the right parotid gland region. The uptake appears to be localized and distinct from the surrounding tissue. The rest of the image does not show any other significant areas of abnormal radiotracer distribution.
 - **Target caption 中文翻译：** 右侧腮腺区域可见局灶性放射性示踪剂摄取增高，与周围组织界限清楚。图像其余区域未见其他明显异常示踪剂分布。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Strong 2: `study_000_mri_image_000_sagittal_t2_f03` ↔ `study_001_nuclear_medicine_image_000_oblique_f01`
 
@@ -777,7 +777,7 @@ The target image has no existing Step 2 bbox.
 - **A 端 caption 中文翻译：** 矢状位 T2 加权 MRI 显示 C1-C2 水平高信号，脊髓在该水平似受压，并伴轻度后凸畸形。
 - **B 端 re-ground Lingshu caption：** The sagittal STIR MRI shows a hyperintense signal at the C1-C2 level, which could indicate edema or inflammation. The spinal cord appears to be intact without any obvious signs of compression or displacement. The vertebral bodies and intervertebral discs at this level do not show significant degenerative changes. There is no evidence of acute fracture or dislocation in the cervical spine. The surrounding soft tissues appear normal without any abnormal masses or lesions.
 - **B 端 re-ground caption 中文翻译：** 矢状位 STIR MRI 显示 C1-C2 水平高信号，可能提示水肿或炎症。脊髓完整，未见明显受压或移位。该水平椎体和椎间盘未见明显退变。颈椎未见急性骨折或脱位，周围软组织正常，未见异常肿块或病灶。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Partial 3: `study_000_mri_image_000_sagittal_t2_f01` → `study_001_nuclear_medicine_image_000_oblique`
@@ -795,7 +795,7 @@ The target image has no existing Step 2 bbox.
 - **A 端 caption 中文翻译：** 矢状位 T2 加权 MRI 显示 C1-C2 水平高信号，脊髓在该水平似受压，并伴轻度后凸畸形。
 - **B 端 re-ground Lingshu caption：** There is focal increased radiotracer uptake in the right inferior neck.
 - **B 端 re-ground caption 中文翻译：** 右侧下颈部可见局灶性放射性示踪剂摄取增高。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 4: `study_000_mri_image_000_sagittal_t2_f02` → `study_000_mri_image_001_sagittal_t1`
@@ -850,7 +850,7 @@ The target image has no existing Step 2 bbox.
 - **B 端 re-ground Lingshu caption：** The sagittal T1 MRI shows the cervical spine with vertebral bodies and intervertebral discs. The red box highlights a region at the C2-C3 level. Within this area, there appears to be a slight irregularity in the alignment of the vertebrae, possibly indicating a mild subluxation or misalignment. The surrounding soft tissues and spinal cord appear normal without any obvious signs of compression or abnormal signal intensity. The intervertebral disc spaces adjacent to the highlighted region do not show significant degeneration or herniation.
 - **B 端 re-ground caption 中文翻译：** 矢状位 T1 MRI 显示颈椎椎体和椎间盘。红框标出 C2-C3 水平，该处椎体排列似有轻微不规则，可能提示轻度半脱位或对位不良。周围软组织和脊髓正常，未见明显受压或异常信号。邻近椎间隙未见明显退变或突出。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 7: `study_000_mri_image_000_sagittal_t2_f03` → `study_000_mri_image_002_sagittal_stir`
 
@@ -885,7 +885,7 @@ The target image has no existing Step 2 bbox.
 - **A 端 caption 中文翻译：** 矢状位 STIR MRI 显示颈椎 C2-C3 水平高信号，提示可能存在水肿或炎症。椎体完整，未见明显骨折或脱位。椎间盘高度和信号正常。未见脊髓受压或明显狭窄。周围软组织未见异常信号。
 - **B 端 re-ground Lingshu caption：** There is increased radiotracer uptake in the right inferior neck.
 - **B 端 re-ground caption 中文翻译：** 右侧下颈部放射性示踪剂摄取增高。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 ### Not Support

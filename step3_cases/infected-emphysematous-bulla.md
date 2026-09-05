@@ -179,7 +179,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `strong__strong_location_00005_01` | `inconsistent` | `consistent` |
+| `strong__strong_location_00005_01` | `consistent` | `consistent` |
 
 ### Anchor 3: `study_001_ct_image_000_axial_lung_window_f01`
 
@@ -239,7 +239,7 @@ None.
 - **Anchor caption 中文翻译：** 心影增大，主动脉迂曲。心影重叠区可见钙化性病灶，可能代表钙化淋巴结或其他钙化。
 - **Target Lingshu caption：** The lungs are hyperinflated. There is a large cavitary lesion in the right upper lobe with thick irregular walls. The remainder of the lungs demonstrate emphysematous changes. No pleural effusions are seen.
 - **Target caption 中文翻译：** 双肺过度充气。右上叶可见一个厚壁、不规则的大空洞性病灶。其余肺组织呈肺气肿改变。未见胸腔积液。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Strong 2: `study_001_ct_image_000_axial_lung_window_f01` ↔ `study_001_ct_image_001_coronal_lung_window_f01`

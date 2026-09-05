@@ -74,7 +74,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `strong__strong_location_00001_01` | `inconsistent` | `inconsistent` |
+| `strong__strong_location_00001_01` | `inconsistent` | `consistent` |
 
 #### location_00002: NOT SUPPORT
 
@@ -124,7 +124,7 @@
 - **Target Lingshu caption：** The image shows a gross pathology specimen, likely a resected tumor or mass. The specimen appears to be a well-circumscribed, reddish-orange mass with a smooth, glistening surface. The mass is approximately 5-6 cm in diameter, as indicated by the scale bar. Within the boxed region, there appears to be a distinct area of discoloration or irregularity on the surface of the mass, which may represent an area of necrosis, hemorrhage, or other pathological change. However, without additional clinical information or microscopic examination, the specific nature of this finding cannot be determined.
 - **Target caption 中文翻译：** 图像显示大体病理标本，可能为切除的肿瘤或肿块。标本为边界清楚的红橙色肿块，表面光滑、有光泽。根据比例尺，直径约 5–6 cm。框内肿块表面可见明确变色或不规则区域，可能代表坏死、出血或其他病理改变。但缺少更多临床资料或显微镜检查时无法确定其具体性质。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 ### Partial Support
 

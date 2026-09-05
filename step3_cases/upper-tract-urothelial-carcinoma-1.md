@@ -226,7 +226,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `strong__strong_location_00006_01` | `inconsistent` | `inconsistent` |
+| `strong__strong_location_00006_01` | `inconsistent` | `consistent` |
 
 #### location_00007: NOT SUPPORT
 
@@ -350,7 +350,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00019` | `consistent` | `inconsistent` |
+| `partial__location_00019` | `inconsistent` | `consistent` |
 
 #### location_00020: PARTIAL SUPPORT
 
@@ -382,7 +382,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00020` | `consistent` | `consistent` |
+| `partial__location_00020` | `inconsistent` | `consistent` |
 
 #### location_00021: STRONG SUPPORT
 
@@ -501,7 +501,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00025` | `inconsistent` | `inconsistent` |
+| `partial__location_00025` | `inconsistent` | `consistent` |
 
 #### location_00026: PARTIAL SUPPORT
 
@@ -842,7 +842,7 @@ The target image has no existing Step 2 bbox.
 - **Target Lingshu caption：** The heart is opened to show the left ventricle and mitral valve. The mitral valve is thickened and has multiple vegetations on the anterior leaflet. The largest vegetation measures 2.5 x 1.5 cm. There is no evidence of perforation.
 - **Target caption 中文翻译：** 心脏被切开，可见左心室和二尖瓣。二尖瓣增厚，前叶可见多个赘生物，最大约 2.5 × 1.5 cm。未见穿孔。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Strong 3: `study_001_ct_image_000_axial_non_contrast_f01` ↔ `study_002_pathology_image_000_gross_pathology_f01`
 
@@ -896,8 +896,8 @@ The target image has no existing Step 2 bbox.
 - **A 端 caption 中文翻译：** 框内为右肾，大小和形态正常。未见肾积水或局灶性肿块。肾实质均匀，未见异常衰减区。肝、脾、胰及肠袢等周围结构未见异常。腹腔内未见明显淋巴结肿大或游离液体。
 - **B 端 re-ground Lingshu caption：** The red box is located in the right upper quadrant of the abdomen. Within this region, there appears to be a small amount of free fluid adjacent to the liver. The liver itself appears normal in size and attenuation. There is no evidence of intra-abdominal free air. The bowel loops appear unremarkable. The vertebral body and posterior elements appear intact.
 - **B 端 re-ground caption 中文翻译：** 红框位于右上腹。框内肝旁似有少量游离液体。肝脏大小及密度正常。未见腹腔游离气体，肠袢无明显异常。椎体及后方附件结构完整。
-- **Quantitative size validation / 定量大小一致性：** `consistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 3: `study_001_ct_image_000_axial_non_contrast_f01` → `study_001_ct_image_003_sagittal_renal_parenchymal_phase`
 
@@ -914,7 +914,7 @@ The target image has no existing Step 2 bbox.
 - **A 端 caption 中文翻译：** 框内为右肾，大小和形态正常。未见肾积水或局灶性肿块。肾实质均匀，未见异常衰减区。肝、脾、胰及肠袢等周围结构未见异常。腹腔内未见明显淋巴结肿大或游离液体。
 - **B 端 re-ground Lingshu caption：** The red box is located in the mid abdomen, overlying the small bowel loops. The small bowel loops appear dilated with air-fluid levels. There is no evidence of free intraperitoneal air.
 - **B 端 re-ground caption 中文翻译：** 红框位于中腹部并覆盖小肠袢。小肠袢扩张，可见气液平面。未见腹腔游离气体。
-- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
 - **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 4: `study_001_ct_image_000_axial_non_contrast_f02` → `study_001_ct_image_001_axial_renal_cortical_phase`
@@ -933,7 +933,7 @@ The target image has no existing Step 2 bbox.
 - **B 端 re-ground Lingshu caption：** The boxed region contains a small area of soft tissue density adjacent to the superior mesenteric artery. The surrounding structures include the abdominal aorta, inferior vena cava, and portions of the bowel. No obvious signs of mass effect or displacement of adjacent organs are noted. The liver, spleen, and kidneys appear unremarkable in this slice.
 - **B 端 re-ground caption 中文翻译：** 框内可见肠系膜上动脉旁小片软组织密度影。周围可见腹主动脉、下腔静脉及部分肠管。未见明显占位效应或邻近器官移位。本层面肝、脾及双肾未见异常。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 5: `study_001_ct_image_000_axial_non_contrast_f02` → `study_001_ct_image_002_axial_renal_parenchymal_phase`
 
