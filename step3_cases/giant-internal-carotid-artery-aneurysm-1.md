@@ -130,7 +130,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `strong__strong_location_00001_01` | `inconsistent` | `inconsistent` |
+| `strong__strong_location_00001_01` | `consistent` | `inconsistent` |
 
 #### location_00002: STRONG SUPPORT
 
@@ -660,7 +660,7 @@
 - **Anchor caption 中文翻译：** 红框位于左颞叶。该区域内可见环形强化病灶，周围伴血管源性水肿。病灶直径约 1.5 cm，邻近结构未见占位效应。
 - **Target Lingshu caption：** The axial FLAIR MRI image shows a hyperintense lesion located in the right basal ganglia region. The lesion appears to have a ring-like structure with a central hypointense area, suggesting a possible cystic or necrotic component. Surrounding the lesion, there is evidence of perilesional edema, indicated by the hyperintense signal extending into the adjacent white matter. The lesion&#x27;s borders are well-defined, and there is no significant mass effect observed on the surrounding brain structures. The ventricles appear symmetrical, and there is no midline shift noted.
 - **Target caption 中文翻译：** 轴位 FLAIR MRI 显示右侧基底节区高信号病灶。病灶似呈环形结构，中央为低信号，提示可能含囊性或坏死成分。周围可见病灶周围水肿，高信号延伸至邻近白质。病灶边界清楚，周围脑结构未见明显占位效应。双侧脑室对称，未见中线移位。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Strong 2: `study_000_mri_image_000_axial_t2_f01` ↔ `study_000_mri_image_002_axial_gradient_echo_f01`

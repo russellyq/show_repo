@@ -165,7 +165,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00004` | `inconsistent` | `consistent` |
+| `partial__location_00004` | `consistent` | `inconsistent` |
 
 ## Dynamically Skipped Anchors
 
@@ -198,8 +198,8 @@ None.
 - **A 端 caption 中文翻译：** 图像显示肝右叶病灶，其密度低于周围肝实质。病灶内未见钙化或出血征象，边界清楚，似未侵犯周围结构。邻近肝实质表现正常，未见肝硬化或其他异常征象。
 - **B 端 re-ground Lingshu caption：** The red box is located in the right upper quadrant of the abdomen. Within this region, there is a large area of increased density compared to the surrounding tissue. This could represent a variety of pathologies including a mass, abscess, or other lesion. The exact nature of the abnormality cannot be determined from this single image alone. Further imaging and clinical correlation would be necessary for a more definitive assessment.
 - **B 端 re-ground caption 中文翻译：** 红框位于右上腹。框内可见较周围组织明显增高的大范围密度影，可能代表肿块、脓肿或其他病变。仅凭这一幅图像无法确定异常的确切性质，需要进一步影像检查并结合临床资料评估。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 ### Not Support
 

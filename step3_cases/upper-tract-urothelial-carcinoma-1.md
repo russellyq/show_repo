@@ -226,7 +226,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `strong__strong_location_00006_01` | `inconsistent` | `consistent` |
+| `strong__strong_location_00006_01` | `inconsistent` | `inconsistent` |
 
 #### location_00007: NOT SUPPORT
 
@@ -501,7 +501,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00025` | `inconsistent` | `consistent` |
+| `partial__location_00025` | `consistent` | `inconsistent` |
 
 #### location_00026: PARTIAL SUPPORT
 
@@ -842,7 +842,7 @@ The target image has no existing Step 2 bbox.
 - **Target Lingshu caption：** The heart is opened to show the left ventricle and mitral valve. The mitral valve is thickened and has multiple vegetations on the anterior leaflet. The largest vegetation measures 2.5 x 1.5 cm. There is no evidence of perforation.
 - **Target caption 中文翻译：** 心脏被切开，可见左心室和二尖瓣。二尖瓣增厚，前叶可见多个赘生物，最大约 2.5 × 1.5 cm。未见穿孔。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Strong 3: `study_001_ct_image_000_axial_non_contrast_f01` ↔ `study_002_pathology_image_000_gross_pathology_f01`
 
@@ -932,8 +932,8 @@ The target image has no existing Step 2 bbox.
 - **A 端 caption 中文翻译：** 红框位于左上腹，其中似有一个较周围组织低密度的肿块样病灶。病灶边界清楚，直径约 3 cm，未见侵犯邻近结构。周围脂肪间隙保存，附近未见明显淋巴结肿大。邻近肠袢未见梗阻或增厚。本层面肝、脾及双肾未见异常。
 - **B 端 re-ground Lingshu caption：** The boxed region contains a small area of soft tissue density adjacent to the superior mesenteric artery. The surrounding structures include the abdominal aorta, inferior vena cava, and portions of the bowel. No obvious signs of mass effect or displacement of adjacent organs are noted. The liver, spleen, and kidneys appear unremarkable in this slice.
 - **B 端 re-ground caption 中文翻译：** 框内可见肠系膜上动脉旁小片软组织密度影。周围可见腹主动脉、下腔静脉及部分肠管。未见明显占位效应或邻近器官移位。本层面肝、脾及双肾未见异常。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Partial 5: `study_001_ct_image_000_axial_non_contrast_f02` → `study_001_ct_image_002_axial_renal_parenchymal_phase`
 

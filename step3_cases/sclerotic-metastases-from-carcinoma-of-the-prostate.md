@@ -328,7 +328,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `strong__strong_location_00009_01` | `inconsistent` | `consistent` |
+| `strong__strong_location_00009_01` | `inconsistent` | `inconsistent` |
 
 #### location_00010: NOT SUPPORT
 
@@ -420,7 +420,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00013` | `inconsistent` | `consistent` |
+| `partial__location_00013` | `inconsistent` | `inconsistent` |
 
 #### location_00014: PARTIAL SUPPORT
 
@@ -675,7 +675,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `strong__strong_location_00027_01` | `inconsistent` | `inconsistent` |
+| `strong__strong_location_00027_01` | `inconsistent` | `consistent` |
 
 ## Dynamically Skipped Anchors
 
@@ -706,7 +706,7 @@ The target image has no existing Step 2 bbox.
 - **Target Lingshu caption：** The image shows a focal area of increased radiotracer uptake in the right parotid gland region. The uptake appears to be localized and distinct from the surrounding tissue. The rest of the image does not show any other significant areas of abnormal radiotracer distribution.
 - **Target caption 中文翻译：** 右侧腮腺区域可见局灶性放射性示踪剂摄取增高，与周围组织界限清楚。图像其余区域未见其他明显异常示踪剂分布。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Strong 2: `study_000_mri_image_000_sagittal_t2_f03` ↔ `study_001_nuclear_medicine_image_000_oblique_f01`
 
@@ -740,7 +740,7 @@ The target image has no existing Step 2 bbox.
 - **Target Lingshu caption：** The axial bone window CT image shows a cross-sectional view of the vertebral body. The boxed region highlights an area of interest on the vertebral body. Within this region, there appears to be a subtle irregularity in the cortical bone, which could suggest a potential lesion or abnormality. The surrounding bone structure seems intact without obvious signs of fracture or significant deformity. The density variations within the boxed area might indicate changes in bone composition or integrity.
 - **Target caption 中文翻译：** 轴位骨窗 CT 显示椎体横断面。框内椎体皮质骨似有细微不规则，可能提示潜在病灶或异常。周围骨结构完整，未见明显骨折或显著畸形。框内密度差异可能反映骨成分或完整性改变。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 ### Partial Support
 
@@ -850,7 +850,7 @@ The target image has no existing Step 2 bbox.
 - **B 端 re-ground Lingshu caption：** The sagittal T1 MRI shows the cervical spine with vertebral bodies and intervertebral discs. The red box highlights a region at the C2-C3 level. Within this area, there appears to be a slight irregularity in the alignment of the vertebrae, possibly indicating a mild subluxation or misalignment. The surrounding soft tissues and spinal cord appear normal without any obvious signs of compression or abnormal signal intensity. The intervertebral disc spaces adjacent to the highlighted region do not show significant degeneration or herniation.
 - **B 端 re-ground caption 中文翻译：** 矢状位 T1 MRI 显示颈椎椎体和椎间盘。红框标出 C2-C3 水平，该处椎体排列似有轻微不规则，可能提示轻度半脱位或对位不良。周围软组织和脊髓正常，未见明显受压或异常信号。邻近椎间隙未见明显退变或突出。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Partial 7: `study_000_mri_image_000_sagittal_t2_f03` → `study_000_mri_image_002_sagittal_stir`
 

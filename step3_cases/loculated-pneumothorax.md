@@ -354,7 +354,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00009` | `consistent` | `inconsistent` |
+| `partial__location_00009` | `inconsistent` | `inconsistent` |
 
 ### Anchor 5: `study_001_ct_image_001_axial_lung_window_f01`
 
@@ -502,7 +502,7 @@
 - **A 端 caption 中文翻译：** 左肺充气良好，未见局灶性实变、胸腔积液或气胸。肺血管分布正常，未见肺门淋巴结肿大。
 - **B 端 re-ground Lingshu caption：** The lungs are hyperinflated. There is increased opacity in the left upper lung zone. The heart size is normal. The hilar and mediastinal contours are unremarkable. No pleural effusion or pneumothorax is seen.
 - **B 端 re-ground caption 中文翻译：** 双肺过度充气。左上肺野密度增高。心影大小正常，肺门及纵隔轮廓未见异常。未见胸腔积液或气胸。
-- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
 - **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 ### Not Support

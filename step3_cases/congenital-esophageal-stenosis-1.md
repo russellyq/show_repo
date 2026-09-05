@@ -119,7 +119,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00001` | `consistent` | `consistent` |
+| `partial__location_00001` | `consistent` | `inconsistent` |
 
 #### location_00002: PARTIAL SUPPORT
 
@@ -149,7 +149,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00002` | `inconsistent` | `consistent` |
+| `partial__location_00002` | `inconsistent` | `inconsistent` |
 
 #### location_00003: PARTIAL SUPPORT
 
@@ -182,7 +182,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00003` | `inconsistent` | `inconsistent` |
+| `partial__location_00003` | `consistent` | `inconsistent` |
 
 #### location_00004: NOT SUPPORT
 
@@ -410,7 +410,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00012` | `inconsistent` | `inconsistent` |
+| `partial__location_00012` | `inconsistent` | `consistent` |
 
 #### location_00013: NOT SUPPORT
 
@@ -515,7 +515,7 @@ None.
 - **B 端 re-ground Lingshu caption：** The image shows a frontal view of the chest with a focus on the upper mediastinum. Within the boxed region, there appears to be a radiopaque structure suggestive of a foreign body or calcification. The surrounding soft tissues and bony structures do not show any obvious signs of acute pathology. The lungs appear clear without evidence of consolidation, effusion, or pneumothorax. The heart size is within normal limits, and no significant abnormalities are noted in the visible portions of the great vessels.
 - **B 端 re-ground caption 中文翻译：** 图像为胸部正位像，重点显示上纵隔。框内似有不透 X 线结构，提示可能为异物或钙化。周围软组织及骨性结构未见明显急性病变。双肺清晰，未见实变、积液或气胸。心影大小正常，所见大血管未见显著异常。
 - **Quantitative size validation / 定量大小一致性：** `consistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Partial 2: `study_000_fluoroscopy_image_000_frontal_f01` → `study_001_ct_image_000_coronal_lung_window`
 
@@ -533,7 +533,7 @@ None.
 - **B 端 re-ground Lingshu caption：** The image shows a coronal lung window CT scan. There is a red bounding box located in the right upper lobe of the lungs. Within this region, there appears to be a small, well-defined nodule. The surrounding lung parenchyma appears relatively normal without significant consolidation, ground-glass opacities, or other obvious abnormalities. The mediastinum and heart appear unremarkable. No pleural effusions or pneumothorax are noted.
 - **B 端 re-ground caption 中文翻译：** 图像为冠状位肺窗 CT。红框位于右上叶，框内似有小而边界清楚的结节。周围肺实质相对正常，未见明显实变、磨玻璃影或其他异常。纵隔和心脏未见异常。未见胸腔积液或气胸。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Partial 3: `study_000_fluoroscopy_image_000_frontal_f01` → `study_001_ct_image_001_sagittal_mediastinal_window_with_contrast`
 
@@ -550,7 +550,7 @@ None.
 - **A 端 caption 中文翻译：** 图像为颈部及上胸部正位像。红框标出颈部左侧特定区域，其中似有可能提示病理状态的异常。周围组织和结构相对正常，未见明显炎症、肿胀或其他异常。
 - **B 端 re-ground Lingshu caption：** The image shows a sagittal view of the thoracic region with a focus on the mediastinum. The boxed area highlights a region in the anterior mediastinum. Within this region, there appears to be a mass-like structure that is distinct from the surrounding tissues. The mass is located near the heart and major vessels, suggesting its proximity to critical structures. The density of the mass is different from the adjacent lung tissue, indicating a possible abnormality. The surrounding mediastinal structures appear to be displaced or compressed by the mass. There is no clear evidence of calcification or necrosis within the mass. The overall appearance suggests a need for further evaluation to determine the nature of the lesion.
 - **B 端 re-ground caption 中文翻译：** 图像为胸部矢状位，重点显示纵隔。框内位于前纵隔，可见与周围组织不同的肿块样结构，邻近心脏和大血管。肿块密度不同于邻近肺组织，提示可能存在异常，并似使周围纵隔结构发生移位或受压。肿块内未见明确钙化或坏死。整体表现需要进一步评估以明确病灶性质。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Partial 4: `study_000_fluoroscopy_image_001_frontal_f01` → `study_001_ct_image_001_sagittal_mediastinal_window_with_contrast`
@@ -605,7 +605,7 @@ None.
 - **B 端 re-ground Lingshu caption：** The image shows a sagittal view of the thoracic spine with a focus on the mediastinum. The red box highlights a specific area of interest. Within this region, there appears to be a mass or lesion that is distinct from the surrounding tissues. The mass is located near the vertebral column and seems to be adjacent to the esophagus or trachea. The density and borders of the mass suggest it could be a solid lesion, possibly indicating a tumor or other pathological process. The surrounding structures, including the vertebrae and soft tissues, appear normal without any obvious signs of invasion or displacement.
 - **B 端 re-ground caption 中文翻译：** 图像为胸椎矢状位，重点显示纵隔。红框标出关注区域，其中似有与周围组织不同的肿块或病灶，位于脊柱旁并邻近食管或气管。其密度和边界提示可能为实性病变、肿瘤或其他病理过程。周围椎体和软组织正常，未见明显侵犯或移位。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 ### Not Support
 
