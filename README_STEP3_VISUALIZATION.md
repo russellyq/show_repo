@@ -10,6 +10,13 @@
 - `PARTIAL SUPPORT`：目标图找到了新框，但没有已有 bbox 达到阈值，属于 bbox-to-image。
 - `NOT SUPPORT`：目标图返回 `null`，属于 bbox-to-image。
 
+**Caption 来源：**
+
+- `STRONG SUPPORT`：展示 A、B 两端已有 bbox 的原始 Step 2 Lingshu caption。
+- `PARTIAL SUPPORT`：展示 A 端已有 bbox 的原始 Step 2 Lingshu caption，以及 B 端跨图 re-ground bbox 重新送入 Lingshu 后得到的 caption。
+- `NOT SUPPORT`：展示 A 端原始 Step 2 Lingshu caption；由于目标图返回 `null`，B 端没有 bbox，也没有 re-ground caption。
+- 中文内容为对模型原始 caption 的逐条忠实翻译，仅用于对照阅读，不修正模型可能存在的医学错误。
+
 **Overlay 图例：** 红框为跨图新定位；绿框为达到阈值的已有 bbox；黄框为未达到阈值的已有 bbox。
 
 ## Overall Summary

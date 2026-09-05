@@ -13,6 +13,7 @@ from pathlib import Path
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
+TRANSLATIONS_FILE = SCRIPT_DIR / "step3_caption_translations.json"
 DEFAULT_SOURCE_ROOT = (
     SCRIPT_DIR.parent / "ours_method" / "cases_qwen3vl_8b"
 )
@@ -44,6 +45,23 @@ def escaped(value):
 def compact(value):
     text = str(value if value is not None else "unknown").strip()
     return escaped(" ".join(text.split())).replace("|", "&#124;")
+
+
+def load_translations(path=TRANSLATIONS_FILE):
+    path = Path(path)
+    if not path.is_file():
+        raise FileNotFoundError(f"Caption translation file not found: {path}")
+    record = json.loads(path.read_text(encoding="utf-8"))
+    return {
+        "original": record.get("original") or {},
+        "reground": record.get("reground") or {},
+    }
+
+
+def translated(translations, kind, case_id, item_id):
+    key = f"{case_id}::{item_id}"
+    value = (translations.get(kind) or {}).get(key)
+    return compact(value) if value else "[缺少人工翻译]"
 
 
 def copy_asset(source, destination):
@@ -90,7 +108,7 @@ def support_counts(record):
     )
 
 
-def render_iou_table(location, target_node_ids, nodes):
+def render_iou_table(location, target_node_ids, nodes, translations, case_id):
     comparisons = {
         item.get("target_node_id"): item
         for item in location.get("existing_bbox_comparisons") or []
@@ -98,8 +116,8 @@ def render_iou_table(location, target_node_ids, nodes):
     if not target_node_ids:
         return ["The target image has no existing Step 2 bbox."]
     lines = [
-        "| Existing target bbox | IoU | Strong match | Lingshu caption |",
-        "|---|---:|---|---|",
+        "| Existing target bbox | IoU | Strong match | Lingshu caption | 中文翻译 |",
+        "|---|---:|---|---|---|",
     ]
     for node_id in target_node_ids:
         item = comparisons.get(node_id) or {}
@@ -113,7 +131,8 @@ def render_iou_table(location, target_node_ids, nodes):
             f"| `{escaped(node_id)}`; `{escaped(node.get('bbox_2d'))}` | "
             f"{iou_text} | "
             f"{match_text} | "
-            f"{compact(node.get('lingshu_caption'))} |"
+            f"{compact(node.get('lingshu_caption'))} | "
+            f"{translated(translations, 'original', case_id, node_id)} |"
         )
     return lines
 
@@ -124,6 +143,9 @@ def render_case_location_summary(
     original_assets,
     node_assets,
     query_assets,
+    reground_records,
+    reground_assets,
+    translations,
     page_dir,
 ):
     queries = record.get("cross_image_grounding") or []
@@ -182,7 +204,9 @@ def render_case_location_summary(
                 "</table>",
                 "",
                 f"- **Anchor Lingshu caption：** {compact((nodes.get(anchor_id) or {}).get('lingshu_caption'))}",
+                f"- **Anchor caption 中文翻译：** {translated(translations, 'original', record['case_id'], anchor_id)}",
                 f"- **Target Lingshu caption：** {compact((nodes.get(target_id) or {}).get('lingshu_caption'))}",
+                f"- **Target caption 中文翻译：** {translated(translations, 'original', record['case_id'], target_id)}",
                 "",
             ]
         )
@@ -202,10 +226,16 @@ def render_case_location_summary(
             key=lambda item: float(item.get("iou") or 0.0),
             default=None,
         )
-        headers = ["Anchor bbox", "Cross-image grounded target bbox"]
+        reground_record = reground_records.get(query["query_id"]) or {}
+        headers = [
+            "Anchor bbox",
+            "Cross-image grounding and IoU overlay",
+            "B image with the single re-grounded bbox given to Lingshu",
+        ]
         cells = [
             image_tag(node_assets[anchor_id], page_dir, 320),
             image_tag(cross_asset, page_dir, 320),
+            image_tag(reground_assets[query["query_id"]], page_dir, 320),
         ]
         if best and best.get("target_node_id") in node_assets:
             headers.append("Closest existing target bbox")
@@ -226,6 +256,11 @@ def render_case_location_summary(
                 "<tr>" + "".join(f"<th>{item}</th>" for item in headers) + "</tr>",
                 "<tr>" + "".join(f"<td>{item}</td>" for item in cells) + "</tr>",
                 "</table>",
+                "",
+                f"- **A 端原始 Lingshu caption：** {compact((nodes.get(anchor_id) or {}).get('lingshu_caption'))}",
+                f"- **A 端 caption 中文翻译：** {translated(translations, 'original', record['case_id'], anchor_id)}",
+                f"- **B 端 re-ground Lingshu caption：** {compact(reground_record.get('caption'))}",
+                f"- **B 端 re-ground caption 中文翻译：** {translated(translations, 'reground', record['case_id'], query['query_id'])}",
                 "",
             ]
         )
@@ -251,12 +286,23 @@ def render_case_location_summary(
                 "</tr>",
                 "</table>",
                 "",
+                f"- **A 端原始 Lingshu caption：** {compact((nodes.get(anchor_id) or {}).get('lingshu_caption'))}",
+                f"- **A 端 caption 中文翻译：** {translated(translations, 'original', record['case_id'], anchor_id)}",
+                "- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。",
+                "",
             ]
         )
     return lines
 
 
-def render_case(record, output_root, assets_root, pages_root, model_label):
+def render_case(
+    record,
+    output_root,
+    assets_root,
+    pages_root,
+    model_label,
+    translations,
+):
     case_id = record["case_id"]
     case_assets = assets_root / safe_name(case_id)
     page_path = pages_root / f"{safe_name(case_id)}.md"
@@ -286,6 +332,37 @@ def render_case(record, output_root, assets_root, pages_root, model_label):
                 case_assets / "grounding",
                 query["query_id"],
             )
+    case_root = Path(record["source_step_2"]["path"]).parents[2]
+    reground_path = case_root / "step_3_reground" / "case_evidence.json"
+    if not reground_path.is_file():
+        raise FileNotFoundError(f"Step 3 re-ground evidence not found: {reground_path}")
+    reground_evidence = json.loads(reground_path.read_text(encoding="utf-8"))
+    reground_records = {
+        item["query_id"]: item
+        for item in reground_evidence.get("partial_support_reground_captions") or []
+    }
+    reground_assets = {}
+    for query_id, item in reground_records.items():
+        bbox_path = (item.get("regrounded_region") or {}).get("bbox_image_path")
+        if bbox_path:
+            reground_assets[query_id] = copy_image(
+                bbox_path,
+                case_assets / "reground",
+                query_id,
+            )
+    partial_ids = {
+        item["query_id"]
+        for item in record.get("cross_image_grounding") or []
+        if (item.get("location_validation") or {}).get("status")
+        == "partial_support"
+    }
+    missing_reground = sorted(partial_ids - set(reground_records))
+    missing_assets = sorted(partial_ids - set(reground_assets))
+    if missing_reground or missing_assets:
+        raise ValueError(
+            f"Incomplete re-ground output for {case_id}: "
+            f"records={missing_reground}, assets={missing_assets}"
+        )
     raw_json = copy_asset(
         Path(record["source_step_2"]["path"]).parents[2]
         / "step_3"
@@ -336,6 +413,7 @@ def render_case(record, output_root, assets_root, pages_root, model_label):
                     f"- **Modality / subcategory：** {escaped(examination.get('modality'))} / {escaped(examination.get('subcategory'))}",
                     f"- **bbox_2d：** `{escaped(node.get('bbox_2d'))}`",
                     f"- **Lingshu caption：** {compact(node.get('lingshu_caption'))}",
+                    f"- **中文翻译：** {translated(translations, 'original', case_id, node['node_id'])}",
                     "",
                 ]
             )
@@ -355,6 +433,7 @@ def render_case(record, output_root, assets_root, pages_root, model_label):
                 image_tag(node_assets[anchor_id], pages_root, 420),
                 "",
                 f"**Anchor Lingshu caption：** {compact(anchor.get('lingshu_caption'))}",
+                f"**Anchor caption 中文翻译：** {translated(translations, 'original', case_id, anchor_id)}",
                 "",
             ]
         )
@@ -396,14 +475,26 @@ def render_case(record, output_root, assets_root, pages_root, model_label):
                     "",
                     "**IoU matching：**",
                     "",
-                    *render_iou_table(location, target_node_ids, nodes),
+                    *render_iou_table(
+                        location,
+                        target_node_ids,
+                        nodes,
+                        translations,
+                        case_id,
+                    ),
                     "",
                 ]
             )
             if status == "partial_support":
+                reground_record = reground_records[query["query_id"]]
                 lines.extend(
                     [
-                        "**Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.",
+                        "**B 图单红框（Lingshu 实际输入）：**",
+                        "",
+                        image_tag(reground_assets[query["query_id"]], pages_root, 420),
+                        "",
+                        f"**Re-ground Lingshu caption：** {compact(reground_record.get('caption'))}",
+                        f"**Re-ground caption 中文翻译：** {translated(translations, 'reground', case_id, query['query_id'])}",
                         "",
                     ]
                 )
@@ -433,6 +524,9 @@ def render_case(record, output_root, assets_root, pages_root, model_label):
             original_assets,
             node_assets,
             query_assets,
+            reground_records,
+            reground_assets,
+            translations,
             pages_root,
         )
     )
@@ -471,6 +565,13 @@ def render_index(case_rows, output_root, model_label):
         "- `STRONG SUPPORT`：跨图返回框与目标图已有 bbox 的 IoU >= 0.5，属于 bbox-to-bbox。",
         "- `PARTIAL SUPPORT`：目标图找到了新框，但没有已有 bbox 达到阈值，属于 bbox-to-image。",
         "- `NOT SUPPORT`：目标图返回 `null`，属于 bbox-to-image。",
+        "",
+        "**Caption 来源：**",
+        "",
+        "- `STRONG SUPPORT`：展示 A、B 两端已有 bbox 的原始 Step 2 Lingshu caption。",
+        "- `PARTIAL SUPPORT`：展示 A 端已有 bbox 的原始 Step 2 Lingshu caption，以及 B 端跨图 re-ground bbox 重新送入 Lingshu 后得到的 caption。",
+        "- `NOT SUPPORT`：展示 A 端原始 Step 2 Lingshu caption；由于目标图返回 `null`，B 端没有 bbox，也没有 re-ground caption。",
+        "- 中文内容为对模型原始 caption 的逐条忠实翻译，仅用于对照阅读，不修正模型可能存在的医学错误。",
         "",
         "**Overlay 图例：** 红框为跨图新定位；绿框为达到阈值的已有 bbox；黄框为未达到阈值的已有 bbox。",
         "",
@@ -518,6 +619,7 @@ def main():
         shutil.rmtree(pages_root, ignore_errors=True)
     assets_root.mkdir(parents=True, exist_ok=True)
     pages_root.mkdir(parents=True, exist_ok=True)
+    translations = load_translations()
 
     evidence_paths = sorted(source_root.glob("*/step_3/case_evidence.json"))
     if not evidence_paths:
@@ -532,6 +634,7 @@ def main():
                 assets_root,
                 pages_root,
                 args.model_label,
+                translations,
             )
         )
     render_index(case_rows, output_root, args.model_label)

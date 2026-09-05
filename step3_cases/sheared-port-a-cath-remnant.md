@@ -21,6 +21,7 @@
 - **Modality / subcategory：** X-ray / Frontal
 - **bbox_2d：** `[592, 324, 765, 721]`
 - **Lingshu caption：** The lungs are clear bilaterally. Specifically, no evidence of focal consolidation, pneumothorax, or pleural effusion. Cardiomediastinal silhouette is unremarkable. Visualized osseous structures of the thorax are without acute abnormality.
+- **中文翻译：** 双肺清晰，未见局灶性实变、气胸或胸腔积液。心纵隔轮廓未见异常。所见胸廓骨性结构未见急性异常。
 
 ### Finding 2: `study_001_ct_image_000_axial_non_contrast_f01`
 
@@ -29,6 +30,7 @@
 - **Modality / subcategory：** CT / Axial non-contrast
 - **bbox_2d：** `[630, 598, 684, 802]`
 - **Lingshu caption：** The image shows a well-defined, round, hyperdense lesion located in the left lower lobe of the lung. The lesion appears to be a solitary pulmonary nodule, which could represent a variety of pathologies such as a benign tumor, malignant neoplasm, or granulomatous disease. Further evaluation with additional imaging modalities or biopsy may be necessary to determine the underlying cause.
+- **中文翻译：** 图像显示左肺下叶一个边界清楚、圆形的高密度病灶，似为孤立性肺结节。其可能代表良性肿瘤、恶性肿瘤或肉芽肿性疾病等多种病变，可能需要进一步影像检查或活检以明确病因。
 
 ## Directed Cross-image Validation
 
@@ -37,6 +39,7 @@
 <img src="../assets_step3/sheared-port-a-cath-remnant/nodes/study_000_x_ray_image_003_frontal_f01.png" width="420">
 
 **Anchor Lingshu caption：** The lungs are clear bilaterally. Specifically, no evidence of focal consolidation, pneumothorax, or pleural effusion. Cardiomediastinal silhouette is unremarkable. Visualized osseous structures of the thorax are without acute abnormality.
+**Anchor caption 中文翻译：** 双肺清晰，未见局灶性实变、气胸或胸腔积液。心纵隔轮廓未见异常。所见胸廓骨性结构未见急性异常。
 
 #### location_00001: NOT SUPPORT
 
@@ -53,9 +56,9 @@
 
 **IoU matching：**
 
-| Existing target bbox | IoU | Strong match | Lingshu caption |
-|---|---:|---|---|
-| `study_001_ct_image_000_axial_non_contrast_f01`; `[630, 598, 684, 802]` | n/a | n/a | The image shows a well-defined, round, hyperdense lesion located in the left lower lobe of the lung. The lesion appears to be a solitary pulmonary nodule, which could represent a variety of pathologies such as a benign tumor, malignant neoplasm, or granulomatous disease. Further evaluation with additional imaging modalities or biopsy may be necessary to determine the underlying cause. |
+| Existing target bbox | IoU | Strong match | Lingshu caption | 中文翻译 |
+|---|---:|---|---|---|
+| `study_001_ct_image_000_axial_non_contrast_f01`; `[630, 598, 684, 802]` | n/a | n/a | The image shows a well-defined, round, hyperdense lesion located in the left lower lobe of the lung. The lesion appears to be a solitary pulmonary nodule, which could represent a variety of pathologies such as a benign tumor, malignant neoplasm, or granulomatous disease. Further evaluation with additional imaging modalities or biopsy may be necessary to determine the underlying cause. | 图像显示左肺下叶一个边界清楚、圆形的高密度病灶，似为孤立性肺结节。其可能代表良性肿瘤、恶性肿瘤或肉芽肿性疾病等多种病变，可能需要进一步影像检查或活检以明确病因。 |
 
 ## Dynamically Skipped Anchors
 
@@ -86,3 +89,7 @@ None.
 <tr><th>Anchor bbox</th><th>Target original image</th></tr>
 <tr><td><img src="../assets_step3/sheared-port-a-cath-remnant/nodes/study_000_x_ray_image_003_frontal_f01.png" width="340"></td><td><img src="../assets_step3/sheared-port-a-cath-remnant/images/study_001_ct_image_000_axial_non_contrast.jpeg" width="340"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The lungs are clear bilaterally. Specifically, no evidence of focal consolidation, pneumothorax, or pleural effusion. Cardiomediastinal silhouette is unremarkable. Visualized osseous structures of the thorax are without acute abnormality.
+- **A 端 caption 中文翻译：** 双肺清晰，未见局灶性实变、气胸或胸腔积液。心纵隔轮廓未见异常。所见胸廓骨性结构未见急性异常。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。

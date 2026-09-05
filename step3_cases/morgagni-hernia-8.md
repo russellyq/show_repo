@@ -21,6 +21,7 @@
 - **Modality / subcategory：** X-ray / Lateral
 - **bbox_2d：** `[150, 100, 700, 900]`
 - **Lingshu caption：** The lungs are clear bilaterally. Specifically, no evidence of focal consolidation, pneumothorax, or pleural effusion. Cardiomediastinal silhouette is unremarkable. Visualized osseous structures of the thorax are without acute abnormality.
+- **中文翻译：** 双肺清晰，未见局灶性实变、气胸或胸腔积液。心纵隔轮廓未见异常。所见胸廓骨性结构未见急性异常。
 
 ## Directed Cross-image Validation
 
@@ -29,6 +30,7 @@
 <img src="../assets_step3/morgagni-hernia-8/nodes/study_000_x_ray_image_001_lateral_f01.png" width="420">
 
 **Anchor Lingshu caption：** The lungs are clear bilaterally. Specifically, no evidence of focal consolidation, pneumothorax, or pleural effusion. Cardiomediastinal silhouette is unremarkable. Visualized osseous structures of the thorax are without acute abnormality.
+**Anchor caption 中文翻译：** 双肺清晰，未见局灶性实变、气胸或胸腔积液。心纵隔轮廓未见异常。所见胸廓骨性结构未见急性异常。
 
 #### location_00001: NOT SUPPORT
 
@@ -64,7 +66,12 @@ The target image has no existing Step 2 bbox.
 
 The target image has no existing Step 2 bbox.
 
-**Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
+**B 图单红框（Lingshu 实际输入）：**
+
+<img src="../assets_step3/morgagni-hernia-8/reground/location_00002.png" width="420">
+
+**Re-ground Lingshu caption：** The red box is located over the right upper lobe. There is a large mass in this area which appears to be invading the mediastinum. The mass is heterogeneous in appearance.
+**Re-ground caption 中文翻译：** 红框位于右上叶。该区域可见较大肿块，似侵犯纵隔，内部表现不均。
 
 #### location_00003: NOT SUPPORT
 
@@ -106,9 +113,14 @@ None.
 - **Maximum IoU：** n/a（低于 threshold=0.5）
 
 <table>
-<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th></tr>
-<tr><td><img src="../assets_step3/morgagni-hernia-8/nodes/study_000_x_ray_image_001_lateral_f01.png" width="320"></td><td><img src="../assets_step3/morgagni-hernia-8/grounding/location_00002.png" width="320"></td></tr>
+<tr><th>Anchor bbox</th><th>Cross-image grounding and IoU overlay</th><th>B image with the single re-grounded bbox given to Lingshu</th></tr>
+<tr><td><img src="../assets_step3/morgagni-hernia-8/nodes/study_000_x_ray_image_001_lateral_f01.png" width="320"></td><td><img src="../assets_step3/morgagni-hernia-8/grounding/location_00002.png" width="320"></td><td><img src="../assets_step3/morgagni-hernia-8/reground/location_00002.png" width="320"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The lungs are clear bilaterally. Specifically, no evidence of focal consolidation, pneumothorax, or pleural effusion. Cardiomediastinal silhouette is unremarkable. Visualized osseous structures of the thorax are without acute abnormality.
+- **A 端 caption 中文翻译：** 双肺清晰，未见局灶性实变、气胸或胸腔积液。心纵隔轮廓未见异常。所见胸廓骨性结构未见急性异常。
+- **B 端 re-ground Lingshu caption：** The red box is located over the right upper lobe. There is a large mass in this area which appears to be invading the mediastinum. The mass is heterogeneous in appearance.
+- **B 端 re-ground caption 中文翻译：** 红框位于右上叶。该区域可见较大肿块，似侵犯纵隔，内部表现不均。
 
 ### Not Support
 
@@ -122,6 +134,10 @@ None.
 <tr><td><img src="../assets_step3/morgagni-hernia-8/nodes/study_000_x_ray_image_001_lateral_f01.png" width="340"></td><td><img src="../assets_step3/morgagni-hernia-8/images/study_001_ct_image_000_axial_non_contrast.jpeg" width="340"></td></tr>
 </table>
 
+- **A 端原始 Lingshu caption：** The lungs are clear bilaterally. Specifically, no evidence of focal consolidation, pneumothorax, or pleural effusion. Cardiomediastinal silhouette is unremarkable. Visualized osseous structures of the thorax are without acute abnormality.
+- **A 端 caption 中文翻译：** 双肺清晰，未见局灶性实变、气胸或胸腔积液。心纵隔轮廓未见异常。所见胸廓骨性结构未见急性异常。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+
 #### Not support 2: `study_000_x_ray_image_001_lateral_f01` → `study_001_ct_image_002_coronal_non_contrast`
 
 - **Query：** `location_00003`
@@ -131,3 +147,7 @@ None.
 <tr><th>Anchor bbox</th><th>Target original image</th></tr>
 <tr><td><img src="../assets_step3/morgagni-hernia-8/nodes/study_000_x_ray_image_001_lateral_f01.png" width="340"></td><td><img src="../assets_step3/morgagni-hernia-8/images/study_001_ct_image_002_coronal_non_contrast.jpeg" width="340"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The lungs are clear bilaterally. Specifically, no evidence of focal consolidation, pneumothorax, or pleural effusion. Cardiomediastinal silhouette is unremarkable. Visualized osseous structures of the thorax are without acute abnormality.
+- **A 端 caption 中文翻译：** 双肺清晰，未见局灶性实变、气胸或胸腔积液。心纵隔轮廓未见异常。所见胸廓骨性结构未见急性异常。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。

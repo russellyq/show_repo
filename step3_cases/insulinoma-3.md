@@ -21,6 +21,7 @@
 - **Modality / subcategory：** CT / Axial non-contrast
 - **bbox_2d：** `[240, 180, 760, 460]`
 - **Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.
+- **中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
 
 ### Finding 2: `study_000_ct_image_001_axial_c_arterial_phase_f01`
 
@@ -29,6 +30,7 @@
 - **Modality / subcategory：** CT / Axial C+ arterial phase
 - **bbox_2d：** `[300, 300, 700, 600]`
 - **Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
+- **中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
 
 ### Finding 3: `study_001_mri_image_000_axial_t2_fat_sat_f01`
 
@@ -37,6 +39,7 @@
 - **Modality / subcategory：** MRI / Axial T2 fat sat
 - **bbox_2d：** `[375, 150, 725, 500]`
 - **Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant.
+- **中文翻译：** 肝脏增大并呈弥漫性不均匀异常信号。脾脏也增大。右上腹可见少量液体。
 
 ### Finding 4: `study_002_dsa_angiography_image_000_splenic_artery_f01`
 
@@ -45,6 +48,7 @@
 - **Modality / subcategory：** DSA (angiography) / Splenic artery
 - **bbox_2d：** `[320, 380, 680, 580]`
 - **Lingshu caption：** The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber.
+- **中文翻译：** 血管造影显示脾动脉。脾动脉近段可见局灶性狭窄，狭窄后扩张。其余脾动脉管径正常。
 
 ### Finding 5: `study_002_dsa_angiography_image_001_hepatic_artery_f01`
 
@@ -53,6 +57,7 @@
 - **Modality / subcategory：** DSA (angiography) / Hepatic artery
 - **bbox_2d：** `[220, 250, 650, 580]`
 - **Lingshu caption：** The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable.
+- **中文翻译：** 图像显示分支清楚的肝动脉。框内某一动脉分支局部似有不规则或狭窄，可能代表影响肝动脉供血的狭窄或其他血管异常。其余周围血管未见明显异常。
 
 ## Directed Cross-image Validation
 
@@ -61,6 +66,7 @@
 <img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="420">
 
 **Anchor Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.
+**Anchor caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
 
 #### location_00001: PARTIAL SUPPORT
 
@@ -77,11 +83,16 @@
 
 **IoU matching：**
 
-| Existing target bbox | IoU | Strong match | Lingshu caption |
-|---|---:|---|---|
-| `study_000_ct_image_001_axial_c_arterial_phase_f01`; `[300, 300, 700, 600]` | 0.179 | no | The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase. |
+| Existing target bbox | IoU | Strong match | Lingshu caption | 中文翻译 |
+|---|---:|---|---|---|
+| `study_000_ct_image_001_axial_c_arterial_phase_f01`; `[300, 300, 700, 600]` | 0.179 | no | The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase. | 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。 |
 
-**Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
+**B 图单红框（Lingshu 实际输入）：**
+
+<img src="../assets_step3/insulinoma-3/reground/location_00001.png" width="420">
+
+**Re-ground Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
+**Re-ground caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个约 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
 
 #### location_00002: PARTIAL SUPPORT
 
@@ -98,11 +109,16 @@
 
 **IoU matching：**
 
-| Existing target bbox | IoU | Strong match | Lingshu caption |
-|---|---:|---|---|
-| `study_001_mri_image_000_axial_t2_fat_sat_f01`; `[375, 150, 725, 500]` | 0.447 | no | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant. |
+| Existing target bbox | IoU | Strong match | Lingshu caption | 中文翻译 |
+|---|---:|---|---|---|
+| `study_001_mri_image_000_axial_t2_fat_sat_f01`; `[375, 150, 725, 500]` | 0.447 | no | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant. | 肝脏增大并呈弥漫性不均匀异常信号。脾脏也增大。右上腹可见少量液体。 |
 
-**Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
+**B 图单红框（Lingshu 实际输入）：**
+
+<img src="../assets_step3/insulinoma-3/reground/location_00002.png" width="420">
+
+**Re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen, with a focus on the pancreas. The pancreas appears to have an irregular shape and heterogeneous signal intensity, suggesting the presence of a lesion or abnormality. The surrounding tissues, including the liver and kidneys, appear normal. The overall image quality is good, allowing for detailed evaluation of the pancreatic region.
+**Re-ground caption 中文翻译：** 图像为腹部横断面，重点显示胰腺。胰腺形态不规则、信号不均，提示可能存在病灶或异常。肝脏、双肾等周围组织表现正常。图像质量良好，可对胰腺区域进行详细评估。
 
 #### location_00003: NOT SUPPORT
 
@@ -136,9 +152,9 @@ The target image has no existing Step 2 bbox.
 
 **IoU matching：**
 
-| Existing target bbox | IoU | Strong match | Lingshu caption |
-|---|---:|---|---|
-| `study_002_dsa_angiography_image_000_splenic_artery_f01`; `[320, 380, 680, 580]` | n/a | n/a | The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber. |
+| Existing target bbox | IoU | Strong match | Lingshu caption | 中文翻译 |
+|---|---:|---|---|---|
+| `study_002_dsa_angiography_image_000_splenic_artery_f01`; `[320, 380, 680, 580]` | n/a | n/a | The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber. | 血管造影显示脾动脉。脾动脉近段可见局灶性狭窄，狭窄后扩张。其余脾动脉管径正常。 |
 
 #### location_00005: NOT SUPPORT
 
@@ -155,9 +171,9 @@ The target image has no existing Step 2 bbox.
 
 **IoU matching：**
 
-| Existing target bbox | IoU | Strong match | Lingshu caption |
-|---|---:|---|---|
-| `study_002_dsa_angiography_image_001_hepatic_artery_f01`; `[220, 250, 650, 580]` | n/a | n/a | The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable. |
+| Existing target bbox | IoU | Strong match | Lingshu caption | 中文翻译 |
+|---|---:|---|---|---|
+| `study_002_dsa_angiography_image_001_hepatic_artery_f01`; `[220, 250, 650, 580]` | n/a | n/a | The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable. | 图像显示分支清楚的肝动脉。框内某一动脉分支局部似有不规则或狭窄，可能代表影响肝动脉供血的狭窄或其他血管异常。其余周围血管未见明显异常。 |
 
 #### location_00006: NOT SUPPORT
 
@@ -198,6 +214,7 @@ The target image has no existing Step 2 bbox.
 <img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="420">
 
 **Anchor Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
+**Anchor caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
 
 #### location_00008: PARTIAL SUPPORT
 
@@ -214,11 +231,16 @@ The target image has no existing Step 2 bbox.
 
 **IoU matching：**
 
-| Existing target bbox | IoU | Strong match | Lingshu caption |
-|---|---:|---|---|
-| `study_001_mri_image_000_axial_t2_fat_sat_f01`; `[375, 150, 725, 500]` | 0.394 | no | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant. |
+| Existing target bbox | IoU | Strong match | Lingshu caption | 中文翻译 |
+|---|---:|---|---|---|
+| `study_001_mri_image_000_axial_t2_fat_sat_f01`; `[375, 150, 725, 500]` | 0.394 | no | The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant. | 肝脏增大并呈弥漫性不均匀异常信号。脾脏也增大。右上腹可见少量液体。 |
 
-**Target Lingshu caption：** unavailable. This is a newly re-grounded bbox and has not passed through Step 2 Lingshu captioning.
+**B 图单红框（Lingshu 实际输入）：**
+
+<img src="../assets_step3/insulinoma-3/reground/location_00008.png" width="420">
+
+**Re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen, with a focus on the liver. Within the boxed region, there appears to be an area of increased signal intensity, which could indicate the presence of a lesion or abnormality. The surrounding liver parenchyma appears relatively normal in appearance. No other significant abnormalities are noted in the imaged anatomy.
+**Re-ground caption 中文翻译：** 图像为腹部横断面，重点显示肝脏。框内似有信号增高区，可能提示病灶或异常。周围肝实质外观相对正常。所示解剖范围内未见其他明显异常。
 
 #### location_00009: NOT SUPPORT
 
@@ -252,9 +274,9 @@ The target image has no existing Step 2 bbox.
 
 **IoU matching：**
 
-| Existing target bbox | IoU | Strong match | Lingshu caption |
-|---|---:|---|---|
-| `study_002_dsa_angiography_image_000_splenic_artery_f01`; `[320, 380, 680, 580]` | n/a | n/a | The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber. |
+| Existing target bbox | IoU | Strong match | Lingshu caption | 中文翻译 |
+|---|---:|---|---|---|
+| `study_002_dsa_angiography_image_000_splenic_artery_f01`; `[320, 380, 680, 580]` | n/a | n/a | The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber. | 血管造影显示脾动脉。脾动脉近段可见局灶性狭窄，狭窄后扩张。其余脾动脉管径正常。 |
 
 #### location_00011: NOT SUPPORT
 
@@ -271,9 +293,9 @@ The target image has no existing Step 2 bbox.
 
 **IoU matching：**
 
-| Existing target bbox | IoU | Strong match | Lingshu caption |
-|---|---:|---|---|
-| `study_002_dsa_angiography_image_001_hepatic_artery_f01`; `[220, 250, 650, 580]` | n/a | n/a | The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable. |
+| Existing target bbox | IoU | Strong match | Lingshu caption | 中文翻译 |
+|---|---:|---|---|---|
+| `study_002_dsa_angiography_image_001_hepatic_artery_f01`; `[220, 250, 650, 580]` | n/a | n/a | The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable. | 图像显示分支清楚的肝动脉。框内某一动脉分支局部似有不规则或狭窄，可能代表影响肝动脉供血的狭窄或其他血管异常。其余周围血管未见明显异常。 |
 
 #### location_00012: NOT SUPPORT
 
@@ -314,6 +336,7 @@ The target image has no existing Step 2 bbox.
 <img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="420">
 
 **Anchor Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant.
+**Anchor caption 中文翻译：** 肝脏增大并呈弥漫性不均匀异常信号。脾脏也增大。右上腹可见少量液体。
 
 #### location_00014: NOT SUPPORT
 
@@ -347,9 +370,9 @@ The target image has no existing Step 2 bbox.
 
 **IoU matching：**
 
-| Existing target bbox | IoU | Strong match | Lingshu caption |
-|---|---:|---|---|
-| `study_002_dsa_angiography_image_000_splenic_artery_f01`; `[320, 380, 680, 580]` | n/a | n/a | The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber. |
+| Existing target bbox | IoU | Strong match | Lingshu caption | 中文翻译 |
+|---|---:|---|---|---|
+| `study_002_dsa_angiography_image_000_splenic_artery_f01`; `[320, 380, 680, 580]` | n/a | n/a | The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber. | 血管造影显示脾动脉。脾动脉近段可见局灶性狭窄，狭窄后扩张。其余脾动脉管径正常。 |
 
 #### location_00016: NOT SUPPORT
 
@@ -366,9 +389,9 @@ The target image has no existing Step 2 bbox.
 
 **IoU matching：**
 
-| Existing target bbox | IoU | Strong match | Lingshu caption |
-|---|---:|---|---|
-| `study_002_dsa_angiography_image_001_hepatic_artery_f01`; `[220, 250, 650, 580]` | n/a | n/a | The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable. |
+| Existing target bbox | IoU | Strong match | Lingshu caption | 中文翻译 |
+|---|---:|---|---|---|
+| `study_002_dsa_angiography_image_001_hepatic_artery_f01`; `[220, 250, 650, 580]` | n/a | n/a | The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable. | 图像显示分支清楚的肝动脉。框内某一动脉分支局部似有不规则或狭窄，可能代表影响肝动脉供血的狭窄或其他血管异常。其余周围血管未见明显异常。 |
 
 #### location_00017: NOT SUPPORT
 
@@ -409,6 +432,7 @@ The target image has no existing Step 2 bbox.
 <img src="../assets_step3/insulinoma-3/nodes/study_002_dsa_angiography_image_000_splenic_artery_f01.png" width="420">
 
 **Anchor Lingshu caption：** The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber.
+**Anchor caption 中文翻译：** 血管造影显示脾动脉。脾动脉近段可见局灶性狭窄，狭窄后扩张。其余脾动脉管径正常。
 
 #### location_00019: NOT SUPPORT
 
@@ -425,9 +449,9 @@ The target image has no existing Step 2 bbox.
 
 **IoU matching：**
 
-| Existing target bbox | IoU | Strong match | Lingshu caption |
-|---|---:|---|---|
-| `study_002_dsa_angiography_image_001_hepatic_artery_f01`; `[220, 250, 650, 580]` | n/a | n/a | The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable. |
+| Existing target bbox | IoU | Strong match | Lingshu caption | 中文翻译 |
+|---|---:|---|---|---|
+| `study_002_dsa_angiography_image_001_hepatic_artery_f01`; `[220, 250, 650, 580]` | n/a | n/a | The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable. | 图像显示分支清楚的肝动脉。框内某一动脉分支局部似有不规则或狭窄，可能代表影响肝动脉供血的狭窄或其他血管异常。其余周围血管未见明显异常。 |
 
 #### location_00020: NOT SUPPORT
 
@@ -468,6 +492,7 @@ The target image has no existing Step 2 bbox.
 <img src="../assets_step3/insulinoma-3/nodes/study_002_dsa_angiography_image_001_hepatic_artery_f01.png" width="420">
 
 **Anchor Lingshu caption：** The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable.
+**Anchor caption 中文翻译：** 图像显示分支清楚的肝动脉。框内某一动脉分支局部似有不规则或狭窄，可能代表影响肝动脉供血的狭窄或其他血管异常。其余周围血管未见明显异常。
 
 #### location_00022: NOT SUPPORT
 
@@ -526,9 +551,14 @@ None.
 - **Maximum IoU：** 0.179（低于 threshold=0.5）
 
 <table>
-<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
-<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/grounding/location_00001.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="320"></td></tr>
+<tr><th>Anchor bbox</th><th>Cross-image grounding and IoU overlay</th><th>B image with the single re-grounded bbox given to Lingshu</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/grounding/location_00001.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/reground/location_00001.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="320"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.
+- **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
+- **B 端 re-ground Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
+- **B 端 re-ground caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个约 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
 
 #### Partial 2: `study_000_ct_image_000_axial_non_contrast_f01` → `study_001_mri_image_000_axial_t2_fat_sat`
 
@@ -537,9 +567,14 @@ None.
 - **Maximum IoU：** 0.447（低于 threshold=0.5）
 
 <table>
-<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
-<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/grounding/location_00002.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="320"></td></tr>
+<tr><th>Anchor bbox</th><th>Cross-image grounding and IoU overlay</th><th>B image with the single re-grounded bbox given to Lingshu</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/grounding/location_00002.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/reground/location_00002.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="320"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.
+- **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
+- **B 端 re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen, with a focus on the pancreas. The pancreas appears to have an irregular shape and heterogeneous signal intensity, suggesting the presence of a lesion or abnormality. The surrounding tissues, including the liver and kidneys, appear normal. The overall image quality is good, allowing for detailed evaluation of the pancreatic region.
+- **B 端 re-ground caption 中文翻译：** 图像为腹部横断面，重点显示胰腺。胰腺形态不规则、信号不均，提示可能存在病灶或异常。肝脏、双肾等周围组织表现正常。图像质量良好，可对胰腺区域进行详细评估。
 
 #### Partial 3: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_001_mri_image_000_axial_t2_fat_sat`
 
@@ -548,9 +583,14 @@ None.
 - **Maximum IoU：** 0.394（低于 threshold=0.5）
 
 <table>
-<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
-<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/grounding/location_00008.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="320"></td></tr>
+<tr><th>Anchor bbox</th><th>Cross-image grounding and IoU overlay</th><th>B image with the single re-grounded bbox given to Lingshu</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/grounding/location_00008.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/reground/location_00008.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="320"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
+- **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
+- **B 端 re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen, with a focus on the liver. Within the boxed region, there appears to be an area of increased signal intensity, which could indicate the presence of a lesion or abnormality. The surrounding liver parenchyma appears relatively normal in appearance. No other significant abnormalities are noted in the imaged anatomy.
+- **B 端 re-ground caption 中文翻译：** 图像为腹部横断面，重点显示肝脏。框内似有信号增高区，可能提示病灶或异常。周围肝实质外观相对正常。所示解剖范围内未见其他明显异常。
 
 ### Not Support
 
@@ -564,6 +604,10 @@ None.
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_001_mri_image_001_coronal_t2_fat_sat.jpg" width="340"></td></tr>
 </table>
 
+- **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.
+- **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+
 #### Not support 2: `study_000_ct_image_000_axial_non_contrast_f01` → `study_002_dsa_angiography_image_000_splenic_artery`
 
 - **Query：** `location_00004`
@@ -573,6 +617,10 @@ None.
 <tr><th>Anchor bbox</th><th>Target original image</th></tr>
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_000_splenic_artery.jpg" width="340"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.
+- **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
 
 #### Not support 3: `study_000_ct_image_000_axial_non_contrast_f01` → `study_002_dsa_angiography_image_001_hepatic_artery`
 
@@ -584,6 +632,10 @@ None.
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_001_hepatic_artery.jpg" width="340"></td></tr>
 </table>
 
+- **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.
+- **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+
 #### Not support 4: `study_000_ct_image_000_axial_non_contrast_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
 
 - **Query：** `location_00006`
@@ -593,6 +645,10 @@ None.
 <tr><th>Anchor bbox</th><th>Target original image</th></tr>
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_002_superior_mesenteric_artery.jpg" width="340"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.
+- **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
 
 #### Not support 5: `study_000_ct_image_000_axial_non_contrast_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
 
@@ -604,6 +660,10 @@ None.
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_003_right_hepatic_vein.jpg" width="340"></td></tr>
 </table>
 
+- **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.
+- **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+
 #### Not support 6: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_001_mri_image_001_coronal_t2_fat_sat`
 
 - **Query：** `location_00009`
@@ -613,6 +673,10 @@ None.
 <tr><th>Anchor bbox</th><th>Target original image</th></tr>
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_001_mri_image_001_coronal_t2_fat_sat.jpg" width="340"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
+- **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
 
 #### Not support 7: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_002_dsa_angiography_image_000_splenic_artery`
 
@@ -624,6 +688,10 @@ None.
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_000_splenic_artery.jpg" width="340"></td></tr>
 </table>
 
+- **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
+- **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+
 #### Not support 8: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_002_dsa_angiography_image_001_hepatic_artery`
 
 - **Query：** `location_00011`
@@ -633,6 +701,10 @@ None.
 <tr><th>Anchor bbox</th><th>Target original image</th></tr>
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_001_hepatic_artery.jpg" width="340"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
+- **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
 
 #### Not support 9: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
 
@@ -644,6 +716,10 @@ None.
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_002_superior_mesenteric_artery.jpg" width="340"></td></tr>
 </table>
 
+- **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
+- **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+
 #### Not support 10: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
 
 - **Query：** `location_00013`
@@ -653,6 +729,10 @@ None.
 <tr><th>Anchor bbox</th><th>Target original image</th></tr>
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_003_right_hepatic_vein.jpg" width="340"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
+- **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
 
 #### Not support 11: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_001_mri_image_001_coronal_t2_fat_sat`
 
@@ -664,6 +744,10 @@ None.
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_001_mri_image_001_coronal_t2_fat_sat.jpg" width="340"></td></tr>
 </table>
 
+- **A 端原始 Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant.
+- **A 端 caption 中文翻译：** 肝脏增大并呈弥漫性不均匀异常信号。脾脏也增大。右上腹可见少量液体。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+
 #### Not support 12: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_002_dsa_angiography_image_000_splenic_artery`
 
 - **Query：** `location_00015`
@@ -673,6 +757,10 @@ None.
 <tr><th>Anchor bbox</th><th>Target original image</th></tr>
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_000_splenic_artery.jpg" width="340"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant.
+- **A 端 caption 中文翻译：** 肝脏增大并呈弥漫性不均匀异常信号。脾脏也增大。右上腹可见少量液体。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
 
 #### Not support 13: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_002_dsa_angiography_image_001_hepatic_artery`
 
@@ -684,6 +772,10 @@ None.
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_001_hepatic_artery.jpg" width="340"></td></tr>
 </table>
 
+- **A 端原始 Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant.
+- **A 端 caption 中文翻译：** 肝脏增大并呈弥漫性不均匀异常信号。脾脏也增大。右上腹可见少量液体。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+
 #### Not support 14: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
 
 - **Query：** `location_00017`
@@ -693,6 +785,10 @@ None.
 <tr><th>Anchor bbox</th><th>Target original image</th></tr>
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_002_superior_mesenteric_artery.jpg" width="340"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant.
+- **A 端 caption 中文翻译：** 肝脏增大并呈弥漫性不均匀异常信号。脾脏也增大。右上腹可见少量液体。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
 
 #### Not support 15: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
 
@@ -704,6 +800,10 @@ None.
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_003_right_hepatic_vein.jpg" width="340"></td></tr>
 </table>
 
+- **A 端原始 Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant.
+- **A 端 caption 中文翻译：** 肝脏增大并呈弥漫性不均匀异常信号。脾脏也增大。右上腹可见少量液体。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+
 #### Not support 16: `study_002_dsa_angiography_image_000_splenic_artery_f01` → `study_002_dsa_angiography_image_001_hepatic_artery`
 
 - **Query：** `location_00019`
@@ -713,6 +813,10 @@ None.
 <tr><th>Anchor bbox</th><th>Target original image</th></tr>
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_002_dsa_angiography_image_000_splenic_artery_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_001_hepatic_artery.jpg" width="340"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber.
+- **A 端 caption 中文翻译：** 血管造影显示脾动脉。脾动脉近段可见局灶性狭窄，狭窄后扩张。其余脾动脉管径正常。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
 
 #### Not support 17: `study_002_dsa_angiography_image_000_splenic_artery_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
 
@@ -724,6 +828,10 @@ None.
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_002_dsa_angiography_image_000_splenic_artery_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_002_superior_mesenteric_artery.jpg" width="340"></td></tr>
 </table>
 
+- **A 端原始 Lingshu caption：** The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber.
+- **A 端 caption 中文翻译：** 血管造影显示脾动脉。脾动脉近段可见局灶性狭窄，狭窄后扩张。其余脾动脉管径正常。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+
 #### Not support 18: `study_002_dsa_angiography_image_000_splenic_artery_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
 
 - **Query：** `location_00021`
@@ -733,6 +841,10 @@ None.
 <tr><th>Anchor bbox</th><th>Target original image</th></tr>
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_002_dsa_angiography_image_000_splenic_artery_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_003_right_hepatic_vein.jpg" width="340"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber.
+- **A 端 caption 中文翻译：** 血管造影显示脾动脉。脾动脉近段可见局灶性狭窄，狭窄后扩张。其余脾动脉管径正常。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
 
 #### Not support 19: `study_002_dsa_angiography_image_001_hepatic_artery_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
 
@@ -744,6 +856,10 @@ None.
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_002_dsa_angiography_image_001_hepatic_artery_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_002_superior_mesenteric_artery.jpg" width="340"></td></tr>
 </table>
 
+- **A 端原始 Lingshu caption：** The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable.
+- **A 端 caption 中文翻译：** 图像显示分支清楚的肝动脉。框内某一动脉分支局部似有不规则或狭窄，可能代表影响肝动脉供血的狭窄或其他血管异常。其余周围血管未见明显异常。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+
 #### Not support 20: `study_002_dsa_angiography_image_001_hepatic_artery_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
 
 - **Query：** `location_00023`
@@ -753,3 +869,7 @@ None.
 <tr><th>Anchor bbox</th><th>Target original image</th></tr>
 <tr><td><img src="../assets_step3/insulinoma-3/nodes/study_002_dsa_angiography_image_001_hepatic_artery_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_003_right_hepatic_vein.jpg" width="340"></td></tr>
 </table>
+
+- **A 端原始 Lingshu caption：** The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable.
+- **A 端 caption 中文翻译：** 图像显示分支清楚的肝动脉。框内某一动脉分支局部似有不规则或狭窄，可能代表影响肝动脉供血的狭窄或其他血管异常。其余周围血管未见明显异常。
+- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
