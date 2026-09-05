@@ -119,7 +119,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00001` | `consistent` | `inconsistent` |
+| `partial__location_00001` | `consistent` | `consistent` |
 
 #### location_00002: NOT SUPPORT
 
@@ -211,7 +211,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00004` | `inconsistent` | `inconsistent` |
+| `partial__location_00004` | `inconsistent` | `consistent` |
 
 #### location_00005: NOT SUPPORT
 
@@ -354,7 +354,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00009` | `inconsistent` | `inconsistent` |
+| `partial__location_00009` | `consistent` | `partially` |
 
 ### Anchor 5: `study_001_ct_image_001_axial_lung_window_f01`
 
@@ -431,7 +431,7 @@
 - **B 端 re-ground Lingshu caption：** The heart size is normal. The mediastinal contour is normal. There is no pleural effusion. There is no pneumothorax. The lungs are normally inflated without evidence of focal airspace disease.
 - **B 端 re-ground caption 中文翻译：** 心影大小及纵隔轮廓正常。未见胸腔积液或气胸。双肺充气正常，未见局灶性肺泡性病变。
 - **Quantitative size validation / 定量大小一致性：** `consistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 2: `study_000_x_ray_image_000_frontal_f01` → `study_002_x_ray_image_000_frontal`
 
@@ -467,7 +467,7 @@
 - **B 端 re-ground Lingshu caption：** The right upper lobe demonstrates a large cavitary lesion with surrounding consolidation. There is also a smaller cavitary lesion in the left upper lobe. The mediastinum is shifted to the right.
 - **B 端 re-ground caption 中文翻译：** 右上叶可见伴周围实变的大空洞性病灶，左上叶另见较小空洞性病灶。纵隔向右移位。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 4: `study_001_ct_image_000_coronal_lung_window_f02` → `study_001_ct_image_001_axial_lung_window`
 
@@ -502,8 +502,8 @@
 - **A 端 caption 中文翻译：** 左肺充气良好，未见局灶性实变、胸腔积液或气胸。肺血管分布正常，未见肺门淋巴结肿大。
 - **B 端 re-ground Lingshu caption：** The lungs are hyperinflated. There is increased opacity in the left upper lung zone. The heart size is normal. The hilar and mediastinal contours are unremarkable. No pleural effusion or pneumothorax is seen.
 - **B 端 re-ground caption 中文翻译：** 双肺过度充气。左上肺野密度增高。心影大小正常，肺门及纵隔轮廓未见异常。未见胸腔积液或气胸。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `partially`
 
 ### Not Support
 

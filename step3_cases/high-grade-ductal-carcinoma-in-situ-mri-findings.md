@@ -259,7 +259,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00010` | `consistent` | `consistent` |
+| `partial__location_00010` | `inconsistent` | `consistent` |
 
 ## Dynamically Skipped Anchors
 
@@ -345,7 +345,7 @@
 - **A 端 caption 中文翻译：** 乳腺 MRI 显示右乳高亮区域，其信号强度高于周围组织，提示可能存在病灶或异常。病灶位于右乳外上象限。周围乳腺实质表现正常，未见其他明显异常。该区域的对比强化模式提示其值得进一步评估。
 - **B 端 re-ground Lingshu caption：** The image shows a breast MRI with a focus on the right breast. Within the red box, there is a region of interest that appears to have a different signal intensity compared to the surrounding tissue. This area is highlighted by green arrows, indicating a potential abnormality. The lesion appears to be well-circumscribed and is located in the upper outer quadrant of the right breast. The surrounding tissue shows normal breast parenchyma with no significant distortion or architectural changes. There is also a small inset image showing a magnified view of the lesion, which helps in better visualization of its characteristics.
 - **B 端 re-ground caption 中文翻译：** 图像为右乳 MRI。红框内可见较周围组织信号不同的关注区域，绿色箭头指示潜在异常。病灶边界清楚，位于右乳外上象限。周围乳腺实质正常，未见明显扭曲或结构改变。另有小插图显示病灶放大图，有助于观察其特征。
-- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
 - **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 ### Not Support

@@ -9,8 +9,8 @@
     "substep_version": "step_3_supported_pair_quantitative_qualitative_validation_v2",
     "model": "qwen3vl_8b",
     "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
-    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v3",
-    "qualitative_prompt_version": "step_3_pair_lingshu_caption_binary_v3",
+    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v4",
+    "qualitative_prompt_version": "step_3_pair_lingshu_caption_ternary_v1",
     "qualitative_evidence_source": "lingshu_captions_only",
     "calls_per_pair": 2
   },
@@ -352,7 +352,7 @@
         }
       },
       "quantitative_validation": "consistent",
-      "qualitative_validation": "inconsistent",
+      "qualitative_validation": "partially",
       "result_files": {
         "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00010/quantitative.json",
         "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00010/qualitative.json"
@@ -408,7 +408,7 @@
         }
       },
       "quantitative_validation": "inconsistent",
-      "qualitative_validation": "inconsistent",
+      "qualitative_validation": "consistent",
       "result_files": {
         "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00015/quantitative.json",
         "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00015/qualitative.json"
@@ -463,8 +463,8 @@
           "subcategory": "Axial T1 C+"
         }
       },
-      "quantitative_validation": "inconsistent",
-      "qualitative_validation": "consistent",
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "partially",
       "result_files": {
         "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00016/quantitative.json",
         "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00016/qualitative.json"
@@ -576,7 +576,7 @@
         }
       },
       "quantitative_validation": "consistent",
-      "qualitative_validation": "consistent",
+      "qualitative_validation": "partially",
       "result_files": {
         "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00035/quantitative.json",
         "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00035/qualitative.json"
@@ -688,7 +688,7 @@
         }
       },
       "quantitative_validation": "inconsistent",
-      "qualitative_validation": "inconsistent",
+      "qualitative_validation": "partially",
       "result_files": {
         "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00039/quantitative.json",
         "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00039/qualitative.json"
@@ -856,7 +856,7 @@
         }
       },
       "quantitative_validation": "consistent",
-      "qualitative_validation": "inconsistent",
+      "qualitative_validation": "partially",
       "result_files": {
         "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00047/quantitative.json",
         "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00047/qualitative.json"

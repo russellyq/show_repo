@@ -99,7 +99,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00001` | `consistent` | `consistent` |
+| `partial__location_00001` | `consistent` | `partially` |
 
 #### location_00002: PARTIAL SUPPORT
 
@@ -579,7 +579,7 @@ None.
 - **B 端 re-ground Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
 - **B 端 re-ground caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个约 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
 - **Quantitative size validation / 定量大小一致性：** `consistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `partially`
 
 #### Partial 2: `study_000_ct_image_000_axial_non_contrast_f01` → `study_001_mri_image_000_axial_t2_fat_sat`
 

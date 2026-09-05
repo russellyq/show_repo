@@ -571,7 +571,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00019` | `consistent` | `consistent` |
+| `partial__location_00019` | `consistent` | `partially` |
 
 #### location_00020: NOT SUPPORT
 
@@ -675,7 +675,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `strong__strong_location_00027_01` | `inconsistent` | `consistent` |
+| `strong__strong_location_00027_01` | `inconsistent` | `inconsistent` |
 
 ## Dynamically Skipped Anchors
 
@@ -740,7 +740,7 @@ The target image has no existing Step 2 bbox.
 - **Target Lingshu caption：** The axial bone window CT image shows a cross-sectional view of the vertebral body. The boxed region highlights an area of interest on the vertebral body. Within this region, there appears to be a subtle irregularity in the cortical bone, which could suggest a potential lesion or abnormality. The surrounding bone structure seems intact without obvious signs of fracture or significant deformity. The density variations within the boxed area might indicate changes in bone composition or integrity.
 - **Target caption 中文翻译：** 轴位骨窗 CT 显示椎体横断面。框内椎体皮质骨似有细微不规则，可能提示潜在病灶或异常。周围骨结构完整，未见明显骨折或显著畸形。框内密度差异可能反映骨成分或完整性改变。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 ### Partial Support
 
@@ -886,7 +886,7 @@ The target image has no existing Step 2 bbox.
 - **B 端 re-ground Lingshu caption：** There is increased radiotracer uptake in the right inferior neck.
 - **B 端 re-ground caption 中文翻译：** 右侧下颈部放射性示踪剂摄取增高。
 - **Quantitative size validation / 定量大小一致性：** `consistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `partially`
 
 ### Not Support
 

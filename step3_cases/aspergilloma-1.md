@@ -117,7 +117,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00001` | `consistent` | `inconsistent` |
+| `partial__location_00001` | `consistent` | `partially` |
 
 #### location_00002: STRONG SUPPORT
 
@@ -175,7 +175,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00003` | `inconsistent` | `consistent` |
+| `partial__location_00003` | `inconsistent` | `partially` |
 
 ### Anchor 2: `study_000_x_ray_image_000_frontal_f02`
 
@@ -227,7 +227,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `strong__strong_location_00005_01` | `inconsistent` | `consistent` |
+| `strong__strong_location_00005_01` | `consistent` | `consistent` |
 
 #### location_00006: PARTIAL SUPPORT
 
@@ -259,7 +259,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00006` | `inconsistent` | `inconsistent` |
+| `partial__location_00006` | `consistent` | `partially` |
 
 ### Anchor 3: `study_000_x_ray_image_000_frontal_f03`
 
@@ -337,7 +337,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00009` | `inconsistent` | `inconsistent` |
+| `partial__location_00009` | `inconsistent` | `partially` |
 
 ### Anchor 4: `study_001_x_ray_image_000_missing_f01`
 
@@ -469,7 +469,7 @@
 - **Anchor caption 中文翻译：** 双肺过度充气。双侧可见弥漫性间质增厚。心影大小正常。未见气胸或胸腔积液。
 - **Target Lingshu caption：** The lungs are hyperinflated. There is a large area of consolidation in the right upper lobe. There is also a smaller area of consolidation in the left upper lobe. The mediastinal contours are normal.
 - **Target caption 中文翻译：** 双肺过度充气。右上叶可见大片实变，左上叶另见较小范围实变。纵隔轮廓正常。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 ### Partial Support
@@ -490,7 +490,7 @@
 - **B 端 re-ground Lingshu caption：** The image shows a chest x-ray with a red box highlighting a specific area. Within this region, there appears to be an opacity or density that could potentially indicate an abnormality. The opacity is located in the lower lung fields, possibly involving the right or left lower lobe. The surrounding lung parenchyma appears relatively clear, without any obvious signs of consolidation, effusion, or other significant abnormalities. However, further evaluation and correlation with clinical findings would be necessary to determine the significance of this finding.
 - **B 端 re-ground caption 中文翻译：** 图像为胸部 X 线片，红框标出特定区域。框内似有致密影，可能提示异常。该致密影位于下肺野，可能累及右下叶或左下叶。周围肺实质相对清晰，未见明显实变、积液或其他显著异常。但仍需进一步评估并结合临床表现判断其意义。
 - **Quantitative size validation / 定量大小一致性：** `consistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `partially`
 
 #### Partial 2: `study_000_x_ray_image_000_frontal_f01` → `study_002_ct_image_001_oblique_lung_window`
 
@@ -508,7 +508,7 @@
 - **B 端 re-ground Lingshu caption：** The oblique lung window shows a large area of consolidation in the right upper lobe. The consolidation appears to have a heterogeneous density with areas of increased opacity. There is also evidence of air bronchograms within the consolidated region. The surrounding lung parenchyma appears relatively normal without significant signs of atelectasis or pleural effusion.
 - **B 端 re-ground caption 中文翻译：** 斜位肺窗显示右上叶大片实变。实变密度不均，内有更高密度区域，并可见空气支气管征。周围肺实质相对正常，未见明显肺不张或胸腔积液。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `partially`
 
 #### Partial 3: `study_000_x_ray_image_000_frontal_f02` → `study_002_ct_image_001_oblique_lung_window`
 
@@ -525,8 +525,8 @@
 - **A 端 caption 中文翻译：** 双肺过度充气。双侧可见弥漫性间质增厚。心影大小正常。未见气胸或胸腔积液。
 - **B 端 re-ground Lingshu caption：** The oblique lung window shows a large area of consolidation in the right upper lobe. The consolidation appears as a dense, white area on the CT scan, indicating a significant amount of fluid or other material filling the alveoli. This finding is consistent with pneumonia or other infectious processes. The surrounding lung tissue appears relatively normal, without any obvious signs of atelectasis or other abnormalities.
 - **B 端 re-ground caption 中文翻译：** 斜位肺窗显示右上叶大片实变，在 CT 上呈致密白色区，提示肺泡内有大量液体或其他物质充填。该征象符合肺炎或其他感染过程。周围肺组织相对正常，未见明显肺不张或其他异常。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `partially`
 
 #### Partial 4: `study_000_x_ray_image_000_frontal_f03` → `study_002_ct_image_001_oblique_lung_window`
 
@@ -544,7 +544,7 @@
 - **B 端 re-ground Lingshu caption：** The lungs are hyperinflated. There is diffuse bronchiectasis and bronchial wall thickening. There is a large area of consolidation in the right upper lobe. There is also a smaller area of consolidation in the left upper lobe.
 - **B 端 re-ground caption 中文翻译：** 双肺过度充气。可见弥漫性支气管扩张和支气管壁增厚。右上叶可见大片实变，左上叶另见较小范围实变。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `partially`
 
 #### Partial 5: `study_002_ct_image_000_axial_lung_window_f02` → `study_002_ct_image_001_oblique_lung_window`
 

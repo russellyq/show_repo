@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import filecmp
 import html
 import json
 import re
@@ -70,7 +71,9 @@ def copy_asset(source, destination):
         raise FileNotFoundError(source)
     destination = Path(destination)
     destination.parent.mkdir(parents=True, exist_ok=True)
-    if not destination.is_file() or source.stat().st_size != destination.stat().st_size:
+    if not destination.is_file() or not filecmp.cmp(
+        source, destination, shallow=False
+    ):
         shutil.copy2(source, destination)
     return destination
 
@@ -115,7 +118,12 @@ def pair_validation_id(status, relation_or_query_id):
 
 def validation_value(validation, key):
     value = validation.get(key)
-    if value not in {"consistent", "inconsistent"}:
+    allowed_values = (
+        {"consistent", "partially", "inconsistent"}
+        if key == "qualitative_validation"
+        else {"consistent", "inconsistent"}
+    )
+    if value not in allowed_values:
         raise ValueError(
             f"Invalid {key} for {validation.get('pair_id')}: {value!r}"
         )
@@ -692,7 +700,7 @@ def render_index(case_rows, output_root, model_label):
         "**定量 / 定性验证：**",
         "",
         "- 定量验证使用两张带 bbox 的图像及对应 Lingshu caption，输出 `consistent` 或 `inconsistent`。",
-        "- 定性验证只使用两条 Lingshu caption 判断语义兼容性，输出 `consistent` 或 `inconsistent`。",
+        "- 定性验证只使用两条 Lingshu caption 判断语义兼容性，输出 `consistent`、`partially` 或 `inconsistent`。",
         "- 仅 strong-support 与 partial-support pair 接受这两项验证；not-support 不执行。",
         "",
         "**Overlay 图例：** 红框为跨图新定位；绿框为达到阈值的已有 bbox；黄框为未达到阈值的已有 bbox。",
@@ -712,11 +720,11 @@ def render_index(case_rows, output_root, model_label):
         "",
         f"共 **{len(validations)}** 个 strong/partial pair 完成定量与定性验证。",
         "",
-        "| Location relation | Pairs | Quantitative consistent | Quantitative inconsistent | Qualitative consistent | Qualitative inconsistent |",
-        "|---|---:|---:|---:|---:|---:|",
-        f"| Strong support | {sum(item.get('support_status') == 'strong_support' for item in validations)} | {validation_count('strong_support', 'quantitative_validation', 'consistent')} | {validation_count('strong_support', 'quantitative_validation', 'inconsistent')} | {validation_count('strong_support', 'qualitative_validation', 'consistent')} | {validation_count('strong_support', 'qualitative_validation', 'inconsistent')} |",
-        f"| Partial support | {sum(item.get('support_status') == 'partial_support' for item in validations)} | {validation_count('partial_support', 'quantitative_validation', 'consistent')} | {validation_count('partial_support', 'quantitative_validation', 'inconsistent')} | {validation_count('partial_support', 'qualitative_validation', 'consistent')} | {validation_count('partial_support', 'qualitative_validation', 'inconsistent')} |",
-        f"| **Total** | **{len(validations)}** | **{sum(item.get('quantitative_validation') == 'consistent' for item in validations)}** | **{sum(item.get('quantitative_validation') == 'inconsistent' for item in validations)}** | **{sum(item.get('qualitative_validation') == 'consistent' for item in validations)}** | **{sum(item.get('qualitative_validation') == 'inconsistent' for item in validations)}** |",
+        "| Location relation | Pairs | Quantitative consistent | Quantitative inconsistent | Qualitative consistent | Qualitative partially | Qualitative inconsistent |",
+        "|---|---:|---:|---:|---:|---:|---:|",
+        f"| Strong support | {sum(item.get('support_status') == 'strong_support' for item in validations)} | {validation_count('strong_support', 'quantitative_validation', 'consistent')} | {validation_count('strong_support', 'quantitative_validation', 'inconsistent')} | {validation_count('strong_support', 'qualitative_validation', 'consistent')} | {validation_count('strong_support', 'qualitative_validation', 'partially')} | {validation_count('strong_support', 'qualitative_validation', 'inconsistent')} |",
+        f"| Partial support | {sum(item.get('support_status') == 'partial_support' for item in validations)} | {validation_count('partial_support', 'quantitative_validation', 'consistent')} | {validation_count('partial_support', 'quantitative_validation', 'inconsistent')} | {validation_count('partial_support', 'qualitative_validation', 'consistent')} | {validation_count('partial_support', 'qualitative_validation', 'partially')} | {validation_count('partial_support', 'qualitative_validation', 'inconsistent')} |",
+        f"| **Total** | **{len(validations)}** | **{sum(item.get('quantitative_validation') == 'consistent' for item in validations)}** | **{sum(item.get('quantitative_validation') == 'inconsistent' for item in validations)}** | **{sum(item.get('qualitative_validation') == 'consistent' for item in validations)}** | **{sum(item.get('qualitative_validation') == 'partially' for item in validations)}** | **{sum(item.get('qualitative_validation') == 'inconsistent' for item in validations)}** |",
         "",
         "## Cases",
         "",

@@ -99,7 +99,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00001` | `inconsistent` | `consistent` |
+| `partial__location_00001` | `inconsistent` | `partially` |
 
 #### location_00002: NOT SUPPORT
 
@@ -306,7 +306,7 @@ None.
 - **B 端 re-ground Lingshu caption：** The right internal auditory canal appears enlarged compared to the left. The right cochlear nerve appears hypoplastic. The right facial nerve appears normal.
 - **B 端 re-ground caption 中文翻译：** 右侧内听道较左侧增宽。右侧耳蜗神经似发育不良，右侧面神经表现正常。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `partially`
 
 ### Not Support
 

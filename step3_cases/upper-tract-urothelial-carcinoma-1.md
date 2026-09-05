@@ -350,7 +350,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00019` | `inconsistent` | `consistent` |
+| `partial__location_00019` | `consistent` | `inconsistent` |
 
 #### location_00020: PARTIAL SUPPORT
 
@@ -382,7 +382,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00020` | `inconsistent` | `consistent` |
+| `partial__location_00020` | `consistent` | `inconsistent` |
 
 #### location_00021: STRONG SUPPORT
 
@@ -896,8 +896,8 @@ The target image has no existing Step 2 bbox.
 - **A 端 caption 中文翻译：** 框内为右肾，大小和形态正常。未见肾积水或局灶性肿块。肾实质均匀，未见异常衰减区。肝、脾、胰及肠袢等周围结构未见异常。腹腔内未见明显淋巴结肿大或游离液体。
 - **B 端 re-ground Lingshu caption：** The red box is located in the right upper quadrant of the abdomen. Within this region, there appears to be a small amount of free fluid adjacent to the liver. The liver itself appears normal in size and attenuation. There is no evidence of intra-abdominal free air. The bowel loops appear unremarkable. The vertebral body and posterior elements appear intact.
 - **B 端 re-ground caption 中文翻译：** 红框位于右上腹。框内肝旁似有少量游离液体。肝脏大小及密度正常。未见腹腔游离气体，肠袢无明显异常。椎体及后方附件结构完整。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Partial 3: `study_001_ct_image_000_axial_non_contrast_f01` → `study_001_ct_image_003_sagittal_renal_parenchymal_phase`
 
@@ -914,8 +914,8 @@ The target image has no existing Step 2 bbox.
 - **A 端 caption 中文翻译：** 框内为右肾，大小和形态正常。未见肾积水或局灶性肿块。肾实质均匀，未见异常衰减区。肝、脾、胰及肠袢等周围结构未见异常。腹腔内未见明显淋巴结肿大或游离液体。
 - **B 端 re-ground Lingshu caption：** The red box is located in the mid abdomen, overlying the small bowel loops. The small bowel loops appear dilated with air-fluid levels. There is no evidence of free intraperitoneal air.
 - **B 端 re-ground caption 中文翻译：** 红框位于中腹部并覆盖小肠袢。小肠袢扩张，可见气液平面。未见腹腔游离气体。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Partial 4: `study_001_ct_image_000_axial_non_contrast_f02` → `study_001_ct_image_001_axial_renal_cortical_phase`
 

@@ -20,7 +20,7 @@
 **定量 / 定性验证：**
 
 - 定量验证使用两张带 bbox 的图像及对应 Lingshu caption，输出 `consistent` 或 `inconsistent`。
-- 定性验证只使用两条 Lingshu caption 判断语义兼容性，输出 `consistent` 或 `inconsistent`。
+- 定性验证只使用两条 Lingshu caption 判断语义兼容性，输出 `consistent`、`partially` 或 `inconsistent`。
 - 仅 strong-support 与 partial-support pair 接受这两项验证；not-support 不执行。
 
 **Overlay 图例：** 红框为跨图新定位；绿框为达到阈值的已有 bbox；黄框为未达到阈值的已有 bbox。
@@ -40,11 +40,11 @@
 
 共 **89** 个 strong/partial pair 完成定量与定性验证。
 
-| Location relation | Pairs | Quantitative consistent | Quantitative inconsistent | Qualitative consistent | Qualitative inconsistent |
-|---|---:|---:|---:|---:|---:|
-| Strong support | 20 | 8 | 12 | 10 | 10 |
-| Partial support | 69 | 34 | 35 | 28 | 41 |
-| **Total** | **89** | **42** | **47** | **38** | **51** |
+| Location relation | Pairs | Quantitative consistent | Quantitative inconsistent | Qualitative consistent | Qualitative partially | Qualitative inconsistent |
+|---|---:|---:|---:|---:|---:|---:|
+| Strong support | 20 | 10 | 10 | 9 | 0 | 11 |
+| Partial support | 69 | 37 | 32 | 22 | 14 | 33 |
+| **Total** | **89** | **47** | **42** | **31** | **14** | **44** |
 
 ## Cases
 

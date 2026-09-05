@@ -262,7 +262,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00007` | `consistent` | `inconsistent` |
+| `partial__location_00007` | `inconsistent` | `inconsistent` |
 
 ## Dynamically Skipped Anchors
 
@@ -348,7 +348,7 @@ The target image has no existing Step 2 bbox.
 - **A 端 caption 中文翻译：** 腹腔内可见大量游离气体，符合气腹表现，主要位于上腹部并环绕肝脏和胃。未见肠穿孔或其他腹腔内病变证据。双肺清晰，未见胸腔积液或气胸。
 - **B 端 re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen, with a focus on the liver. Within the boxed region, there appears to be a distinct area of increased density or attenuation compared to the surrounding liver parenchyma. This could potentially represent a lesion or abnormality within the liver. The size, shape, and precise location of this finding would require further evaluation by a radiologist to determine its significance.
 - **B 端 re-ground caption 中文翻译：** 图像为腹部横断面，重点显示肝脏。框内似有较周围肝实质密度或衰减增高的明确区域，可能代表肝内病灶或异常。需由放射科医师进一步评估其大小、形态和精确位置，以确定其意义。
-- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
 - **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 ### Not Support
