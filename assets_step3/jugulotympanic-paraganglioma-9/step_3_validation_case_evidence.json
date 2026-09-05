@@ -1,0 +1,91 @@
+{
+  "step": 3,
+  "substep": "supported_pair_quantitative_qualitative_validation",
+  "case_id": "jugulotympanic-paraganglioma-9",
+  "case_url": "https://radiopaedia.org/cases/jugulotympanic-paraganglioma-9?lang=us",
+  "case_title": "Jugulotympanic paraganglioma",
+  "status": "complete",
+  "configuration": {
+    "substep_version": "step_3_supported_pair_quantitative_qualitative_validation_v2",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v2",
+    "qualitative_prompt_version": "step_3_pair_lingshu_caption_binary_v2",
+    "qualitative_evidence_source": "lingshu_captions_only",
+    "calls_per_pair": 2
+  },
+  "source": {
+    "step_3_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/jugulotympanic-paraganglioma-9/step_3/case_evidence.json",
+    "step_3_fingerprint": "5e5fde3186770dbb56f99fe32e0be345106c9af490718d70ec5f66a9c0179e61",
+    "step_3_reground_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/jugulotympanic-paraganglioma-9/step_3_reground/case_evidence.json",
+    "step_3_reground_fingerprint": "9006c7ebc519bd9a7eeb00a1dca1130e10c6e083bd53649f1bea3cd531101022"
+  },
+  "patient_background": "unknown",
+  "validations": [
+    {
+      "pair_id": "partial__location_00001",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00001",
+        "max_iou": 0.0,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_ct_image_000_axial_bone_window_f01",
+        "image_id": "study_000_ct_image_000_axial_bone_window",
+        "bbox_2d": [
+          84,
+          488,
+          384,
+          740
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/jugulotympanic-paraganglioma-9/step_2/bbox_images/study_000_ct_image_000_axial_bone_window/study_000_ct_image_000_axial_bone_window_r01_bbox.png",
+        "lingshu_caption": "The right mastoid air cells appear opacified compared to the left side. The right middle ear cavity also appears opacified. There is no definite bony erosion.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_ct_image_000_axial_bone_window",
+          "study_index": 0,
+          "modality": "CT",
+          "subcategory": "Axial bone window"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00001",
+        "image_id": "study_001_mri_image_000_axial_t1_c_fat_sat",
+        "bbox_2d": [
+          87,
+          442,
+          375,
+          656
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/jugulotympanic-paraganglioma-9/step_3_reground/bbox_images/study_001_mri_image_000_axial_t1_c_fat_sat/location_00001_bbox.png",
+        "lingshu_caption": "The right internal auditory canal appears enlarged compared to the left. The right cochlear nerve appears hypoplastic. The right facial nerve appears normal.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_mri_image_000_axial_t1_c_fat_sat",
+          "study_index": 1,
+          "modality": "MRI",
+          "subcategory": "Axial T1 C+ fat sat"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/jugulotympanic-paraganglioma-9/step_3_validation/pairs/partial__location_00001/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/jugulotympanic-paraganglioma-9/step_3_validation/pairs/partial__location_00001/qualitative.json"
+      }
+    }
+  ],
+  "processing_summary": {
+    "pair_count": 1,
+    "strong_support_pair_count": 0,
+    "partial_support_pair_count": 1,
+    "completed_pair_count": 1,
+    "expected_call_count": 2,
+    "parse_error_count": 0,
+    "missing_tasks": []
+  }
+}

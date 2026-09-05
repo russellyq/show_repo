@@ -1,0 +1,371 @@
+{
+  "step": 3,
+  "substep": "supported_pair_quantitative_qualitative_validation",
+  "case_id": "congenital-esophageal-stenosis-1",
+  "case_url": "https://radiopaedia.org/cases/congenital-esophageal-stenosis-1?lang=us",
+  "case_title": "Congenital esophageal stenosis",
+  "status": "complete",
+  "configuration": {
+    "substep_version": "step_3_supported_pair_quantitative_qualitative_validation_v2",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v2",
+    "qualitative_prompt_version": "step_3_pair_lingshu_caption_binary_v2",
+    "qualitative_evidence_source": "lingshu_captions_only",
+    "calls_per_pair": 2
+  },
+  "source": {
+    "step_3_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3/case_evidence.json",
+    "step_3_fingerprint": "9a896b77f0a9a347019cc7ba359af7372ae9aca80cae4e57179cb9263bc03b53",
+    "step_3_reground_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_reground/case_evidence.json",
+    "step_3_reground_fingerprint": "ce9f8377b4a0fdf85cc4896a3ae934a8e286c713d48b2b824c5a8af436325b5f"
+  },
+  "patient_background": "Patient Data: Age: 7 months Gender: Female\nPresentation: Two month history of episodic regurgitation, increasing in frequency after starting semi-solid foods. Treated for gastroesophageal reflux without improvement.",
+  "validations": [
+    {
+      "pair_id": "partial__location_00001",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00001",
+        "max_iou": 0.056693,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_fluoroscopy_image_000_frontal_f01",
+        "image_id": "study_000_fluoroscopy_image_000_frontal",
+        "bbox_2d": [
+          175,
+          280,
+          280,
+          375
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_2/bbox_images/study_000_fluoroscopy_image_000_frontal/study_000_fluoroscopy_image_000_frontal_r01_bbox.png",
+        "lingshu_caption": "The image shows a frontal view of the neck and upper chest area. There is a red box highlighting a specific region on the left side of the neck. Within this region, there appears to be an abnormality that could potentially indicate a pathological condition. The surrounding tissues and structures appear relatively normal, without any obvious signs of inflammation, swelling, or other abnormalities.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_fluoroscopy_image_000_frontal",
+          "study_index": 0,
+          "modality": "Fluoroscopy",
+          "subcategory": "Frontal"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00001",
+        "image_id": "study_000_fluoroscopy_image_001_frontal",
+        "bbox_2d": [
+          150,
+          170,
+          250,
+          270
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_reground/bbox_images/study_000_fluoroscopy_image_001_frontal/location_00001_bbox.png",
+        "lingshu_caption": "The image shows a frontal view of the chest with a focus on the upper mediastinum. Within the boxed region, there appears to be a radiopaque structure suggestive of a foreign body or calcification. The surrounding soft tissues and bony structures do not show any obvious signs of acute pathology. The lungs appear clear without evidence of consolidation, effusion, or pneumothorax. The heart size is within normal limits, and no significant abnormalities are noted in the visible portions of the great vessels.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_000_fluoroscopy_image_001_frontal",
+          "study_index": 0,
+          "modality": "Fluoroscopy",
+          "subcategory": "Frontal"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_validation/pairs/partial__location_00001/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_validation/pairs/partial__location_00001/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00002",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00002",
+        "max_iou": null,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_fluoroscopy_image_000_frontal_f01",
+        "image_id": "study_000_fluoroscopy_image_000_frontal",
+        "bbox_2d": [
+          175,
+          280,
+          280,
+          375
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_2/bbox_images/study_000_fluoroscopy_image_000_frontal/study_000_fluoroscopy_image_000_frontal_r01_bbox.png",
+        "lingshu_caption": "The image shows a frontal view of the neck and upper chest area. There is a red box highlighting a specific region on the left side of the neck. Within this region, there appears to be an abnormality that could potentially indicate a pathological condition. The surrounding tissues and structures appear relatively normal, without any obvious signs of inflammation, swelling, or other abnormalities.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_fluoroscopy_image_000_frontal",
+          "study_index": 0,
+          "modality": "Fluoroscopy",
+          "subcategory": "Frontal"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00002",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          260,
+          180,
+          400,
+          320
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_reground/bbox_images/study_001_ct_image_000_coronal_lung_window/location_00002_bbox.png",
+        "lingshu_caption": "The image shows a coronal lung window CT scan. There is a red bounding box located in the right upper lobe of the lungs. Within this region, there appears to be a small, well-defined nodule. The surrounding lung parenchyma appears relatively normal without significant consolidation, ground-glass opacities, or other obvious abnormalities. The mediastinum and heart appear unremarkable. No pleural effusions or pneumothorax are noted.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_000_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_validation/pairs/partial__location_00002/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_validation/pairs/partial__location_00002/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00003",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00003",
+        "max_iou": 0.0,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_fluoroscopy_image_000_frontal_f01",
+        "image_id": "study_000_fluoroscopy_image_000_frontal",
+        "bbox_2d": [
+          175,
+          280,
+          280,
+          375
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_2/bbox_images/study_000_fluoroscopy_image_000_frontal/study_000_fluoroscopy_image_000_frontal_r01_bbox.png",
+        "lingshu_caption": "The image shows a frontal view of the neck and upper chest area. There is a red box highlighting a specific region on the left side of the neck. Within this region, there appears to be an abnormality that could potentially indicate a pathological condition. The surrounding tissues and structures appear relatively normal, without any obvious signs of inflammation, swelling, or other abnormalities.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_fluoroscopy_image_000_frontal",
+          "study_index": 0,
+          "modality": "Fluoroscopy",
+          "subcategory": "Frontal"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00003",
+        "image_id": "study_001_ct_image_001_sagittal_mediastinal_window_with_contrast",
+        "bbox_2d": [
+          375,
+          120,
+          460,
+          280
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_reground/bbox_images/study_001_ct_image_001_sagittal_mediastinal_window_with_contrast/location_00003_bbox.png",
+        "lingshu_caption": "The image shows a sagittal view of the thoracic region with a focus on the mediastinum. The boxed area highlights a region in the anterior mediastinum. Within this region, there appears to be a mass-like structure that is distinct from the surrounding tissues. The mass is located near the heart and major vessels, suggesting its proximity to critical structures. The density of the mass is different from the adjacent lung tissue, indicating a possible abnormality. The surrounding mediastinal structures appear to be displaced or compressed by the mass. There is no clear evidence of calcification or necrosis within the mass. The overall appearance suggests a need for further evaluation to determine the nature of the lesion.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_001_sagittal_mediastinal_window_with_contrast",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Sagittal mediastinal window - with contrast"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_validation/pairs/partial__location_00003/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_validation/pairs/partial__location_00003/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00006",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00006",
+        "max_iou": 0.0,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_fluoroscopy_image_001_frontal_f01",
+        "image_id": "study_000_fluoroscopy_image_001_frontal",
+        "bbox_2d": [
+          27,
+          27,
+          187,
+          236
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_2/bbox_images/study_000_fluoroscopy_image_001_frontal/study_000_fluoroscopy_image_001_frontal_r01_bbox.png",
+        "lingshu_caption": "The image shows a frontal view of the chest with a red box highlighting an area of interest in the upper left quadrant. Within this region, there appears to be a radiopaque structure that could represent a foreign body or calcification. The surrounding lung fields appear clear without obvious signs of consolidation, effusion, or pneumothorax. The heart silhouette is visible and appears normal in size and shape. The diaphragm and costophrenic angles are also well-defined. No acute bony abnormalities are noted in the visible portions of the ribs and spine.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_fluoroscopy_image_001_frontal",
+          "study_index": 0,
+          "modality": "Fluoroscopy",
+          "subcategory": "Frontal"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00006",
+        "image_id": "study_001_ct_image_001_sagittal_mediastinal_window_with_contrast",
+        "bbox_2d": [
+          100,
+          20,
+          250,
+          200
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_reground/bbox_images/study_001_ct_image_001_sagittal_mediastinal_window_with_contrast/location_00006_bbox.png",
+        "lingshu_caption": "The image shows a sagittal view of the chest with a focus on the mediastinum. The red box highlights an area in the upper thoracic region, possibly indicating a region of interest for further evaluation. Within this region, there appears to be a mass or lesion that could be causing concern. The mass is located near the anterior mediastinum, adjacent to the sternum and possibly involving the thymus gland. The lesion seems to have irregular borders and may exhibit heterogeneous density, suggesting a possible neoplastic process. Surrounding structures such as the heart, great vessels, and lung parenchyma appear to be displaced or compressed by the mass. There is no clear evidence of calcification within the lesion, and the surrounding tissues do not show signs of significant inflammation or edema. Further imaging and clinical correlation would be necessary to determine the exact nature of this finding.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_001_sagittal_mediastinal_window_with_contrast",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Sagittal mediastinal window - with contrast"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_validation/pairs/partial__location_00006/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_validation/pairs/partial__location_00006/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00009",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00009",
+        "max_iou": 0.0,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_fluoroscopy_image_001_frontal_f02",
+        "image_id": "study_000_fluoroscopy_image_001_frontal",
+        "bbox_2d": [
+          778,
+          314,
+          875,
+          424
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_2/bbox_images/study_000_fluoroscopy_image_001_frontal/study_000_fluoroscopy_image_001_frontal_r02_bbox.png",
+        "lingshu_caption": "The image shows a frontal view of the chest with a red bounding box highlighting a specific area. Within this region, there appears to be a radiopaque object consistent with a foreign body, likely a coin, located in the upper esophagus. The surrounding structures, including the trachea and major bronchi, appear unremarkable. The lungs show no obvious signs of consolidation, effusion, or pneumothorax. The heart silhouette is normal in size and shape. There are no apparent fractures or dislocations of the ribs or clavicles.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_fluoroscopy_image_001_frontal",
+          "study_index": 0,
+          "modality": "Fluoroscopy",
+          "subcategory": "Frontal"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00009",
+        "image_id": "study_001_ct_image_001_sagittal_mediastinal_window_with_contrast",
+        "bbox_2d": [
+          640,
+          140,
+          730,
+          230
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_reground/bbox_images/study_001_ct_image_001_sagittal_mediastinal_window_with_contrast/location_00009_bbox.png",
+        "lingshu_caption": "The image shows a sagittal view of the thoracic spine with a red box highlighting a specific area. Within this region, there appears to be a lesion or abnormality that requires further investigation. The surrounding structures, including the vertebral bodies, intervertebral discs, and paraspinal soft tissues, should also be carefully examined for any additional abnormalities or signs of pathology.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_001_sagittal_mediastinal_window_with_contrast",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Sagittal mediastinal window - with contrast"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_validation/pairs/partial__location_00009/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_validation/pairs/partial__location_00009/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00012",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00012",
+        "max_iou": 0.0,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_fluoroscopy_image_001_frontal_f03",
+        "image_id": "study_000_fluoroscopy_image_001_frontal",
+        "bbox_2d": [
+          845,
+          314,
+          942,
+          424
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_2/bbox_images/study_000_fluoroscopy_image_001_frontal/study_000_fluoroscopy_image_001_frontal_r03_bbox.png",
+        "lingshu_caption": "The image shows a frontal view of the chest with a focus on the upper thoracic region. There is a marked area in the left upper quadrant of the image, which appears to be highlighted for further examination. Within this region, there is a noticeable opacity that could suggest the presence of an abnormality such as a mass or consolidation. The surrounding lung fields appear relatively clear, with no obvious signs of pleural effusion or pneumothorax. The heart silhouette is partially visible, and there are no apparent abnormalities in the mediastinum. The diaphragm and bony structures, including the ribs and spine, do not show any significant deviations from normal anatomy.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_fluoroscopy_image_001_frontal",
+          "study_index": 0,
+          "modality": "Fluoroscopy",
+          "subcategory": "Frontal"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00012",
+        "image_id": "study_001_ct_image_001_sagittal_mediastinal_window_with_contrast",
+        "bbox_2d": [
+          675,
+          244,
+          764,
+          334
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_reground/bbox_images/study_001_ct_image_001_sagittal_mediastinal_window_with_contrast/location_00012_bbox.png",
+        "lingshu_caption": "The image shows a sagittal view of the thoracic spine with a focus on the mediastinum. The red box highlights a specific area of interest. Within this region, there appears to be a mass or lesion that is distinct from the surrounding tissues. The mass is located near the vertebral column and seems to be adjacent to the esophagus or trachea. The density and borders of the mass suggest it could be a solid lesion, possibly indicating a tumor or other pathological process. The surrounding structures, including the vertebrae and soft tissues, appear normal without any obvious signs of invasion or displacement.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_001_sagittal_mediastinal_window_with_contrast",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Sagittal mediastinal window - with contrast"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_validation/pairs/partial__location_00012/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/congenital-esophageal-stenosis-1/step_3_validation/pairs/partial__location_00012/qualitative.json"
+      }
+    }
+  ],
+  "processing_summary": {
+    "pair_count": 6,
+    "strong_support_pair_count": 0,
+    "partial_support_pair_count": 6,
+    "completed_pair_count": 6,
+    "expected_call_count": 12,
+    "parse_error_count": 0,
+    "missing_tasks": []
+  }
+}

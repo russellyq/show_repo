@@ -1,0 +1,259 @@
+{
+  "step": 3,
+  "substep": "supported_pair_quantitative_qualitative_validation",
+  "case_id": "high-grade-ductal-carcinoma-in-situ-mri-findings",
+  "case_url": "https://radiopaedia.org/cases/high-grade-ductal-carcinoma-in-situ-mri-findings?lang=us",
+  "case_title": "High grade ductal carcinoma in situ: MRI findings",
+  "status": "complete",
+  "configuration": {
+    "substep_version": "step_3_supported_pair_quantitative_qualitative_validation_v2",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v2",
+    "qualitative_prompt_version": "step_3_pair_lingshu_caption_binary_v2",
+    "qualitative_evidence_source": "lingshu_captions_only",
+    "calls_per_pair": 2
+  },
+  "source": {
+    "step_3_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_3/case_evidence.json",
+    "step_3_fingerprint": "0472c848a01cdde0b35e19f96822b4b50cf51324e50754ad3a75c2b951e8ff96",
+    "step_3_reground_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_3_reground/case_evidence.json",
+    "step_3_reground_fingerprint": "5636bf04a1ae57842ff05d51ac0c558fd509afe85bbc33b4d062a504b8b831f3"
+  },
+  "patient_background": "Patient Data: Age: 40 Gender: Female\nPresentation: Presents with blood-stained nipple discharge from left breast",
+  "validations": [
+    {
+      "pair_id": "strong__strong_location_00001_01",
+      "support_status": "strong_support",
+      "source": {
+        "relation_id": "strong_location_00001_01",
+        "query_id": "location_00001",
+        "iou": 0.674318,
+        "iou_threshold": 0.5
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_001_ultrasound_image_000_missing_f01",
+        "image_id": "study_001_ultrasound_image_000_missing",
+        "bbox_2d": [
+          278,
+          142,
+          775,
+          468
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_2/bbox_images/study_001_ultrasound_image_000_missing/study_001_ultrasound_image_000_missing_r01_bbox.png",
+        "lingshu_caption": "The left breast ultrasound demonstrates a hypoechoic mass measuring approximately 2.7 cm at the 10 o'clock position. The mass has irregular borders and appears to be well-circumscribed. There is no evidence of posterior acoustic shadowing or enhancement. Surrounding breast tissue appears heterogeneous without any additional focal lesions noted.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_001_ultrasound_image_000_missing",
+          "study_index": 1,
+          "modality": "Ultrasound",
+          "subcategory": "missing"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_001_ultrasound_image_001_missing_f01",
+        "image_id": "study_001_ultrasound_image_001_missing",
+        "bbox_2d": [
+          228,
+          130,
+          792,
+          583
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_2/bbox_images/study_001_ultrasound_image_001_missing/study_001_ultrasound_image_001_missing_r01_bbox.png",
+        "lingshu_caption": "The left breast ultrasound demonstrates a hypoechoic mass with irregular margins and posterior acoustic shadowing. The mass measures approximately 1.5 cm in diameter. There is increased vascularity within the mass on color Doppler imaging. Surrounding breast tissue appears heterogeneous with scattered fibroglandular densities. No additional suspicious masses or abnormalities are noted in the imaged area.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_001_ultrasound_image_001_missing",
+          "study_index": 1,
+          "modality": "Ultrasound",
+          "subcategory": "missing"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_3_validation/pairs/strong__strong_location_00001_01/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_3_validation/pairs/strong__strong_location_00001_01/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00008",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00008",
+        "max_iou": 0.0,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat_f01",
+        "image_id": "study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat",
+        "bbox_2d": [
+          450,
+          100,
+          750,
+          500
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_2/bbox_images/study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat/study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat_r01_bbox.png",
+        "lingshu_caption": "The image shows a 3D MIP (Maximum Intensity Projection) color-coded enhancement pattern on a T1-weighted contrast-enhanced fat-saturated MRI sequence. The boxed region appears to highlight an area of interest that may contain an abnormality. Within this region, there is a distinct area of enhanced signal intensity, suggesting increased vascularity or perfusion. This area is located centrally within the image, and its boundaries are clearly demarcated by the red box. The surrounding tissue exhibits varying degrees of enhancement, indicating different levels of perfusion or vascularization. The overall image provides valuable information about the distribution and intensity of enhancement patterns, which can aid in the assessment of potential abnormalities.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "3D MIP - colour coded enhancement pattern T1 C+ fat sat"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00008",
+        "image_id": "study_002_mri_image_001_axial_t1_c_fat_sat",
+        "bbox_2d": [
+          670,
+          30,
+          820,
+          150
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_3_reground/bbox_images/study_002_mri_image_001_axial_t1_c_fat_sat/location_00008_bbox.png",
+        "lingshu_caption": "The image shows a breast MRI with a highlighted region in the upper outer quadrant of the right breast. The highlighted area appears to have increased signal intensity compared to the surrounding tissue, suggesting a potential lesion. The lesion is well-circumscribed and appears to be enhancing, which could indicate a solid mass. Surrounding tissues show normal breast parenchyma without any obvious signs of edema or distortion. No other abnormalities are noted in the left breast or axillary regions in this particular slice.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_001_axial_t1_c_fat_sat",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 C+ fat sat"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_3_validation/pairs/partial__location_00008/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_3_validation/pairs/partial__location_00008/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00009",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00009",
+        "max_iou": 0.073052,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat_f01",
+        "image_id": "study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat",
+        "bbox_2d": [
+          450,
+          100,
+          750,
+          500
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_2/bbox_images/study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat/study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat_r01_bbox.png",
+        "lingshu_caption": "The image shows a 3D MIP (Maximum Intensity Projection) color-coded enhancement pattern on a T1-weighted contrast-enhanced fat-saturated MRI sequence. The boxed region appears to highlight an area of interest that may contain an abnormality. Within this region, there is a distinct area of enhanced signal intensity, suggesting increased vascularity or perfusion. This area is located centrally within the image, and its boundaries are clearly demarcated by the red box. The surrounding tissue exhibits varying degrees of enhancement, indicating different levels of perfusion or vascularization. The overall image provides valuable information about the distribution and intensity of enhancement patterns, which can aid in the assessment of potential abnormalities.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "3D MIP - colour coded enhancement pattern T1 C+ fat sat"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00009",
+        "image_id": "study_002_mri_image_002_axial_t1_c_fat_sat",
+        "bbox_2d": [
+          650,
+          110,
+          760,
+          250
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_3_reground/bbox_images/study_002_mri_image_002_axial_t1_c_fat_sat/location_00009_bbox.png",
+        "lingshu_caption": "The image shows a breast MRI with a highlighted region in the right breast. The highlighted area appears to have a distinct mass with irregular borders and heterogeneous signal intensity. The mass is located in the upper outer quadrant of the right breast. Surrounding the mass, there is evidence of enhancement, suggesting possible contrast uptake. The adjacent tissue shows some degree of edema or inflammation, indicated by the increased signal intensity in the surrounding parenchyma. No significant lymphadenopathy is noted in the axillary region on this slice.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_002_axial_t1_c_fat_sat",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 C+ fat sat"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_3_validation/pairs/partial__location_00009/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_3_validation/pairs/partial__location_00009/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00010",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00010",
+        "max_iou": 0.0,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_mri_image_001_axial_t1_c_fat_sat_f01",
+        "image_id": "study_002_mri_image_001_axial_t1_c_fat_sat",
+        "bbox_2d": [
+          320,
+          220,
+          680,
+          680
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_2/bbox_images/study_002_mri_image_001_axial_t1_c_fat_sat/study_002_mri_image_001_axial_t1_c_fat_sat_r01_bbox.png",
+        "lingshu_caption": "The image shows a breast MRI with a highlighted area in the right breast. The highlighted region appears to have increased signal intensity compared to the surrounding tissue, suggesting a possible lesion or abnormality. The lesion is located in the upper outer quadrant of the right breast. The surrounding tissue shows normal breast parenchyma with no other apparent abnormalities. The contrast enhancement pattern within the highlighted area indicates that it might be a focal area of interest for further evaluation.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_001_axial_t1_c_fat_sat",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 C+ fat sat"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00010",
+        "image_id": "study_002_mri_image_002_axial_t1_c_fat_sat",
+        "bbox_2d": [
+          220,
+          200,
+          460,
+          480
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_3_reground/bbox_images/study_002_mri_image_002_axial_t1_c_fat_sat/location_00010_bbox.png",
+        "lingshu_caption": "The image shows a breast MRI with a focus on the right breast. Within the red box, there is a region of interest that appears to have a different signal intensity compared to the surrounding tissue. This area is highlighted by green arrows, indicating a potential abnormality. The lesion appears to be well-circumscribed and is located in the upper outer quadrant of the right breast. The surrounding tissue shows normal breast parenchyma with no significant distortion or architectural changes. There is also a small inset image showing a magnified view of the lesion, which helps in better visualization of its characteristics.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_002_axial_t1_c_fat_sat",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 C+ fat sat"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_3_validation/pairs/partial__location_00010/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/high-grade-ductal-carcinoma-in-situ-mri-findings/step_3_validation/pairs/partial__location_00010/qualitative.json"
+      }
+    }
+  ],
+  "processing_summary": {
+    "pair_count": 4,
+    "strong_support_pair_count": 1,
+    "partial_support_pair_count": 3,
+    "completed_pair_count": 4,
+    "expected_call_count": 8,
+    "parse_error_count": 0,
+    "missing_tasks": []
+  }
+}

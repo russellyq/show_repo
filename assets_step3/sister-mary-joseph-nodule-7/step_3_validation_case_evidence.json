@@ -1,0 +1,259 @@
+{
+  "step": 3,
+  "substep": "supported_pair_quantitative_qualitative_validation",
+  "case_id": "sister-mary-joseph-nodule-7",
+  "case_url": "https://radiopaedia.org/cases/sister-mary-joseph-nodule-7?lang=us",
+  "case_title": "Sister Mary Joseph nodule",
+  "status": "complete",
+  "configuration": {
+    "substep_version": "step_3_supported_pair_quantitative_qualitative_validation_v2",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v2",
+    "qualitative_prompt_version": "step_3_pair_lingshu_caption_binary_v2",
+    "qualitative_evidence_source": "lingshu_captions_only",
+    "calls_per_pair": 2
+  },
+  "source": {
+    "step_3_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3/case_evidence.json",
+    "step_3_fingerprint": "edd44c50d7f619644b5aa319f5ab199c1f678c80bd591762e397c3bbcffab377",
+    "step_3_reground_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3_reground/case_evidence.json",
+    "step_3_reground_fingerprint": "6cdaed146ac305efc8eb1aa90cf905c89224b5e45bc078f7749fd6f18f597f6b"
+  },
+  "patient_background": "Patient Data: Age: 40 years Gender: Female\nPresentation: Enlarging umbilical nodule",
+  "validations": [
+    {
+      "pair_id": "strong__strong_location_00003_01",
+      "support_status": "strong_support",
+      "source": {
+        "relation_id": "strong_location_00003_01",
+        "query_id": "location_00003",
+        "iou": 0.676101,
+        "iou_threshold": 0.5
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_f01",
+        "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+        "bbox_2d": [
+          389,
+          501,
+          572,
+          638
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_000_photograph_image_000_enlarging_umbilical_nodule/study_000_photograph_image_000_enlarging_umbilical_nodule_r01_bbox.png",
+        "lingshu_caption": "The umbilicus contains a 2 cm diameter, smooth, rounded, red nodule. The surrounding skin appears normal.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+          "study_index": 0,
+          "modality": "Photograph",
+          "subcategory": "enlarging umbilical nodule"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_ct_image_000_axial_non_contrast_f01",
+        "image_id": "study_002_ct_image_000_axial_non_contrast",
+        "bbox_2d": [
+          380,
+          280,
+          620,
+          440
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_002_ct_image_000_axial_non_contrast/study_002_ct_image_000_axial_non_contrast_r01_bbox.png",
+        "lingshu_caption": "The image shows a cross-sectional view of the abdomen. Within the boxed region, there appears to be an area of increased density or opacity, which could potentially indicate the presence of an abnormality such as a mass, lesion, or other pathological process. The surrounding tissues appear relatively normal in appearance. Further evaluation and correlation with clinical information would be necessary to determine the significance of this finding.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_ct_image_000_axial_non_contrast",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial non-contrast"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3_validation/pairs/strong__strong_location_00003_01/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3_validation/pairs/strong__strong_location_00003_01/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00004",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00004",
+        "max_iou": 0.316456,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_photograph_image_000_enlarging_umbilical_nodule_f01",
+        "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+        "bbox_2d": [
+          389,
+          501,
+          572,
+          638
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_000_photograph_image_000_enlarging_umbilical_nodule/study_000_photograph_image_000_enlarging_umbilical_nodule_r01_bbox.png",
+        "lingshu_caption": "The umbilicus contains a 2 cm diameter, smooth, rounded, red nodule. The surrounding skin appears normal.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_photograph_image_000_enlarging_umbilical_nodule",
+          "study_index": 0,
+          "modality": "Photograph",
+          "subcategory": "enlarging umbilical nodule"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00004",
+        "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+        "bbox_2d": [
+          347,
+          236,
+          486,
+          377
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3_reground/bbox_images/study_002_ct_image_001_axial_c_portal_venous_phase/location_00004_bbox.png",
+        "lingshu_caption": "The image shows a cross-sectional view of the abdomen, with a focus on the right kidney. Within the red box, there appears to be a distinct mass or lesion present in the right kidney. The mass has an irregular shape and heterogeneous density, suggesting a potential abnormality. The surrounding renal parenchyma appears relatively normal in appearance. No other significant abnormalities are noted in the imaged region.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3_validation/pairs/partial__location_00004/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3_validation/pairs/partial__location_00004/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00006",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00006",
+        "max_iou": 0.181607,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_ct_image_000_axial_non_contrast_f02",
+        "image_id": "study_002_ct_image_000_axial_non_contrast",
+        "bbox_2d": [
+          220,
+          360,
+          400,
+          500
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_002_ct_image_000_axial_non_contrast/study_002_ct_image_000_axial_non_contrast_r02_bbox.png",
+        "lingshu_caption": "The image shows a large mass in the right upper quadrant of the abdomen. The mass appears to be heterogeneous in density, with areas of both high and low attenuation. There is also evidence of surrounding tissue invasion and possible lymphadenopathy. The mass appears to be displacing adjacent structures, including the liver and kidney.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_ct_image_000_axial_non_contrast",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial non-contrast"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00006",
+        "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+        "bbox_2d": [
+          280,
+          310,
+          440,
+          500
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3_reground/bbox_images/study_002_ct_image_001_axial_c_portal_venous_phase/location_00006_bbox.png",
+        "lingshu_caption": "The image shows a cross-sectional view of the abdomen at the level of the kidneys. The red box highlights an area in the right kidney that appears to have a distinct lesion or abnormality. This lesion is characterized by a well-defined border and a different density compared to the surrounding renal parenchyma. The lesion's appearance suggests it could be a solid mass, potentially indicative of a neoplastic process. Surrounding structures, including the liver, spleen, and portions of the bowel, appear unremarkable in this slice. The vertebral body and spinal canal are also visible, showing no apparent abnormalities.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3_validation/pairs/partial__location_00006/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3_validation/pairs/partial__location_00006/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00007",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00007",
+        "max_iou": 0.153041,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_ct_image_000_axial_non_contrast_f03",
+        "image_id": "study_002_ct_image_000_axial_non_contrast",
+        "bbox_2d": [
+          700,
+          340,
+          900,
+          500
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_2/bbox_images/study_002_ct_image_000_axial_non_contrast/study_002_ct_image_000_axial_non_contrast_r03_bbox.png",
+        "lingshu_caption": "The image shows a large amount of free air in the peritoneal cavity, consistent with pneumoperitoneum. The air appears to be located primarily in the upper abdomen, surrounding the liver and stomach. There is no evidence of bowel perforation or other intra-abdominal pathology. The lungs appear clear, and there is no evidence of pleural effusion or pneumothorax.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_ct_image_000_axial_non_contrast",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial non-contrast"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00007",
+        "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+        "bbox_2d": [
+          625,
+          262,
+          775,
+          400
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3_reground/bbox_images/study_002_ct_image_001_axial_c_portal_venous_phase/location_00007_bbox.png",
+        "lingshu_caption": "The image shows a cross-sectional view of the abdomen, with a focus on the liver. Within the boxed region, there appears to be a distinct area of increased density or attenuation compared to the surrounding liver parenchyma. This could potentially represent a lesion or abnormality within the liver. The size, shape, and precise location of this finding would require further evaluation by a radiologist to determine its significance.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_ct_image_001_axial_c_portal_venous_phase",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3_validation/pairs/partial__location_00007/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/sister-mary-joseph-nodule-7/step_3_validation/pairs/partial__location_00007/qualitative.json"
+      }
+    }
+  ],
+  "processing_summary": {
+    "pair_count": 4,
+    "strong_support_pair_count": 1,
+    "partial_support_pair_count": 3,
+    "completed_pair_count": 4,
+    "expected_call_count": 8,
+    "parse_error_count": 0,
+    "missing_tasks": []
+  }
+}

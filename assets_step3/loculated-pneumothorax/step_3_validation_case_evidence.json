@@ -1,0 +1,371 @@
+{
+  "step": 3,
+  "substep": "supported_pair_quantitative_qualitative_validation",
+  "case_id": "loculated-pneumothorax",
+  "case_url": "https://radiopaedia.org/cases/loculated-pneumothorax?lang=us",
+  "case_title": "Loculated pneumothorax",
+  "status": "complete",
+  "configuration": {
+    "substep_version": "step_3_supported_pair_quantitative_qualitative_validation_v2",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v2",
+    "qualitative_prompt_version": "step_3_pair_lingshu_caption_binary_v2",
+    "qualitative_evidence_source": "lingshu_captions_only",
+    "calls_per_pair": 2
+  },
+  "source": {
+    "step_3_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3/case_evidence.json",
+    "step_3_fingerprint": "0bbb0170332ec021ec73b989286819db8e997b1048952de31c7b48962973d5f5",
+    "step_3_reground_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_reground/case_evidence.json",
+    "step_3_reground_fingerprint": "05e44d55cfa6506ea9272a8d2fa7f934fcf8f9ca0c8b01b5b8ba9f9423e64eb3"
+  },
+  "patient_background": "Patient Data: Age: Elderly Gender: Male\nPresentation: Status post subdural evacuation with positive pressure ventilation became short of breath.",
+  "validations": [
+    {
+      "pair_id": "strong__strong_location_00008_01",
+      "support_status": "strong_support",
+      "source": {
+        "relation_id": "strong_location_00008_01",
+        "query_id": "location_00008",
+        "iou": 0.593883,
+        "iou_threshold": 0.5
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_001_ct_image_000_coronal_lung_window_f03",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          591,
+          95,
+          880,
+          875
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r03_bbox.png",
+        "lingshu_caption": "The left lung is well inflated with no areas of focal consolidation, pleural effusion, or pneumothorax identified. The pulmonary vasculature is within normal limits. There is no evidence of hilar lymphadenopathy.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_000_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_001_ct_image_001_axial_lung_window_f02",
+        "image_id": "study_001_ct_image_001_axial_lung_window",
+        "bbox_2d": [
+          588,
+          272,
+          937,
+          712
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_001_axial_lung_window/study_001_ct_image_001_axial_lung_window_r02_bbox.png",
+        "lingshu_caption": "The lungs are hyperinflated. There is a large right pneumothorax with collapse of the right lung. The left lung appears normal.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_001_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/strong__strong_location_00008_01/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/strong__strong_location_00008_01/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00001",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00001",
+        "max_iou": 0.091797,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_x_ray_image_000_frontal_f01",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          601,
+          469,
+          886,
+          919
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png",
+        "lingshu_caption": "The lungs are hyperinflated. There is increased opacity in the left lower lung zone. The heart size is normal. The mediastinal contour is normal. There is no pneumothorax. There is no pleural effusion.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_x_ray_image_000_frontal",
+          "study_index": 0,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00001",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          450,
+          475,
+          660,
+          850
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_reground/bbox_images/study_001_ct_image_000_coronal_lung_window/location_00001_bbox.png",
+        "lingshu_caption": "The heart size is normal. The mediastinal contour is normal. There is no pleural effusion. There is no pneumothorax. The lungs are normally inflated without evidence of focal airspace disease.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_000_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/partial__location_00001/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/partial__location_00001/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00003",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00003",
+        "max_iou": 0.0,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_x_ray_image_000_frontal_f01",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          601,
+          469,
+          886,
+          919
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png",
+        "lingshu_caption": "The lungs are hyperinflated. There is increased opacity in the left lower lung zone. The heart size is normal. The mediastinal contour is normal. There is no pneumothorax. There is no pleural effusion.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_x_ray_image_000_frontal",
+          "study_index": 0,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00003",
+        "image_id": "study_002_x_ray_image_000_frontal",
+        "bbox_2d": [
+          586,
+          469,
+          866,
+          924
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_reground/bbox_images/study_002_x_ray_image_000_frontal/location_00003_bbox.png",
+        "lingshu_caption": "The lungs are hyperinflated. There is increased opacity in the left lower lung zone. The heart size is normal. The hilar and mediastinal contours are unremarkable. No pleural effusion or pneumothorax is seen.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_x_ray_image_000_frontal",
+          "study_index": 2,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/partial__location_00003/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/partial__location_00003/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00004",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00004",
+        "max_iou": 0.458196,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_001_ct_image_000_coronal_lung_window_f01",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          101,
+          284,
+          427,
+          825
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r01_bbox.png",
+        "lingshu_caption": "The right lower lobe demonstrates a large area of consolidation with air bronchograms. There is also a moderate right pleural effusion. The left lung appears clear.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_000_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00004",
+        "image_id": "study_001_ct_image_001_axial_lung_window",
+        "bbox_2d": [
+          175,
+          187,
+          490,
+          558
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_reground/bbox_images/study_001_ct_image_001_axial_lung_window/location_00004_bbox.png",
+        "lingshu_caption": "The right upper lobe demonstrates a large cavitary lesion with surrounding consolidation. There is also a smaller cavitary lesion in the left upper lobe. The mediastinum is shifted to the right.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_001_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/partial__location_00004/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/partial__location_00004/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00006",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00006",
+        "max_iou": 0.293384,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_001_ct_image_000_coronal_lung_window_f02",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          180,
+          40,
+          498,
+          382
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r02_bbox.png",
+        "lingshu_caption": "The right upper lobe demonstrates a large cavitary lesion with surrounding consolidation. There is also a smaller cavitary lesion in the right lower lobe. The left lung appears clear.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_000_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00006",
+        "image_id": "study_001_ct_image_001_axial_lung_window",
+        "bbox_2d": [
+          180,
+          134,
+          500,
+          450
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_reground/bbox_images/study_001_ct_image_001_axial_lung_window/location_00006_bbox.png",
+        "lingshu_caption": "The right upper lobe demonstrates a large cavitary lesion with surrounding consolidation. There is also evidence of bronchiectasis in this region. The left lung appears relatively clear.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_001_axial_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/partial__location_00006/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/partial__location_00006/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00009",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00009",
+        "max_iou": 0.0,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_001_ct_image_000_coronal_lung_window_f03",
+        "image_id": "study_001_ct_image_000_coronal_lung_window",
+        "bbox_2d": [
+          591,
+          95,
+          880,
+          875
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_2/bbox_images/study_001_ct_image_000_coronal_lung_window/study_001_ct_image_000_coronal_lung_window_r03_bbox.png",
+        "lingshu_caption": "The left lung is well inflated with no areas of focal consolidation, pleural effusion, or pneumothorax identified. The pulmonary vasculature is within normal limits. There is no evidence of hilar lymphadenopathy.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_000_coronal_lung_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal lung window"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00009",
+        "image_id": "study_002_x_ray_image_000_frontal",
+        "bbox_2d": [
+          574,
+          114,
+          876,
+          874
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_reground/bbox_images/study_002_x_ray_image_000_frontal/location_00009_bbox.png",
+        "lingshu_caption": "The lungs are hyperinflated. There is increased opacity in the left upper lung zone. The heart size is normal. The hilar and mediastinal contours are unremarkable. No pleural effusion or pneumothorax is seen.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_x_ray_image_000_frontal",
+          "study_index": 2,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/partial__location_00009/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/partial__location_00009/qualitative.json"
+      }
+    }
+  ],
+  "processing_summary": {
+    "pair_count": 6,
+    "strong_support_pair_count": 1,
+    "partial_support_pair_count": 5,
+    "completed_pair_count": 6,
+    "expected_call_count": 12,
+    "parse_error_count": 0,
+    "missing_tasks": []
+  }
+}

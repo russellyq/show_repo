@@ -1,0 +1,203 @@
+{
+  "step": 3,
+  "substep": "supported_pair_quantitative_qualitative_validation",
+  "case_id": "insulinoma-3",
+  "case_url": "https://radiopaedia.org/cases/insulinoma-3?lang=us",
+  "case_title": "Insulinoma",
+  "status": "complete",
+  "configuration": {
+    "substep_version": "step_3_supported_pair_quantitative_qualitative_validation_v2",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v2",
+    "qualitative_prompt_version": "step_3_pair_lingshu_caption_binary_v2",
+    "qualitative_evidence_source": "lingshu_captions_only",
+    "calls_per_pair": 2
+  },
+  "source": {
+    "step_3_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/insulinoma-3/step_3/case_evidence.json",
+    "step_3_fingerprint": "5df232e96171d5ca0ebcaf6cf66eb50a46d8c290f33a8725427953332e74c54f",
+    "step_3_reground_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/insulinoma-3/step_3_reground/case_evidence.json",
+    "step_3_reground_fingerprint": "84d94d52cc2416040c326e05a654ee2da15b66c7bc3a7012d48c266acc5d11fb"
+  },
+  "patient_background": "Patient Data: Age: 30 years Gender: Female\nPresentation: Presented 3 days after a 20 minute episode of dizziness, blurred vision and weakness. A non-fasting blood glucose level of 45 mg/dL was discovered.",
+  "validations": [
+    {
+      "pair_id": "partial__location_00001",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00001",
+        "max_iou": 0.178766,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_ct_image_000_axial_non_contrast_f01",
+        "image_id": "study_000_ct_image_000_axial_non_contrast",
+        "bbox_2d": [
+          240,
+          180,
+          760,
+          460
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/insulinoma-3/step_2/bbox_images/study_000_ct_image_000_axial_non_contrast/study_000_ct_image_000_axial_non_contrast_r01_bbox.png",
+        "lingshu_caption": "The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_ct_image_000_axial_non_contrast",
+          "study_index": 0,
+          "modality": "CT",
+          "subcategory": "Axial non-contrast"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00001",
+        "image_id": "study_000_ct_image_001_axial_c_arterial_phase",
+        "bbox_2d": [
+          200,
+          100,
+          700,
+          400
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/insulinoma-3/step_3_reground/bbox_images/study_000_ct_image_001_axial_c_arterial_phase/location_00001_bbox.png",
+        "lingshu_caption": "The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_000_ct_image_001_axial_c_arterial_phase",
+          "study_index": 0,
+          "modality": "CT",
+          "subcategory": "Axial C+ arterial phase"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/insulinoma-3/step_3_validation/pairs/partial__location_00001/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/insulinoma-3/step_3_validation/pairs/partial__location_00001/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00002",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00002",
+        "max_iou": 0.447389,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_ct_image_000_axial_non_contrast_f01",
+        "image_id": "study_000_ct_image_000_axial_non_contrast",
+        "bbox_2d": [
+          240,
+          180,
+          760,
+          460
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/insulinoma-3/step_2/bbox_images/study_000_ct_image_000_axial_non_contrast/study_000_ct_image_000_axial_non_contrast_r01_bbox.png",
+        "lingshu_caption": "The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_ct_image_000_axial_non_contrast",
+          "study_index": 0,
+          "modality": "CT",
+          "subcategory": "Axial non-contrast"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00002",
+        "image_id": "study_001_mri_image_000_axial_t2_fat_sat",
+        "bbox_2d": [
+          320,
+          260,
+          680,
+          580
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/insulinoma-3/step_3_reground/bbox_images/study_001_mri_image_000_axial_t2_fat_sat/location_00002_bbox.png",
+        "lingshu_caption": "The image shows a cross-sectional view of the abdomen, with a focus on the pancreas. The pancreas appears to have an irregular shape and heterogeneous signal intensity, suggesting the presence of a lesion or abnormality. The surrounding tissues, including the liver and kidneys, appear normal. The overall image quality is good, allowing for detailed evaluation of the pancreatic region.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_mri_image_000_axial_t2_fat_sat",
+          "study_index": 1,
+          "modality": "MRI",
+          "subcategory": "Axial T2 fat sat"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/insulinoma-3/step_3_validation/pairs/partial__location_00002/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/insulinoma-3/step_3_validation/pairs/partial__location_00002/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00008",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00008",
+        "max_iou": 0.393981,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_ct_image_001_axial_c_arterial_phase_f01",
+        "image_id": "study_000_ct_image_001_axial_c_arterial_phase",
+        "bbox_2d": [
+          300,
+          300,
+          700,
+          600
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/insulinoma-3/step_2/bbox_images/study_000_ct_image_001_axial_c_arterial_phase/study_000_ct_image_001_axial_c_arterial_phase_r01_bbox.png",
+        "lingshu_caption": "The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_ct_image_001_axial_c_arterial_phase",
+          "study_index": 0,
+          "modality": "CT",
+          "subcategory": "Axial C+ arterial phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00008",
+        "image_id": "study_001_mri_image_000_axial_t2_fat_sat",
+        "bbox_2d": [
+          350,
+          300,
+          650,
+          550
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/insulinoma-3/step_3_reground/bbox_images/study_001_mri_image_000_axial_t2_fat_sat/location_00008_bbox.png",
+        "lingshu_caption": "The image shows a cross-sectional view of the abdomen, with a focus on the liver. Within the boxed region, there appears to be an area of increased signal intensity, which could indicate the presence of a lesion or abnormality. The surrounding liver parenchyma appears relatively normal in appearance. No other significant abnormalities are noted in the imaged anatomy.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_mri_image_000_axial_t2_fat_sat",
+          "study_index": 1,
+          "modality": "MRI",
+          "subcategory": "Axial T2 fat sat"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/insulinoma-3/step_3_validation/pairs/partial__location_00008/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/insulinoma-3/step_3_validation/pairs/partial__location_00008/qualitative.json"
+      }
+    }
+  ],
+  "processing_summary": {
+    "pair_count": 3,
+    "strong_support_pair_count": 0,
+    "partial_support_pair_count": 3,
+    "completed_pair_count": 3,
+    "expected_call_count": 6,
+    "parse_error_count": 0,
+    "missing_tasks": []
+  }
+}

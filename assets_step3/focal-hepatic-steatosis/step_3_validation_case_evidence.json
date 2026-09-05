@@ -1,0 +1,875 @@
+{
+  "step": 3,
+  "substep": "supported_pair_quantitative_qualitative_validation",
+  "case_id": "focal-hepatic-steatosis",
+  "case_url": "https://radiopaedia.org/cases/focal-hepatic-steatosis?lang=us",
+  "case_title": "Focal hepatic steatosis",
+  "status": "complete",
+  "configuration": {
+    "substep_version": "step_3_supported_pair_quantitative_qualitative_validation_v2",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v2",
+    "qualitative_prompt_version": "step_3_pair_lingshu_caption_binary_v2",
+    "qualitative_evidence_source": "lingshu_captions_only",
+    "calls_per_pair": 2
+  },
+  "source": {
+    "step_3_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3/case_evidence.json",
+    "step_3_fingerprint": "37d54cc7b446f73a701760f3f4ed8dda20d64d858522ad89a88dffc78c40802d",
+    "step_3_reground_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_reground/case_evidence.json",
+    "step_3_reground_fingerprint": "eea694c21e0a5fbffa02f087e64bea9796cc70e43e50227c8877f8a197ef62b8"
+  },
+  "patient_background": "Presentation: Incidental finding on imaging.",
+  "validations": [
+    {
+      "pair_id": "strong__strong_location_00036_01",
+      "support_status": "strong_support",
+      "source": {
+        "relation_id": "strong_location_00036_01",
+        "query_id": "location_00036",
+        "iou": 0.573518,
+        "iou_threshold": 0.5
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_mri_image_000_axial_t1_in_phase_f01",
+        "image_id": "study_002_mri_image_000_axial_t1_in_phase",
+        "bbox_2d": [
+          548,
+          452,
+          673,
+          564
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_002_mri_image_000_axial_t1_in_phase/study_002_mri_image_000_axial_t1_in_phase_r01_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a 1.5 cm focal area of low signal intensity in the left lobe of the liver, which may represent a simple cyst.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_000_axial_t1_in_phase",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 in-phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_mri_image_003_axial_t2_f01",
+        "image_id": "study_002_mri_image_003_axial_t2",
+        "bbox_2d": [
+          474,
+          348,
+          624,
+          488
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_002_mri_image_003_axial_t2/study_002_mri_image_003_axial_t2_r01_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is T2 hyperintense and T1 hypointense. The intrahepatic biliary ducts are dilated. There is also a small amount of fluid in the subcapsular region of the right lobe of the liver.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_003_axial_t2",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T2"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/strong__strong_location_00036_01/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/strong__strong_location_00036_01/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "strong__strong_location_00046_01",
+      "support_status": "strong_support",
+      "source": {
+        "relation_id": "strong_location_00046_01",
+        "query_id": "location_00046",
+        "iou": 0.511879,
+        "iou_threshold": 0.5
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_mri_image_001_axial_t1_out_of_phase_f01",
+        "image_id": "study_002_mri_image_001_axial_t1_out_of_phase",
+        "bbox_2d": [
+          370,
+          286,
+          740,
+          686
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_002_mri_image_001_axial_t1_out_of_phase/study_002_mri_image_001_axial_t1_out_of_phase_r01_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse decrease in signal intensity on this out of phase sequence consistent with hepatic steatosis. The boxed area demonstrates a focal area of decreased signal intensity which could represent a focal fatty change or a focal lesion such as a hemangioma.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_001_axial_t1_out_of_phase",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 out-of-phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_mri_image_002_axial_t1_c_f01",
+        "image_id": "study_002_mri_image_002_axial_t1_c",
+        "bbox_2d": [
+          310,
+          280,
+          570,
+          580
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_002_mri_image_002_axial_t1_c/study_002_mri_image_002_axial_t1_c_r01_bbox.png",
+        "lingshu_caption": "The liver is enlarged. The hepatic parenchyma demonstrates diffuse nodularity. There is no focal lesion identified. The portal vein is prominent.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_002_axial_t1_c",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 C+"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/strong__strong_location_00046_01/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/strong__strong_location_00046_01/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00003",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00003",
+        "max_iou": 0.076978,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_ct_image_000_axial_c_portal_venous_phase_f01",
+        "image_id": "study_000_ct_image_000_axial_c_portal_venous_phase",
+        "bbox_2d": [
+          160,
+          231,
+          432,
+          478
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_000_ct_image_000_axial_c_portal_venous_phase/study_000_ct_image_000_axial_c_portal_venous_phase_r01_bbox.png",
+        "lingshu_caption": "The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is no evidence of vascular invasion.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_ct_image_000_axial_c_portal_venous_phase",
+          "study_index": 0,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00003",
+        "image_id": "study_002_mri_image_001_axial_t1_out_of_phase",
+        "bbox_2d": [
+          150,
+          200,
+          450,
+          500
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_reground/bbox_images/study_002_mri_image_001_axial_t1_out_of_phase/location_00003_bbox.png",
+        "lingshu_caption": "The liver parenchyma demonstrates diffuse low signal intensity on this out of phase sequence compared to the spleen. This is consistent with diffuse hepatic steatosis. No focal lesions are identified. The biliary tree is not dilated. The portal vein is patent. There is no evidence of ascites or lymphadenopathy.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_001_axial_t1_out_of_phase",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 out-of-phase"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00003/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00003/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00004",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00004",
+        "max_iou": 0.28611,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_ct_image_000_axial_c_portal_venous_phase_f01",
+        "image_id": "study_000_ct_image_000_axial_c_portal_venous_phase",
+        "bbox_2d": [
+          160,
+          231,
+          432,
+          478
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_000_ct_image_000_axial_c_portal_venous_phase/study_000_ct_image_000_axial_c_portal_venous_phase_r01_bbox.png",
+        "lingshu_caption": "The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is no evidence of vascular invasion.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_ct_image_000_axial_c_portal_venous_phase",
+          "study_index": 0,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00004",
+        "image_id": "study_002_mri_image_002_axial_t1_c",
+        "bbox_2d": [
+          244,
+          176,
+          528,
+          436
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_reground/bbox_images/study_002_mri_image_002_axial_t1_c/location_00004_bbox.png",
+        "lingshu_caption": "The liver is enlarged. The hepatic parenchyma demonstrates diffuse nodularity. There is no evidence of focal hepatic lesions. The intrahepatic biliary ducts are dilated. The portal vein is prominent.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_002_axial_t1_c",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 C+"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00004/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00004/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00005",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00005",
+        "max_iou": 0.0,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_ct_image_000_axial_c_portal_venous_phase_f01",
+        "image_id": "study_000_ct_image_000_axial_c_portal_venous_phase",
+        "bbox_2d": [
+          160,
+          231,
+          432,
+          478
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_000_ct_image_000_axial_c_portal_venous_phase/study_000_ct_image_000_axial_c_portal_venous_phase_r01_bbox.png",
+        "lingshu_caption": "The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is no evidence of vascular invasion.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_ct_image_000_axial_c_portal_venous_phase",
+          "study_index": 0,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00005",
+        "image_id": "study_002_mri_image_003_axial_t2",
+        "bbox_2d": [
+          150,
+          120,
+          450,
+          450
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_reground/bbox_images/study_002_mri_image_003_axial_t2/location_00005_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen also appears to be enlarged.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_003_axial_t2",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T2"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00005/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00005/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00010",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00010",
+        "max_iou": 0.039979,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_ct_image_000_axial_c_portal_venous_phase_f02",
+        "image_id": "study_000_ct_image_000_axial_c_portal_venous_phase",
+        "bbox_2d": [
+          304,
+          541,
+          410,
+          674
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_000_ct_image_000_axial_c_portal_venous_phase/study_000_ct_image_000_axial_c_portal_venous_phase_r02_bbox.png",
+        "lingshu_caption": "The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 1.5 cm and is located in segment 4. There is no evidence of vascular invasion. No other focal lesions are identified. The spleen is unremarkable.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_ct_image_000_axial_c_portal_venous_phase",
+          "study_index": 0,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00010",
+        "image_id": "study_002_mri_image_002_axial_t1_c",
+        "bbox_2d": [
+          298,
+          542,
+          402,
+          667
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_reground/bbox_images/study_002_mri_image_002_axial_t1_c/location_00010_bbox.png",
+        "lingshu_caption": "The liver is enlarged. There are multiple lesions throughout the liver which demonstrate peripheral enhancement. The largest lesion is located in segment 6 and measures approximately 2.5 cm.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_002_axial_t1_c",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 C+"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00010/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00010/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00015",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00015",
+        "max_iou": 0.003285,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_ct_image_000_axial_c_portal_venous_phase_f03",
+        "image_id": "study_000_ct_image_000_axial_c_portal_venous_phase",
+        "bbox_2d": [
+          308,
+          722,
+          432,
+          877
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_000_ct_image_000_axial_c_portal_venous_phase/study_000_ct_image_000_axial_c_portal_venous_phase_r03_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates multiple hypodense lesions throughout all segments. The largest lesion measures 1.6 cm and is located in segment 7. There is no evidence of vascular invasion. No additional masses are identified.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_ct_image_000_axial_c_portal_venous_phase",
+          "study_index": 0,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00015",
+        "image_id": "study_002_mri_image_001_axial_t1_out_of_phase",
+        "bbox_2d": [
+          250,
+          667,
+          400,
+          850
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_reground/bbox_images/study_002_mri_image_001_axial_t1_out_of_phase/location_00015_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse decrease in signal intensity on this out of phase sequence compared to the spleen. This is consistent with diffuse hepatic steatosis. The boxed area appears to correspond to the right lobe of the liver. No focal lesions are identified.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_001_axial_t1_out_of_phase",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 out-of-phase"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00015/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00015/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00016",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00016",
+        "max_iou": 0.0,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_ct_image_000_axial_c_portal_venous_phase_f03",
+        "image_id": "study_000_ct_image_000_axial_c_portal_venous_phase",
+        "bbox_2d": [
+          308,
+          722,
+          432,
+          877
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_000_ct_image_000_axial_c_portal_venous_phase/study_000_ct_image_000_axial_c_portal_venous_phase_r03_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates multiple hypodense lesions throughout all segments. The largest lesion measures 1.6 cm and is located in segment 7. There is no evidence of vascular invasion. No additional masses are identified.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_ct_image_000_axial_c_portal_venous_phase",
+          "study_index": 0,
+          "modality": "CT",
+          "subcategory": "Axial C+ portal venous phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00016",
+        "image_id": "study_002_mri_image_002_axial_t1_c",
+        "bbox_2d": [
+          270,
+          668,
+          400,
+          807
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_reground/bbox_images/study_002_mri_image_002_axial_t1_c/location_00016_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates multiple focal lesions which demonstrate peripheral enhancement and central non-enhancement. The largest lesion is located in segment 6 and measures approximately 2.5 cm. There is no evidence of biliary ductal dilatation. No intrahepatic biliary duct stones are identified. The portal vein is patent. The spleen is unremarkable.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_002_axial_t1_c",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 C+"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00016/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00016/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00034",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00034",
+        "max_iou": 0.067597,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_mri_image_000_axial_t1_in_phase_f01",
+        "image_id": "study_002_mri_image_000_axial_t1_in_phase",
+        "bbox_2d": [
+          548,
+          452,
+          673,
+          564
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_002_mri_image_000_axial_t1_in_phase/study_002_mri_image_000_axial_t1_in_phase_r01_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a 1.5 cm focal area of low signal intensity in the left lobe of the liver, which may represent a simple cyst.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_000_axial_t1_in_phase",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 in-phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00034",
+        "image_id": "study_002_mri_image_001_axial_t1_out_of_phase",
+        "bbox_2d": [
+          500,
+          375,
+          600,
+          475
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_reground/bbox_images/study_002_mri_image_001_axial_t1_out_of_phase/location_00034_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse abnormal signal intensity which is low on T1 weighted images and high on T2 weighted images. There is no evidence of intrahepatic biliary ductal dilatation. The spleen is also enlarged.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_001_axial_t1_out_of_phase",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 out-of-phase"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00034/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00034/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00035",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00035",
+        "max_iou": 0.167175,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_mri_image_000_axial_t1_in_phase_f01",
+        "image_id": "study_002_mri_image_000_axial_t1_in_phase",
+        "bbox_2d": [
+          548,
+          452,
+          673,
+          564
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_002_mri_image_000_axial_t1_in_phase/study_002_mri_image_000_axial_t1_in_phase_r01_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a 1.5 cm focal area of low signal intensity in the left lobe of the liver, which may represent a simple cyst.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_000_axial_t1_in_phase",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 in-phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00035",
+        "image_id": "study_002_mri_image_002_axial_t1_c",
+        "bbox_2d": [
+          480,
+          300,
+          620,
+          460
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_reground/bbox_images/study_002_mri_image_002_axial_t1_c/location_00035_bbox.png",
+        "lingshu_caption": "The liver is enlarged. The hepatic parenchyma demonstrates diffuse nodularity. There is a 2.5 cm focal area of decreased enhancement in segment 4A of the liver. No other focal lesions are identified. The portal vein is prominent. The spleen is unremarkable.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_002_axial_t1_c",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 C+"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00035/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00035/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00038",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00038",
+        "max_iou": 0.045919,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_mri_image_000_axial_t1_in_phase_f02",
+        "image_id": "study_002_mri_image_000_axial_t1_in_phase",
+        "bbox_2d": [
+          637,
+          623,
+          762,
+          731
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_002_mri_image_000_axial_t1_in_phase/study_002_mri_image_000_axial_t1_in_phase_r02_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a small amount of fluid in the right subphrenic space. No focal hepatic lesions are identified.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_000_axial_t1_in_phase",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 in-phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00038",
+        "image_id": "study_002_mri_image_001_axial_t1_out_of_phase",
+        "bbox_2d": [
+          570,
+          618,
+          672,
+          716
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_reground/bbox_images/study_002_mri_image_001_axial_t1_out_of_phase/location_00038_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse low signal intensity on this out of phase sequence. The spleen is also enlarged. There is no evidence of focal hepatic lesions.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_001_axial_t1_out_of_phase",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 out-of-phase"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00038/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00038/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00039",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00039",
+        "max_iou": 0.0,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_mri_image_000_axial_t1_in_phase_f02",
+        "image_id": "study_002_mri_image_000_axial_t1_in_phase",
+        "bbox_2d": [
+          637,
+          623,
+          762,
+          731
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_002_mri_image_000_axial_t1_in_phase/study_002_mri_image_000_axial_t1_in_phase_r02_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a small amount of fluid in the right subphrenic space. No focal hepatic lesions are identified.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_000_axial_t1_in_phase",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 in-phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00039",
+        "image_id": "study_002_mri_image_002_axial_t1_c",
+        "bbox_2d": [
+          600,
+          600,
+          700,
+          700
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_reground/bbox_images/study_002_mri_image_002_axial_t1_c/location_00039_bbox.png",
+        "lingshu_caption": "The liver is enlarged. There are multiple lesions throughout the liver which demonstrate peripheral enhancement. The largest lesion is located in segment 6 and measures approximately 2.5 cm.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_002_axial_t1_c",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 C+"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00039/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00039/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00040",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00040",
+        "max_iou": 0.0,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_mri_image_000_axial_t1_in_phase_f02",
+        "image_id": "study_002_mri_image_000_axial_t1_in_phase",
+        "bbox_2d": [
+          637,
+          623,
+          762,
+          731
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_002_mri_image_000_axial_t1_in_phase/study_002_mri_image_000_axial_t1_in_phase_r02_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a small amount of fluid in the right subphrenic space. No focal hepatic lesions are identified.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_000_axial_t1_in_phase",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 in-phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00040",
+        "image_id": "study_002_mri_image_003_axial_t2",
+        "bbox_2d": [
+          610,
+          570,
+          778,
+          700
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_reground/bbox_images/study_002_mri_image_003_axial_t2/location_00040_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is T2 hyperintense and T1 hypointense. The spleen also appears to be enlarged.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_003_axial_t2",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T2"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00040/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00040/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00042",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00042",
+        "max_iou": 0.0,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_mri_image_000_axial_t1_in_phase_f03",
+        "image_id": "study_002_mri_image_000_axial_t1_in_phase",
+        "bbox_2d": [
+          810,
+          642,
+          966,
+          812
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_002_mri_image_000_axial_t1_in_phase/study_002_mri_image_000_axial_t1_in_phase_r03_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a 2.5 cm lesion in the left lobe of the liver, which is hypointense on this T1 weighted image.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_000_axial_t1_in_phase",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 in-phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00042",
+        "image_id": "study_002_mri_image_001_axial_t1_out_of_phase",
+        "bbox_2d": [
+          768,
+          682,
+          918,
+          886
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_reground/bbox_images/study_002_mri_image_001_axial_t1_out_of_phase/location_00042_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse low signal intensity on this out of phase sequence. The spleen also appears enlarged. There is a small amount of fluid seen in the right paracolic gutter.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_001_axial_t1_out_of_phase",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 out-of-phase"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00042/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00042/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00047",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00047",
+        "max_iou": 0.146144,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_mri_image_001_axial_t1_out_of_phase_f01",
+        "image_id": "study_002_mri_image_001_axial_t1_out_of_phase",
+        "bbox_2d": [
+          370,
+          286,
+          740,
+          686
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_2/bbox_images/study_002_mri_image_001_axial_t1_out_of_phase/study_002_mri_image_001_axial_t1_out_of_phase_r01_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse decrease in signal intensity on this out of phase sequence consistent with hepatic steatosis. The boxed area demonstrates a focal area of decreased signal intensity which could represent a focal fatty change or a focal lesion such as a hemangioma.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_001_axial_t1_out_of_phase",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T1 out-of-phase"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00047",
+        "image_id": "study_002_mri_image_003_axial_t2",
+        "bbox_2d": [
+          320,
+          200,
+          680,
+          600
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_reground/bbox_images/study_002_mri_image_003_axial_t2/location_00047_bbox.png",
+        "lingshu_caption": "The liver is enlarged and demonstrates diffuse abnormal signal intensity which is low on T1 weighted images and high on T2 weighted images. The intrahepatic bile ducts are dilated. There is no evidence of biliary obstruction.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_mri_image_003_axial_t2",
+          "study_index": 2,
+          "modality": "MRI",
+          "subcategory": "Axial T2"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00047/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/focal-hepatic-steatosis/step_3_validation/pairs/partial__location_00047/qualitative.json"
+      }
+    }
+  ],
+  "processing_summary": {
+    "pair_count": 15,
+    "strong_support_pair_count": 2,
+    "partial_support_pair_count": 13,
+    "completed_pair_count": 15,
+    "expected_call_count": 30,
+    "parse_error_count": 0,
+    "missing_tasks": []
+  }
+}

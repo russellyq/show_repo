@@ -9,6 +9,7 @@
 - **定位结果：** strong 0；partial 1；not support 3；parse error 0
 - **Strong bbox relations：** 0
 - **原始 JSON：** [case_evidence.json](../assets_step3/calcified-abdominal-lymph-nodes/case_evidence.json)
+- **定量/定性验证 JSON：** [step_3_validation_case_evidence.json](../assets_step3/calcified-abdominal-lymph-nodes/step_3_validation_case_evidence.json)
 
 **Overlay 图例：** 红框为跨图新定位；绿框为 IoU >= 0.5 的已有 bbox；黄框为未达到阈值的已有 bbox。
 
@@ -160,6 +161,12 @@ The target image has no existing Step 2 bbox.
 **Re-ground Lingshu caption：** The red box is located in the right upper quadrant of the abdomen. Within this region, there is a large area of increased density compared to the surrounding tissue. This could represent a variety of pathologies including a mass, abscess, or other lesion. The exact nature of the abnormality cannot be determined from this single image alone. Further imaging and clinical correlation would be necessary for a more definitive assessment.
 **Re-ground caption 中文翻译：** 红框位于右上腹。框内可见较周围组织明显增高的大范围密度影，可能代表肿块、脓肿或其他病变。仅凭这一幅图像无法确定异常的确切性质，需要进一步影像检查并结合临床资料评估。
 
+**Quantitative / qualitative validation：**
+
+| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
+|---|---|---|
+| `partial__location_00004` | `inconsistent` | `inconsistent` |
+
 ## Dynamically Skipped Anchors
 
 None.
@@ -191,6 +198,8 @@ None.
 - **A 端 caption 中文翻译：** 图像显示肝右叶病灶，其密度低于周围肝实质。病灶内未见钙化或出血征象，边界清楚，似未侵犯周围结构。邻近肝实质表现正常，未见肝硬化或其他异常征象。
 - **B 端 re-ground Lingshu caption：** The red box is located in the right upper quadrant of the abdomen. Within this region, there is a large area of increased density compared to the surrounding tissue. This could represent a variety of pathologies including a mass, abscess, or other lesion. The exact nature of the abnormality cannot be determined from this single image alone. Further imaging and clinical correlation would be necessary for a more definitive assessment.
 - **B 端 re-ground caption 中文翻译：** 红框位于右上腹。框内可见较周围组织明显增高的大范围密度影，可能代表肿块、脓肿或其他病变。仅凭这一幅图像无法确定异常的确切性质，需要进一步影像检查并结合临床资料评估。
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 ### Not Support
 
@@ -207,6 +216,7 @@ None.
 - **A 端原始 Lingshu caption：** The lungs are hyperinflated. There is a large rounded opacity projecting over the right hilum. The heart size is normal. No pleural effusion or pneumothorax.
 - **A 端 caption 中文翻译：** 双肺过度充气。右肺门投影区可见较大的圆形致密影。心影大小正常。未见胸腔积液或气胸。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 2: `study_000_x_ray_image_001_lateral_f01` → `study_001_ct_image_000_axial_bone_window`
 
@@ -221,6 +231,7 @@ None.
 - **A 端原始 Lingshu caption：** The lungs are hyperinflated. There is a large rounded opacity projecting over the right hilum. The heart size is normal. No pleural effusion or pneumothorax.
 - **A 端 caption 中文翻译：** 双肺过度充气。右肺门投影区可见较大的圆形致密影。心影大小正常。未见胸腔积液或气胸。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 3: `study_000_x_ray_image_001_lateral_f01` → `study_001_ct_image_001_axial_bone_window`
 
@@ -235,3 +246,4 @@ None.
 - **A 端原始 Lingshu caption：** The lungs are hyperinflated. There is a large rounded opacity projecting over the right hilum. The heart size is normal. No pleural effusion or pneumothorax.
 - **A 端 caption 中文翻译：** 双肺过度充气。右肺门投影区可见较大的圆形致密影。心影大小正常。未见胸腔积液或气胸。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。

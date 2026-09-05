@@ -9,6 +9,7 @@
 - **定位结果：** strong 0；partial 1；not support 8；parse error 0
 - **Strong bbox relations：** 0
 - **原始 JSON：** [case_evidence.json](../assets_step3/jugulotympanic-paraganglioma-9/case_evidence.json)
+- **定量/定性验证 JSON：** [step_3_validation_case_evidence.json](../assets_step3/jugulotympanic-paraganglioma-9/step_3_validation_case_evidence.json)
 
 **Overlay 图例：** 红框为跨图新定位；绿框为 IoU >= 0.5 的已有 bbox；黄框为未达到阈值的已有 bbox。
 
@@ -93,6 +94,12 @@
 
 **Re-ground Lingshu caption：** The right internal auditory canal appears enlarged compared to the left. The right cochlear nerve appears hypoplastic. The right facial nerve appears normal.
 **Re-ground caption 中文翻译：** 右侧内听道较左侧增宽。右侧耳蜗神经似发育不良，右侧面神经表现正常。
+
+**Quantitative / qualitative validation：**
+
+| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
+|---|---|---|
+| `partial__location_00001` | `inconsistent` | `inconsistent` |
 
 #### location_00002: NOT SUPPORT
 
@@ -298,6 +305,8 @@ None.
 - **A 端 caption 中文翻译：** 右侧乳突气房较左侧浑浊，右侧中耳腔也呈浑浊。未见明确骨质侵蚀。
 - **B 端 re-ground Lingshu caption：** The right internal auditory canal appears enlarged compared to the left. The right cochlear nerve appears hypoplastic. The right facial nerve appears normal.
 - **B 端 re-ground caption 中文翻译：** 右侧内听道较左侧增宽。右侧耳蜗神经似发育不良，右侧面神经表现正常。
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 ### Not Support
 
@@ -314,6 +323,7 @@ None.
 - **A 端原始 Lingshu caption：** The right mastoid air cells appear opacified compared to the left side. The right middle ear cavity also appears opacified. There is no definite bony erosion.
 - **A 端 caption 中文翻译：** 右侧乳突气房较左侧浑浊，右侧中耳腔也呈浑浊。未见明确骨质侵蚀。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 2: `study_000_ct_image_000_axial_bone_window_f01` → `study_002_dsa_angiography_image_000_lateral_external_carotid_artery`
 
@@ -328,6 +338,7 @@ None.
 - **A 端原始 Lingshu caption：** The right mastoid air cells appear opacified compared to the left side. The right middle ear cavity also appears opacified. There is no definite bony erosion.
 - **A 端 caption 中文翻译：** 右侧乳突气房较左侧浑浊，右侧中耳腔也呈浑浊。未见明确骨质侵蚀。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 3: `study_000_ct_image_000_axial_bone_window_f02` → `study_001_mri_image_000_axial_t1_c_fat_sat`
 
@@ -342,6 +353,7 @@ None.
 - **A 端原始 Lingshu caption：** The left mastoid air cells appear opacified. The left middle ear cavity also appears opacified. There is no definite bony erosion.
 - **A 端 caption 中文翻译：** 左侧乳突气房浑浊，左侧中耳腔也呈浑浊。未见明确骨质侵蚀。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 4: `study_000_ct_image_000_axial_bone_window_f02` → `study_001_mri_image_001_coronal_t1_c`
 
@@ -356,6 +368,7 @@ None.
 - **A 端原始 Lingshu caption：** The left mastoid air cells appear opacified. The left middle ear cavity also appears opacified. There is no definite bony erosion.
 - **A 端 caption 中文翻译：** 左侧乳突气房浑浊，左侧中耳腔也呈浑浊。未见明确骨质侵蚀。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 5: `study_000_ct_image_000_axial_bone_window_f02` → `study_002_dsa_angiography_image_000_lateral_external_carotid_artery`
 
@@ -370,6 +383,7 @@ None.
 - **A 端原始 Lingshu caption：** The left mastoid air cells appear opacified. The left middle ear cavity also appears opacified. There is no definite bony erosion.
 - **A 端 caption 中文翻译：** 左侧乳突气房浑浊，左侧中耳腔也呈浑浊。未见明确骨质侵蚀。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 6: `study_001_mri_image_000_axial_t1_c_fat_sat_f01` → `study_001_mri_image_001_coronal_t1_c`
 
@@ -384,6 +398,7 @@ None.
 - **A 端原始 Lingshu caption：** The left internal auditory canal demonstrates a small enhancing mass. The right internal auditory canal appears normal. The cerebellum, medulla, and pons appear normal. There is no evidence of hydrocephalus.
 - **A 端 caption 中文翻译：** 左侧内听道可见小强化肿块，右侧内听道正常。小脑、延髓及脑桥未见异常。未见脑积水。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 7: `study_001_mri_image_000_axial_t1_c_fat_sat_f01` → `study_002_dsa_angiography_image_000_lateral_external_carotid_artery`
 
@@ -398,6 +413,7 @@ None.
 - **A 端原始 Lingshu caption：** The left internal auditory canal demonstrates a small enhancing mass. The right internal auditory canal appears normal. The cerebellum, medulla, and pons appear normal. There is no evidence of hydrocephalus.
 - **A 端 caption 中文翻译：** 左侧内听道可见小强化肿块，右侧内听道正常。小脑、延髓及脑桥未见异常。未见脑积水。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 8: `study_001_mri_image_001_coronal_t1_c_f01` → `study_002_dsa_angiography_image_000_lateral_external_carotid_artery`
 
@@ -412,3 +428,4 @@ None.
 - **A 端原始 Lingshu caption：** The left carotid artery is enlarged and tortuous. There is a large mass centered at the bifurcation of the left carotid artery. The mass is heterogeneous and contains areas of high signal intensity. The mass extends into the left internal carotid artery and external carotid artery. The mass also extends posteriorly to the left vertebral artery.
 - **A 端 caption 中文翻译：** 左侧颈动脉增粗、迂曲，其分叉处可见较大肿块。肿块信号不均，内含高信号区，并延伸至左侧颈内动脉和颈外动脉，后方还延伸至左侧椎动脉。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。

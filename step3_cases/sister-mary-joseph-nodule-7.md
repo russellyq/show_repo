@@ -9,6 +9,7 @@
 - **定位结果：** strong 1；partial 3；not support 2；parse error 0
 - **Strong bbox relations：** 1
 - **原始 JSON：** [case_evidence.json](../assets_step3/sister-mary-joseph-nodule-7/case_evidence.json)
+- **定量/定性验证 JSON：** [step_3_validation_case_evidence.json](../assets_step3/sister-mary-joseph-nodule-7/step_3_validation_case_evidence.json)
 
 **Overlay 图例：** 红框为跨图新定位；绿框为 IoU >= 0.5 的已有 bbox；黄框为未达到阈值的已有 bbox。
 
@@ -141,6 +142,12 @@ The target image has no existing Step 2 bbox.
 | `study_002_ct_image_000_axial_non_contrast_f02`; `[220, 360, 400, 500]` | 0.057 | no | The image shows a large mass in the right upper quadrant of the abdomen. The mass appears to be heterogeneous in density, with areas of both high and low attenuation. There is also evidence of surrounding tissue invasion and possible lymphadenopathy. The mass appears to be displacing adjacent structures, including the liver and kidney. | 右上腹可见较大肿块，密度不均，内含高、低衰减区。另有周围组织受侵及可能的淋巴结肿大。肿块似推移肝脏、肾脏等邻近结构。 |
 | `study_002_ct_image_000_axial_non_contrast_f03`; `[700, 340, 900, 500]` | 0.000 | no | The image shows a large amount of free air in the peritoneal cavity, consistent with pneumoperitoneum. The air appears to be located primarily in the upper abdomen, surrounding the liver and stomach. There is no evidence of bowel perforation or other intra-abdominal pathology. The lungs appear clear, and there is no evidence of pleural effusion or pneumothorax. | 腹腔内可见大量游离气体，符合气腹表现，主要位于上腹部并环绕肝脏和胃。未见肠穿孔或其他腹腔内病变证据。双肺清晰，未见胸腔积液或气胸。 |
 
+**Quantitative / qualitative validation：**
+
+| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
+|---|---|---|
+| `strong__strong_location_00003_01` | `consistent` | `consistent` |
+
 #### location_00004: PARTIAL SUPPORT
 
 <table>
@@ -168,6 +175,12 @@ The target image has no existing Step 2 bbox.
 
 **Re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen, with a focus on the right kidney. Within the red box, there appears to be a distinct mass or lesion present in the right kidney. The mass has an irregular shape and heterogeneous density, suggesting a potential abnormality. The surrounding renal parenchyma appears relatively normal in appearance. No other significant abnormalities are noted in the imaged region.
 **Re-ground caption 中文翻译：** 图像为腹部横断面，重点显示右肾。红框内右肾似有明确肿块或病灶，其形态不规则、密度不均，提示可能存在异常。周围肾实质外观相对正常。所示区域未见其他明显异常。
+
+**Quantitative / qualitative validation：**
+
+| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
+|---|---|---|
+| `partial__location_00004` | `inconsistent` | `inconsistent` |
 
 ### Anchor 2: `study_002_ct_image_000_axial_non_contrast_f02`
 
@@ -204,6 +217,12 @@ The target image has no existing Step 2 bbox.
 **Re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen at the level of the kidneys. The red box highlights an area in the right kidney that appears to have a distinct lesion or abnormality. This lesion is characterized by a well-defined border and a different density compared to the surrounding renal parenchyma. The lesion&#x27;s appearance suggests it could be a solid mass, potentially indicative of a neoplastic process. Surrounding structures, including the liver, spleen, and portions of the bowel, appear unremarkable in this slice. The vertebral body and spinal canal are also visible, showing no apparent abnormalities.
 **Re-ground caption 中文翻译：** 图像为肾脏水平的腹部横断面。红框标出右肾内一个明确病灶或异常，其边界清楚，密度不同于周围肾实质。外观提示其可能为实性肿块，并可能为肿瘤性过程。肝、脾和部分肠管等周围结构在本层面未见异常。椎体和椎管也可见，未见明显异常。
 
+**Quantitative / qualitative validation：**
+
+| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
+|---|---|---|
+| `partial__location_00006` | `inconsistent` | `inconsistent` |
+
 ### Anchor 3: `study_002_ct_image_000_axial_non_contrast_f03`
 
 <img src="../assets_step3/sister-mary-joseph-nodule-7/nodes/study_002_ct_image_000_axial_non_contrast_f03.png" width="420">
@@ -239,6 +258,12 @@ The target image has no existing Step 2 bbox.
 **Re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen, with a focus on the liver. Within the boxed region, there appears to be a distinct area of increased density or attenuation compared to the surrounding liver parenchyma. This could potentially represent a lesion or abnormality within the liver. The size, shape, and precise location of this finding would require further evaluation by a radiologist to determine its significance.
 **Re-ground caption 中文翻译：** 图像为腹部横断面，重点显示肝脏。框内似有较周围肝实质密度或衰减增高的明确区域，可能代表肝内病灶或异常。需由放射科医师进一步评估其大小、形态和精确位置，以确定其意义。
 
+**Quantitative / qualitative validation：**
+
+| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
+|---|---|---|
+| `partial__location_00007` | `inconsistent` | `inconsistent` |
+
 ## Dynamically Skipped Anchors
 
 | Anchor node | Reused strong relations | Skipped target images |
@@ -267,6 +292,8 @@ The target image has no existing Step 2 bbox.
 - **Anchor caption 中文翻译：** 脐部可见一个直径约 2 cm、表面光滑、圆形的红色结节。周围皮肤表现正常。
 - **Target Lingshu caption：** The image shows a cross-sectional view of the abdomen. Within the boxed region, there appears to be an area of increased density or opacity, which could potentially indicate the presence of an abnormality such as a mass, lesion, or other pathological process. The surrounding tissues appear relatively normal in appearance. Further evaluation and correlation with clinical information would be necessary to determine the significance of this finding.
 - **Target caption 中文翻译：** 图像为腹部横断面。框内似有密度或不透亮度增高区，可能提示肿块、病灶或其他病理过程。周围组织外观相对正常。需要进一步评估并结合临床资料判断该征象的意义。
+- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 ### Partial Support
 
@@ -285,6 +312,8 @@ The target image has no existing Step 2 bbox.
 - **A 端 caption 中文翻译：** 脐部可见一个直径约 2 cm、表面光滑、圆形的红色结节。周围皮肤表现正常。
 - **B 端 re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen, with a focus on the right kidney. Within the red box, there appears to be a distinct mass or lesion present in the right kidney. The mass has an irregular shape and heterogeneous density, suggesting a potential abnormality. The surrounding renal parenchyma appears relatively normal in appearance. No other significant abnormalities are noted in the imaged region.
 - **B 端 re-ground caption 中文翻译：** 图像为腹部横断面，重点显示右肾。红框内右肾似有明确肿块或病灶，其形态不规则、密度不均，提示可能存在异常。周围肾实质外观相对正常。所示区域未见其他明显异常。
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Partial 2: `study_002_ct_image_000_axial_non_contrast_f02` → `study_002_ct_image_001_axial_c_portal_venous_phase`
 
@@ -301,6 +330,8 @@ The target image has no existing Step 2 bbox.
 - **A 端 caption 中文翻译：** 右上腹可见较大肿块，密度不均，内含高、低衰减区。另有周围组织受侵及可能的淋巴结肿大。肿块似推移肝脏、肾脏等邻近结构。
 - **B 端 re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen at the level of the kidneys. The red box highlights an area in the right kidney that appears to have a distinct lesion or abnormality. This lesion is characterized by a well-defined border and a different density compared to the surrounding renal parenchyma. The lesion&#x27;s appearance suggests it could be a solid mass, potentially indicative of a neoplastic process. Surrounding structures, including the liver, spleen, and portions of the bowel, appear unremarkable in this slice. The vertebral body and spinal canal are also visible, showing no apparent abnormalities.
 - **B 端 re-ground caption 中文翻译：** 图像为肾脏水平的腹部横断面。红框标出右肾内一个明确病灶或异常，其边界清楚，密度不同于周围肾实质。外观提示其可能为实性肿块，并可能为肿瘤性过程。肝、脾和部分肠管等周围结构在本层面未见异常。椎体和椎管也可见，未见明显异常。
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Partial 3: `study_002_ct_image_000_axial_non_contrast_f03` → `study_002_ct_image_001_axial_c_portal_venous_phase`
 
@@ -317,6 +348,8 @@ The target image has no existing Step 2 bbox.
 - **A 端 caption 中文翻译：** 腹腔内可见大量游离气体，符合气腹表现，主要位于上腹部并环绕肝脏和胃。未见肠穿孔或其他腹腔内病变证据。双肺清晰，未见胸腔积液或气胸。
 - **B 端 re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen, with a focus on the liver. Within the boxed region, there appears to be a distinct area of increased density or attenuation compared to the surrounding liver parenchyma. This could potentially represent a lesion or abnormality within the liver. The size, shape, and precise location of this finding would require further evaluation by a radiologist to determine its significance.
 - **B 端 re-ground caption 中文翻译：** 图像为腹部横断面，重点显示肝脏。框内似有较周围肝实质密度或衰减增高的明确区域，可能代表肝内病灶或异常。需由放射科医师进一步评估其大小、形态和精确位置，以确定其意义。
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 ### Not Support
 
@@ -333,6 +366,7 @@ The target image has no existing Step 2 bbox.
 - **A 端原始 Lingshu caption：** The umbilicus contains a 2 cm diameter, smooth, rounded, red nodule. The surrounding skin appears normal.
 - **A 端 caption 中文翻译：** 脐部可见一个直径约 2 cm、表面光滑、圆形的红色结节。周围皮肤表现正常。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 2: `study_000_photograph_image_000_enlarging_umbilical_nodule_f01` → `study_001_ultrasound_image_001_missing`
 
@@ -347,3 +381,4 @@ The target image has no existing Step 2 bbox.
 - **A 端原始 Lingshu caption：** The umbilicus contains a 2 cm diameter, smooth, rounded, red nodule. The surrounding skin appears normal.
 - **A 端 caption 中文翻译：** 脐部可见一个直径约 2 cm、表面光滑、圆形的红色结节。周围皮肤表现正常。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。

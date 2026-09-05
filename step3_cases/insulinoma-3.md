@@ -9,6 +9,7 @@
 - **定位结果：** strong 0；partial 3；not support 20；parse error 0
 - **Strong bbox relations：** 0
 - **原始 JSON：** [case_evidence.json](../assets_step3/insulinoma-3/case_evidence.json)
+- **定量/定性验证 JSON：** [step_3_validation_case_evidence.json](../assets_step3/insulinoma-3/step_3_validation_case_evidence.json)
 
 **Overlay 图例：** 红框为跨图新定位；绿框为 IoU >= 0.5 的已有 bbox；黄框为未达到阈值的已有 bbox。
 
@@ -94,6 +95,12 @@
 **Re-ground Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
 **Re-ground caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个约 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
 
+**Quantitative / qualitative validation：**
+
+| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
+|---|---|---|
+| `partial__location_00001` | `consistent` | `consistent` |
+
 #### location_00002: PARTIAL SUPPORT
 
 <table>
@@ -119,6 +126,12 @@
 
 **Re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen, with a focus on the pancreas. The pancreas appears to have an irregular shape and heterogeneous signal intensity, suggesting the presence of a lesion or abnormality. The surrounding tissues, including the liver and kidneys, appear normal. The overall image quality is good, allowing for detailed evaluation of the pancreatic region.
 **Re-ground caption 中文翻译：** 图像为腹部横断面，重点显示胰腺。胰腺形态不规则、信号不均，提示可能存在病灶或异常。肝脏、双肾等周围组织表现正常。图像质量良好，可对胰腺区域进行详细评估。
+
+**Quantitative / qualitative validation：**
+
+| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
+|---|---|---|
+| `partial__location_00002` | `inconsistent` | `inconsistent` |
 
 #### location_00003: NOT SUPPORT
 
@@ -241,6 +254,12 @@ The target image has no existing Step 2 bbox.
 
 **Re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen, with a focus on the liver. Within the boxed region, there appears to be an area of increased signal intensity, which could indicate the presence of a lesion or abnormality. The surrounding liver parenchyma appears relatively normal in appearance. No other significant abnormalities are noted in the imaged anatomy.
 **Re-ground caption 中文翻译：** 图像为腹部横断面，重点显示肝脏。框内似有信号增高区，可能提示病灶或异常。周围肝实质外观相对正常。所示解剖范围内未见其他明显异常。
+
+**Quantitative / qualitative validation：**
+
+| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
+|---|---|---|
+| `partial__location_00008` | `consistent` | `consistent` |
 
 #### location_00009: NOT SUPPORT
 
@@ -559,6 +578,8 @@ None.
 - **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
 - **B 端 re-ground Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
 - **B 端 re-ground caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个约 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
+- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 2: `study_000_ct_image_000_axial_non_contrast_f01` → `study_001_mri_image_000_axial_t2_fat_sat`
 
@@ -575,6 +596,8 @@ None.
 - **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
 - **B 端 re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen, with a focus on the pancreas. The pancreas appears to have an irregular shape and heterogeneous signal intensity, suggesting the presence of a lesion or abnormality. The surrounding tissues, including the liver and kidneys, appear normal. The overall image quality is good, allowing for detailed evaluation of the pancreatic region.
 - **B 端 re-ground caption 中文翻译：** 图像为腹部横断面，重点显示胰腺。胰腺形态不规则、信号不均，提示可能存在病灶或异常。肝脏、双肾等周围组织表现正常。图像质量良好，可对胰腺区域进行详细评估。
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Partial 3: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_001_mri_image_000_axial_t2_fat_sat`
 
@@ -591,6 +614,8 @@ None.
 - **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
 - **B 端 re-ground Lingshu caption：** The image shows a cross-sectional view of the abdomen, with a focus on the liver. Within the boxed region, there appears to be an area of increased signal intensity, which could indicate the presence of a lesion or abnormality. The surrounding liver parenchyma appears relatively normal in appearance. No other significant abnormalities are noted in the imaged anatomy.
 - **B 端 re-ground caption 中文翻译：** 图像为腹部横断面，重点显示肝脏。框内似有信号增高区，可能提示病灶或异常。周围肝实质外观相对正常。所示解剖范围内未见其他明显异常。
+- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 ### Not Support
 
@@ -607,6 +632,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.
 - **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 2: `study_000_ct_image_000_axial_non_contrast_f01` → `study_002_dsa_angiography_image_000_splenic_artery`
 
@@ -621,6 +647,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.
 - **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 3: `study_000_ct_image_000_axial_non_contrast_f01` → `study_002_dsa_angiography_image_001_hepatic_artery`
 
@@ -635,6 +662,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.
 - **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 4: `study_000_ct_image_000_axial_non_contrast_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
 
@@ -649,6 +677,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.
 - **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 5: `study_000_ct_image_000_axial_non_contrast_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
 
@@ -663,6 +692,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures approximately 3.5 cm and is located in segment 4. There is also a smaller lesion measuring approximately 1.5 cm in segment 2.
 - **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，约 3.5 cm；第 2 段另见一个约 1.5 cm 的较小病灶。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 6: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_001_mri_image_001_coronal_t2_fat_sat`
 
@@ -677,6 +707,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
 - **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 7: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_002_dsa_angiography_image_000_splenic_artery`
 
@@ -691,6 +722,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
 - **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 8: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_002_dsa_angiography_image_001_hepatic_artery`
 
@@ -705,6 +737,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
 - **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 9: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
 
@@ -719,6 +752,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
 - **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 10: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
 
@@ -733,6 +767,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and contains multiple hypodense lesions. The largest lesion measures 2.5 cm and is located in segment 4. There is also a smaller lesion measuring 1.3 cm in segment 8. These lesions demonstrate peripheral enhancement on the arterial phase.
 - **A 端 caption 中文翻译：** 肝脏增大，内见多发低密度病灶。最大病灶位于第 4 段，大小约 2.5 cm；第 8 段另见一个 1.3 cm 的较小病灶。这些病灶在动脉期呈周边强化。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 11: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_001_mri_image_001_coronal_t2_fat_sat`
 
@@ -747,6 +782,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant.
 - **A 端 caption 中文翻译：** 肝脏增大并呈弥漫性不均匀异常信号。脾脏也增大。右上腹可见少量液体。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 12: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_002_dsa_angiography_image_000_splenic_artery`
 
@@ -761,6 +797,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant.
 - **A 端 caption 中文翻译：** 肝脏增大并呈弥漫性不均匀异常信号。脾脏也增大。右上腹可见少量液体。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 13: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_002_dsa_angiography_image_001_hepatic_artery`
 
@@ -775,6 +812,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant.
 - **A 端 caption 中文翻译：** 肝脏增大并呈弥漫性不均匀异常信号。脾脏也增大。右上腹可见少量液体。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 14: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
 
@@ -789,6 +827,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant.
 - **A 端 caption 中文翻译：** 肝脏增大并呈弥漫性不均匀异常信号。脾脏也增大。右上腹可见少量液体。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 15: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
 
@@ -803,6 +842,7 @@ None.
 - **A 端原始 Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is heterogeneous. The spleen is also enlarged. There is a small amount of fluid in the right upper quadrant.
 - **A 端 caption 中文翻译：** 肝脏增大并呈弥漫性不均匀异常信号。脾脏也增大。右上腹可见少量液体。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 16: `study_002_dsa_angiography_image_000_splenic_artery_f01` → `study_002_dsa_angiography_image_001_hepatic_artery`
 
@@ -817,6 +857,7 @@ None.
 - **A 端原始 Lingshu caption：** The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber.
 - **A 端 caption 中文翻译：** 血管造影显示脾动脉。脾动脉近段可见局灶性狭窄，狭窄后扩张。其余脾动脉管径正常。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 17: `study_002_dsa_angiography_image_000_splenic_artery_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
 
@@ -831,6 +872,7 @@ None.
 - **A 端原始 Lingshu caption：** The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber.
 - **A 端 caption 中文翻译：** 血管造影显示脾动脉。脾动脉近段可见局灶性狭窄，狭窄后扩张。其余脾动脉管径正常。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 18: `study_002_dsa_angiography_image_000_splenic_artery_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
 
@@ -845,6 +887,7 @@ None.
 - **A 端原始 Lingshu caption：** The splenic artery is visualized on this angiogram. There is a focal area of narrowing followed by dilation in the proximal portion of the splenic artery. The remainder of the splenic artery appears to have normal caliber.
 - **A 端 caption 中文翻译：** 血管造影显示脾动脉。脾动脉近段可见局灶性狭窄，狭窄后扩张。其余脾动脉管径正常。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 19: `study_002_dsa_angiography_image_001_hepatic_artery_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
 
@@ -859,6 +902,7 @@ None.
 - **A 端原始 Lingshu caption：** The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable.
 - **A 端 caption 中文翻译：** 图像显示分支清楚的肝动脉。框内某一动脉分支局部似有不规则或狭窄，可能代表影响肝动脉供血的狭窄或其他血管异常。其余周围血管未见明显异常。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 20: `study_002_dsa_angiography_image_001_hepatic_artery_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
 
@@ -873,3 +917,4 @@ None.
 - **A 端原始 Lingshu caption：** The image shows a hepatic artery with a clear branching pattern. Within the boxed region, there appears to be a focal area of irregularity or narrowing along one of the arterial branches. This could potentially represent a stenosis or other vascular abnormality affecting the hepatic arterial supply. The surrounding vasculature appears otherwise unremarkable.
 - **A 端 caption 中文翻译：** 图像显示分支清楚的肝动脉。框内某一动脉分支局部似有不规则或狭窄，可能代表影响肝动脉供血的狭窄或其他血管异常。其余周围血管未见明显异常。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。

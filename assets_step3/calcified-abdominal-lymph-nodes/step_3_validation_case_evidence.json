@@ -1,0 +1,91 @@
+{
+  "step": 3,
+  "substep": "supported_pair_quantitative_qualitative_validation",
+  "case_id": "calcified-abdominal-lymph-nodes",
+  "case_url": "https://radiopaedia.org/cases/calcified-abdominal-lymph-nodes?lang=us",
+  "case_title": "Calcified abdominal lymph nodes",
+  "status": "complete",
+  "configuration": {
+    "substep_version": "step_3_supported_pair_quantitative_qualitative_validation_v2",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v2",
+    "qualitative_prompt_version": "step_3_pair_lingshu_caption_binary_v2",
+    "qualitative_evidence_source": "lingshu_captions_only",
+    "calls_per_pair": 2
+  },
+  "source": {
+    "step_3_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/calcified-abdominal-lymph-nodes/step_3/case_evidence.json",
+    "step_3_fingerprint": "fdb20d17e9a2bcd000db9e282b8ef11f306225e72c52127fe8beb091e2cff9c3",
+    "step_3_reground_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/calcified-abdominal-lymph-nodes/step_3_reground/case_evidence.json",
+    "step_3_reground_fingerprint": "7a5588b2aab92c5ac7fa7d4ffde9faa4a276a401f1bd2c102f844f755d12d532"
+  },
+  "patient_background": "Patient Data: Age: 65 years Gender: Male\nPresentation: History of head and neck squamous cell cancer 12 years ago. History of radiation therapy and chemotherapy.",
+  "validations": [
+    {
+      "pair_id": "partial__location_00004",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00004",
+        "max_iou": 0.484305,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_001_ct_image_000_axial_bone_window_f01",
+        "image_id": "study_001_ct_image_000_axial_bone_window",
+        "bbox_2d": [
+          350,
+          300,
+          450,
+          400
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/calcified-abdominal-lymph-nodes/step_2/bbox_images/study_001_ct_image_000_axial_bone_window/study_001_ct_image_000_axial_bone_window_r01_bbox.png",
+        "lingshu_caption": "The image shows a lesion in the right lobe of the liver. The lesion appears to be hypodense compared to the surrounding liver parenchyma. There is no evidence of calcification or hemorrhage within the lesion. The lesion is well-circumscribed and does not appear to invade the surrounding structures. The adjacent liver parenchyma appears normal without any signs of cirrhosis or other abnormalities.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_bone_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial bone window"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00004",
+        "image_id": "study_001_ct_image_001_axial_bone_window",
+        "bbox_2d": [
+          266,
+          212,
+          398,
+          344
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/calcified-abdominal-lymph-nodes/step_3_reground/bbox_images/study_001_ct_image_001_axial_bone_window/location_00004_bbox.png",
+        "lingshu_caption": "The red box is located in the right upper quadrant of the abdomen. Within this region, there is a large area of increased density compared to the surrounding tissue. This could represent a variety of pathologies including a mass, abscess, or other lesion. The exact nature of the abnormality cannot be determined from this single image alone. Further imaging and clinical correlation would be necessary for a more definitive assessment.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_001_axial_bone_window",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial bone window"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/calcified-abdominal-lymph-nodes/step_3_validation/pairs/partial__location_00004/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/calcified-abdominal-lymph-nodes/step_3_validation/pairs/partial__location_00004/qualitative.json"
+      }
+    }
+  ],
+  "processing_summary": {
+    "pair_count": 1,
+    "strong_support_pair_count": 0,
+    "partial_support_pair_count": 1,
+    "completed_pair_count": 1,
+    "expected_call_count": 2,
+    "parse_error_count": 0,
+    "missing_tasks": []
+  }
+}

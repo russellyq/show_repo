@@ -9,6 +9,7 @@
 - **定位结果：** strong 0；partial 0；not support 0；parse error 0
 - **Strong bbox relations：** 0
 - **原始 JSON：** [case_evidence.json](../assets_step3/invasive-lobular-carcinoma-10/case_evidence.json)
+- **定量/定性验证 JSON：** [step_3_validation_case_evidence.json](../assets_step3/invasive-lobular-carcinoma-10/step_3_validation_case_evidence.json)
 
 **Overlay 图例：** 红框为跨图新定位；绿框为 IoU >= 0.5 的已有 bbox；黄框为未达到阈值的已有 bbox。
 

@@ -1,0 +1,91 @@
+{
+  "step": 3,
+  "substep": "supported_pair_quantitative_qualitative_validation",
+  "case_id": "morgagni-hernia-8",
+  "case_url": "https://radiopaedia.org/cases/morgagni-hernia-8?lang=us",
+  "case_title": "Morgagni hernia",
+  "status": "complete",
+  "configuration": {
+    "substep_version": "step_3_supported_pair_quantitative_qualitative_validation_v2",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v2",
+    "qualitative_prompt_version": "step_3_pair_lingshu_caption_binary_v2",
+    "qualitative_evidence_source": "lingshu_captions_only",
+    "calls_per_pair": 2
+  },
+  "source": {
+    "step_3_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/morgagni-hernia-8/step_3/case_evidence.json",
+    "step_3_fingerprint": "c42cc7db8d7f61c9182b6b7f452f636f1a4bdb2b888500db6613928542d1f8c2",
+    "step_3_reground_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/morgagni-hernia-8/step_3_reground/case_evidence.json",
+    "step_3_reground_fingerprint": "303ead819380d267f170d8c21aa8d10f1c1544f64ef87e4d40530a2eb70511bb"
+  },
+  "patient_background": "Patient Data: Age: 35 years Gender: Male\nPresentation: Screening chest x-ray.",
+  "validations": [
+    {
+      "pair_id": "partial__location_00002",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00002",
+        "max_iou": null,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_x_ray_image_001_lateral_f01",
+        "image_id": "study_000_x_ray_image_001_lateral",
+        "bbox_2d": [
+          150,
+          100,
+          700,
+          900
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/morgagni-hernia-8/step_2/bbox_images/study_000_x_ray_image_001_lateral/study_000_x_ray_image_001_lateral_r01_bbox.png",
+        "lingshu_caption": "The lungs are clear bilaterally. Specifically, no evidence of focal consolidation, pneumothorax, or pleural effusion. Cardiomediastinal silhouette is unremarkable. Visualized osseous structures of the thorax are without acute abnormality.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_x_ray_image_001_lateral",
+          "study_index": 0,
+          "modality": "X-ray",
+          "subcategory": "Lateral"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00002",
+        "image_id": "study_001_ct_image_001_sagittal_non_contrast",
+        "bbox_2d": [
+          136,
+          109,
+          458,
+          768
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/morgagni-hernia-8/step_3_reground/bbox_images/study_001_ct_image_001_sagittal_non_contrast/location_00002_bbox.png",
+        "lingshu_caption": "The red box is located over the right upper lobe. There is a large mass in this area which appears to be invading the mediastinum. The mass is heterogeneous in appearance.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_001_sagittal_non_contrast",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Sagittal non-contrast"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/morgagni-hernia-8/step_3_validation/pairs/partial__location_00002/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/morgagni-hernia-8/step_3_validation/pairs/partial__location_00002/qualitative.json"
+      }
+    }
+  ],
+  "processing_summary": {
+    "pair_count": 1,
+    "strong_support_pair_count": 0,
+    "partial_support_pair_count": 1,
+    "completed_pair_count": 1,
+    "expected_call_count": 2,
+    "parse_error_count": 0,
+    "missing_tasks": []
+  }
+}

@@ -9,6 +9,7 @@
 - **定位结果：** strong 2；partial 1；not support 3；parse error 0
 - **Strong bbox relations：** 2
 - **原始 JSON：** [case_evidence.json](../assets_step3/infected-emphysematous-bulla/case_evidence.json)
+- **定量/定性验证 JSON：** [step_3_validation_case_evidence.json](../assets_step3/infected-emphysematous-bulla/step_3_validation_case_evidence.json)
 
 **Overlay 图例：** 红框为跨图新定位；绿框为 IoU >= 0.5 的已有 bbox；黄框为未达到阈值的已有 bbox。
 
@@ -84,6 +85,12 @@
 
 **Re-ground Lingshu caption：** The heart size is enlarged. The aorta is tortuous. There is a large hiatal hernia present. No focal consolidations, pleural effusions, or pneumothorax seen. The visualized osseous structures are unremarkable.
 **Re-ground caption 中文翻译：** 心影增大，主动脉迂曲。可见较大的食管裂孔疝。未见局灶性实变、胸腔积液或气胸。所见骨性结构未见异常。
+
+**Quantitative / qualitative validation：**
+
+| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
+|---|---|---|
+| `partial__location_00001` | `consistent` | `consistent` |
 
 #### location_00002: NOT SUPPORT
 
@@ -168,6 +175,12 @@
 |---|---:|---|---|---|
 | `study_001_ct_image_001_coronal_lung_window_f01`; `[210, 256, 464, 444]` | 0.595 | yes | The lungs are hyperinflated. There is a large cavitary lesion in the right upper lobe with thick irregular walls. The remainder of the lungs demonstrate emphysematous changes. No pleural effusions are seen. | 双肺过度充气。右上叶可见一个厚壁、不规则的大空洞性病灶。其余肺组织呈肺气肿改变。未见胸腔积液。 |
 
+**Quantitative / qualitative validation：**
+
+| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
+|---|---|---|
+| `strong__strong_location_00005_01` | `inconsistent` | `consistent` |
+
 ### Anchor 3: `study_001_ct_image_000_axial_lung_window_f01`
 
 <img src="../assets_step3/infected-emphysematous-bulla/nodes/study_001_ct_image_000_axial_lung_window_f01.png" width="420">
@@ -193,6 +206,12 @@
 | Existing target bbox | IoU | Strong match | Lingshu caption | 中文翻译 |
 |---|---:|---|---|---|
 | `study_001_ct_image_001_coronal_lung_window_f01`; `[210, 256, 464, 444]` | 0.504 | yes | The lungs are hyperinflated. There is a large cavitary lesion in the right upper lobe with thick irregular walls. The remainder of the lungs demonstrate emphysematous changes. No pleural effusions are seen. | 双肺过度充气。右上叶可见一个厚壁、不规则的大空洞性病灶。其余肺组织呈肺气肿改变。未见胸腔积液。 |
+
+**Quantitative / qualitative validation：**
+
+| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
+|---|---|---|
+| `strong__strong_location_00006_01` | `inconsistent` | `inconsistent` |
 
 ## Dynamically Skipped Anchors
 
@@ -220,6 +239,8 @@ None.
 - **Anchor caption 中文翻译：** 心影增大，主动脉迂曲。心影重叠区可见钙化性病灶，可能代表钙化淋巴结或其他钙化。
 - **Target Lingshu caption：** The lungs are hyperinflated. There is a large cavitary lesion in the right upper lobe with thick irregular walls. The remainder of the lungs demonstrate emphysematous changes. No pleural effusions are seen.
 - **Target caption 中文翻译：** 双肺过度充气。右上叶可见一个厚壁、不规则的大空洞性病灶。其余肺组织呈肺气肿改变。未见胸腔积液。
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Strong 2: `study_001_ct_image_000_axial_lung_window_f01` ↔ `study_001_ct_image_001_coronal_lung_window_f01`
 
@@ -235,6 +256,8 @@ None.
 - **Anchor caption 中文翻译：** 右下叶可见一个薄壁大囊性结构。其余肺野清晰，未见局灶性实变、胸腔积液或气胸。心纵隔轮廓正常。
 - **Target Lingshu caption：** The lungs are hyperinflated. There is a large cavitary lesion in the right upper lobe with thick irregular walls. The remainder of the lungs demonstrate emphysematous changes. No pleural effusions are seen.
 - **Target caption 中文翻译：** 双肺过度充气。右上叶可见一个厚壁、不规则的大空洞性病灶。其余肺组织呈肺气肿改变。未见胸腔积液。
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 ### Partial Support
 
@@ -253,6 +276,8 @@ None.
 - **A 端 caption 中文翻译：** 双肺过度充气。右中肺野投影区可见一个 1.5 cm 的圆形致密影。未见胸腔积液或气胸。心影及纵隔轮廓未见异常。
 - **B 端 re-ground Lingshu caption：** The heart size is enlarged. The aorta is tortuous. There is a large hiatal hernia present. No focal consolidations, pleural effusions, or pneumothorax seen. The visualized osseous structures are unremarkable.
 - **B 端 re-ground caption 中文翻译：** 心影增大，主动脉迂曲。可见较大的食管裂孔疝。未见局灶性实变、胸腔积液或气胸。所见骨性结构未见异常。
+- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 ### Not Support
 
@@ -269,6 +294,7 @@ None.
 - **A 端原始 Lingshu caption：** The lungs are hyperinflated. There is a 1.5 cm rounded opacity projecting over the right mid lung zone. No pleural effusion or pneumothorax is seen. The cardiac and mediastinal silhouettes are unremarkable.
 - **A 端 caption 中文翻译：** 双肺过度充气。右中肺野投影区可见一个 1.5 cm 的圆形致密影。未见胸腔积液或气胸。心影及纵隔轮廓未见异常。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 2: `study_000_x_ray_image_000_frontal_f01` → `study_001_ct_image_001_coronal_lung_window`
 
@@ -283,6 +309,7 @@ None.
 - **A 端原始 Lingshu caption：** The lungs are hyperinflated. There is a 1.5 cm rounded opacity projecting over the right mid lung zone. No pleural effusion or pneumothorax is seen. The cardiac and mediastinal silhouettes are unremarkable.
 - **A 端 caption 中文翻译：** 双肺过度充气。右中肺野投影区可见一个 1.5 cm 的圆形致密影。未见胸腔积液或气胸。心影及纵隔轮廓未见异常。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 3: `study_000_x_ray_image_001_lateral_f01` → `study_001_ct_image_000_axial_lung_window`
 
@@ -297,3 +324,4 @@ None.
 - **A 端原始 Lingshu caption：** The heart size is enlarged. The aorta is tortuous. There is a calcified lesion overlying the cardiac silhouette. This could represent a calcified lymph node or other calcification.
 - **A 端 caption 中文翻译：** 心影增大，主动脉迂曲。心影重叠区可见钙化性病灶，可能代表钙化淋巴结或其他钙化。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。

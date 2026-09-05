@@ -9,6 +9,7 @@
 - **定位结果：** strong 0；partial 1；not support 2；parse error 0
 - **Strong bbox relations：** 0
 - **原始 JSON：** [case_evidence.json](../assets_step3/morgagni-hernia-8/case_evidence.json)
+- **定量/定性验证 JSON：** [step_3_validation_case_evidence.json](../assets_step3/morgagni-hernia-8/step_3_validation_case_evidence.json)
 
 **Overlay 图例：** 红框为跨图新定位；绿框为 IoU >= 0.5 的已有 bbox；黄框为未达到阈值的已有 bbox。
 
@@ -73,6 +74,12 @@ The target image has no existing Step 2 bbox.
 **Re-ground Lingshu caption：** The red box is located over the right upper lobe. There is a large mass in this area which appears to be invading the mediastinum. The mass is heterogeneous in appearance.
 **Re-ground caption 中文翻译：** 红框位于右上叶。该区域可见较大肿块，似侵犯纵隔，内部表现不均。
 
+**Quantitative / qualitative validation：**
+
+| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
+|---|---|---|
+| `partial__location_00002` | `inconsistent` | `inconsistent` |
+
 #### location_00003: NOT SUPPORT
 
 <table>
@@ -121,6 +128,8 @@ None.
 - **A 端 caption 中文翻译：** 双肺清晰，未见局灶性实变、气胸或胸腔积液。心纵隔轮廓未见异常。所见胸廓骨性结构未见急性异常。
 - **B 端 re-ground Lingshu caption：** The red box is located over the right upper lobe. There is a large mass in this area which appears to be invading the mediastinum. The mass is heterogeneous in appearance.
 - **B 端 re-ground caption 中文翻译：** 红框位于右上叶。该区域可见较大肿块，似侵犯纵隔，内部表现不均。
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 ### Not Support
 
@@ -137,6 +146,7 @@ None.
 - **A 端原始 Lingshu caption：** The lungs are clear bilaterally. Specifically, no evidence of focal consolidation, pneumothorax, or pleural effusion. Cardiomediastinal silhouette is unremarkable. Visualized osseous structures of the thorax are without acute abnormality.
 - **A 端 caption 中文翻译：** 双肺清晰，未见局灶性实变、气胸或胸腔积液。心纵隔轮廓未见异常。所见胸廓骨性结构未见急性异常。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。
 
 #### Not support 2: `study_000_x_ray_image_001_lateral_f01` → `study_001_ct_image_002_coronal_non_contrast`
 
@@ -151,3 +161,4 @@ None.
 - **A 端原始 Lingshu caption：** The lungs are clear bilaterally. Specifically, no evidence of focal consolidation, pneumothorax, or pleural effusion. Cardiomediastinal silhouette is unremarkable. Visualized osseous structures of the thorax are without acute abnormality.
 - **A 端 caption 中文翻译：** 双肺清晰，未见局灶性实变、气胸或胸腔积液。心纵隔轮廓未见异常。所见胸廓骨性结构未见急性异常。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。

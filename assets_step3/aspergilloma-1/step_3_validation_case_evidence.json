@@ -1,0 +1,427 @@
+{
+  "step": 3,
+  "substep": "supported_pair_quantitative_qualitative_validation",
+  "case_id": "aspergilloma-1",
+  "case_url": "https://radiopaedia.org/cases/aspergilloma-1?lang=us",
+  "case_title": "Aspergilloma",
+  "status": "complete",
+  "configuration": {
+    "substep_version": "step_3_supported_pair_quantitative_qualitative_validation_v2",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v2",
+    "qualitative_prompt_version": "step_3_pair_lingshu_caption_binary_v2",
+    "qualitative_evidence_source": "lingshu_captions_only",
+    "calls_per_pair": 2
+  },
+  "source": {
+    "step_3_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3/case_evidence.json",
+    "step_3_fingerprint": "d782dee0e5179396f4e31b6d98d0488a1b75e73108e924fa1b5fa02f592e48a8",
+    "step_3_reground_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_reground/case_evidence.json",
+    "step_3_reground_fingerprint": "411ddce21e880613b4f471287e93996d3764693554c6ea455bf146542dabeac4"
+  },
+  "patient_background": "Patient Data: Gender: Male",
+  "validations": [
+    {
+      "pair_id": "strong__strong_location_00002_01",
+      "support_status": "strong_support",
+      "source": {
+        "relation_id": "strong_location_00002_01",
+        "query_id": "location_00002",
+        "iou": 0.702791,
+        "iou_threshold": 0.5
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_x_ray_image_000_frontal_f01",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          70,
+          124,
+          502,
+          809
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png",
+        "lingshu_caption": "The lungs are hyperinflated. There is diffuse interstitial thickening bilaterally. The heart size is normal. No pneumothorax or pleural effusion seen.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_x_ray_image_000_frontal",
+          "study_index": 0,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_ct_image_000_axial_lung_window_f01",
+        "image_id": "study_002_ct_image_000_axial_lung_window",
+        "bbox_2d": [
+          200,
+          390,
+          500,
+          660
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_2/bbox_images/study_002_ct_image_000_axial_lung_window/study_002_ct_image_000_axial_lung_window_r01_bbox.png",
+        "lingshu_caption": "The lungs are hyperinflated. There is a large area of consolidation in the right upper lobe. There is also a smaller area of consolidation in the left upper lobe. The mediastinal contours are normal.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_ct_image_000_axial_lung_window",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_validation/pairs/strong__strong_location_00002_01/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_validation/pairs/strong__strong_location_00002_01/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "strong__strong_location_00005_01",
+      "support_status": "strong_support",
+      "source": {
+        "relation_id": "strong_location_00005_01",
+        "query_id": "location_00005",
+        "iou": 0.714131,
+        "iou_threshold": 0.5
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_x_ray_image_000_frontal_f02",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          587,
+          124,
+          952,
+          824
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r02_bbox.png",
+        "lingshu_caption": "The lungs are hyperinflated. There is diffuse interstitial thickening bilaterally. The heart size is normal. No pneumothorax or pleural effusion seen.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_x_ray_image_000_frontal",
+          "study_index": 0,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_ct_image_000_axial_lung_window_f01",
+        "image_id": "study_002_ct_image_000_axial_lung_window",
+        "bbox_2d": [
+          200,
+          390,
+          500,
+          660
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_2/bbox_images/study_002_ct_image_000_axial_lung_window/study_002_ct_image_000_axial_lung_window_r01_bbox.png",
+        "lingshu_caption": "The lungs are hyperinflated. There is a large area of consolidation in the right upper lobe. There is also a smaller area of consolidation in the left upper lobe. The mediastinal contours are normal.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_ct_image_000_axial_lung_window",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_validation/pairs/strong__strong_location_00005_01/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_validation/pairs/strong__strong_location_00005_01/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00001",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00001",
+        "max_iou": 0.442938,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_x_ray_image_000_frontal_f01",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          70,
+          124,
+          502,
+          809
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png",
+        "lingshu_caption": "The lungs are hyperinflated. There is diffuse interstitial thickening bilaterally. The heart size is normal. No pneumothorax or pleural effusion seen.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_x_ray_image_000_frontal",
+          "study_index": 0,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00001",
+        "image_id": "study_001_x_ray_image_000_missing",
+        "bbox_2d": [
+          0,
+          720,
+          342,
+          1000
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_reground/bbox_images/study_001_x_ray_image_000_missing/location_00001_bbox.png",
+        "lingshu_caption": "The image shows a chest x-ray with a red box highlighting a specific area. Within this region, there appears to be an opacity or density that could potentially indicate an abnormality. The opacity is located in the lower lung fields, possibly involving the right or left lower lobe. The surrounding lung parenchyma appears relatively clear, without any obvious signs of consolidation, effusion, or other significant abnormalities. However, further evaluation and correlation with clinical findings would be necessary to determine the significance of this finding.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_x_ray_image_000_missing",
+          "study_index": 1,
+          "modality": "X-ray",
+          "subcategory": "missing"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_validation/pairs/partial__location_00001/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_validation/pairs/partial__location_00001/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00003",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00003",
+        "max_iou": 0.223728,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_x_ray_image_000_frontal_f01",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          70,
+          124,
+          502,
+          809
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r01_bbox.png",
+        "lingshu_caption": "The lungs are hyperinflated. There is diffuse interstitial thickening bilaterally. The heart size is normal. No pneumothorax or pleural effusion seen.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_x_ray_image_000_frontal",
+          "study_index": 0,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00003",
+        "image_id": "study_002_ct_image_001_oblique_lung_window",
+        "bbox_2d": [
+          157,
+          157,
+          400,
+          850
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_reground/bbox_images/study_002_ct_image_001_oblique_lung_window/location_00003_bbox.png",
+        "lingshu_caption": "The oblique lung window shows a large area of consolidation in the right upper lobe. The consolidation appears to have a heterogeneous density with areas of increased opacity. There is also evidence of air bronchograms within the consolidated region. The surrounding lung parenchyma appears relatively normal without significant signs of atelectasis or pleural effusion.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_ct_image_001_oblique_lung_window",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Oblique lung window"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_validation/pairs/partial__location_00003/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_validation/pairs/partial__location_00003/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00006",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00006",
+        "max_iou": 0.4,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_x_ray_image_000_frontal_f02",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          587,
+          124,
+          952,
+          824
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r02_bbox.png",
+        "lingshu_caption": "The lungs are hyperinflated. There is diffuse interstitial thickening bilaterally. The heart size is normal. No pneumothorax or pleural effusion seen.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_x_ray_image_000_frontal",
+          "study_index": 0,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00006",
+        "image_id": "study_002_ct_image_001_oblique_lung_window",
+        "bbox_2d": [
+          187,
+          100,
+          480,
+          800
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_reground/bbox_images/study_002_ct_image_001_oblique_lung_window/location_00006_bbox.png",
+        "lingshu_caption": "The oblique lung window shows a large area of consolidation in the right upper lobe. The consolidation appears as a dense, white area on the CT scan, indicating a significant amount of fluid or other material filling the alveoli. This finding is consistent with pneumonia or other infectious processes. The surrounding lung tissue appears relatively normal, without any obvious signs of atelectasis or other abnormalities.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_ct_image_001_oblique_lung_window",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Oblique lung window"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_validation/pairs/partial__location_00006/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_validation/pairs/partial__location_00006/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00009",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00009",
+        "max_iou": 0.416834,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_x_ray_image_000_frontal_f03",
+        "image_id": "study_000_x_ray_image_000_frontal",
+        "bbox_2d": [
+          424,
+          500,
+          699,
+          905
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_2/bbox_images/study_000_x_ray_image_000_frontal/study_000_x_ray_image_000_frontal_r03_bbox.png",
+        "lingshu_caption": "The heart size is enlarged. The mediastinal contours are prominent. There is increased opacity throughout both lungs with more pronounced opacities in the lower lobes bilaterally.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_x_ray_image_000_frontal",
+          "study_index": 0,
+          "modality": "X-ray",
+          "subcategory": "Frontal"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00009",
+        "image_id": "study_002_ct_image_001_oblique_lung_window",
+        "bbox_2d": [
+          184,
+          184,
+          548,
+          732
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_reground/bbox_images/study_002_ct_image_001_oblique_lung_window/location_00009_bbox.png",
+        "lingshu_caption": "The lungs are hyperinflated. There is diffuse bronchiectasis and bronchial wall thickening. There is a large area of consolidation in the right upper lobe. There is also a smaller area of consolidation in the left upper lobe.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_ct_image_001_oblique_lung_window",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Oblique lung window"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_validation/pairs/partial__location_00009/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_validation/pairs/partial__location_00009/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00013",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00013",
+        "max_iou": 0.282058,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_002_ct_image_000_axial_lung_window_f02",
+        "image_id": "study_002_ct_image_000_axial_lung_window",
+        "bbox_2d": [
+          641,
+          410,
+          826,
+          628
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_2/bbox_images/study_002_ct_image_000_axial_lung_window/study_002_ct_image_000_axial_lung_window_r02_bbox.png",
+        "lingshu_caption": "The lungs are hyperinflated. There is a large area of consolidation in the left upper lobe. The right upper lobe also shows some areas of consolidation.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_002_ct_image_000_axial_lung_window",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Axial lung window"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00013",
+        "image_id": "study_002_ct_image_001_oblique_lung_window",
+        "bbox_2d": [
+          462,
+          220,
+          710,
+          620
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_reground/bbox_images/study_002_ct_image_001_oblique_lung_window/location_00013_bbox.png",
+        "lingshu_caption": "The oblique lung window shows a large area of consolidation in the right upper lobe. The consolidation appears to have a heterogeneous density with some areas appearing more opaque than others. There is also evidence of air bronchograms within the consolidated area. The surrounding lung parenchyma appears relatively normal without any significant abnormalities.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_002_ct_image_001_oblique_lung_window",
+          "study_index": 2,
+          "modality": "CT",
+          "subcategory": "Oblique lung window"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_validation/pairs/partial__location_00013/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/aspergilloma-1/step_3_validation/pairs/partial__location_00013/qualitative.json"
+      }
+    }
+  ],
+  "processing_summary": {
+    "pair_count": 7,
+    "strong_support_pair_count": 2,
+    "partial_support_pair_count": 5,
+    "completed_pair_count": 7,
+    "expected_call_count": 14,
+    "parse_error_count": 0,
+    "missing_tasks": []
+  }
+}

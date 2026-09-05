@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export Step 3 bbox, captions, and location validation as GitHub Markdown."""
+"""Export Step 3 location, size, and caption validation as GitHub Markdown."""
 
 from __future__ import annotations
 
@@ -108,6 +108,44 @@ def support_counts(record):
     )
 
 
+def pair_validation_id(status, relation_or_query_id):
+    prefix = "strong" if status == "strong_support" else "partial"
+    return f"{prefix}__{relation_or_query_id}"
+
+
+def validation_value(validation, key):
+    value = validation.get(key)
+    if value not in {"consistent", "inconsistent"}:
+        raise ValueError(
+            f"Invalid {key} for {validation.get('pair_id')}: {value!r}"
+        )
+    return value
+
+
+def render_validation_lines(validation):
+    return [
+        f"- **Quantitative size validation / 定量大小一致性：** "
+        f"`{validation_value(validation, 'quantitative_validation')}`",
+        f"- **Qualitative caption validation / 定性语义一致性：** "
+        f"`{validation_value(validation, 'qualitative_validation')}`",
+    ]
+
+
+def render_validation_table(pair_ids, pair_validations):
+    lines = [
+        "| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |",
+        "|---|---|---|",
+    ]
+    for pair_id in pair_ids:
+        validation = pair_validations[pair_id]
+        lines.append(
+            f"| `{escaped(pair_id)}` | "
+            f"`{validation_value(validation, 'quantitative_validation')}` | "
+            f"`{validation_value(validation, 'qualitative_validation')}` |"
+        )
+    return lines
+
+
 def render_iou_table(location, target_node_ids, nodes, translations, case_id):
     comparisons = {
         item.get("target_node_id"): item
@@ -145,6 +183,7 @@ def render_case_location_summary(
     query_assets,
     reground_records,
     reground_assets,
+    pair_validations,
     translations,
     page_dir,
 ):
@@ -191,6 +230,7 @@ def render_case_location_summary(
         ]
         iou = relation.get("iou")
         iou_text = "n/a" if iou is None else f"{float(iou):.3f}"
+        pair_id = pair_validation_id("strong_support", relation.get("relation_id"))
         lines.extend(
             [
                 f"#### Strong {index}: `{escaped(anchor_id)}` ↔ `{escaped(target_id)}`",
@@ -207,6 +247,7 @@ def render_case_location_summary(
                 f"- **Anchor caption 中文翻译：** {translated(translations, 'original', record['case_id'], anchor_id)}",
                 f"- **Target Lingshu caption：** {compact((nodes.get(target_id) or {}).get('lingshu_caption'))}",
                 f"- **Target caption 中文翻译：** {translated(translations, 'original', record['case_id'], target_id)}",
+                *render_validation_lines(pair_validations[pair_id]),
                 "",
             ]
         )
@@ -244,6 +285,7 @@ def render_case_location_summary(
             )
         max_iou = location.get("max_iou")
         max_iou_text = "n/a" if max_iou is None else f"{float(max_iou):.3f}"
+        pair_id = pair_validation_id("partial_support", query.get("query_id"))
         lines.extend(
             [
                 f"#### Partial {index}: `{escaped(anchor_id)}` → `{escaped(target_image_id)}`",
@@ -261,6 +303,7 @@ def render_case_location_summary(
                 f"- **A 端 caption 中文翻译：** {translated(translations, 'original', record['case_id'], anchor_id)}",
                 f"- **B 端 re-ground Lingshu caption：** {compact(reground_record.get('caption'))}",
                 f"- **B 端 re-ground caption 中文翻译：** {translated(translations, 'reground', record['case_id'], query['query_id'])}",
+                *render_validation_lines(pair_validations[pair_id]),
                 "",
             ]
         )
@@ -289,6 +332,7 @@ def render_case_location_summary(
                 f"- **A 端原始 Lingshu caption：** {compact((nodes.get(anchor_id) or {}).get('lingshu_caption'))}",
                 f"- **A 端 caption 中文翻译：** {translated(translations, 'original', record['case_id'], anchor_id)}",
                 "- **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。",
+                "- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。",
                 "",
             ]
         )
@@ -363,11 +407,43 @@ def render_case(
             f"Incomplete re-ground output for {case_id}: "
             f"records={missing_reground}, assets={missing_assets}"
         )
+    validation_path = case_root / "step_3_validation" / "case_evidence.json"
+    if not validation_path.is_file():
+        raise FileNotFoundError(
+            f"Step 3 quantitative/qualitative validation not found: {validation_path}"
+        )
+    validation_evidence = json.loads(validation_path.read_text(encoding="utf-8"))
+    pair_validations = {
+        item["pair_id"]: item for item in validation_evidence.get("validations") or []
+    }
+    expected_pair_ids = {
+        pair_validation_id("strong_support", item.get("relation_id"))
+        for item in record.get("strong_support_relations") or []
+    }
+    expected_pair_ids.update(
+        pair_validation_id("partial_support", item.get("query_id"))
+        for item in record.get("cross_image_grounding") or []
+        if (item.get("location_validation") or {}).get("status")
+        == "partial_support"
+    )
+    missing_validations = sorted(expected_pair_ids - set(pair_validations))
+    if missing_validations:
+        raise ValueError(
+            f"Incomplete quantitative/qualitative validation for {case_id}: "
+            f"{missing_validations}"
+        )
+    for pair_id in expected_pair_ids:
+        validation_value(pair_validations[pair_id], "quantitative_validation")
+        validation_value(pair_validations[pair_id], "qualitative_validation")
     raw_json = copy_asset(
         Path(record["source_step_2"]["path"]).parents[2]
         / "step_3"
         / "case_evidence.json",
         case_assets / "case_evidence.json",
+    )
+    validation_json = copy_asset(
+        validation_path,
+        case_assets / "step_3_validation_case_evidence.json",
     )
 
     counts = support_counts(record)
@@ -384,6 +460,7 @@ def render_case(
         f"- **定位结果：** strong {counts['strong_support']}；partial {counts['partial_support']}；not support {counts['not_support']}；parse error {counts['parse_error']}",
         f"- **Strong bbox relations：** {summary.get('strong_relation_count', 0)}",
         f"- **原始 JSON：** [case_evidence.json](../{relpath(raw_json, pages_root)})",
+        f"- **定量/定性验证 JSON：** [step_3_validation_case_evidence.json](../{relpath(validation_json, pages_root)})",
         "",
         "**Overlay 图例：** 红框为跨图新定位；绿框为 IoU >= 0.5 的已有 bbox；黄框为未达到阈值的已有 bbox。",
         "",
@@ -498,6 +575,31 @@ def render_case(
                         "",
                     ]
                 )
+            if status == "strong_support":
+                pair_ids = [
+                    pair_validation_id("strong_support", relation_id)
+                    for relation_id in query.get("strong_relation_ids") or []
+                ]
+                lines.extend(
+                    [
+                        "**Quantitative / qualitative validation：**",
+                        "",
+                        *render_validation_table(pair_ids, pair_validations),
+                        "",
+                    ]
+                )
+            elif status == "partial_support":
+                pair_id = pair_validation_id(
+                    "partial_support", query.get("query_id")
+                )
+                lines.extend(
+                    [
+                        "**Quantitative / qualitative validation：**",
+                        "",
+                        *render_validation_table([pair_id], pair_validations),
+                        "",
+                    ]
+                )
     skipped = record.get("skipped_anchor_nodes") or []
     lines.extend(["## Dynamically Skipped Anchors", ""])
     if not skipped:
@@ -526,6 +628,7 @@ def render_case(
             query_assets,
             reground_records,
             reground_assets,
+            pair_validations,
             translations,
             pages_root,
         )
@@ -539,6 +642,7 @@ def render_case(
         "page_path": page_path,
         "summary": summary,
         "counts": counts,
+        "validations": list(pair_validations.values()),
     }
 
 
@@ -549,16 +653,28 @@ def render_index(case_rows, output_root, model_label):
     query_total = sum(
         row["summary"].get("executed_or_reused_query_count", 0) for row in case_rows
     )
+    validations = [
+        validation
+        for row in case_rows
+        for validation in row.get("validations") or []
+    ]
 
     def percentage(value):
         return 0.0 if query_total == 0 else value / query_total * 100
+
+    def validation_count(support_status, validation_key, value):
+        return sum(
+            item.get("support_status") == support_status
+            and item.get(validation_key) == value
+            for item in validations
+        )
 
     lines = [
         "# Step 3 Cross-image Validation 可视化",
         "",
         "[返回主 README](README.md)",
         "",
-        f"本页展示 **{escaped(model_label)}** 当前已完成的 Step 3 结果：Step 2 bbox、Lingshu caption、跨图目标定位、IoU 匹配，以及 strong/partial/not support 定位支持关系。",
+        f"本页展示 **{escaped(model_label)}** 当前已完成的 Step 3 结果：Step 2 bbox、Lingshu caption、跨图目标定位、IoU 匹配、strong/partial/not support 定位支持关系，以及 strong/partial pair 的定量大小与定性语义一致性。",
         "",
         "**关系定义：**",
         "",
@@ -573,6 +689,12 @@ def render_index(case_rows, output_root, model_label):
         "- `NOT SUPPORT`：展示 A 端原始 Step 2 Lingshu caption；由于目标图返回 `null`，B 端没有 bbox，也没有 re-ground caption。",
         "- 中文内容为对模型原始 caption 的逐条忠实翻译，仅用于对照阅读，不修正模型可能存在的医学错误。",
         "",
+        "**定量 / 定性验证：**",
+        "",
+        "- 定量验证使用两张带 bbox 的图像及对应 Lingshu caption，输出 `consistent` 或 `inconsistent`。",
+        "- 定性验证只使用两条 Lingshu caption 判断语义兼容性，输出 `consistent` 或 `inconsistent`。",
+        "- 仅 strong-support 与 partial-support pair 接受这两项验证；not-support 不执行。",
+        "",
         "**Overlay 图例：** 红框为跨图新定位；绿框为达到阈值的已有 bbox；黄框为未达到阈值的已有 bbox。",
         "",
         "## Overall Summary",
@@ -585,6 +707,16 @@ def render_index(case_rows, output_root, model_label):
         f"| Partial support | {totals['partial_support']} | {percentage(totals['partial_support']):.2f}% |",
         f"| Not support | {totals['not_support']} | {percentage(totals['not_support']):.2f}% |",
         f"| Parse error | {totals['parse_error']} | {percentage(totals['parse_error']):.2f}% |",
+        "",
+        "### Quantitative and Qualitative Validation",
+        "",
+        f"共 **{len(validations)}** 个 strong/partial pair 完成定量与定性验证。",
+        "",
+        "| Location relation | Pairs | Quantitative consistent | Quantitative inconsistent | Qualitative consistent | Qualitative inconsistent |",
+        "|---|---:|---:|---:|---:|---:|",
+        f"| Strong support | {sum(item.get('support_status') == 'strong_support' for item in validations)} | {validation_count('strong_support', 'quantitative_validation', 'consistent')} | {validation_count('strong_support', 'quantitative_validation', 'inconsistent')} | {validation_count('strong_support', 'qualitative_validation', 'consistent')} | {validation_count('strong_support', 'qualitative_validation', 'inconsistent')} |",
+        f"| Partial support | {sum(item.get('support_status') == 'partial_support' for item in validations)} | {validation_count('partial_support', 'quantitative_validation', 'consistent')} | {validation_count('partial_support', 'quantitative_validation', 'inconsistent')} | {validation_count('partial_support', 'qualitative_validation', 'consistent')} | {validation_count('partial_support', 'qualitative_validation', 'inconsistent')} |",
+        f"| **Total** | **{len(validations)}** | **{sum(item.get('quantitative_validation') == 'consistent' for item in validations)}** | **{sum(item.get('quantitative_validation') == 'inconsistent' for item in validations)}** | **{sum(item.get('qualitative_validation') == 'consistent' for item in validations)}** | **{sum(item.get('qualitative_validation') == 'inconsistent' for item in validations)}** |",
         "",
         "## Cases",
         "",

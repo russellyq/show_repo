@@ -2,7 +2,7 @@
 
 [返回主 README](README.md)
 
-本页展示 **Qwen3-VL-8B** 当前已完成的 Step 3 结果：Step 2 bbox、Lingshu caption、跨图目标定位、IoU 匹配，以及 strong/partial/not support 定位支持关系。
+本页展示 **Qwen3-VL-8B** 当前已完成的 Step 3 结果：Step 2 bbox、Lingshu caption、跨图目标定位、IoU 匹配、strong/partial/not support 定位支持关系，以及 strong/partial pair 的定量大小与定性语义一致性。
 
 **关系定义：**
 
@@ -17,6 +17,12 @@
 - `NOT SUPPORT`：展示 A 端原始 Step 2 Lingshu caption；由于目标图返回 `null`，B 端没有 bbox，也没有 re-ground caption。
 - 中文内容为对模型原始 caption 的逐条忠实翻译，仅用于对照阅读，不修正模型可能存在的医学错误。
 
+**定量 / 定性验证：**
+
+- 定量验证使用两张带 bbox 的图像及对应 Lingshu caption，输出 `consistent` 或 `inconsistent`。
+- 定性验证只使用两条 Lingshu caption 判断语义兼容性，输出 `consistent` 或 `inconsistent`。
+- 仅 strong-support 与 partial-support pair 接受这两项验证；not-support 不执行。
+
 **Overlay 图例：** 红框为跨图新定位；绿框为达到阈值的已有 bbox；黄框为未达到阈值的已有 bbox。
 
 ## Overall Summary
@@ -29,6 +35,16 @@
 | Partial support | 69 | 29.11% |
 | Not support | 148 | 62.45% |
 | Parse error | 0 | 0.00% |
+
+### Quantitative and Qualitative Validation
+
+共 **89** 个 strong/partial pair 完成定量与定性验证。
+
+| Location relation | Pairs | Quantitative consistent | Quantitative inconsistent | Qualitative consistent | Qualitative inconsistent |
+|---|---:|---:|---:|---:|---:|
+| Strong support | 20 | 5 | 15 | 7 | 13 |
+| Partial support | 69 | 22 | 47 | 22 | 47 |
+| **Total** | **89** | **27** | **62** | **29** | **60** |
 
 ## Cases
 

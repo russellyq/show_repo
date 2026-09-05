@@ -9,6 +9,7 @@
 - **定位结果：** strong 0；partial 0；not support 1；parse error 0
 - **Strong bbox relations：** 0
 - **原始 JSON：** [case_evidence.json](../assets_step3/sheared-port-a-cath-remnant/case_evidence.json)
+- **定量/定性验证 JSON：** [step_3_validation_case_evidence.json](../assets_step3/sheared-port-a-cath-remnant/step_3_validation_case_evidence.json)
 
 **Overlay 图例：** 红框为跨图新定位；绿框为 IoU >= 0.5 的已有 bbox；黄框为未达到阈值的已有 bbox。
 
@@ -93,3 +94,4 @@ None.
 - **A 端原始 Lingshu caption：** The lungs are clear bilaterally. Specifically, no evidence of focal consolidation, pneumothorax, or pleural effusion. Cardiomediastinal silhouette is unremarkable. Visualized osseous structures of the thorax are without acute abnormality.
 - **A 端 caption 中文翻译：** 双肺清晰，未见局灶性实变、气胸或胸腔积液。心纵隔轮廓未见异常。所见胸廓骨性结构未见急性异常。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。

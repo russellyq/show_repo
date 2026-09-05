@@ -9,6 +9,7 @@
 - **定位结果：** strong 1；partial 0；not support 1；parse error 0
 - **Strong bbox relations：** 1
 - **原始 JSON：** [case_evidence.json](../assets_step3/wall-echo-shadow-sign-breast/case_evidence.json)
+- **定量/定性验证 JSON：** [step_3_validation_case_evidence.json](../assets_step3/wall-echo-shadow-sign-breast/step_3_validation_case_evidence.json)
 
 **Overlay 图例：** 红框为跨图新定位；绿框为 IoU >= 0.5 的已有 bbox；黄框为未达到阈值的已有 bbox。
 
@@ -69,6 +70,12 @@
 |---|---:|---|---|---|
 | `study_002_pathology_image_000_gross_pathology_f01`; `[144, 144, 837, 656]` | 0.843 | yes | The image shows a gross pathology specimen, likely a resected tumor or mass. The specimen appears to be a well-circumscribed, reddish-orange mass with a smooth, glistening surface. The mass is approximately 5-6 cm in diameter, as indicated by the scale bar. Within the boxed region, there appears to be a distinct area of discoloration or irregularity on the surface of the mass, which may represent an area of necrosis, hemorrhage, or other pathological change. However, without additional clinical information or microscopic examination, the specific nature of this finding cannot be determined. | 图像显示大体病理标本，可能为切除的肿瘤或肿块。标本为边界清楚的红橙色肿块，表面光滑、有光泽。根据比例尺，直径约 5–6 cm。框内肿块表面可见明确变色或不规则区域，可能代表坏死、出血或其他病理改变。但缺少更多临床资料或显微镜检查时无法确定其具体性质。 |
 
+**Quantitative / qualitative validation：**
+
+| Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
+|---|---|---|
+| `strong__strong_location_00001_01` | `inconsistent` | `inconsistent` |
+
 #### location_00002: NOT SUPPORT
 
 <table>
@@ -116,6 +123,8 @@
 - **Anchor caption 中文翻译：** 乳腺 X 线片显示左乳外上象限一个边界清楚的圆形肿块，边缘光滑、密度较均匀。周围乳腺组织呈常见纤维腺体密度，本视图未见其他可疑病灶或结构扭曲。
 - **Target Lingshu caption：** The image shows a gross pathology specimen, likely a resected tumor or mass. The specimen appears to be a well-circumscribed, reddish-orange mass with a smooth, glistening surface. The mass is approximately 5-6 cm in diameter, as indicated by the scale bar. Within the boxed region, there appears to be a distinct area of discoloration or irregularity on the surface of the mass, which may represent an area of necrosis, hemorrhage, or other pathological change. However, without additional clinical information or microscopic examination, the specific nature of this finding cannot be determined.
 - **Target caption 中文翻译：** 图像显示大体病理标本，可能为切除的肿瘤或肿块。标本为边界清楚的红橙色肿块，表面光滑、有光泽。根据比例尺，直径约 5–6 cm。框内肿块表面可见明确变色或不规则区域，可能代表坏死、出血或其他病理改变。但缺少更多临床资料或显微镜检查时无法确定其具体性质。
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 ### Partial Support
 
@@ -136,3 +145,4 @@
 - **A 端原始 Lingshu caption：** The mammogram shows a well-defined, round mass located in the upper outer quadrant of the left breast. The mass appears to have smooth margins and is relatively homogeneous in density. Surrounding breast tissue exhibits typical fibroglandular densities without any additional suspicious lesions or architectural distortions noted in this view.
 - **A 端 caption 中文翻译：** 乳腺 X 线片显示左乳外上象限一个边界清楚的圆形肿块，边缘光滑、密度较均匀。周围乳腺组织呈常见纤维腺体密度，本视图未见其他可疑病灶或结构扭曲。
 - **B 端 re-ground caption：** 不适用；目标图返回 `null`，没有生成 re-ground bbox。
+- **定量 / 定性验证：** 不适用；仅对 strong-support 和 partial-support pair 执行。

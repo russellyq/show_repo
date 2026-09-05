@@ -1,0 +1,34 @@
+{
+  "step": 3,
+  "substep": "supported_pair_quantitative_qualitative_validation",
+  "case_id": "invasive-lobular-carcinoma-10",
+  "case_url": "https://radiopaedia.org/cases/invasive-lobular-carcinoma-10?lang=us",
+  "case_title": "Invasive lobular carcinoma",
+  "status": "complete",
+  "configuration": {
+    "substep_version": "step_3_supported_pair_quantitative_qualitative_validation_v2",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v2",
+    "qualitative_prompt_version": "step_3_pair_lingshu_caption_binary_v2",
+    "qualitative_evidence_source": "lingshu_captions_only",
+    "calls_per_pair": 2
+  },
+  "source": {
+    "step_3_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/invasive-lobular-carcinoma-10/step_3/case_evidence.json",
+    "step_3_fingerprint": "12378047bf51336784cdbe8d65ecc0c95b0224132672132090730e8a0d96033b",
+    "step_3_reground_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/invasive-lobular-carcinoma-10/step_3_reground/case_evidence.json",
+    "step_3_reground_fingerprint": "8b3aa6cca28a0c01b54ac0980b84ba136d7b9f75d420a6f5d2411ac8600db96c"
+  },
+  "patient_background": "Patient Data: Age: 45 years Gender: Female\nPresentation: Palpable breast lump",
+  "validations": [],
+  "processing_summary": {
+    "pair_count": 0,
+    "strong_support_pair_count": 0,
+    "partial_support_pair_count": 0,
+    "completed_pair_count": 0,
+    "expected_call_count": 0,
+    "parse_error_count": 0,
+    "missing_tasks": []
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "step": 3,
+  "substep": "supported_pair_quantitative_qualitative_validation",
+  "case_id": "gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass",
+  "case_url": "https://radiopaedia.org/cases/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass?lang=us",
+  "case_title": "Gastric band induced megaesophagus presenting as a neck mass",
+  "status": "complete",
+  "configuration": {
+    "substep_version": "step_3_supported_pair_quantitative_qualitative_validation_v2",
+    "model": "qwen3vl_8b",
+    "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
+    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v2",
+    "qualitative_prompt_version": "step_3_pair_lingshu_caption_binary_v2",
+    "qualitative_evidence_source": "lingshu_captions_only",
+    "calls_per_pair": 2
+  },
+  "source": {
+    "step_3_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/step_3/case_evidence.json",
+    "step_3_fingerprint": "f7afd15c640c368b00ed379aaca9b560d277189817908477b1803f389cf3c825",
+    "step_3_reground_case_evidence": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/step_3_reground/case_evidence.json",
+    "step_3_reground_fingerprint": "b071062cd7eaba24de02601d1bdca91a9f736f264b4efa38f60763158c57c547"
+  },
+  "patient_background": "Patient Data: Age: 60 years Gender: Female\nPresentation: Past history of left thyroidectomy. Now left neck mass, losing weight ++, no vomiting.",
+  "validations": [
+    {
+      "pair_id": "partial__location_00001",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00001",
+        "max_iou": null,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_000_ultrasound_image_000_missing_f01",
+        "image_id": "study_000_ultrasound_image_000_missing",
+        "bbox_2d": [
+          100,
+          100,
+          900,
+          900
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/step_2/bbox_images/study_000_ultrasound_image_000_missing/study_000_ultrasound_image_000_missing_r01_bbox.png",
+        "lingshu_caption": "The image shows a transverse view of the neck. The boxed region appears to be located in the left side of the neck. Within this region, there is a hypoechoic area that could represent a lymph node or other soft tissue structure. The borders of this area are somewhat irregular, which may indicate an abnormality. Surrounding tissues appear relatively homogeneous without obvious signs of inflammation or other abnormalities.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_000_ultrasound_image_000_missing",
+          "study_index": 0,
+          "modality": "Ultrasound",
+          "subcategory": "missing"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00001",
+        "image_id": "study_000_ultrasound_image_001_missing",
+        "bbox_2d": [
+          100,
+          100,
+          800,
+          900
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/step_3_reground/bbox_images/study_000_ultrasound_image_001_missing/location_00001_bbox.png",
+        "lingshu_caption": "The image shows a transverse view of the neck. The boxed region appears to be the left side of the neck. Within this region, there is a hypoechoic area that could represent a lymph node or other soft tissue structure. The borders of this area are somewhat indistinct, suggesting possible pathology. Surrounding tissues appear relatively homogeneous without obvious signs of inflammation or mass effect.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_000_ultrasound_image_001_missing",
+          "study_index": 0,
+          "modality": "Ultrasound",
+          "subcategory": "missing"
+        }
+      },
+      "quantitative_validation": "consistent",
+      "qualitative_validation": "consistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/step_3_validation/pairs/partial__location_00001/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/step_3_validation/pairs/partial__location_00001/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00007",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00007",
+        "max_iou": 0.457911,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_001_ct_image_000_axial_non_contrast_f01",
+        "image_id": "study_001_ct_image_000_axial_non_contrast",
+        "bbox_2d": [
+          439,
+          412,
+          556,
+          520
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/step_2/bbox_images/study_001_ct_image_000_axial_non_contrast/study_001_ct_image_000_axial_non_contrast_r01_bbox.png",
+        "lingshu_caption": "The red box is located in the midline at the level of the trachea. Within this area there is a large amount of air present in the soft tissues of the neck. There is also extensive subcutaneous emphysema throughout the chest wall bilaterally.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_000_axial_non_contrast",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Axial non-contrast"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00007",
+        "image_id": "study_001_ct_image_002_oblique_non_contrast",
+        "bbox_2d": [
+          350,
+          220,
+          550,
+          380
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/step_3_reground/bbox_images/study_001_ct_image_002_oblique_non_contrast/location_00007_bbox.png",
+        "lingshu_caption": "The oblique non-contrast CT image shows a region of interest marked by a red bounding box located in the upper thoracic area. Within this region, there appears to be a mass-like structure that is distinct from the surrounding tissues. The mass is situated near the mediastinum and seems to have irregular borders. It is adjacent to the trachea and possibly involves the esophagus. The density of the mass suggests it could be solid, and there is no clear evidence of calcification within this area. Surrounding structures, including the lungs and major blood vessels, appear unremarkable outside the boxed region.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_002_oblique_non_contrast",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Oblique non-contrast"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/step_3_validation/pairs/partial__location_00007/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/step_3_validation/pairs/partial__location_00007/qualitative.json"
+      }
+    },
+    {
+      "pair_id": "partial__location_00009",
+      "support_status": "partial_support",
+      "source": {
+        "query_id": "location_00009",
+        "max_iou": 0.327769,
+        "iou_threshold": 0.5,
+        "reground_status": "ok"
+      },
+      "endpoint_a": {
+        "endpoint_type": "step_2_finding",
+        "node_id": "study_001_ct_image_001_coronal_non_contrast_f01",
+        "image_id": "study_001_ct_image_001_coronal_non_contrast",
+        "bbox_2d": [
+          396,
+          298,
+          511,
+          524
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/step_2/bbox_images/study_001_ct_image_001_coronal_non_contrast/study_001_ct_image_001_coronal_non_contrast_r01_bbox.png",
+        "lingshu_caption": "The right upper lobe demonstrates a large area of consolidation with air bronchograms. There is also a small amount of peribronchial cuffing. The left lung is clear. The cardiomediastinal silhouette is unremarkable. No pleural effusions or pneumothorax.",
+        "caption_source": "step_2_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_001_coronal_non_contrast",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Coronal non-contrast"
+        }
+      },
+      "endpoint_b": {
+        "endpoint_type": "step_3_regrounded_finding",
+        "node_id": "reground_location_00009",
+        "image_id": "study_001_ct_image_002_oblique_non_contrast",
+        "bbox_2d": [
+          275,
+          140,
+          475,
+          390
+        ],
+        "bbox_image_path": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/step_3_reground/bbox_images/study_001_ct_image_002_oblique_non_contrast/location_00009_bbox.png",
+        "lingshu_caption": "The oblique non-contrast CT image shows a region of interest marked by a red bounding box located in the upper thoracic area. Within this region, there appears to be a heterogeneous mass with irregular borders. The mass is situated near the mediastinum and seems to involve adjacent structures. The density of the mass varies, suggesting possible necrosis or cystic components. Surrounding tissues show signs of displacement or compression due to the presence of the mass. No clear signs of calcification are observed within the mass. The overall appearance suggests a significant abnormality that warrants further investigation.",
+        "caption_source": "step_3_reground_lingshu",
+        "examination": {
+          "image_id": "study_001_ct_image_002_oblique_non_contrast",
+          "study_index": 1,
+          "modality": "CT",
+          "subcategory": "Oblique non-contrast"
+        }
+      },
+      "quantitative_validation": "inconsistent",
+      "qualitative_validation": "inconsistent",
+      "result_files": {
+        "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/step_3_validation/pairs/partial__location_00009/quantitative.json",
+        "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/step_3_validation/pairs/partial__location_00009/qualitative.json"
+      }
+    }
+  ],
+  "processing_summary": {
+    "pair_count": 3,
+    "strong_support_pair_count": 0,
+    "partial_support_pair_count": 3,
+    "completed_pair_count": 3,
+    "expected_call_count": 6,
+    "parse_error_count": 0,
+    "missing_tasks": []
+  }
+}
