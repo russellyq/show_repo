@@ -99,7 +99,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00001` | `inconsistent` | `partially` |
+| `partial__location_00001` | `consistent` | `partially` |
 
 #### location_00002: NOT SUPPORT
 
@@ -305,7 +305,7 @@ None.
 - **A 端 caption 中文翻译：** 右侧乳突气房较左侧浑浊，右侧中耳腔也呈浑浊。未见明确骨质侵蚀。
 - **B 端 re-ground Lingshu caption：** The right internal auditory canal appears enlarged compared to the left. The right cochlear nerve appears hypoplastic. The right facial nerve appears normal.
 - **B 端 re-ground caption 中文翻译：** 右侧内听道较左侧增宽。右侧耳蜗神经似发育不良，右侧面神经表现正常。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `partially`
 
 ### Not Support

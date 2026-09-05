@@ -90,7 +90,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00001` | `consistent` | `consistent` |
+| `partial__location_00001` | `consistent` | `partially` |
 
 #### location_00002: NOT SUPPORT
 
@@ -277,7 +277,7 @@ None.
 - **B 端 re-ground Lingshu caption：** The heart size is enlarged. The aorta is tortuous. There is a large hiatal hernia present. No focal consolidations, pleural effusions, or pneumothorax seen. The visualized osseous structures are unremarkable.
 - **B 端 re-ground caption 中文翻译：** 心影增大，主动脉迂曲。可见较大的食管裂孔疝。未见局灶性实变、胸腔积液或气胸。所见骨性结构未见异常。
 - **Quantitative size validation / 定量大小一致性：** `consistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Qualitative caption validation / 定性语义一致性：** `partially`
 
 ### Not Support
 

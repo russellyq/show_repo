@@ -410,7 +410,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00012` | `consistent` | `consistent` |
+| `partial__location_00012` | `inconsistent` | `partially` |
 
 #### location_00013: NOT SUPPORT
 
@@ -604,8 +604,8 @@ None.
 - **A 端 caption 中文翻译：** 图像为胸部正位像，重点显示上胸部。图像左上象限有一处标记区域，其中可见明显致密影，可能提示肿块或实变等异常。周围肺野相对清晰，未见明显胸腔积液或气胸。心影部分可见，纵隔未见明显异常。膈肌及肋骨、脊柱等骨性结构未见明显偏离正常解剖。
 - **B 端 re-ground Lingshu caption：** The image shows a sagittal view of the thoracic spine with a focus on the mediastinum. The red box highlights a specific area of interest. Within this region, there appears to be a mass or lesion that is distinct from the surrounding tissues. The mass is located near the vertebral column and seems to be adjacent to the esophagus or trachea. The density and borders of the mass suggest it could be a solid lesion, possibly indicating a tumor or other pathological process. The surrounding structures, including the vertebrae and soft tissues, appear normal without any obvious signs of invasion or displacement.
 - **B 端 re-ground caption 中文翻译：** 图像为胸椎矢状位，重点显示纵隔。红框标出关注区域，其中似有与周围组织不同的肿块或病灶，位于脊柱旁并邻近食管或气管。其密度和边界提示可能为实性病变、肿瘤或其他病理过程。周围椎体和软组织正常，未见明显侵犯或移位。
-- **Quantitative size validation / 定量大小一致性：** `consistent`
-- **Qualitative caption validation / 定性语义一致性：** `consistent`
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `partially`
 
 ### Not Support
 

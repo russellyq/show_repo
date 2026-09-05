@@ -155,7 +155,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `strong__strong_location_00002_01` | `consistent` | `inconsistent` |
+| `strong__strong_location_00002_01` | `inconsistent` | `inconsistent` |
 
 #### location_00003: NOT SUPPORT
 
@@ -398,7 +398,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00012` | `inconsistent` | `inconsistent` |
+| `partial__location_00012` | `consistent` | `inconsistent` |
 
 #### location_00013: NOT SUPPORT
 
@@ -677,7 +677,7 @@
 - **Anchor caption 中文翻译：** 红框位于左颞叶。该区域内可见环形强化病灶，周围伴血管源性水肿。病灶直径约 1.5 cm，邻近结构未见占位效应。
 - **Target Lingshu caption：** The red box is located over the left temporal lobe. Within this area there is a large heterogeneous mass with areas of T2 hypointensity likely representing hemorrhage. There is surrounding vasogenic edema. The mass effect from this lesion is causing a midline shift to the right.
 - **Target caption 中文翻译：** 红框位于左颞叶。该区域内可见较大的不均质肿块，内有 T2 低信号区，可能代表出血，周围伴血管源性水肿。病灶占位效应导致中线向右移位。
-- **Quantitative size validation / 定量大小一致性：** `consistent`
+- **Quantitative size validation / 定量大小一致性：** `inconsistent`
 - **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Strong 3: `study_000_mri_image_003_mra_f01` ↔ `study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01`
@@ -750,7 +750,7 @@
 - **A 端 caption 中文翻译：** FLAIR 序列上左额叶可见小灶性高信号，未伴占位效应或对比增强。
 - **B 端 re-ground Lingshu caption：** The red box is located in the right frontal lobe. Within this area there is a small focus of blooming artifact which could represent a calcification or hemorrhage. There is no associated mass effect or edema. The remainder of the brain parenchyma is unremarkable.
 - **B 端 re-ground caption 中文翻译：** 红框位于右额叶，其中可见小灶性磁敏感伪影，可能代表钙化或出血。未伴占位效应或水肿。其余脑实质未见异常。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Partial 4: `study_000_mri_image_001_axial_flair_f02` → `study_001_ct_image_000_axial_c_arterial_phase`

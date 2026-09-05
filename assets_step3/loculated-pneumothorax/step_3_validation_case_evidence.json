@@ -9,7 +9,7 @@
     "substep_version": "step_3_supported_pair_quantitative_qualitative_validation_v2",
     "model": "qwen3vl_8b",
     "model_path": "/data/hdd_data/data_yq/model_weights/Qwen3-VL-8B-Instruct",
-    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v4",
+    "quantitative_prompt_version": "step_3_pair_quantitative_binary_v5",
     "qualitative_prompt_version": "step_3_pair_lingshu_caption_ternary_v1",
     "qualitative_evidence_source": "lingshu_captions_only",
     "calls_per_pair": 2
@@ -128,7 +128,7 @@
         }
       },
       "quantitative_validation": "consistent",
-      "qualitative_validation": "consistent",
+      "qualitative_validation": "partially",
       "result_files": {
         "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/partial__location_00001/quantitative.json",
         "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/partial__location_00001/qualitative.json"
@@ -240,7 +240,7 @@
         }
       },
       "quantitative_validation": "inconsistent",
-      "qualitative_validation": "consistent",
+      "qualitative_validation": "partially",
       "result_files": {
         "quantitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/partial__location_00004/quantitative.json",
         "qualitative": "/home/yanqiao/medical_ai/MedEvo/ours_method/cases_qwen3vl_8b/loculated-pneumothorax/step_3_validation/pairs/partial__location_00004/qualitative.json"

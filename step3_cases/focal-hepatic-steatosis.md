@@ -213,7 +213,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00003` | `inconsistent` | `inconsistent` |
+| `partial__location_00003` | `inconsistent` | `partially` |
 
 #### location_00004: PARTIAL SUPPORT
 
@@ -968,7 +968,7 @@
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `partial__location_00035` | `consistent` | `partially` |
+| `partial__location_00035` | `consistent` | `consistent` |
 
 #### location_00036: STRONG SUPPORT
 
@@ -1382,7 +1382,7 @@
 - **B 端 re-ground Lingshu caption：** The liver parenchyma demonstrates diffuse low signal intensity on this out of phase sequence compared to the spleen. This is consistent with diffuse hepatic steatosis. No focal lesions are identified. The biliary tree is not dilated. The portal vein is patent. There is no evidence of ascites or lymphadenopathy.
 - **B 端 re-ground caption 中文翻译：** 反相位序列上肝实质信号较脾脏弥漫性降低，符合弥漫性肝脂肪变。未发现局灶性病灶。胆管树未扩张，门静脉通畅。未见腹水或淋巴结肿大。
 - **Quantitative size validation / 定量大小一致性：** `inconsistent`
-- **Qualitative caption validation / 定性语义一致性：** `inconsistent`
+- **Qualitative caption validation / 定性语义一致性：** `partially`
 
 #### Partial 2: `study_000_ct_image_000_axial_c_portal_venous_phase_f01` → `study_002_mri_image_002_axial_t1_c`
 
@@ -1508,7 +1508,7 @@
 - **B 端 re-ground Lingshu caption：** The liver is enlarged. The hepatic parenchyma demonstrates diffuse nodularity. There is a 2.5 cm focal area of decreased enhancement in segment 4A of the liver. No other focal lesions are identified. The portal vein is prominent. The spleen is unremarkable.
 - **B 端 re-ground caption 中文翻译：** 肝脏增大，肝实质呈弥漫性结节状。肝 4A 段可见一个 2.5 cm 的局灶性强化减低区，未发现其他局灶性病灶。门静脉增粗，脾脏未见异常。
 - **Quantitative size validation / 定量大小一致性：** `consistent`
-- **Qualitative caption validation / 定性语义一致性：** `partially`
+- **Qualitative caption validation / 定性语义一致性：** `consistent`
 
 #### Partial 9: `study_002_mri_image_000_axial_t1_in_phase_f02` → `study_002_mri_image_001_axial_t1_out_of_phase`
 

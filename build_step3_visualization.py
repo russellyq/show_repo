@@ -71,9 +71,17 @@ def copy_asset(source, destination):
         raise FileNotFoundError(source)
     destination = Path(destination)
     destination.parent.mkdir(parents=True, exist_ok=True)
-    if not destination.is_file() or not filecmp.cmp(
-        source, destination, shallow=False
+    needs_copy = (
+        not destination.is_file()
+        or source.stat().st_size != destination.stat().st_size
+    )
+    if (
+        not needs_copy
+        and source.suffix.casefold() == ".json"
+        and not filecmp.cmp(source, destination, shallow=False)
     ):
+        needs_copy = True
+    if needs_copy:
         shutil.copy2(source, destination)
     return destination
 

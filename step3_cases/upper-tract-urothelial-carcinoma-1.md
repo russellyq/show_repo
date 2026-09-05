@@ -226,7 +226,7 @@ The target image has no existing Step 2 bbox.
 
 | Validation pair | Quantitative size / 定量 | Qualitative caption / 定性 |
 |---|---|---|
-| `strong__strong_location_00006_01` | `inconsistent` | `inconsistent` |
+| `strong__strong_location_00006_01` | `consistent` | `inconsistent` |
 
 #### location_00007: NOT SUPPORT
 
@@ -841,7 +841,7 @@ The target image has no existing Step 2 bbox.
 - **Anchor caption 中文翻译：** 左肾增大，肾实质内可见多发囊性结构，最大囊肿约 1.5 cm。未见肾积水。右肾大小及外观正常。
 - **Target Lingshu caption：** The heart is opened to show the left ventricle and mitral valve. The mitral valve is thickened and has multiple vegetations on the anterior leaflet. The largest vegetation measures 2.5 x 1.5 cm. There is no evidence of perforation.
 - **Target caption 中文翻译：** 心脏被切开，可见左心室和二尖瓣。二尖瓣增厚，前叶可见多个赘生物，最大约 2.5 × 1.5 cm。未见穿孔。
-- **Quantitative size validation / 定量大小一致性：** `inconsistent`
+- **Quantitative size validation / 定量大小一致性：** `consistent`
 - **Qualitative caption validation / 定性语义一致性：** `inconsistent`
 
 #### Strong 3: `study_001_ct_image_000_axial_non_contrast_f01` ↔ `study_002_pathology_image_000_gross_pathology_f01`
