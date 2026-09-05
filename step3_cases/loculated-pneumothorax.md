@@ -313,3 +313,123 @@
 | Anchor node | Reused strong relations | Skipped target images |
 |---|---|---|
 | `study_001_ct_image_001_axial_lung_window_f02` | `[&#x27;strong_location_00008_01&#x27;]` | `[&#x27;study_002_x_ray_image_000_frontal&#x27;]` |
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 1 个 bbox-to-bbox 关系
+- **Partial support：** 5 个 bbox-to-image 关系
+- **Not support：** 4 个 bbox-to-image 关系
+
+### Strong Support
+
+#### Strong 1: `study_001_ct_image_000_coronal_lung_window_f03` ↔ `study_001_ct_image_001_axial_lung_window_f02`
+
+- **Relation / query：** `strong_location_00008_01` / `location_00008`
+- **IoU：** 0.594（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_001_ct_image_000_coronal_lung_window_f03.png" width="300"></td><td><img src="../assets_step3/loculated-pneumothorax/grounding/location_00008.png" width="300"></td><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_001_ct_image_001_axial_lung_window_f02.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The left lung is well inflated with no areas of focal consolidation, pleural effusion, or pneumothorax identified. The pulmonary vasculature is within normal limits. There is no evidence of hilar lymphadenopathy.
+- **Target Lingshu caption：** The lungs are hyperinflated. There is a large right pneumothorax with collapse of the right lung. The left lung appears normal.
+
+### Partial Support
+
+#### Partial 1: `study_000_x_ray_image_000_frontal_f01` → `study_001_ct_image_000_coronal_lung_window`
+
+- **Query：** `location_00001`
+- **Returned target bbox：** `[450, 475, 660, 850]`
+- **Maximum IoU：** 0.092（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_000_x_ray_image_000_frontal_f01.png" width="320"></td><td><img src="../assets_step3/loculated-pneumothorax/grounding/location_00001.png" width="320"></td><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_001_ct_image_000_coronal_lung_window_f03.png" width="320"></td></tr>
+</table>
+
+#### Partial 2: `study_000_x_ray_image_000_frontal_f01` → `study_002_x_ray_image_000_frontal`
+
+- **Query：** `location_00003`
+- **Returned target bbox：** `[586, 469, 866, 924]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_000_x_ray_image_000_frontal_f01.png" width="320"></td><td><img src="../assets_step3/loculated-pneumothorax/grounding/location_00003.png" width="320"></td><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_002_x_ray_image_000_frontal_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 3: `study_001_ct_image_000_coronal_lung_window_f01` → `study_001_ct_image_001_axial_lung_window`
+
+- **Query：** `location_00004`
+- **Returned target bbox：** `[175, 187, 490, 558]`
+- **Maximum IoU：** 0.458（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_001_ct_image_000_coronal_lung_window_f01.png" width="320"></td><td><img src="../assets_step3/loculated-pneumothorax/grounding/location_00004.png" width="320"></td><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_001_ct_image_001_axial_lung_window_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 4: `study_001_ct_image_000_coronal_lung_window_f02` → `study_001_ct_image_001_axial_lung_window`
+
+- **Query：** `location_00006`
+- **Returned target bbox：** `[180, 134, 500, 450]`
+- **Maximum IoU：** 0.293（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_001_ct_image_000_coronal_lung_window_f02.png" width="320"></td><td><img src="../assets_step3/loculated-pneumothorax/grounding/location_00006.png" width="320"></td><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_001_ct_image_001_axial_lung_window_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 5: `study_001_ct_image_000_coronal_lung_window_f03` → `study_002_x_ray_image_000_frontal`
+
+- **Query：** `location_00009`
+- **Returned target bbox：** `[574, 114, 876, 874]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_001_ct_image_000_coronal_lung_window_f03.png" width="320"></td><td><img src="../assets_step3/loculated-pneumothorax/grounding/location_00009.png" width="320"></td><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_002_x_ray_image_000_frontal_f01.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_000_x_ray_image_000_frontal_f01` → `study_001_ct_image_001_axial_lung_window`
+
+- **Query：** `location_00002`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_000_x_ray_image_000_frontal_f01.png" width="340"></td><td><img src="../assets_step3/loculated-pneumothorax/images/study_001_ct_image_001_axial_lung_window.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_001_ct_image_000_coronal_lung_window_f01` → `study_002_x_ray_image_000_frontal`
+
+- **Query：** `location_00005`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_001_ct_image_000_coronal_lung_window_f01.png" width="340"></td><td><img src="../assets_step3/loculated-pneumothorax/images/study_002_x_ray_image_000_frontal.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 3: `study_001_ct_image_000_coronal_lung_window_f02` → `study_002_x_ray_image_000_frontal`
+
+- **Query：** `location_00007`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_001_ct_image_000_coronal_lung_window_f02.png" width="340"></td><td><img src="../assets_step3/loculated-pneumothorax/images/study_002_x_ray_image_000_frontal.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 4: `study_001_ct_image_001_axial_lung_window_f01` → `study_002_x_ray_image_000_frontal`
+
+- **Query：** `location_00010`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/loculated-pneumothorax/nodes/study_001_ct_image_001_axial_lung_window_f01.png" width="340"></td><td><img src="../assets_step3/loculated-pneumothorax/images/study_002_x_ray_image_000_frontal.jpg" width="340"></td></tr>
+</table>

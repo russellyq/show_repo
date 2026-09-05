@@ -218,3 +218,91 @@
 | Anchor node | Reused strong relations | Skipped target images |
 |---|---|---|
 | `study_001_ultrasound_image_001_missing_f01` | `[&#x27;strong_location_00001_01&#x27;]` | `[&#x27;study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat&#x27;, &#x27;study_002_mri_image_001_axial_t1_c_fat_sat&#x27;, &#x27;study_002_mri_image_002_axial_t1_c_fat_sat&#x27;]` |
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 1 个 bbox-to-bbox 关系
+- **Partial support：** 3 个 bbox-to-image 关系
+- **Not support：** 3 个 bbox-to-image 关系
+
+### Strong Support
+
+#### Strong 1: `study_001_ultrasound_image_000_missing_f01` ↔ `study_001_ultrasound_image_001_missing_f01`
+
+- **Relation / query：** `strong_location_00001_01` / `location_00001`
+- **IoU：** 0.674（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/nodes/study_001_ultrasound_image_000_missing_f01.png" width="300"></td><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/grounding/location_00001.png" width="300"></td><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/nodes/study_001_ultrasound_image_001_missing_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The left breast ultrasound demonstrates a hypoechoic mass measuring approximately 2.7 cm at the 10 o&#x27;clock position. The mass has irregular borders and appears to be well-circumscribed. There is no evidence of posterior acoustic shadowing or enhancement. Surrounding breast tissue appears heterogeneous without any additional focal lesions noted.
+- **Target Lingshu caption：** The left breast ultrasound demonstrates a hypoechoic mass with irregular margins and posterior acoustic shadowing. The mass measures approximately 1.5 cm in diameter. There is increased vascularity within the mass on color Doppler imaging. Surrounding breast tissue appears heterogeneous with scattered fibroglandular densities. No additional suspicious masses or abnormalities are noted in the imaged area.
+
+### Partial Support
+
+#### Partial 1: `study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat_f01` → `study_002_mri_image_001_axial_t1_c_fat_sat`
+
+- **Query：** `location_00008`
+- **Returned target bbox：** `[670, 30, 820, 150]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/nodes/study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat_f01.png" width="320"></td><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/grounding/location_00008.png" width="320"></td><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/nodes/study_002_mri_image_001_axial_t1_c_fat_sat_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 2: `study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat_f01` → `study_002_mri_image_002_axial_t1_c_fat_sat`
+
+- **Query：** `location_00009`
+- **Returned target bbox：** `[650, 110, 760, 250]`
+- **Maximum IoU：** 0.073（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/nodes/study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat_f01.png" width="320"></td><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/grounding/location_00009.png" width="320"></td><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/nodes/study_002_mri_image_002_axial_t1_c_fat_sat_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 3: `study_002_mri_image_001_axial_t1_c_fat_sat_f01` → `study_002_mri_image_002_axial_t1_c_fat_sat`
+
+- **Query：** `location_00010`
+- **Returned target bbox：** `[220, 200, 460, 480]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/nodes/study_002_mri_image_001_axial_t1_c_fat_sat_f01.png" width="320"></td><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/grounding/location_00010.png" width="320"></td><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/nodes/study_002_mri_image_002_axial_t1_c_fat_sat_f01.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_001_ultrasound_image_000_missing_f01` → `study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat`
+
+- **Query：** `location_00002`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/nodes/study_001_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/images/study_002_mri_image_000_3d_mip_colour_coded_enhancement_pattern_t1_c_fat_sat.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_001_ultrasound_image_000_missing_f01` → `study_002_mri_image_001_axial_t1_c_fat_sat`
+
+- **Query：** `location_00003`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/nodes/study_001_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/images/study_002_mri_image_001_axial_t1_c_fat_sat.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 3: `study_001_ultrasound_image_000_missing_f01` → `study_002_mri_image_002_axial_t1_c_fat_sat`
+
+- **Query：** `location_00004`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/nodes/study_001_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/high-grade-ductal-carcinoma-in-situ-mri-findings/images/study_002_mri_image_002_axial_t1_c_fat_sat.jpg" width="340"></td></tr>
+</table>

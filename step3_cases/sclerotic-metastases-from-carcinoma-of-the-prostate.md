@@ -563,3 +563,272 @@ The target image has no existing Step 2 bbox.
 | Anchor node | Reused strong relations | Skipped target images |
 |---|---|---|
 | `study_001_nuclear_medicine_image_000_oblique_f01` | `[&#x27;strong_location_00009_01&#x27;, &#x27;strong_location_00015_01&#x27;]` | `[&#x27;study_001_nuclear_medicine_image_001_posterior_view&#x27;, &#x27;study_002_ct_image_000_coronal_bone_window&#x27;, &#x27;study_002_ct_image_001_axial_bone_window&#x27;]` |
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 3 个 bbox-to-bbox 关系
+- **Partial support：** 8 个 bbox-to-image 关系
+- **Not support：** 13 个 bbox-to-image 关系
+
+### Strong Support
+
+#### Strong 1: `study_000_mri_image_000_sagittal_t2_f02` ↔ `study_001_nuclear_medicine_image_000_oblique_f01`
+
+- **Relation / query：** `strong_location_00009_01` / `location_00009`
+- **IoU：** 0.597（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f02.png" width="300"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/grounding/location_00009.png" width="300"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_001_nuclear_medicine_image_000_oblique_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The sagittal T2 weighted MRI shows a hyperintense signal at the C1-C2 level. This could represent edema or inflammation. The spinal cord appears to be intact without any obvious signs of compression or displacement. The vertebral bodies and intervertebral discs appear normal. There is no evidence of fractures or dislocations.
+- **Target Lingshu caption：** The image shows a focal area of increased radiotracer uptake in the right parotid gland region. The uptake appears to be localized and distinct from the surrounding tissue. The rest of the image does not show any other significant areas of abnormal radiotracer distribution.
+
+#### Strong 2: `study_000_mri_image_000_sagittal_t2_f03` ↔ `study_001_nuclear_medicine_image_000_oblique_f01`
+
+- **Relation / query：** `strong_location_00015_01` / `location_00015`
+- **IoU：** 0.582（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f03.png" width="300"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/grounding/location_00015.png" width="300"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_001_nuclear_medicine_image_000_oblique_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The spinal cord appears to be compressed at the level of C3-C4. The vertebral bodies appear to be intact without any obvious fractures or dislocations. There is no evidence of disc herniation or other abnormalities in the intervertebral discs. The surrounding soft tissues appear to be normal.
+- **Target Lingshu caption：** The image shows a focal area of increased radiotracer uptake in the right parotid gland region. The uptake appears to be localized and distinct from the surrounding tissue. The rest of the image does not show any other significant areas of abnormal radiotracer distribution.
+
+#### Strong 3: `study_001_nuclear_medicine_image_001_posterior_view_f01` ↔ `study_002_ct_image_001_axial_bone_window_f01`
+
+- **Relation / query：** `strong_location_00027_01` / `location_00027`
+- **IoU：** 0.637（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_001_nuclear_medicine_image_001_posterior_view_f01.png" width="300"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/grounding/location_00027.png" width="300"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_002_ct_image_001_axial_bone_window_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The image shows a nuclear medicine scan with a focus on the skeletal system. The boxed region highlights an area in the lower abdomen/pelvic region. Within this region, there is a notable concentration of radiotracer uptake, which appears as a bright spot. This increased uptake suggests a potential abnormality in the bone structure or metabolic activity in that specific area. The rest of the skeletal system, including the spine, ribs, and limbs, appears to have normal distribution of the radiotracer without any other significant areas of increased uptake.
+- **Target Lingshu caption：** The axial bone window CT image shows a cross-sectional view of the vertebral body. The boxed region highlights an area of interest on the vertebral body. Within this region, there appears to be a subtle irregularity in the cortical bone, which could suggest a potential lesion or abnormality. The surrounding bone structure seems intact without obvious signs of fracture or significant deformity. The density variations within the boxed area might indicate changes in bone composition or integrity.
+
+### Partial Support
+
+#### Partial 1: `study_000_mri_image_000_sagittal_t2_f01` → `study_000_mri_image_001_sagittal_t1`
+
+- **Query：** `location_00001`
+- **Returned target bbox：** `[284, 79, 386, 194]`
+- **Maximum IoU：** n/a（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f01.png" width="320"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/grounding/location_00001.png" width="320"></td></tr>
+</table>
+
+#### Partial 2: `study_000_mri_image_000_sagittal_t2_f01` → `study_000_mri_image_002_sagittal_stir`
+
+- **Query：** `location_00002`
+- **Returned target bbox：** `[274, 74, 375, 192]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f01.png" width="320"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/grounding/location_00002.png" width="320"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_002_sagittal_stir_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 3: `study_000_mri_image_000_sagittal_t2_f01` → `study_001_nuclear_medicine_image_000_oblique`
+
+- **Query：** `location_00003`
+- **Returned target bbox：** `[350, 500, 500, 650]`
+- **Maximum IoU：** 0.408（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f01.png" width="320"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/grounding/location_00003.png" width="320"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_001_nuclear_medicine_image_000_oblique_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 4: `study_000_mri_image_000_sagittal_t2_f02` → `study_000_mri_image_001_sagittal_t1`
+
+- **Query：** `location_00007`
+- **Returned target bbox：** `[280, 153, 360, 253]`
+- **Maximum IoU：** n/a（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f02.png" width="320"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/grounding/location_00007.png" width="320"></td></tr>
+</table>
+
+#### Partial 5: `study_000_mri_image_000_sagittal_t2_f02` → `study_000_mri_image_002_sagittal_stir`
+
+- **Query：** `location_00008`
+- **Returned target bbox：** `[288, 156, 365, 254]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f02.png" width="320"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/grounding/location_00008.png" width="320"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_002_sagittal_stir_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 6: `study_000_mri_image_000_sagittal_t2_f03` → `study_000_mri_image_001_sagittal_t1`
+
+- **Query：** `location_00013`
+- **Returned target bbox：** `[280, 202, 360, 306]`
+- **Maximum IoU：** n/a（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f03.png" width="320"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/grounding/location_00013.png" width="320"></td></tr>
+</table>
+
+#### Partial 7: `study_000_mri_image_000_sagittal_t2_f03` → `study_000_mri_image_002_sagittal_stir`
+
+- **Query：** `location_00014`
+- **Returned target bbox：** `[284, 212, 368, 308]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f03.png" width="320"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/grounding/location_00014.png" width="320"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_002_sagittal_stir_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 8: `study_000_mri_image_002_sagittal_stir_f01` → `study_001_nuclear_medicine_image_000_oblique`
+
+- **Query：** `location_00019`
+- **Returned target bbox：** `[350, 480, 500, 620]`
+- **Maximum IoU：** 0.429（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_002_sagittal_stir_f01.png" width="320"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/grounding/location_00019.png" width="320"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_001_nuclear_medicine_image_000_oblique_f01.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_000_mri_image_000_sagittal_t2_f01` → `study_001_nuclear_medicine_image_001_posterior_view`
+
+- **Query：** `location_00004`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f01.png" width="340"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/images/study_001_nuclear_medicine_image_001_posterior_view.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_000_mri_image_000_sagittal_t2_f01` → `study_002_ct_image_000_coronal_bone_window`
+
+- **Query：** `location_00005`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f01.png" width="340"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/images/study_002_ct_image_000_coronal_bone_window.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 3: `study_000_mri_image_000_sagittal_t2_f01` → `study_002_ct_image_001_axial_bone_window`
+
+- **Query：** `location_00006`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f01.png" width="340"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/images/study_002_ct_image_001_axial_bone_window.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 4: `study_000_mri_image_000_sagittal_t2_f02` → `study_001_nuclear_medicine_image_001_posterior_view`
+
+- **Query：** `location_00010`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f02.png" width="340"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/images/study_001_nuclear_medicine_image_001_posterior_view.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 5: `study_000_mri_image_000_sagittal_t2_f02` → `study_002_ct_image_000_coronal_bone_window`
+
+- **Query：** `location_00011`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f02.png" width="340"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/images/study_002_ct_image_000_coronal_bone_window.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 6: `study_000_mri_image_000_sagittal_t2_f02` → `study_002_ct_image_001_axial_bone_window`
+
+- **Query：** `location_00012`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f02.png" width="340"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/images/study_002_ct_image_001_axial_bone_window.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 7: `study_000_mri_image_000_sagittal_t2_f03` → `study_001_nuclear_medicine_image_001_posterior_view`
+
+- **Query：** `location_00016`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f03.png" width="340"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/images/study_001_nuclear_medicine_image_001_posterior_view.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 8: `study_000_mri_image_000_sagittal_t2_f03` → `study_002_ct_image_000_coronal_bone_window`
+
+- **Query：** `location_00017`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f03.png" width="340"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/images/study_002_ct_image_000_coronal_bone_window.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 9: `study_000_mri_image_000_sagittal_t2_f03` → `study_002_ct_image_001_axial_bone_window`
+
+- **Query：** `location_00018`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_000_sagittal_t2_f03.png" width="340"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/images/study_002_ct_image_001_axial_bone_window.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 10: `study_000_mri_image_002_sagittal_stir_f01` → `study_001_nuclear_medicine_image_001_posterior_view`
+
+- **Query：** `location_00020`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_002_sagittal_stir_f01.png" width="340"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/images/study_001_nuclear_medicine_image_001_posterior_view.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 11: `study_000_mri_image_002_sagittal_stir_f01` → `study_002_ct_image_000_coronal_bone_window`
+
+- **Query：** `location_00021`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_002_sagittal_stir_f01.png" width="340"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/images/study_002_ct_image_000_coronal_bone_window.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 12: `study_000_mri_image_002_sagittal_stir_f01` → `study_002_ct_image_001_axial_bone_window`
+
+- **Query：** `location_00022`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_000_mri_image_002_sagittal_stir_f01.png" width="340"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/images/study_002_ct_image_001_axial_bone_window.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 13: `study_001_nuclear_medicine_image_001_posterior_view_f01` → `study_002_ct_image_000_coronal_bone_window`
+
+- **Query：** `location_00026`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/nodes/study_001_nuclear_medicine_image_001_posterior_view_f01.png" width="340"></td><td><img src="../assets_step3/sclerotic-metastases-from-carcinoma-of-the-prostate/images/study_002_ct_image_000_coronal_bone_window.jpg" width="340"></td></tr>
+</table>

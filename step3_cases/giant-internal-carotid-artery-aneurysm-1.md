@@ -538,3 +538,240 @@
 | `study_000_mri_image_001_axial_flair_f03` | `[&#x27;strong_location_00001_01&#x27;]` | `[&#x27;study_000_mri_image_002_axial_gradient_echo&#x27;, &#x27;study_000_mri_image_003_mra&#x27;, &#x27;study_001_ct_image_000_axial_c_arterial_phase&#x27;, &#x27;study_002_dsa_angiography_image_000_lateral_internal_carotid_artery&#x27;, &#x27;study_002_dsa_angiography_image_001_frontal_internal_carotid_artery&#x27;]` |
 | `study_000_mri_image_002_axial_gradient_echo_f01` | `[&#x27;strong_location_00002_01&#x27;]` | `[&#x27;study_000_mri_image_003_mra&#x27;, &#x27;study_001_ct_image_000_axial_c_arterial_phase&#x27;, &#x27;study_002_dsa_angiography_image_000_lateral_internal_carotid_artery&#x27;, &#x27;study_002_dsa_angiography_image_001_frontal_internal_carotid_artery&#x27;]` |
 | `study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01` | `[&#x27;strong_location_00027_01&#x27;]` | `[&#x27;study_002_dsa_angiography_image_001_frontal_internal_carotid_artery&#x27;]` |
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 3 个 bbox-to-bbox 关系
+- **Partial support：** 6 个 bbox-to-image 关系
+- **Not support：** 12 个 bbox-to-image 关系
+
+### Strong Support
+
+#### Strong 1: `study_000_mri_image_000_axial_t2_f01` ↔ `study_000_mri_image_001_axial_flair_f03`
+
+- **Relation / query：** `strong_location_00001_01` / `location_00001`
+- **IoU：** 0.597（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_000_axial_t2_f01.png" width="300"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/grounding/location_00001.png" width="300"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_001_axial_flair_f03.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The red box is located in the left temporal lobe. Within this region there is a ring enhancing lesion with surrounding vasogenic edema. The lesion measures approximately 1.5 cm in diameter. There is no mass effect on the adjacent structures.
+- **Target Lingshu caption：** The axial FLAIR MRI image shows a hyperintense lesion located in the right basal ganglia region. The lesion appears to have a ring-like structure with a central hypointense area, suggesting a possible cystic or necrotic component. Surrounding the lesion, there is evidence of perilesional edema, indicated by the hyperintense signal extending into the adjacent white matter. The lesion&#x27;s borders are well-defined, and there is no significant mass effect observed on the surrounding brain structures. The ventricles appear symmetrical, and there is no midline shift noted.
+
+#### Strong 2: `study_000_mri_image_000_axial_t2_f01` ↔ `study_000_mri_image_002_axial_gradient_echo_f01`
+
+- **Relation / query：** `strong_location_00002_01` / `location_00002`
+- **IoU：** 0.530（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_000_axial_t2_f01.png" width="300"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/grounding/location_00002.png" width="300"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_002_axial_gradient_echo_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The red box is located in the left temporal lobe. Within this region there is a ring enhancing lesion with surrounding vasogenic edema. The lesion measures approximately 1.5 cm in diameter. There is no mass effect on the adjacent structures.
+- **Target Lingshu caption：** The red box is located over the left temporal lobe. Within this area there is a large heterogeneous mass with areas of T2 hypointensity likely representing hemorrhage. There is surrounding vasogenic edema. The mass effect from this lesion is causing a midline shift to the right.
+
+#### Strong 3: `study_000_mri_image_003_mra_f01` ↔ `study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01`
+
+- **Relation / query：** `strong_location_00027_01` / `location_00027`
+- **IoU：** 0.635（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_003_mra_f01.png" width="300"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/grounding/location_00027.png" width="300"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The image shows a magnetic resonance angiography (MRA) scan of the brain. Within the red box, there appears to be an area of increased signal intensity, which could potentially indicate an abnormality such as a vascular lesion or malformation. The surrounding vasculature appears relatively normal, with no obvious signs of stenosis or occlusion. However, without additional clinical information, it is difficult to determine the exact nature or significance of the observed finding.
+- **Target Lingshu caption：** The image shows a lateral view of the internal carotid artery. Within the boxed region, there is a saccular outpouching consistent with an aneurysm. The aneurysm appears to be located on the anterior communicating artery. The surrounding vasculature is well-visualized, with no apparent signs of occlusion or significant stenosis. The contrast flow through the arteries is smooth, indicating good perfusion. There are no other obvious abnormalities noted in the immediate vicinity of the aneurysm.
+
+### Partial Support
+
+#### Partial 1: `study_000_mri_image_000_axial_t2_f01` → `study_001_ct_image_000_axial_c_arterial_phase`
+
+- **Query：** `location_00004`
+- **Returned target bbox：** `[450, 480, 550, 580]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_000_axial_t2_f01.png" width="320"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/grounding/location_00004.png" width="320"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_001_ct_image_000_axial_c_arterial_phase_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 2: `study_000_mri_image_001_axial_flair_f01` → `study_000_mri_image_002_axial_gradient_echo`
+
+- **Query：** `location_00007`
+- **Returned target bbox：** `[260, 100, 480, 260]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_001_axial_flair_f01.png" width="320"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/grounding/location_00007.png" width="320"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_002_axial_gradient_echo_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 3: `study_000_mri_image_001_axial_flair_f02` → `study_000_mri_image_002_axial_gradient_echo`
+
+- **Query：** `location_00012`
+- **Returned target bbox：** `[360, 112, 540, 228]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_001_axial_flair_f02.png" width="320"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/grounding/location_00012.png" width="320"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_002_axial_gradient_echo_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 4: `study_000_mri_image_001_axial_flair_f02` → `study_001_ct_image_000_axial_c_arterial_phase`
+
+- **Query：** `location_00014`
+- **Returned target bbox：** `[447, 474, 573, 592]`
+- **Maximum IoU：** 0.005（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_001_axial_flair_f02.png" width="320"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/grounding/location_00014.png" width="320"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_001_ct_image_000_axial_c_arterial_phase_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 5: `study_000_mri_image_003_mra_f01` → `study_001_ct_image_000_axial_c_arterial_phase`
+
+- **Query：** `location_00026`
+- **Returned target bbox：** `[420, 470, 560, 590]`
+- **Maximum IoU：** 0.011（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_003_mra_f01.png" width="320"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/grounding/location_00026.png" width="320"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_001_ct_image_000_axial_c_arterial_phase_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 6: `study_001_ct_image_000_axial_c_arterial_phase_f01` → `study_002_dsa_angiography_image_000_lateral_internal_carotid_artery`
+
+- **Query：** `location_00029`
+- **Returned target bbox：** `[260, 375, 420, 540]`
+- **Maximum IoU：** 0.160（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_001_ct_image_000_axial_c_arterial_phase_f01.png" width="320"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/grounding/location_00029.png" width="320"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_002_dsa_angiography_image_000_lateral_internal_carotid_artery_f01.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_000_mri_image_000_axial_t2_f01` → `study_000_mri_image_003_mra`
+
+- **Query：** `location_00003`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_000_axial_t2_f01.png" width="340"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/images/study_000_mri_image_003_mra.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_000_mri_image_000_axial_t2_f01` → `study_002_dsa_angiography_image_000_lateral_internal_carotid_artery`
+
+- **Query：** `location_00005`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_000_axial_t2_f01.png" width="340"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/images/study_002_dsa_angiography_image_000_lateral_internal_carotid_artery.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 3: `study_000_mri_image_000_axial_t2_f01` → `study_002_dsa_angiography_image_001_frontal_internal_carotid_artery`
+
+- **Query：** `location_00006`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_000_axial_t2_f01.png" width="340"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/images/study_002_dsa_angiography_image_001_frontal_internal_carotid_artery.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 4: `study_000_mri_image_001_axial_flair_f01` → `study_000_mri_image_003_mra`
+
+- **Query：** `location_00008`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_001_axial_flair_f01.png" width="340"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/images/study_000_mri_image_003_mra.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 5: `study_000_mri_image_001_axial_flair_f01` → `study_001_ct_image_000_axial_c_arterial_phase`
+
+- **Query：** `location_00009`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_001_axial_flair_f01.png" width="340"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/images/study_001_ct_image_000_axial_c_arterial_phase.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 6: `study_000_mri_image_001_axial_flair_f01` → `study_002_dsa_angiography_image_000_lateral_internal_carotid_artery`
+
+- **Query：** `location_00010`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_001_axial_flair_f01.png" width="340"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/images/study_002_dsa_angiography_image_000_lateral_internal_carotid_artery.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 7: `study_000_mri_image_001_axial_flair_f01` → `study_002_dsa_angiography_image_001_frontal_internal_carotid_artery`
+
+- **Query：** `location_00011`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_001_axial_flair_f01.png" width="340"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/images/study_002_dsa_angiography_image_001_frontal_internal_carotid_artery.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 8: `study_000_mri_image_001_axial_flair_f02` → `study_000_mri_image_003_mra`
+
+- **Query：** `location_00013`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_001_axial_flair_f02.png" width="340"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/images/study_000_mri_image_003_mra.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 9: `study_000_mri_image_001_axial_flair_f02` → `study_002_dsa_angiography_image_000_lateral_internal_carotid_artery`
+
+- **Query：** `location_00015`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_001_axial_flair_f02.png" width="340"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/images/study_002_dsa_angiography_image_000_lateral_internal_carotid_artery.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 10: `study_000_mri_image_001_axial_flair_f02` → `study_002_dsa_angiography_image_001_frontal_internal_carotid_artery`
+
+- **Query：** `location_00016`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_001_axial_flair_f02.png" width="340"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/images/study_002_dsa_angiography_image_001_frontal_internal_carotid_artery.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 11: `study_000_mri_image_003_mra_f01` → `study_002_dsa_angiography_image_001_frontal_internal_carotid_artery`
+
+- **Query：** `location_00028`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_000_mri_image_003_mra_f01.png" width="340"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/images/study_002_dsa_angiography_image_001_frontal_internal_carotid_artery.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 12: `study_001_ct_image_000_axial_c_arterial_phase_f01` → `study_002_dsa_angiography_image_001_frontal_internal_carotid_artery`
+
+- **Query：** `location_00030`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/nodes/study_001_ct_image_000_axial_c_arterial_phase_f01.png" width="340"></td><td><img src="../assets_step3/giant-internal-carotid-artery-aneurysm-1/images/study_002_dsa_angiography_image_001_frontal_internal_carotid_artery.jpeg" width="340"></td></tr>
+</table>

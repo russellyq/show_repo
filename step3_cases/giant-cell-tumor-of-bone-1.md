@@ -172,3 +172,74 @@
 ## Dynamically Skipped Anchors
 
 None.
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 1 个 bbox-to-bbox 关系
+- **Partial support：** 4 个 bbox-to-image 关系
+- **Not support：** 0 个 bbox-to-image 关系
+
+### Strong Support
+
+#### Strong 1: `study_000_nuclear_medicine_image_001_posterior_f02` ↔ `study_002_mri_image_000_coronal_t2_fat_sat_f01`
+
+- **Relation / query：** `strong_location_00004_01` / `location_00004`
+- **IoU：** 0.676（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/nodes/study_000_nuclear_medicine_image_001_posterior_f02.png" width="300"></td><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/grounding/location_00004.png" width="300"></td><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/nodes/study_002_mri_image_000_coronal_t2_fat_sat_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The posterior view of the bone scan shows increased radiotracer uptake in the left lower extremity, specifically in the region of the femur. This area appears more intense compared to the surrounding bone structures, suggesting a potential abnormality. The rest of the skeletal system, including the spine, pelvis, and other limbs, does not show any significant areas of increased uptake.
+- **Target Lingshu caption：** The coronal T2 fat sat MRI shows a hyperintense signal in the region of the knee joint, particularly involving the medial meniscus. There is evidence of increased fluid signal within the joint space, suggestive of effusion. The surrounding soft tissues appear to have normal signal intensity without any obvious masses or lesions. The bony structures, including the femur and tibia, show no signs of fracture or significant degenerative changes. The articular cartilage appears intact, although there may be subtle irregularities that warrant further evaluation.
+
+### Partial Support
+
+#### Partial 1: `study_000_nuclear_medicine_image_001_posterior_f01` → `study_001_x_ray_image_000_frontal`
+
+- **Query：** `location_00001`
+- **Returned target bbox：** `[200, 300, 700, 700]`
+- **Maximum IoU：** 0.184（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/nodes/study_000_nuclear_medicine_image_001_posterior_f01.png" width="320"></td><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/grounding/location_00001.png" width="320"></td><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/nodes/study_001_x_ray_image_000_frontal_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 2: `study_000_nuclear_medicine_image_001_posterior_f01` → `study_002_mri_image_000_coronal_t2_fat_sat`
+
+- **Query：** `location_00002`
+- **Returned target bbox：** `[187, 247, 356, 521]`
+- **Maximum IoU：** 0.103（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/nodes/study_000_nuclear_medicine_image_001_posterior_f01.png" width="320"></td><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/grounding/location_00002.png" width="320"></td><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/nodes/study_002_mri_image_000_coronal_t2_fat_sat_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 3: `study_000_nuclear_medicine_image_001_posterior_f02` → `study_001_x_ray_image_000_frontal`
+
+- **Query：** `location_00003`
+- **Returned target bbox：** `[200, 580, 750, 900]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/nodes/study_000_nuclear_medicine_image_001_posterior_f02.png" width="320"></td><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/grounding/location_00003.png" width="320"></td><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/nodes/study_001_x_ray_image_000_frontal_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 4: `study_001_x_ray_image_000_frontal_f01` → `study_002_mri_image_000_coronal_t2_fat_sat`
+
+- **Query：** `location_00005`
+- **Returned target bbox：** `[200, 350, 700, 650]`
+- **Maximum IoU：** 0.413（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/nodes/study_001_x_ray_image_000_frontal_f01.png" width="320"></td><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/grounding/location_00005.png" width="320"></td><td><img src="../assets_step3/giant-cell-tumor-of-bone-1/nodes/study_002_mri_image_000_coronal_t2_fat_sat_f01.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+该病例没有 not-support 查询。

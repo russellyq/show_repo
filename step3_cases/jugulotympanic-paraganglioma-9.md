@@ -256,3 +256,108 @@
 ## Dynamically Skipped Anchors
 
 None.
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 0 个 bbox-to-bbox 关系
+- **Partial support：** 1 个 bbox-to-image 关系
+- **Not support：** 8 个 bbox-to-image 关系
+
+### Strong Support
+
+该病例没有 strong-support bbox 对应关系。
+
+### Partial Support
+
+#### Partial 1: `study_000_ct_image_000_axial_bone_window_f01` → `study_001_mri_image_000_axial_t1_c_fat_sat`
+
+- **Query：** `location_00001`
+- **Returned target bbox：** `[87, 442, 375, 656]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/nodes/study_000_ct_image_000_axial_bone_window_f01.png" width="320"></td><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/grounding/location_00001.png" width="320"></td><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/nodes/study_001_mri_image_000_axial_t1_c_fat_sat_f01.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_000_ct_image_000_axial_bone_window_f01` → `study_001_mri_image_001_coronal_t1_c`
+
+- **Query：** `location_00002`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/nodes/study_000_ct_image_000_axial_bone_window_f01.png" width="340"></td><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/images/study_001_mri_image_001_coronal_t1_c.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_000_ct_image_000_axial_bone_window_f01` → `study_002_dsa_angiography_image_000_lateral_external_carotid_artery`
+
+- **Query：** `location_00003`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/nodes/study_000_ct_image_000_axial_bone_window_f01.png" width="340"></td><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/images/study_002_dsa_angiography_image_000_lateral_external_carotid_artery.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 3: `study_000_ct_image_000_axial_bone_window_f02` → `study_001_mri_image_000_axial_t1_c_fat_sat`
+
+- **Query：** `location_00004`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/nodes/study_000_ct_image_000_axial_bone_window_f02.png" width="340"></td><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/images/study_001_mri_image_000_axial_t1_c_fat_sat.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 4: `study_000_ct_image_000_axial_bone_window_f02` → `study_001_mri_image_001_coronal_t1_c`
+
+- **Query：** `location_00005`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/nodes/study_000_ct_image_000_axial_bone_window_f02.png" width="340"></td><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/images/study_001_mri_image_001_coronal_t1_c.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 5: `study_000_ct_image_000_axial_bone_window_f02` → `study_002_dsa_angiography_image_000_lateral_external_carotid_artery`
+
+- **Query：** `location_00006`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/nodes/study_000_ct_image_000_axial_bone_window_f02.png" width="340"></td><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/images/study_002_dsa_angiography_image_000_lateral_external_carotid_artery.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 6: `study_001_mri_image_000_axial_t1_c_fat_sat_f01` → `study_001_mri_image_001_coronal_t1_c`
+
+- **Query：** `location_00007`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/nodes/study_001_mri_image_000_axial_t1_c_fat_sat_f01.png" width="340"></td><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/images/study_001_mri_image_001_coronal_t1_c.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 7: `study_001_mri_image_000_axial_t1_c_fat_sat_f01` → `study_002_dsa_angiography_image_000_lateral_external_carotid_artery`
+
+- **Query：** `location_00008`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/nodes/study_001_mri_image_000_axial_t1_c_fat_sat_f01.png" width="340"></td><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/images/study_002_dsa_angiography_image_000_lateral_external_carotid_artery.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 8: `study_001_mri_image_001_coronal_t1_c_f01` → `study_002_dsa_angiography_image_000_lateral_external_carotid_artery`
+
+- **Query：** `location_00009`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/nodes/study_001_mri_image_001_coronal_t1_c_f01.png" width="340"></td><td><img src="../assets_step3/jugulotympanic-paraganglioma-9/images/study_002_dsa_angiography_image_000_lateral_external_carotid_artery.jpeg" width="340"></td></tr>
+</table>

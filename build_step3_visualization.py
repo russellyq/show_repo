@@ -118,6 +118,144 @@ def render_iou_table(location, target_node_ids, nodes):
     return lines
 
 
+def render_case_location_summary(
+    record,
+    nodes,
+    original_assets,
+    node_assets,
+    query_assets,
+    page_dir,
+):
+    queries = record.get("cross_image_grounding") or []
+    query_by_id = {item["query_id"]: item for item in queries}
+    strong_relations = record.get("strong_support_relations") or []
+    partial_queries = [
+        item
+        for item in queries
+        if (item.get("location_validation") or {}).get("status")
+        == "partial_support"
+    ]
+    not_support_queries = [
+        item
+        for item in queries
+        if (item.get("location_validation") or {}).get("status") == "not_support"
+    ]
+    lines = [
+        "## Case-level Location Validation Summary / 病例级定位验证总结",
+        "",
+        f"- **Strong support：** {len(strong_relations)} 个 bbox-to-bbox 关系",
+        f"- **Partial support：** {len(partial_queries)} 个 bbox-to-image 关系",
+        f"- **Not support：** {len(not_support_queries)} 个 bbox-to-image 关系",
+        "",
+        "### Strong Support",
+        "",
+    ]
+    if not strong_relations:
+        lines.extend(["该病例没有 strong-support bbox 对应关系。", ""])
+    for index, relation in enumerate(strong_relations, 1):
+        anchor_id = (relation.get("anchor") or {}).get("node_id")
+        target_id = (relation.get("target") or {}).get("node_id")
+        query_id = relation.get("source_query_id")
+        query = query_by_id.get(query_id) or {}
+        target_image_id = (query.get("target_image") or {}).get("image_id")
+        cross_asset = query_assets.get(query_id)
+        if cross_asset is None and target_image_id:
+            cross_asset = original_assets.get(target_image_id)
+        headers = ["Anchor bbox", "Cross-image grounded target bbox", "Matched target bbox"]
+        cells = [
+            image_tag(node_assets[anchor_id], page_dir, 300),
+            image_tag(cross_asset, page_dir, 300),
+            image_tag(node_assets[target_id], page_dir, 300),
+        ]
+        iou = relation.get("iou")
+        iou_text = "n/a" if iou is None else f"{float(iou):.3f}"
+        lines.extend(
+            [
+                f"#### Strong {index}: `{escaped(anchor_id)}` ↔ `{escaped(target_id)}`",
+                "",
+                f"- **Relation / query：** `{escaped(relation.get('relation_id'))}` / `{escaped(query_id)}`",
+                f"- **IoU：** {iou_text}（threshold=0.5）",
+                "",
+                "<table>",
+                "<tr>" + "".join(f"<th>{item}</th>" for item in headers) + "</tr>",
+                "<tr>" + "".join(f"<td>{item}</td>" for item in cells) + "</tr>",
+                "</table>",
+                "",
+                f"- **Anchor Lingshu caption：** {compact((nodes.get(anchor_id) or {}).get('lingshu_caption'))}",
+                f"- **Target Lingshu caption：** {compact((nodes.get(target_id) or {}).get('lingshu_caption'))}",
+                "",
+            ]
+        )
+
+    lines.extend(["### Partial Support", ""])
+    if not partial_queries:
+        lines.extend(["该病例没有 partial-support 查询。", ""])
+    for index, query in enumerate(partial_queries, 1):
+        location = query.get("location_validation") or {}
+        anchor_id = (query.get("anchor") or {}).get("node_id")
+        target = query.get("target_image") or {}
+        target_image_id = target.get("image_id")
+        cross_asset = query_assets.get(query["query_id"], original_assets[target_image_id])
+        comparisons = location.get("existing_bbox_comparisons") or []
+        best = max(
+            comparisons,
+            key=lambda item: float(item.get("iou") or 0.0),
+            default=None,
+        )
+        headers = ["Anchor bbox", "Cross-image grounded target bbox"]
+        cells = [
+            image_tag(node_assets[anchor_id], page_dir, 320),
+            image_tag(cross_asset, page_dir, 320),
+        ]
+        if best and best.get("target_node_id") in node_assets:
+            headers.append("Closest existing target bbox")
+            cells.append(
+                image_tag(node_assets[best["target_node_id"]], page_dir, 320)
+            )
+        max_iou = location.get("max_iou")
+        max_iou_text = "n/a" if max_iou is None else f"{float(max_iou):.3f}"
+        lines.extend(
+            [
+                f"#### Partial {index}: `{escaped(anchor_id)}` → `{escaped(target_image_id)}`",
+                "",
+                f"- **Query：** `{escaped(query.get('query_id'))}`",
+                f"- **Returned target bbox：** `{escaped(location.get('target_bbox_2d'))}`",
+                f"- **Maximum IoU：** {max_iou_text}（低于 threshold=0.5）",
+                "",
+                "<table>",
+                "<tr>" + "".join(f"<th>{item}</th>" for item in headers) + "</tr>",
+                "<tr>" + "".join(f"<td>{item}</td>" for item in cells) + "</tr>",
+                "</table>",
+                "",
+            ]
+        )
+
+    lines.extend(["### Not Support", ""])
+    if not not_support_queries:
+        lines.extend(["该病例没有 not-support 查询。", ""])
+    for index, query in enumerate(not_support_queries, 1):
+        anchor_id = (query.get("anchor") or {}).get("node_id")
+        target_image_id = (query.get("target_image") or {}).get("image_id")
+        lines.extend(
+            [
+                f"#### Not support {index}: `{escaped(anchor_id)}` → `{escaped(target_image_id)}`",
+                "",
+                f"- **Query：** `{escaped(query.get('query_id'))}`",
+                "- **Result：** 目标图返回 `null`，未定位到对应区域。",
+                "",
+                "<table>",
+                "<tr><th>Anchor bbox</th><th>Target original image</th></tr>",
+                "<tr>"
+                f"<td>{image_tag(node_assets[anchor_id], page_dir, 340)}</td>"
+                f"<td>{image_tag(original_assets[target_image_id], page_dir, 340)}</td>"
+                "</tr>",
+                "</table>",
+                "",
+            ]
+        )
+    return lines
+
+
 def render_case(record, output_root, assets_root, pages_root, model_label):
     case_id = record["case_id"]
     case_assets = assets_root / safe_name(case_id)
@@ -287,6 +425,17 @@ def render_case(record, output_root, assets_root, pages_root, model_label):
                 f"`{escaped(item.get('skipped_target_image_ids'))}` |"
             )
         lines.append("")
+
+    lines.extend(
+        render_case_location_summary(
+            record,
+            nodes,
+            original_assets,
+            node_assets,
+            query_assets,
+            pages_root,
+        )
+    )
 
     page_path.parent.mkdir(parents=True, exist_ok=True)
     page_path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")

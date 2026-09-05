@@ -32,3 +32,21 @@
 ## Dynamically Skipped Anchors
 
 None.
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 0 个 bbox-to-bbox 关系
+- **Partial support：** 0 个 bbox-to-image 关系
+- **Not support：** 0 个 bbox-to-image 关系
+
+### Strong Support
+
+该病例没有 strong-support bbox 对应关系。
+
+### Partial Support
+
+该病例没有 partial-support 查询。
+
+### Not Support
+
+该病例没有 not-support 查询。

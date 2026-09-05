@@ -185,3 +185,82 @@
 ## Dynamically Skipped Anchors
 
 None.
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 2 个 bbox-to-bbox 关系
+- **Partial support：** 1 个 bbox-to-image 关系
+- **Not support：** 3 个 bbox-to-image 关系
+
+### Strong Support
+
+#### Strong 1: `study_000_x_ray_image_001_lateral_f01` ↔ `study_001_ct_image_001_coronal_lung_window_f01`
+
+- **Relation / query：** `strong_location_00005_01` / `location_00005`
+- **IoU：** 0.595（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/infected-emphysematous-bulla/nodes/study_000_x_ray_image_001_lateral_f01.png" width="300"></td><td><img src="../assets_step3/infected-emphysematous-bulla/grounding/location_00005.png" width="300"></td><td><img src="../assets_step3/infected-emphysematous-bulla/nodes/study_001_ct_image_001_coronal_lung_window_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The heart size is enlarged. The aorta is tortuous. There is a calcified lesion overlying the cardiac silhouette. This could represent a calcified lymph node or other calcification.
+- **Target Lingshu caption：** The lungs are hyperinflated. There is a large cavitary lesion in the right upper lobe with thick irregular walls. The remainder of the lungs demonstrate emphysematous changes. No pleural effusions are seen.
+
+#### Strong 2: `study_001_ct_image_000_axial_lung_window_f01` ↔ `study_001_ct_image_001_coronal_lung_window_f01`
+
+- **Relation / query：** `strong_location_00006_01` / `location_00006`
+- **IoU：** 0.504（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/infected-emphysematous-bulla/nodes/study_001_ct_image_000_axial_lung_window_f01.png" width="300"></td><td><img src="../assets_step3/infected-emphysematous-bulla/grounding/location_00006.png" width="300"></td><td><img src="../assets_step3/infected-emphysematous-bulla/nodes/study_001_ct_image_001_coronal_lung_window_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The right lower lobe contains a large cystic structure with thin walls. The remainder of the lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The cardiomediastinal silhouette is normal.
+- **Target Lingshu caption：** The lungs are hyperinflated. There is a large cavitary lesion in the right upper lobe with thick irregular walls. The remainder of the lungs demonstrate emphysematous changes. No pleural effusions are seen.
+
+### Partial Support
+
+#### Partial 1: `study_000_x_ray_image_000_frontal_f01` → `study_000_x_ray_image_001_lateral`
+
+- **Query：** `location_00001`
+- **Returned target bbox：** `[236, 328, 460, 555]`
+- **Maximum IoU：** 0.051（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/infected-emphysematous-bulla/nodes/study_000_x_ray_image_000_frontal_f01.png" width="320"></td><td><img src="../assets_step3/infected-emphysematous-bulla/grounding/location_00001.png" width="320"></td><td><img src="../assets_step3/infected-emphysematous-bulla/nodes/study_000_x_ray_image_001_lateral_f01.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_000_x_ray_image_000_frontal_f01` → `study_001_ct_image_000_axial_lung_window`
+
+- **Query：** `location_00002`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/infected-emphysematous-bulla/nodes/study_000_x_ray_image_000_frontal_f01.png" width="340"></td><td><img src="../assets_step3/infected-emphysematous-bulla/images/study_001_ct_image_000_axial_lung_window.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_000_x_ray_image_000_frontal_f01` → `study_001_ct_image_001_coronal_lung_window`
+
+- **Query：** `location_00003`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/infected-emphysematous-bulla/nodes/study_000_x_ray_image_000_frontal_f01.png" width="340"></td><td><img src="../assets_step3/infected-emphysematous-bulla/images/study_001_ct_image_001_coronal_lung_window.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 3: `study_000_x_ray_image_001_lateral_f01` → `study_001_ct_image_000_axial_lung_window`
+
+- **Query：** `location_00004`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/infected-emphysematous-bulla/nodes/study_000_x_ray_image_001_lateral_f01.png" width="340"></td><td><img src="../assets_step3/infected-emphysematous-bulla/images/study_001_ct_image_000_axial_lung_window.jpg" width="340"></td></tr>
+</table>

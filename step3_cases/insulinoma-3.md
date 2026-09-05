@@ -506,3 +506,250 @@ The target image has no existing Step 2 bbox.
 ## Dynamically Skipped Anchors
 
 None.
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 0 个 bbox-to-bbox 关系
+- **Partial support：** 3 个 bbox-to-image 关系
+- **Not support：** 20 个 bbox-to-image 关系
+
+### Strong Support
+
+该病例没有 strong-support bbox 对应关系。
+
+### Partial Support
+
+#### Partial 1: `study_000_ct_image_000_axial_non_contrast_f01` → `study_000_ct_image_001_axial_c_arterial_phase`
+
+- **Query：** `location_00001`
+- **Returned target bbox：** `[200, 100, 700, 400]`
+- **Maximum IoU：** 0.179（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/grounding/location_00001.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 2: `study_000_ct_image_000_axial_non_contrast_f01` → `study_001_mri_image_000_axial_t2_fat_sat`
+
+- **Query：** `location_00002`
+- **Returned target bbox：** `[320, 260, 680, 580]`
+- **Maximum IoU：** 0.447（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/grounding/location_00002.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 3: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_001_mri_image_000_axial_t2_fat_sat`
+
+- **Query：** `location_00008`
+- **Returned target bbox：** `[350, 300, 650, 550]`
+- **Maximum IoU：** 0.394（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/grounding/location_00008.png" width="320"></td><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_000_ct_image_000_axial_non_contrast_f01` → `study_001_mri_image_001_coronal_t2_fat_sat`
+
+- **Query：** `location_00003`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_001_mri_image_001_coronal_t2_fat_sat.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_000_ct_image_000_axial_non_contrast_f01` → `study_002_dsa_angiography_image_000_splenic_artery`
+
+- **Query：** `location_00004`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_000_splenic_artery.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 3: `study_000_ct_image_000_axial_non_contrast_f01` → `study_002_dsa_angiography_image_001_hepatic_artery`
+
+- **Query：** `location_00005`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_001_hepatic_artery.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 4: `study_000_ct_image_000_axial_non_contrast_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
+
+- **Query：** `location_00006`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_002_superior_mesenteric_artery.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 5: `study_000_ct_image_000_axial_non_contrast_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
+
+- **Query：** `location_00007`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_003_right_hepatic_vein.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 6: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_001_mri_image_001_coronal_t2_fat_sat`
+
+- **Query：** `location_00009`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_001_mri_image_001_coronal_t2_fat_sat.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 7: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_002_dsa_angiography_image_000_splenic_artery`
+
+- **Query：** `location_00010`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_000_splenic_artery.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 8: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_002_dsa_angiography_image_001_hepatic_artery`
+
+- **Query：** `location_00011`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_001_hepatic_artery.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 9: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
+
+- **Query：** `location_00012`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_002_superior_mesenteric_artery.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 10: `study_000_ct_image_001_axial_c_arterial_phase_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
+
+- **Query：** `location_00013`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_000_ct_image_001_axial_c_arterial_phase_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_003_right_hepatic_vein.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 11: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_001_mri_image_001_coronal_t2_fat_sat`
+
+- **Query：** `location_00014`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_001_mri_image_001_coronal_t2_fat_sat.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 12: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_002_dsa_angiography_image_000_splenic_artery`
+
+- **Query：** `location_00015`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_000_splenic_artery.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 13: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_002_dsa_angiography_image_001_hepatic_artery`
+
+- **Query：** `location_00016`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_001_hepatic_artery.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 14: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
+
+- **Query：** `location_00017`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_002_superior_mesenteric_artery.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 15: `study_001_mri_image_000_axial_t2_fat_sat_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
+
+- **Query：** `location_00018`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_001_mri_image_000_axial_t2_fat_sat_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_003_right_hepatic_vein.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 16: `study_002_dsa_angiography_image_000_splenic_artery_f01` → `study_002_dsa_angiography_image_001_hepatic_artery`
+
+- **Query：** `location_00019`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_002_dsa_angiography_image_000_splenic_artery_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_001_hepatic_artery.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 17: `study_002_dsa_angiography_image_000_splenic_artery_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
+
+- **Query：** `location_00020`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_002_dsa_angiography_image_000_splenic_artery_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_002_superior_mesenteric_artery.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 18: `study_002_dsa_angiography_image_000_splenic_artery_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
+
+- **Query：** `location_00021`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_002_dsa_angiography_image_000_splenic_artery_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_003_right_hepatic_vein.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 19: `study_002_dsa_angiography_image_001_hepatic_artery_f01` → `study_002_dsa_angiography_image_002_superior_mesenteric_artery`
+
+- **Query：** `location_00022`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_002_dsa_angiography_image_001_hepatic_artery_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_002_superior_mesenteric_artery.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 20: `study_002_dsa_angiography_image_001_hepatic_artery_f01` → `study_002_dsa_angiography_image_003_right_hepatic_vein`
+
+- **Query：** `location_00023`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/insulinoma-3/nodes/study_002_dsa_angiography_image_001_hepatic_artery_f01.png" width="340"></td><td><img src="../assets_step3/insulinoma-3/images/study_002_dsa_angiography_image_003_right_hepatic_vein.jpg" width="340"></td></tr>
+</table>

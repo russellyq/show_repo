@@ -349,3 +349,146 @@
 | Anchor node | Reused strong relations | Skipped target images |
 |---|---|---|
 | `study_002_ct_image_000_axial_lung_window_f01` | `[&#x27;strong_location_00002_01&#x27;, &#x27;strong_location_00005_01&#x27;]` | `[&#x27;study_002_ct_image_001_oblique_lung_window&#x27;]` |
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 2 个 bbox-to-bbox 关系
+- **Partial support：** 5 个 bbox-to-image 关系
+- **Not support：** 5 个 bbox-to-image 关系
+
+### Strong Support
+
+#### Strong 1: `study_000_x_ray_image_000_frontal_f01` ↔ `study_002_ct_image_000_axial_lung_window_f01`
+
+- **Relation / query：** `strong_location_00002_01` / `location_00002`
+- **IoU：** 0.703（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/aspergilloma-1/nodes/study_000_x_ray_image_000_frontal_f01.png" width="300"></td><td><img src="../assets_step3/aspergilloma-1/grounding/location_00002.png" width="300"></td><td><img src="../assets_step3/aspergilloma-1/nodes/study_002_ct_image_000_axial_lung_window_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The lungs are hyperinflated. There is diffuse interstitial thickening bilaterally. The heart size is normal. No pneumothorax or pleural effusion seen.
+- **Target Lingshu caption：** The lungs are hyperinflated. There is a large area of consolidation in the right upper lobe. There is also a smaller area of consolidation in the left upper lobe. The mediastinal contours are normal.
+
+#### Strong 2: `study_000_x_ray_image_000_frontal_f02` ↔ `study_002_ct_image_000_axial_lung_window_f01`
+
+- **Relation / query：** `strong_location_00005_01` / `location_00005`
+- **IoU：** 0.714（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/aspergilloma-1/nodes/study_000_x_ray_image_000_frontal_f02.png" width="300"></td><td><img src="../assets_step3/aspergilloma-1/grounding/location_00005.png" width="300"></td><td><img src="../assets_step3/aspergilloma-1/nodes/study_002_ct_image_000_axial_lung_window_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The lungs are hyperinflated. There is diffuse interstitial thickening bilaterally. The heart size is normal. No pneumothorax or pleural effusion seen.
+- **Target Lingshu caption：** The lungs are hyperinflated. There is a large area of consolidation in the right upper lobe. There is also a smaller area of consolidation in the left upper lobe. The mediastinal contours are normal.
+
+### Partial Support
+
+#### Partial 1: `study_000_x_ray_image_000_frontal_f01` → `study_001_x_ray_image_000_missing`
+
+- **Query：** `location_00001`
+- **Returned target bbox：** `[0, 720, 342, 1000]`
+- **Maximum IoU：** 0.443（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/aspergilloma-1/nodes/study_000_x_ray_image_000_frontal_f01.png" width="320"></td><td><img src="../assets_step3/aspergilloma-1/grounding/location_00001.png" width="320"></td><td><img src="../assets_step3/aspergilloma-1/nodes/study_001_x_ray_image_000_missing_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 2: `study_000_x_ray_image_000_frontal_f01` → `study_002_ct_image_001_oblique_lung_window`
+
+- **Query：** `location_00003`
+- **Returned target bbox：** `[157, 157, 400, 850]`
+- **Maximum IoU：** 0.224（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/aspergilloma-1/nodes/study_000_x_ray_image_000_frontal_f01.png" width="320"></td><td><img src="../assets_step3/aspergilloma-1/grounding/location_00003.png" width="320"></td><td><img src="../assets_step3/aspergilloma-1/nodes/study_002_ct_image_001_oblique_lung_window_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 3: `study_000_x_ray_image_000_frontal_f02` → `study_002_ct_image_001_oblique_lung_window`
+
+- **Query：** `location_00006`
+- **Returned target bbox：** `[187, 100, 480, 800]`
+- **Maximum IoU：** 0.400（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/aspergilloma-1/nodes/study_000_x_ray_image_000_frontal_f02.png" width="320"></td><td><img src="../assets_step3/aspergilloma-1/grounding/location_00006.png" width="320"></td><td><img src="../assets_step3/aspergilloma-1/nodes/study_002_ct_image_001_oblique_lung_window_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 4: `study_000_x_ray_image_000_frontal_f03` → `study_002_ct_image_001_oblique_lung_window`
+
+- **Query：** `location_00009`
+- **Returned target bbox：** `[184, 184, 548, 732]`
+- **Maximum IoU：** 0.417（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/aspergilloma-1/nodes/study_000_x_ray_image_000_frontal_f03.png" width="320"></td><td><img src="../assets_step3/aspergilloma-1/grounding/location_00009.png" width="320"></td><td><img src="../assets_step3/aspergilloma-1/nodes/study_002_ct_image_001_oblique_lung_window_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 5: `study_002_ct_image_000_axial_lung_window_f02` → `study_002_ct_image_001_oblique_lung_window`
+
+- **Query：** `location_00013`
+- **Returned target bbox：** `[462, 220, 710, 620]`
+- **Maximum IoU：** 0.282（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/aspergilloma-1/nodes/study_002_ct_image_000_axial_lung_window_f02.png" width="320"></td><td><img src="../assets_step3/aspergilloma-1/grounding/location_00013.png" width="320"></td><td><img src="../assets_step3/aspergilloma-1/nodes/study_002_ct_image_001_oblique_lung_window_f01.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_000_x_ray_image_000_frontal_f02` → `study_001_x_ray_image_000_missing`
+
+- **Query：** `location_00004`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/aspergilloma-1/nodes/study_000_x_ray_image_000_frontal_f02.png" width="340"></td><td><img src="../assets_step3/aspergilloma-1/images/study_001_x_ray_image_000_missing.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_000_x_ray_image_000_frontal_f03` → `study_001_x_ray_image_000_missing`
+
+- **Query：** `location_00007`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/aspergilloma-1/nodes/study_000_x_ray_image_000_frontal_f03.png" width="340"></td><td><img src="../assets_step3/aspergilloma-1/images/study_001_x_ray_image_000_missing.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 3: `study_000_x_ray_image_000_frontal_f03` → `study_002_ct_image_000_axial_lung_window`
+
+- **Query：** `location_00008`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/aspergilloma-1/nodes/study_000_x_ray_image_000_frontal_f03.png" width="340"></td><td><img src="../assets_step3/aspergilloma-1/images/study_002_ct_image_000_axial_lung_window.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 4: `study_001_x_ray_image_000_missing_f01` → `study_002_ct_image_000_axial_lung_window`
+
+- **Query：** `location_00010`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/aspergilloma-1/nodes/study_001_x_ray_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/aspergilloma-1/images/study_002_ct_image_000_axial_lung_window.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 5: `study_001_x_ray_image_000_missing_f01` → `study_002_ct_image_001_oblique_lung_window`
+
+- **Query：** `location_00011`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/aspergilloma-1/nodes/study_001_x_ray_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/aspergilloma-1/images/study_002_ct_image_001_oblique_lung_window.jpg" width="340"></td></tr>
+</table>

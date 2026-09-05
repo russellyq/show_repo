@@ -1142,3 +1142,514 @@
 |---|---|---|
 | `study_002_mri_image_002_axial_t1_c_f01` | `[&#x27;strong_location_00046_01&#x27;]` | `[&#x27;study_002_mri_image_003_axial_t2&#x27;, &#x27;study_002_mri_image_004_axial_t2_fat_sat&#x27;]` |
 | `study_002_mri_image_003_axial_t2_f01` | `[&#x27;strong_location_00036_01&#x27;]` | `[&#x27;study_002_mri_image_004_axial_t2_fat_sat&#x27;]` |
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 2 个 bbox-to-bbox 关系
+- **Partial support：** 13 个 bbox-to-image 关系
+- **Not support：** 33 个 bbox-to-image 关系
+
+### Strong Support
+
+#### Strong 1: `study_002_mri_image_000_axial_t1_in_phase_f01` ↔ `study_002_mri_image_003_axial_t2_f01`
+
+- **Relation / query：** `strong_location_00036_01` / `location_00036`
+- **IoU：** 0.574（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_000_axial_t1_in_phase_f01.png" width="300"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00036.png" width="300"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_003_axial_t2_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is most consistent with fatty infiltration. The spleen is also enlarged. There is a 1.5 cm focal area of low signal intensity in the left lobe of the liver, which may represent a simple cyst.
+- **Target Lingshu caption：** The liver is enlarged and demonstrates diffuse abnormal signal intensity, which is T2 hyperintense and T1 hypointense. The intrahepatic biliary ducts are dilated. There is also a small amount of fluid in the subcapsular region of the right lobe of the liver.
+
+#### Strong 2: `study_002_mri_image_001_axial_t1_out_of_phase_f01` ↔ `study_002_mri_image_002_axial_t1_c_f01`
+
+- **Relation / query：** `strong_location_00046_01` / `location_00046`
+- **IoU：** 0.512（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_001_axial_t1_out_of_phase_f01.png" width="300"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00046.png" width="300"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_002_axial_t1_c_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The liver is enlarged and demonstrates diffuse decrease in signal intensity on this out of phase sequence consistent with hepatic steatosis. The boxed area demonstrates a focal area of decreased signal intensity which could represent a focal fatty change or a focal lesion such as a hemangioma.
+- **Target Lingshu caption：** The liver is enlarged. The hepatic parenchyma demonstrates diffuse nodularity. There is no focal lesion identified. The portal vein is prominent.
+
+### Partial Support
+
+#### Partial 1: `study_000_ct_image_000_axial_c_portal_venous_phase_f01` → `study_002_mri_image_001_axial_t1_out_of_phase`
+
+- **Query：** `location_00003`
+- **Returned target bbox：** `[150, 200, 450, 500]`
+- **Maximum IoU：** 0.077（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f01.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00003.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_001_axial_t1_out_of_phase_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 2: `study_000_ct_image_000_axial_c_portal_venous_phase_f01` → `study_002_mri_image_002_axial_t1_c`
+
+- **Query：** `location_00004`
+- **Returned target bbox：** `[244, 176, 528, 436]`
+- **Maximum IoU：** 0.286（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f01.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00004.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_002_axial_t1_c_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 3: `study_000_ct_image_000_axial_c_portal_venous_phase_f01` → `study_002_mri_image_003_axial_t2`
+
+- **Query：** `location_00005`
+- **Returned target bbox：** `[150, 120, 450, 450]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f01.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00005.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_003_axial_t2_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 4: `study_000_ct_image_000_axial_c_portal_venous_phase_f02` → `study_002_mri_image_002_axial_t1_c`
+
+- **Query：** `location_00010`
+- **Returned target bbox：** `[298, 542, 402, 667]`
+- **Maximum IoU：** 0.040（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f02.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00010.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_002_axial_t1_c_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 5: `study_000_ct_image_000_axial_c_portal_venous_phase_f03` → `study_002_mri_image_001_axial_t1_out_of_phase`
+
+- **Query：** `location_00015`
+- **Returned target bbox：** `[250, 667, 400, 850]`
+- **Maximum IoU：** 0.003（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f03.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00015.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_001_axial_t1_out_of_phase_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 6: `study_000_ct_image_000_axial_c_portal_venous_phase_f03` → `study_002_mri_image_002_axial_t1_c`
+
+- **Query：** `location_00016`
+- **Returned target bbox：** `[270, 668, 400, 807]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f03.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00016.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_002_axial_t1_c_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 7: `study_002_mri_image_000_axial_t1_in_phase_f01` → `study_002_mri_image_001_axial_t1_out_of_phase`
+
+- **Query：** `location_00034`
+- **Returned target bbox：** `[500, 375, 600, 475]`
+- **Maximum IoU：** 0.068（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_000_axial_t1_in_phase_f01.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00034.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_001_axial_t1_out_of_phase_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 8: `study_002_mri_image_000_axial_t1_in_phase_f01` → `study_002_mri_image_002_axial_t1_c`
+
+- **Query：** `location_00035`
+- **Returned target bbox：** `[480, 300, 620, 460]`
+- **Maximum IoU：** 0.167（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_000_axial_t1_in_phase_f01.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00035.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_002_axial_t1_c_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 9: `study_002_mri_image_000_axial_t1_in_phase_f02` → `study_002_mri_image_001_axial_t1_out_of_phase`
+
+- **Query：** `location_00038`
+- **Returned target bbox：** `[570, 618, 672, 716]`
+- **Maximum IoU：** 0.046（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_000_axial_t1_in_phase_f02.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00038.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_001_axial_t1_out_of_phase_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 10: `study_002_mri_image_000_axial_t1_in_phase_f02` → `study_002_mri_image_002_axial_t1_c`
+
+- **Query：** `location_00039`
+- **Returned target bbox：** `[600, 600, 700, 700]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_000_axial_t1_in_phase_f02.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00039.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_002_axial_t1_c_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 11: `study_002_mri_image_000_axial_t1_in_phase_f02` → `study_002_mri_image_003_axial_t2`
+
+- **Query：** `location_00040`
+- **Returned target bbox：** `[610, 570, 778, 700]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_000_axial_t1_in_phase_f02.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00040.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_003_axial_t2_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 12: `study_002_mri_image_000_axial_t1_in_phase_f03` → `study_002_mri_image_001_axial_t1_out_of_phase`
+
+- **Query：** `location_00042`
+- **Returned target bbox：** `[768, 682, 918, 886]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_000_axial_t1_in_phase_f03.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00042.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_001_axial_t1_out_of_phase_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 13: `study_002_mri_image_001_axial_t1_out_of_phase_f01` → `study_002_mri_image_003_axial_t2`
+
+- **Query：** `location_00047`
+- **Returned target bbox：** `[320, 200, 680, 600]`
+- **Maximum IoU：** 0.146（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_001_axial_t1_out_of_phase_f01.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/grounding/location_00047.png" width="320"></td><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_003_axial_t2_f01.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_000_ct_image_000_axial_c_portal_venous_phase_f01` → `study_001_ultrasound_image_000_missing`
+
+- **Query：** `location_00001`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f01.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_001_ultrasound_image_000_missing.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_000_ct_image_000_axial_c_portal_venous_phase_f01` → `study_002_mri_image_000_axial_t1_in_phase`
+
+- **Query：** `location_00002`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f01.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_000_axial_t1_in_phase.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 3: `study_000_ct_image_000_axial_c_portal_venous_phase_f01` → `study_002_mri_image_004_axial_t2_fat_sat`
+
+- **Query：** `location_00006`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f01.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_004_axial_t2_fat_sat.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 4: `study_000_ct_image_000_axial_c_portal_venous_phase_f02` → `study_001_ultrasound_image_000_missing`
+
+- **Query：** `location_00007`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f02.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_001_ultrasound_image_000_missing.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 5: `study_000_ct_image_000_axial_c_portal_venous_phase_f02` → `study_002_mri_image_000_axial_t1_in_phase`
+
+- **Query：** `location_00008`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f02.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_000_axial_t1_in_phase.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 6: `study_000_ct_image_000_axial_c_portal_venous_phase_f02` → `study_002_mri_image_001_axial_t1_out_of_phase`
+
+- **Query：** `location_00009`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f02.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_001_axial_t1_out_of_phase.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 7: `study_000_ct_image_000_axial_c_portal_venous_phase_f02` → `study_002_mri_image_003_axial_t2`
+
+- **Query：** `location_00011`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f02.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_003_axial_t2.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 8: `study_000_ct_image_000_axial_c_portal_venous_phase_f02` → `study_002_mri_image_004_axial_t2_fat_sat`
+
+- **Query：** `location_00012`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f02.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_004_axial_t2_fat_sat.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 9: `study_000_ct_image_000_axial_c_portal_venous_phase_f03` → `study_001_ultrasound_image_000_missing`
+
+- **Query：** `location_00013`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f03.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_001_ultrasound_image_000_missing.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 10: `study_000_ct_image_000_axial_c_portal_venous_phase_f03` → `study_002_mri_image_000_axial_t1_in_phase`
+
+- **Query：** `location_00014`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f03.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_000_axial_t1_in_phase.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 11: `study_000_ct_image_000_axial_c_portal_venous_phase_f03` → `study_002_mri_image_003_axial_t2`
+
+- **Query：** `location_00017`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f03.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_003_axial_t2.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 12: `study_000_ct_image_000_axial_c_portal_venous_phase_f03` → `study_002_mri_image_004_axial_t2_fat_sat`
+
+- **Query：** `location_00018`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_000_ct_image_000_axial_c_portal_venous_phase_f03.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_004_axial_t2_fat_sat.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 13: `study_001_ultrasound_image_000_missing_f01` → `study_002_mri_image_000_axial_t1_in_phase`
+
+- **Query：** `location_00019`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_000_axial_t1_in_phase.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 14: `study_001_ultrasound_image_000_missing_f01` → `study_002_mri_image_001_axial_t1_out_of_phase`
+
+- **Query：** `location_00020`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_001_axial_t1_out_of_phase.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 15: `study_001_ultrasound_image_000_missing_f01` → `study_002_mri_image_002_axial_t1_c`
+
+- **Query：** `location_00021`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_002_axial_t1_c.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 16: `study_001_ultrasound_image_000_missing_f01` → `study_002_mri_image_003_axial_t2`
+
+- **Query：** `location_00022`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_003_axial_t2.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 17: `study_001_ultrasound_image_000_missing_f01` → `study_002_mri_image_004_axial_t2_fat_sat`
+
+- **Query：** `location_00023`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_004_axial_t2_fat_sat.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 18: `study_001_ultrasound_image_000_missing_f02` → `study_002_mri_image_000_axial_t1_in_phase`
+
+- **Query：** `location_00024`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f02.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_000_axial_t1_in_phase.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 19: `study_001_ultrasound_image_000_missing_f02` → `study_002_mri_image_001_axial_t1_out_of_phase`
+
+- **Query：** `location_00025`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f02.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_001_axial_t1_out_of_phase.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 20: `study_001_ultrasound_image_000_missing_f02` → `study_002_mri_image_002_axial_t1_c`
+
+- **Query：** `location_00026`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f02.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_002_axial_t1_c.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 21: `study_001_ultrasound_image_000_missing_f02` → `study_002_mri_image_003_axial_t2`
+
+- **Query：** `location_00027`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f02.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_003_axial_t2.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 22: `study_001_ultrasound_image_000_missing_f02` → `study_002_mri_image_004_axial_t2_fat_sat`
+
+- **Query：** `location_00028`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f02.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_004_axial_t2_fat_sat.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 23: `study_001_ultrasound_image_000_missing_f03` → `study_002_mri_image_000_axial_t1_in_phase`
+
+- **Query：** `location_00029`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f03.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_000_axial_t1_in_phase.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 24: `study_001_ultrasound_image_000_missing_f03` → `study_002_mri_image_001_axial_t1_out_of_phase`
+
+- **Query：** `location_00030`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f03.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_001_axial_t1_out_of_phase.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 25: `study_001_ultrasound_image_000_missing_f03` → `study_002_mri_image_002_axial_t1_c`
+
+- **Query：** `location_00031`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f03.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_002_axial_t1_c.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 26: `study_001_ultrasound_image_000_missing_f03` → `study_002_mri_image_003_axial_t2`
+
+- **Query：** `location_00032`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f03.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_003_axial_t2.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 27: `study_001_ultrasound_image_000_missing_f03` → `study_002_mri_image_004_axial_t2_fat_sat`
+
+- **Query：** `location_00033`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_001_ultrasound_image_000_missing_f03.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_004_axial_t2_fat_sat.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 28: `study_002_mri_image_000_axial_t1_in_phase_f01` → `study_002_mri_image_004_axial_t2_fat_sat`
+
+- **Query：** `location_00037`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_000_axial_t1_in_phase_f01.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_004_axial_t2_fat_sat.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 29: `study_002_mri_image_000_axial_t1_in_phase_f02` → `study_002_mri_image_004_axial_t2_fat_sat`
+
+- **Query：** `location_00041`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_000_axial_t1_in_phase_f02.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_004_axial_t2_fat_sat.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 30: `study_002_mri_image_000_axial_t1_in_phase_f03` → `study_002_mri_image_002_axial_t1_c`
+
+- **Query：** `location_00043`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_000_axial_t1_in_phase_f03.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_002_axial_t1_c.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 31: `study_002_mri_image_000_axial_t1_in_phase_f03` → `study_002_mri_image_003_axial_t2`
+
+- **Query：** `location_00044`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_000_axial_t1_in_phase_f03.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_003_axial_t2.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 32: `study_002_mri_image_000_axial_t1_in_phase_f03` → `study_002_mri_image_004_axial_t2_fat_sat`
+
+- **Query：** `location_00045`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_000_axial_t1_in_phase_f03.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_004_axial_t2_fat_sat.jpg" width="340"></td></tr>
+</table>
+
+#### Not support 33: `study_002_mri_image_001_axial_t1_out_of_phase_f01` → `study_002_mri_image_004_axial_t2_fat_sat`
+
+- **Query：** `location_00048`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/focal-hepatic-steatosis/nodes/study_002_mri_image_001_axial_t1_out_of_phase_f01.png" width="340"></td><td><img src="../assets_step3/focal-hepatic-steatosis/images/study_002_mri_image_004_axial_t2_fat_sat.jpg" width="340"></td></tr>
+</table>

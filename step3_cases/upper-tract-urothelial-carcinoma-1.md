@@ -701,3 +701,330 @@ The target image has no existing Step 2 bbox.
 |---|---|---|
 | `study_000_ultrasound_image_001_missing_f01` | `[&#x27;strong_location_00001_01&#x27;]` | `[&#x27;study_001_ct_image_000_axial_non_contrast&#x27;, &#x27;study_001_ct_image_001_axial_renal_cortical_phase&#x27;, &#x27;study_001_ct_image_002_axial_renal_parenchymal_phase&#x27;, &#x27;study_001_ct_image_003_sagittal_renal_parenchymal_phase&#x27;, &#x27;study_002_pathology_image_000_gross_pathology&#x27;, &#x27;study_003_pathology_image_000_10_h_e&#x27;, &#x27;study_003_pathology_image_001_100x_h_e&#x27;, &#x27;study_003_pathology_image_002_200_h_e&#x27;]` |
 | `study_002_pathology_image_000_gross_pathology_f01` | `[&#x27;strong_location_00006_01&#x27;, &#x27;strong_location_00021_01&#x27;]` | `[&#x27;study_003_pathology_image_000_10_h_e&#x27;, &#x27;study_003_pathology_image_001_100x_h_e&#x27;, &#x27;study_003_pathology_image_002_200_h_e&#x27;]` |
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 3 个 bbox-to-bbox 关系
+- **Partial support：** 6 个 bbox-to-image 关系
+- **Not support：** 21 个 bbox-to-image 关系
+
+### Strong Support
+
+#### Strong 1: `study_000_ultrasound_image_000_missing_f01` ↔ `study_000_ultrasound_image_001_missing_f01`
+
+- **Relation / query：** `strong_location_00001_01` / `location_00001`
+- **IoU：** 0.806（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_000_ultrasound_image_000_missing_f01.png" width="300"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/grounding/location_00001.png" width="300"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_000_ultrasound_image_001_missing_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The left kidney is enlarged with multiple cystic structures throughout the parenchyma. The largest cyst measures 1.5 cm. There is no evidence of hydronephrosis. The right kidney is normal in size and appearance.
+- **Target Lingshu caption：** The left kidney demonstrates increased cortical echogenicity compared to the renal sinus. There is no evidence of hydronephrosis. The right kidney appears unremarkable. Color Doppler demonstrates normal flow within the left renal artery and vein.
+
+#### Strong 2: `study_000_ultrasound_image_000_missing_f01` ↔ `study_002_pathology_image_000_gross_pathology_f01`
+
+- **Relation / query：** `strong_location_00006_01` / `location_00006`
+- **IoU：** 0.943（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_000_ultrasound_image_000_missing_f01.png" width="300"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/grounding/location_00006.png" width="300"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_002_pathology_image_000_gross_pathology_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The left kidney is enlarged with multiple cystic structures throughout the parenchyma. The largest cyst measures 1.5 cm. There is no evidence of hydronephrosis. The right kidney is normal in size and appearance.
+- **Target Lingshu caption：** The heart is opened to show the left ventricle and mitral valve. The mitral valve is thickened and has multiple vegetations on the anterior leaflet. The largest vegetation measures 2.5 x 1.5 cm. There is no evidence of perforation.
+
+#### Strong 3: `study_001_ct_image_000_axial_non_contrast_f01` ↔ `study_002_pathology_image_000_gross_pathology_f01`
+
+- **Relation / query：** `strong_location_00021_01` / `location_00021`
+- **IoU：** 0.910（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_000_axial_non_contrast_f01.png" width="300"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/grounding/location_00021.png" width="300"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_002_pathology_image_000_gross_pathology_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The boxed region contains the right kidney. The kidney appears to have a normal size and shape. There is no evidence of hydronephrosis or focal mass lesions. The renal parenchyma appears homogeneous without any areas of abnormal attenuation. Surrounding structures including the liver, spleen, pancreas, and bowel loops appear unremarkable. No significant lymphadenopathy or free fluid is noted in the abdominal cavity.
+- **Target Lingshu caption：** The heart is opened to show the left ventricle and mitral valve. The mitral valve is thickened and has multiple vegetations on the anterior leaflet. The largest vegetation measures 2.5 x 1.5 cm. There is no evidence of perforation.
+
+### Partial Support
+
+#### Partial 1: `study_001_ct_image_000_axial_non_contrast_f01` → `study_001_ct_image_001_axial_renal_cortical_phase`
+
+- **Query：** `location_00018`
+- **Returned target bbox：** `[320, 275, 440, 425]`
+- **Maximum IoU：** n/a（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_000_axial_non_contrast_f01.png" width="320"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/grounding/location_00018.png" width="320"></td></tr>
+</table>
+
+#### Partial 2: `study_001_ct_image_000_axial_non_contrast_f01` → `study_001_ct_image_002_axial_renal_parenchymal_phase`
+
+- **Query：** `location_00019`
+- **Returned target bbox：** `[325, 224, 481, 404]`
+- **Maximum IoU：** n/a（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_000_axial_non_contrast_f01.png" width="320"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/grounding/location_00019.png" width="320"></td></tr>
+</table>
+
+#### Partial 3: `study_001_ct_image_000_axial_non_contrast_f01` → `study_001_ct_image_003_sagittal_renal_parenchymal_phase`
+
+- **Query：** `location_00020`
+- **Returned target bbox：** `[240, 260, 480, 500]`
+- **Maximum IoU：** 0.397（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_000_axial_non_contrast_f01.png" width="320"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/grounding/location_00020.png" width="320"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_003_sagittal_renal_parenchymal_phase_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 4: `study_001_ct_image_000_axial_non_contrast_f02` → `study_001_ct_image_001_axial_renal_cortical_phase`
+
+- **Query：** `location_00025`
+- **Returned target bbox：** `[468, 250, 572, 350]`
+- **Maximum IoU：** n/a（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_000_axial_non_contrast_f02.png" width="320"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/grounding/location_00025.png" width="320"></td></tr>
+</table>
+
+#### Partial 5: `study_001_ct_image_000_axial_non_contrast_f02` → `study_001_ct_image_002_axial_renal_parenchymal_phase`
+
+- **Query：** `location_00026`
+- **Returned target bbox：** `[430, 280, 550, 400]`
+- **Maximum IoU：** n/a（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_000_axial_non_contrast_f02.png" width="320"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/grounding/location_00026.png" width="320"></td></tr>
+</table>
+
+#### Partial 6: `study_001_ct_image_000_axial_non_contrast_f02` → `study_001_ct_image_003_sagittal_renal_parenchymal_phase`
+
+- **Query：** `location_00027`
+- **Returned target bbox：** `[350, 250, 450, 350]`
+- **Maximum IoU：** 0.125（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_000_axial_non_contrast_f02.png" width="320"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/grounding/location_00027.png" width="320"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_003_sagittal_renal_parenchymal_phase_f01.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_000_ultrasound_image_000_missing_f01` → `study_001_ct_image_000_axial_non_contrast`
+
+- **Query：** `location_00002`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_000_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_001_ct_image_000_axial_non_contrast.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_000_ultrasound_image_000_missing_f01` → `study_001_ct_image_001_axial_renal_cortical_phase`
+
+- **Query：** `location_00003`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_000_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_001_ct_image_001_axial_renal_cortical_phase.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 3: `study_000_ultrasound_image_000_missing_f01` → `study_001_ct_image_002_axial_renal_parenchymal_phase`
+
+- **Query：** `location_00004`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_000_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_001_ct_image_002_axial_renal_parenchymal_phase.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 4: `study_000_ultrasound_image_000_missing_f01` → `study_001_ct_image_003_sagittal_renal_parenchymal_phase`
+
+- **Query：** `location_00005`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_000_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_001_ct_image_003_sagittal_renal_parenchymal_phase.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 5: `study_000_ultrasound_image_000_missing_f01` → `study_003_pathology_image_000_10_h_e`
+
+- **Query：** `location_00007`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_000_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_000_10_h_e.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 6: `study_000_ultrasound_image_000_missing_f01` → `study_003_pathology_image_001_100x_h_e`
+
+- **Query：** `location_00008`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_000_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_001_100x_h_e.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 7: `study_000_ultrasound_image_000_missing_f01` → `study_003_pathology_image_002_200_h_e`
+
+- **Query：** `location_00009`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_000_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_002_200_h_e.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 8: `study_001_ct_image_000_axial_non_contrast_f01` → `study_003_pathology_image_000_10_h_e`
+
+- **Query：** `location_00022`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_000_10_h_e.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 9: `study_001_ct_image_000_axial_non_contrast_f01` → `study_003_pathology_image_001_100x_h_e`
+
+- **Query：** `location_00023`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_001_100x_h_e.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 10: `study_001_ct_image_000_axial_non_contrast_f01` → `study_003_pathology_image_002_200_h_e`
+
+- **Query：** `location_00024`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_002_200_h_e.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 11: `study_001_ct_image_000_axial_non_contrast_f02` → `study_002_pathology_image_000_gross_pathology`
+
+- **Query：** `location_00028`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_000_axial_non_contrast_f02.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_002_pathology_image_000_gross_pathology.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 12: `study_001_ct_image_000_axial_non_contrast_f02` → `study_003_pathology_image_000_10_h_e`
+
+- **Query：** `location_00029`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_000_axial_non_contrast_f02.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_000_10_h_e.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 13: `study_001_ct_image_000_axial_non_contrast_f02` → `study_003_pathology_image_001_100x_h_e`
+
+- **Query：** `location_00030`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_000_axial_non_contrast_f02.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_001_100x_h_e.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 14: `study_001_ct_image_000_axial_non_contrast_f02` → `study_003_pathology_image_002_200_h_e`
+
+- **Query：** `location_00031`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_000_axial_non_contrast_f02.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_002_200_h_e.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 15: `study_001_ct_image_003_sagittal_renal_parenchymal_phase_f01` → `study_002_pathology_image_000_gross_pathology`
+
+- **Query：** `location_00032`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_003_sagittal_renal_parenchymal_phase_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_002_pathology_image_000_gross_pathology.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 16: `study_001_ct_image_003_sagittal_renal_parenchymal_phase_f01` → `study_003_pathology_image_000_10_h_e`
+
+- **Query：** `location_00033`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_003_sagittal_renal_parenchymal_phase_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_000_10_h_e.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 17: `study_001_ct_image_003_sagittal_renal_parenchymal_phase_f01` → `study_003_pathology_image_001_100x_h_e`
+
+- **Query：** `location_00034`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_003_sagittal_renal_parenchymal_phase_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_001_100x_h_e.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 18: `study_001_ct_image_003_sagittal_renal_parenchymal_phase_f01` → `study_003_pathology_image_002_200_h_e`
+
+- **Query：** `location_00035`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_001_ct_image_003_sagittal_renal_parenchymal_phase_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_002_200_h_e.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 19: `study_003_pathology_image_000_10_h_e_f01` → `study_003_pathology_image_001_100x_h_e`
+
+- **Query：** `location_00039`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_003_pathology_image_000_10_h_e_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_001_100x_h_e.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 20: `study_003_pathology_image_000_10_h_e_f01` → `study_003_pathology_image_002_200_h_e`
+
+- **Query：** `location_00040`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_003_pathology_image_000_10_h_e_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_002_200_h_e.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 21: `study_003_pathology_image_001_100x_h_e_f01` → `study_003_pathology_image_002_200_h_e`
+
+- **Query：** `location_00041`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/nodes/study_003_pathology_image_001_100x_h_e_f01.png" width="340"></td><td><img src="../assets_step3/upper-tract-urothelial-carcinoma-1/images/study_003_pathology_image_002_200_h_e.jpeg" width="340"></td></tr>
+</table>

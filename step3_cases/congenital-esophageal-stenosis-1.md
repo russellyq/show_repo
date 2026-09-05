@@ -406,3 +406,173 @@ The target image has no existing Step 2 bbox.
 ## Dynamically Skipped Anchors
 
 None.
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 0 个 bbox-to-bbox 关系
+- **Partial support：** 6 个 bbox-to-image 关系
+- **Not support：** 9 个 bbox-to-image 关系
+
+### Strong Support
+
+该病例没有 strong-support bbox 对应关系。
+
+### Partial Support
+
+#### Partial 1: `study_000_fluoroscopy_image_000_frontal_f01` → `study_000_fluoroscopy_image_001_frontal`
+
+- **Query：** `location_00001`
+- **Returned target bbox：** `[150, 170, 250, 270]`
+- **Maximum IoU：** 0.057（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_000_fluoroscopy_image_000_frontal_f01.png" width="320"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/grounding/location_00001.png" width="320"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_000_fluoroscopy_image_001_frontal_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 2: `study_000_fluoroscopy_image_000_frontal_f01` → `study_001_ct_image_000_coronal_lung_window`
+
+- **Query：** `location_00002`
+- **Returned target bbox：** `[260, 180, 400, 320]`
+- **Maximum IoU：** n/a（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_000_fluoroscopy_image_000_frontal_f01.png" width="320"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/grounding/location_00002.png" width="320"></td></tr>
+</table>
+
+#### Partial 3: `study_000_fluoroscopy_image_000_frontal_f01` → `study_001_ct_image_001_sagittal_mediastinal_window_with_contrast`
+
+- **Query：** `location_00003`
+- **Returned target bbox：** `[375, 120, 460, 280]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_000_fluoroscopy_image_000_frontal_f01.png" width="320"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/grounding/location_00003.png" width="320"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_001_ct_image_001_sagittal_mediastinal_window_with_contrast_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 4: `study_000_fluoroscopy_image_001_frontal_f01` → `study_001_ct_image_001_sagittal_mediastinal_window_with_contrast`
+
+- **Query：** `location_00006`
+- **Returned target bbox：** `[100, 20, 250, 200]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_000_fluoroscopy_image_001_frontal_f01.png" width="320"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/grounding/location_00006.png" width="320"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_001_ct_image_001_sagittal_mediastinal_window_with_contrast_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 5: `study_000_fluoroscopy_image_001_frontal_f02` → `study_001_ct_image_001_sagittal_mediastinal_window_with_contrast`
+
+- **Query：** `location_00009`
+- **Returned target bbox：** `[640, 140, 730, 230]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_000_fluoroscopy_image_001_frontal_f02.png" width="320"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/grounding/location_00009.png" width="320"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_001_ct_image_001_sagittal_mediastinal_window_with_contrast_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 6: `study_000_fluoroscopy_image_001_frontal_f03` → `study_001_ct_image_001_sagittal_mediastinal_window_with_contrast`
+
+- **Query：** `location_00012`
+- **Returned target bbox：** `[675, 244, 764, 334]`
+- **Maximum IoU：** 0.000（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_000_fluoroscopy_image_001_frontal_f03.png" width="320"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/grounding/location_00012.png" width="320"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_001_ct_image_001_sagittal_mediastinal_window_with_contrast_f01.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_000_fluoroscopy_image_000_frontal_f01` → `study_002_photograph_image_000_upper_digestive_tract_endoscopy`
+
+- **Query：** `location_00004`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_000_fluoroscopy_image_000_frontal_f01.png" width="340"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/images/study_002_photograph_image_000_upper_digestive_tract_endoscopy.png" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_000_fluoroscopy_image_001_frontal_f01` → `study_001_ct_image_000_coronal_lung_window`
+
+- **Query：** `location_00005`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_000_fluoroscopy_image_001_frontal_f01.png" width="340"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/images/study_001_ct_image_000_coronal_lung_window.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 3: `study_000_fluoroscopy_image_001_frontal_f01` → `study_002_photograph_image_000_upper_digestive_tract_endoscopy`
+
+- **Query：** `location_00007`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_000_fluoroscopy_image_001_frontal_f01.png" width="340"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/images/study_002_photograph_image_000_upper_digestive_tract_endoscopy.png" width="340"></td></tr>
+</table>
+
+#### Not support 4: `study_000_fluoroscopy_image_001_frontal_f02` → `study_001_ct_image_000_coronal_lung_window`
+
+- **Query：** `location_00008`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_000_fluoroscopy_image_001_frontal_f02.png" width="340"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/images/study_001_ct_image_000_coronal_lung_window.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 5: `study_000_fluoroscopy_image_001_frontal_f02` → `study_002_photograph_image_000_upper_digestive_tract_endoscopy`
+
+- **Query：** `location_00010`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_000_fluoroscopy_image_001_frontal_f02.png" width="340"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/images/study_002_photograph_image_000_upper_digestive_tract_endoscopy.png" width="340"></td></tr>
+</table>
+
+#### Not support 6: `study_000_fluoroscopy_image_001_frontal_f03` → `study_001_ct_image_000_coronal_lung_window`
+
+- **Query：** `location_00011`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_000_fluoroscopy_image_001_frontal_f03.png" width="340"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/images/study_001_ct_image_000_coronal_lung_window.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 7: `study_000_fluoroscopy_image_001_frontal_f03` → `study_002_photograph_image_000_upper_digestive_tract_endoscopy`
+
+- **Query：** `location_00013`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_000_fluoroscopy_image_001_frontal_f03.png" width="340"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/images/study_002_photograph_image_000_upper_digestive_tract_endoscopy.png" width="340"></td></tr>
+</table>
+
+#### Not support 8: `study_001_ct_image_001_sagittal_mediastinal_window_with_contrast_f01` → `study_002_photograph_image_000_upper_digestive_tract_endoscopy`
+
+- **Query：** `location_00014`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_001_ct_image_001_sagittal_mediastinal_window_with_contrast_f01.png" width="340"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/images/study_002_photograph_image_000_upper_digestive_tract_endoscopy.png" width="340"></td></tr>
+</table>
+
+#### Not support 9: `study_001_ct_image_001_sagittal_mediastinal_window_with_contrast_f02` → `study_002_photograph_image_000_upper_digestive_tract_endoscopy`
+
+- **Query：** `location_00015`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/congenital-esophageal-stenosis-1/nodes/study_001_ct_image_001_sagittal_mediastinal_window_with_contrast_f02.png" width="340"></td><td><img src="../assets_step3/congenital-esophageal-stenosis-1/images/study_002_photograph_image_000_upper_digestive_tract_endoscopy.png" width="340"></td></tr>
+</table>

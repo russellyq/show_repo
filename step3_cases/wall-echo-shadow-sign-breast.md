@@ -89,3 +89,40 @@
 | Anchor node | Reused strong relations | Skipped target images |
 |---|---|---|
 | `study_002_pathology_image_000_gross_pathology_f01` | `[&#x27;strong_location_00001_01&#x27;]` | `[&#x27;study_002_pathology_image_001_h_e&#x27;]` |
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 1 个 bbox-to-bbox 关系
+- **Partial support：** 0 个 bbox-to-image 关系
+- **Not support：** 1 个 bbox-to-image 关系
+
+### Strong Support
+
+#### Strong 1: `study_001_mammography_image_000_cc_f01` ↔ `study_002_pathology_image_000_gross_pathology_f01`
+
+- **Relation / query：** `strong_location_00001_01` / `location_00001`
+- **IoU：** 0.843（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/wall-echo-shadow-sign-breast/nodes/study_001_mammography_image_000_cc_f01.png" width="300"></td><td><img src="../assets_step3/wall-echo-shadow-sign-breast/grounding/location_00001.png" width="300"></td><td><img src="../assets_step3/wall-echo-shadow-sign-breast/nodes/study_002_pathology_image_000_gross_pathology_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The mammogram shows a well-defined, round mass located in the upper outer quadrant of the left breast. The mass appears to have smooth margins and is relatively homogeneous in density. Surrounding breast tissue exhibits typical fibroglandular densities without any additional suspicious lesions or architectural distortions noted in this view.
+- **Target Lingshu caption：** The image shows a gross pathology specimen, likely a resected tumor or mass. The specimen appears to be a well-circumscribed, reddish-orange mass with a smooth, glistening surface. The mass is approximately 5-6 cm in diameter, as indicated by the scale bar. Within the boxed region, there appears to be a distinct area of discoloration or irregularity on the surface of the mass, which may represent an area of necrosis, hemorrhage, or other pathological change. However, without additional clinical information or microscopic examination, the specific nature of this finding cannot be determined.
+
+### Partial Support
+
+该病例没有 partial-support 查询。
+
+### Not Support
+
+#### Not support 1: `study_001_mammography_image_000_cc_f01` → `study_002_pathology_image_001_h_e`
+
+- **Query：** `location_00002`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/wall-echo-shadow-sign-breast/nodes/study_001_mammography_image_000_cc_f01.png" width="340"></td><td><img src="../assets_step3/wall-echo-shadow-sign-breast/images/study_002_pathology_image_001_h_e.jpeg" width="340"></td></tr>
+</table>

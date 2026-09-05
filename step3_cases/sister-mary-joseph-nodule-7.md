@@ -219,3 +219,81 @@ The target image has no existing Step 2 bbox.
 | Anchor node | Reused strong relations | Skipped target images |
 |---|---|---|
 | `study_002_ct_image_000_axial_non_contrast_f01` | `[&#x27;strong_location_00003_01&#x27;]` | `[&#x27;study_002_ct_image_001_axial_c_portal_venous_phase&#x27;]` |
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 1 个 bbox-to-bbox 关系
+- **Partial support：** 3 个 bbox-to-image 关系
+- **Not support：** 2 个 bbox-to-image 关系
+
+### Strong Support
+
+#### Strong 1: `study_000_photograph_image_000_enlarging_umbilical_nodule_f01` ↔ `study_002_ct_image_000_axial_non_contrast_f01`
+
+- **Relation / query：** `strong_location_00003_01` / `location_00003`
+- **IoU：** 0.676（threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Matched target bbox</th></tr>
+<tr><td><img src="../assets_step3/sister-mary-joseph-nodule-7/nodes/study_000_photograph_image_000_enlarging_umbilical_nodule_f01.png" width="300"></td><td><img src="../assets_step3/sister-mary-joseph-nodule-7/grounding/location_00003.png" width="300"></td><td><img src="../assets_step3/sister-mary-joseph-nodule-7/nodes/study_002_ct_image_000_axial_non_contrast_f01.png" width="300"></td></tr>
+</table>
+
+- **Anchor Lingshu caption：** The umbilicus contains a 2 cm diameter, smooth, rounded, red nodule. The surrounding skin appears normal.
+- **Target Lingshu caption：** The image shows a cross-sectional view of the abdomen. Within the boxed region, there appears to be an area of increased density or opacity, which could potentially indicate the presence of an abnormality such as a mass, lesion, or other pathological process. The surrounding tissues appear relatively normal in appearance. Further evaluation and correlation with clinical information would be necessary to determine the significance of this finding.
+
+### Partial Support
+
+#### Partial 1: `study_000_photograph_image_000_enlarging_umbilical_nodule_f01` → `study_002_ct_image_001_axial_c_portal_venous_phase`
+
+- **Query：** `location_00004`
+- **Returned target bbox：** `[347, 236, 486, 377]`
+- **Maximum IoU：** 0.316（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/sister-mary-joseph-nodule-7/nodes/study_000_photograph_image_000_enlarging_umbilical_nodule_f01.png" width="320"></td><td><img src="../assets_step3/sister-mary-joseph-nodule-7/grounding/location_00004.png" width="320"></td><td><img src="../assets_step3/sister-mary-joseph-nodule-7/nodes/study_002_ct_image_001_axial_c_portal_venous_phase_f02.png" width="320"></td></tr>
+</table>
+
+#### Partial 2: `study_002_ct_image_000_axial_non_contrast_f02` → `study_002_ct_image_001_axial_c_portal_venous_phase`
+
+- **Query：** `location_00006`
+- **Returned target bbox：** `[280, 310, 440, 500]`
+- **Maximum IoU：** 0.182（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/sister-mary-joseph-nodule-7/nodes/study_002_ct_image_000_axial_non_contrast_f02.png" width="320"></td><td><img src="../assets_step3/sister-mary-joseph-nodule-7/grounding/location_00006.png" width="320"></td><td><img src="../assets_step3/sister-mary-joseph-nodule-7/nodes/study_002_ct_image_001_axial_c_portal_venous_phase_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 3: `study_002_ct_image_000_axial_non_contrast_f03` → `study_002_ct_image_001_axial_c_portal_venous_phase`
+
+- **Query：** `location_00007`
+- **Returned target bbox：** `[625, 262, 775, 400]`
+- **Maximum IoU：** 0.153（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/sister-mary-joseph-nodule-7/nodes/study_002_ct_image_000_axial_non_contrast_f03.png" width="320"></td><td><img src="../assets_step3/sister-mary-joseph-nodule-7/grounding/location_00007.png" width="320"></td><td><img src="../assets_step3/sister-mary-joseph-nodule-7/nodes/study_002_ct_image_001_axial_c_portal_venous_phase_f03.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_000_photograph_image_000_enlarging_umbilical_nodule_f01` → `study_001_ultrasound_image_000_missing`
+
+- **Query：** `location_00001`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sister-mary-joseph-nodule-7/nodes/study_000_photograph_image_000_enlarging_umbilical_nodule_f01.png" width="340"></td><td><img src="../assets_step3/sister-mary-joseph-nodule-7/images/study_001_ultrasound_image_000_missing.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_000_photograph_image_000_enlarging_umbilical_nodule_f01` → `study_001_ultrasound_image_001_missing`
+
+- **Query：** `location_00002`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/sister-mary-joseph-nodule-7/nodes/study_000_photograph_image_000_enlarging_umbilical_nodule_f01.png" width="340"></td><td><img src="../assets_step3/sister-mary-joseph-nodule-7/images/study_001_ultrasound_image_001_missing.jpeg" width="340"></td></tr>
+</table>

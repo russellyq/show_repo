@@ -296,3 +296,130 @@ The target image has no existing Step 2 bbox.
 ## Dynamically Skipped Anchors
 
 None.
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 0 个 bbox-to-bbox 关系
+- **Partial support：** 3 个 bbox-to-image 关系
+- **Not support：** 8 个 bbox-to-image 关系
+
+### Strong Support
+
+该病例没有 strong-support bbox 对应关系。
+
+### Partial Support
+
+#### Partial 1: `study_000_ultrasound_image_000_missing_f01` → `study_000_ultrasound_image_001_missing`
+
+- **Query：** `location_00001`
+- **Returned target bbox：** `[100, 100, 800, 900]`
+- **Maximum IoU：** n/a（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th></tr>
+<tr><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/nodes/study_000_ultrasound_image_000_missing_f01.png" width="320"></td><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/grounding/location_00001.png" width="320"></td></tr>
+</table>
+
+#### Partial 2: `study_001_ct_image_000_axial_non_contrast_f01` → `study_001_ct_image_002_oblique_non_contrast`
+
+- **Query：** `location_00007`
+- **Returned target bbox：** `[350, 220, 550, 380]`
+- **Maximum IoU：** 0.458（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/nodes/study_001_ct_image_000_axial_non_contrast_f01.png" width="320"></td><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/grounding/location_00007.png" width="320"></td><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/nodes/study_001_ct_image_002_oblique_non_contrast_f01.png" width="320"></td></tr>
+</table>
+
+#### Partial 3: `study_001_ct_image_001_coronal_non_contrast_f01` → `study_001_ct_image_002_oblique_non_contrast`
+
+- **Query：** `location_00009`
+- **Returned target bbox：** `[275, 140, 475, 390]`
+- **Maximum IoU：** 0.328（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/nodes/study_001_ct_image_001_coronal_non_contrast_f01.png" width="320"></td><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/grounding/location_00009.png" width="320"></td><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/nodes/study_001_ct_image_002_oblique_non_contrast_f01.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_000_ultrasound_image_000_missing_f01` → `study_001_ct_image_000_axial_non_contrast`
+
+- **Query：** `location_00002`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/nodes/study_000_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/images/study_001_ct_image_000_axial_non_contrast.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_000_ultrasound_image_000_missing_f01` → `study_001_ct_image_001_coronal_non_contrast`
+
+- **Query：** `location_00003`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/nodes/study_000_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/images/study_001_ct_image_001_coronal_non_contrast.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 3: `study_000_ultrasound_image_000_missing_f01` → `study_001_ct_image_002_oblique_non_contrast`
+
+- **Query：** `location_00004`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/nodes/study_000_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/images/study_001_ct_image_002_oblique_non_contrast.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 4: `study_000_ultrasound_image_000_missing_f01` → `study_002_fluoroscopy_image_000_missing`
+
+- **Query：** `location_00005`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/nodes/study_000_ultrasound_image_000_missing_f01.png" width="340"></td><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/images/study_002_fluoroscopy_image_000_missing.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 5: `study_001_ct_image_000_axial_non_contrast_f01` → `study_001_ct_image_001_coronal_non_contrast`
+
+- **Query：** `location_00006`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/nodes/study_001_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/images/study_001_ct_image_001_coronal_non_contrast.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 6: `study_001_ct_image_000_axial_non_contrast_f01` → `study_002_fluoroscopy_image_000_missing`
+
+- **Query：** `location_00008`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/nodes/study_001_ct_image_000_axial_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/images/study_002_fluoroscopy_image_000_missing.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 7: `study_001_ct_image_001_coronal_non_contrast_f01` → `study_002_fluoroscopy_image_000_missing`
+
+- **Query：** `location_00010`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/nodes/study_001_ct_image_001_coronal_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/images/study_002_fluoroscopy_image_000_missing.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 8: `study_001_ct_image_002_oblique_non_contrast_f01` → `study_002_fluoroscopy_image_000_missing`
+
+- **Query：** `location_00011`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/nodes/study_001_ct_image_002_oblique_non_contrast_f01.png" width="340"></td><td><img src="../assets_step3/gastric-band-induced-megaoesophagus-presenting-as-a-neck-mass/images/study_002_fluoroscopy_image_000_missing.jpeg" width="340"></td></tr>
+</table>

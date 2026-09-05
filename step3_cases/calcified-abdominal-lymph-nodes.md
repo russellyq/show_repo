@@ -151,3 +151,58 @@ The target image has no existing Step 2 bbox.
 ## Dynamically Skipped Anchors
 
 None.
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 0 个 bbox-to-bbox 关系
+- **Partial support：** 1 个 bbox-to-image 关系
+- **Not support：** 3 个 bbox-to-image 关系
+
+### Strong Support
+
+该病例没有 strong-support bbox 对应关系。
+
+### Partial Support
+
+#### Partial 1: `study_001_ct_image_000_axial_bone_window_f01` → `study_001_ct_image_001_axial_bone_window`
+
+- **Query：** `location_00004`
+- **Returned target bbox：** `[266, 212, 398, 344]`
+- **Maximum IoU：** 0.484（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th><th>Closest existing target bbox</th></tr>
+<tr><td><img src="../assets_step3/calcified-abdominal-lymph-nodes/nodes/study_001_ct_image_000_axial_bone_window_f01.png" width="320"></td><td><img src="../assets_step3/calcified-abdominal-lymph-nodes/grounding/location_00004.png" width="320"></td><td><img src="../assets_step3/calcified-abdominal-lymph-nodes/nodes/study_001_ct_image_001_axial_bone_window_f03.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_000_x_ray_image_001_lateral_f01` → `study_000_x_ray_image_002_dual_energy_bone_window`
+
+- **Query：** `location_00001`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/calcified-abdominal-lymph-nodes/nodes/study_000_x_ray_image_001_lateral_f01.png" width="340"></td><td><img src="../assets_step3/calcified-abdominal-lymph-nodes/images/study_000_x_ray_image_002_dual_energy_bone_window.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_000_x_ray_image_001_lateral_f01` → `study_001_ct_image_000_axial_bone_window`
+
+- **Query：** `location_00002`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/calcified-abdominal-lymph-nodes/nodes/study_000_x_ray_image_001_lateral_f01.png" width="340"></td><td><img src="../assets_step3/calcified-abdominal-lymph-nodes/images/study_001_ct_image_000_axial_bone_window.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 3: `study_000_x_ray_image_001_lateral_f01` → `study_001_ct_image_001_axial_bone_window`
+
+- **Query：** `location_00003`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/calcified-abdominal-lymph-nodes/nodes/study_000_x_ray_image_001_lateral_f01.png" width="340"></td><td><img src="../assets_step3/calcified-abdominal-lymph-nodes/images/study_001_ct_image_001_axial_bone_window.jpeg" width="340"></td></tr>
+</table>

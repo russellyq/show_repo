@@ -86,3 +86,48 @@ The target image has no existing Step 2 bbox.
 ## Dynamically Skipped Anchors
 
 None.
+
+## Case-level Location Validation Summary / 病例级定位验证总结
+
+- **Strong support：** 0 个 bbox-to-bbox 关系
+- **Partial support：** 1 个 bbox-to-image 关系
+- **Not support：** 2 个 bbox-to-image 关系
+
+### Strong Support
+
+该病例没有 strong-support bbox 对应关系。
+
+### Partial Support
+
+#### Partial 1: `study_000_x_ray_image_001_lateral_f01` → `study_001_ct_image_001_sagittal_non_contrast`
+
+- **Query：** `location_00002`
+- **Returned target bbox：** `[136, 109, 458, 768]`
+- **Maximum IoU：** n/a（低于 threshold=0.5）
+
+<table>
+<tr><th>Anchor bbox</th><th>Cross-image grounded target bbox</th></tr>
+<tr><td><img src="../assets_step3/morgagni-hernia-8/nodes/study_000_x_ray_image_001_lateral_f01.png" width="320"></td><td><img src="../assets_step3/morgagni-hernia-8/grounding/location_00002.png" width="320"></td></tr>
+</table>
+
+### Not Support
+
+#### Not support 1: `study_000_x_ray_image_001_lateral_f01` → `study_001_ct_image_000_axial_non_contrast`
+
+- **Query：** `location_00001`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/morgagni-hernia-8/nodes/study_000_x_ray_image_001_lateral_f01.png" width="340"></td><td><img src="../assets_step3/morgagni-hernia-8/images/study_001_ct_image_000_axial_non_contrast.jpeg" width="340"></td></tr>
+</table>
+
+#### Not support 2: `study_000_x_ray_image_001_lateral_f01` → `study_001_ct_image_002_coronal_non_contrast`
+
+- **Query：** `location_00003`
+- **Result：** 目标图返回 `null`，未定位到对应区域。
+
+<table>
+<tr><th>Anchor bbox</th><th>Target original image</th></tr>
+<tr><td><img src="../assets_step3/morgagni-hernia-8/nodes/study_000_x_ray_image_001_lateral_f01.png" width="340"></td><td><img src="../assets_step3/morgagni-hernia-8/images/study_001_ct_image_002_coronal_non_contrast.jpeg" width="340"></td></tr>
+</table>
